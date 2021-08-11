@@ -610,7 +610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6
   height: 4
-  debug: 1
+  debug: 0
 --- !u!4 &745510292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7637710667489682881, guid: 72a931d1e5ce14720b33b45d3b4b5c61,

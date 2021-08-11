@@ -12,6 +12,8 @@ public class PlayerInputHandler : MonoBehaviour
 
 	public SpriteFlipper spriteFlipper;
 
+	public Shop shop;
+
 	[Header ("Variables:")]
 
 	private bool facingRight;
@@ -30,9 +32,18 @@ public class PlayerInputHandler : MonoBehaviour
 	{
 		while (enabled)
 		{
-			// Attack
+			// Submit
 
-			if (Input.GetButtonDown ("Submit")) yield return playerAttack.Attack ();
+			if (Input.GetButtonDown ("Submit"))
+			{
+				// Shop
+
+				if (shop) shop.MakePurchase ();
+
+				// Attack
+
+				else yield return playerAttack.Attack ();
+			}
 
 			// Direction
 

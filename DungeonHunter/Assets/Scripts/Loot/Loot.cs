@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
-	public LootType type;
+	public ItemType type;
 
 	public bool collected;
 

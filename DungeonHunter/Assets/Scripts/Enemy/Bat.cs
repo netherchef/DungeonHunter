@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bat : MonoBehaviour
 {
+	[Header ("Components:")]
+
 	public Transform bodyHolder;
 	public Transform body;
 

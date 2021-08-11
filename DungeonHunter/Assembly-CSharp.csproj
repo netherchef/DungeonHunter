@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Loot\Loot.cs" />
     <Compile Include="Assets\Scripts\Loot\LootCreature.cs" />
     <Compile Include="Assets\Scripts\Loot\LootCreatureHandler.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneBounds.cs" />
+    <Compile Include="Assets\Scripts\Shop.cs" />
+    <Compile Include="Assets\Scripts\ShopItem.cs" />
     <Compile Include="Assets\Scripts\SpriteFlipper.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2019.4.19f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

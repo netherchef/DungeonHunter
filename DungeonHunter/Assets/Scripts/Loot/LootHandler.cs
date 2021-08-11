@@ -57,7 +57,7 @@ public class LootHandler : MonoBehaviour
 					loot.collected = false;
 					loot.gameObject.SetActive (false);
 
-					inventory.AddLoot (loot.type);
+					inventory.AddItem (loot.type);
 
 					activeLoots = LootsFromContainer (transform, true);
 				}
@@ -69,11 +69,11 @@ public class LootHandler : MonoBehaviour
 		}
 	}
 
-	public void DropLoot (LootType[] drops, Vector3 dropPos)
+	public void DropLoot (ItemType[] drops, Vector3 dropPos)
 	{
 		Loot[] loots = LootsFromContainer (transform);
 
-		foreach (LootType lootType in drops)
+		foreach (ItemType lootType in drops)
 		{
 			bool found = false;
 
@@ -102,7 +102,7 @@ public class LootHandler : MonoBehaviour
 		activeLoots = LootsFromContainer (transform, true);
 	}
 
-	private GameObject LootPrefab (LootType type)
+	private GameObject LootPrefab (ItemType type)
 	{
 		foreach (Loot l in prefabLoots)
 		{
