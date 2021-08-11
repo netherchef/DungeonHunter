@@ -42,6 +42,8 @@ public class Shop : MonoBehaviour
 
 	public void MakePurchase ()
 	{
+		// Get Shop Item
+
 		SaleItem currItem = default;
 
 		foreach (SaleItem saleItem in saleItems)
@@ -49,29 +51,30 @@ public class Shop : MonoBehaviour
 			if (saleItem.shopItem.ready) currItem = saleItem;
 		}
 
+		if (currItem.type == ItemType.NULL) return;
+
 		// Check Gold
 
-		if (inventory.GoldCount () >= currItem.goldCost)
+		if (inventory.GoldCount () < currItem.goldCost) return;
+
+		// Deduct Gold
+
+		for (int i = currItem.goldCost; i > 0; i--)
 		{
-			// Deduct Gold
-
-			for (int i = currItem.goldCost; i > 0; i--)
-			{
-				inventory.RemoveItem (ItemType.Gold);
-			}
-
-			// Make Sale
-
-			currItem.shopItem.ready = false;
-			currItem.shopItem.gameObject.SetActive (false);
-
-			// Add to Inventory
-
-			inventory.AddItem (currItem.type);
-
-			// Remove Item from Shop
-
-			saleItems.Remove (currItem);
+			inventory.RemoveItem (ItemType.Gold);
 		}
+
+		// Make Sale
+
+		currItem.shopItem.ready = false;
+		currItem.shopItem.gameObject.SetActive (false);
+
+		// Add to Inventory
+
+		inventory.AddItem (currItem.type);
+
+		// Remove Item from Shop
+
+		saleItems.Remove (currItem);
 	}
 }
