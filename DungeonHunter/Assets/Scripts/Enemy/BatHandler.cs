@@ -52,23 +52,28 @@ public class BatHandler : MonoBehaviour
 		{
 			foreach (Bat bat in bats)
 			{
-				// Move
+				// Check HP
 
-				if (!sceneBounds.WithinBounds (bat.bodyHolder.position))
+				if (bat.healthSystem.hp > 0)
 				{
-					bat.SetDirection (playerTransform.position);
-				}
+					// Move
 
-				bat.Move ();
-				bat.OscillateBody ();
+					if (!sceneBounds.WithinBounds (bat.bodyHolder.position))
+					{
+						bat.SetDirection (playerTransform.position);
+					}
 
-				// Damage
+					bat.Move ();
+					bat.OscillateBody ();
 
-				if (bat.batCollider.triggered)
-				{
-					bat.batCollider.triggered = false;
+					// Damage
 
-					playerHealth.Damage ();
+					if (bat.batCollider.triggered)
+					{
+						bat.batCollider.triggered = false;
+
+						playerHealth.Damage ();
+					}
 				}
 			}
 

@@ -12,6 +12,8 @@ public class HealthSystem : MonoBehaviour
 
 	public int hp = 10;
 
+	public bool defaultDeath = true;
+
 	public void Damage (int value = 1)
 	{
 		DecreaseHP (value);
@@ -20,6 +22,8 @@ public class HealthSystem : MonoBehaviour
 	private void DecreaseHP (int value)
 	{
 		hp -= value;
+
+		if (!defaultDeath) return;
 
 		if (master && hp <= 0)
 		{

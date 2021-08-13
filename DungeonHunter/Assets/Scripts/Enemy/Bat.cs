@@ -10,15 +10,16 @@ public class Bat : MonoBehaviour
 	public Transform body;
 
 	public BatCollider batCollider;
+	public HealthSystem healthSystem;
 
 	// Variables
 
 	private Vector3 direction;
 	private float speed = 2f;
 
-	private float freqX = 4f;
+	private float freqX = 2f;
 	private float ampX = 1f;
-	private float freqY = 32f;
+	private float freqY = 0f;
 	private float ampY = .2f;
 
 	public void SetDirection (Vector3 playerPos)
