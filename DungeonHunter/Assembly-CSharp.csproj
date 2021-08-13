@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\ItemIcon.cs" />
     <Compile Include="Assets\Scripts\Loot\Loot.cs" />
     <Compile Include="Assets\Scripts\Loot\LootCreature.cs" />
     <Compile Include="Assets\Scripts\Loot\LootCreatureHandler.cs" />

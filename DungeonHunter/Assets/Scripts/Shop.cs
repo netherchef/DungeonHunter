@@ -14,17 +14,18 @@ public class Shop : MonoBehaviour
 	[Header ("Components:")]
 
 	public Transform shopItemContainer;
+
+	[Header ("Scripts:")]
+
 	public PlayerInventory inventory;
+	public ItemIcon itemIcon;
 
 	// Variables
 
 	private List<SaleItem> saleItems = new List<SaleItem> ();
 
 	// !!! TEMPORARY !!!
-	private void Start ()
-	{
-		Prep ();
-	}
+	private void Start () { Prep (); }
 
 	public void Prep ()
 	{
@@ -72,6 +73,7 @@ public class Shop : MonoBehaviour
 		// Add to Inventory
 
 		inventory.AddItem (currItem.type);
+		itemIcon.FlashByItemType (currItem.type);
 
 		// Remove Item from Shop
 

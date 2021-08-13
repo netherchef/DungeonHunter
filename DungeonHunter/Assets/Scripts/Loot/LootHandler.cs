@@ -14,6 +14,7 @@ public class LootHandler : MonoBehaviour
 	[Header ("Scripts:")]
 
 	public PlayerInventory inventory;
+	public ItemIcon itemIcon;
 
 	// Enumerators
 
@@ -32,12 +33,14 @@ public class LootHandler : MonoBehaviour
 
 		// Initialise Prefab Loots
 
-		Loot[] loots = new Loot[lootPrefabs.Length];
-		for (int i = 0; i < loots.Length; i++)
+		List<Loot> tempPrefabLoots = new List<Loot> ();
+
+		foreach (GameObject lootPrefab in lootPrefabs)
 		{
-			loots[i] = lootPrefabs[i].GetComponent<Loot> ();
+			tempPrefabLoots.Add (lootPrefab.GetComponent<Loot> ());
 		}
-		prefabLoots = loots;
+
+		prefabLoots = tempPrefabLoots.ToArray ();
 	}
 
 	public void Execute ()
@@ -60,6 +63,8 @@ public class LootHandler : MonoBehaviour
 					inventory.AddItem (loot.type);
 
 					activeLoots = LootsFromContainer (transform, true);
+
+					itemIcon.FlashByItemType (loot.type);
 				}
 
 				yield return null;

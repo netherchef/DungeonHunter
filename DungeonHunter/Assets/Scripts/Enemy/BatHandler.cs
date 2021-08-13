@@ -46,7 +46,7 @@ public class BatHandler : MonoBehaviour
 	{
 		// Set Initial Direction
 
-		foreach (Bat bat in bats) bat.SetDirection (playerTransform.position);
+		//foreach (Bat bat in bats) bat.SetDirection (playerTransform.position);
 
 		while (enabled)
 		{
@@ -58,13 +58,14 @@ public class BatHandler : MonoBehaviour
 				{
 					// Move
 
-					if (!sceneBounds.WithinBounds (bat.bodyHolder.position))
-					{
-						bat.SetDirection (playerTransform.position);
-					}
+					//if (!sceneBounds.WithinBounds (bat.bodyHolder.position))
+					//{
+					//	bat.SetDirection (playerTransform.position);
+					//}
 
-					bat.Move ();
-					bat.OscillateBody ();
+					bat.MoveToPlayer (playerTransform.position);
+					//bat.Move ();
+					//bat.OscillateBody ();
 
 					// Damage
 

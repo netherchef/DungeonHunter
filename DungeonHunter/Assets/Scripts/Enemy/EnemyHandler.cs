@@ -32,6 +32,7 @@ public class EnemyHandler : MonoBehaviour
 	[Header ("Scripts:")]
 
 	public HealthSystem targetHealthSystem;
+	public LootHandler lootHandler;
 
 	private Enemy[] enemies;
 
@@ -46,8 +47,7 @@ public class EnemyHandler : MonoBehaviour
 	{
 		// Initialise Enemies
 
-		Enemy[] tempEnemies = new Enemy[transform.childCount];
-		enemies = tempEnemies;
+		enemies = new Enemy[transform.childCount];
 
 		for (int e = 0; e < enemies.Length; e++)
 		{
@@ -78,13 +78,6 @@ public class EnemyHandler : MonoBehaviour
 			for (int c = 0; c < enemies.Length; c++)
 			{
 				Transform enemy = transform.GetChild (c);
-
-				// Death
-
-				if (enemies[c].healthSystem.Dead ())
-				{
-					enemy.gameObject.SetActive (false);
-				}
 
 				if (!enemies[c].healthSystem.Dead ())
 				{
@@ -128,6 +121,22 @@ public class EnemyHandler : MonoBehaviour
 						enemies[c].damageTarget = false;
 
 						targetHealthSystem.Damage ();
+					}
+				}
+				else
+				{
+					// Death
+
+					if (enemy.gameObject.activeSelf)
+					{
+						enemy.gameObject.SetActive (false);
+
+						// Drop Loot
+
+						ItemType[] items = new ItemType[1];
+						items[0] = ItemType.Gold;
+
+						lootHandler.DropLoot (items, enemy.transform.position);
 					}
 				}
 

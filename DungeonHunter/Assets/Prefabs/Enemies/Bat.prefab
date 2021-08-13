@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 3555007252954999710}
   - component: {fileID: 3555007252954999711}
   - component: {fileID: 3555007252954999705}
+  - component: {fileID: 988299369579206678}
   m_Layer: 0
   m_Name: Bat Collider
   m_TagString: AttackTarget
@@ -208,3 +209,22 @@ MonoBehaviour:
   master: {fileID: 3555007251633281429}
   hp: 2
   defaultDeath: 1
+--- !u!95 &988299369579206678
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555007252954999709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 368c88eaa5ebd4f789f363531b2cf662, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

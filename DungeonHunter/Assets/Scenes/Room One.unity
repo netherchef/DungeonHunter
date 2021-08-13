@@ -706,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   master: {fileID: 0}
   hp: 4
+  defaultDeath: 1
 --- !u!58 &832008972
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -930,6 +931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1907380264}
   targetHealthSystem: {fileID: 1907380263}
+  lootHandler: {fileID: 1843554611}
 --- !u!4 &906544330
 Transform:
   m_ObjectHideFlags: 0
@@ -1170,6 +1172,11 @@ PrefabInstance:
     - target: {fileID: 7637710667489682881, guid: 72a931d1e5ce14720b33b45d3b4b5c61,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637710667489682883, guid: 72a931d1e5ce14720b33b45d3b4b5c61,
+        type: 3}
+      propertyPath: defaultDeath
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637710667489682886, guid: 72a931d1e5ce14720b33b45d3b4b5c61,
@@ -1735,7 +1742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1843554611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,7 +1758,8 @@ MonoBehaviour:
   lootPrefabs:
   - {fileID: 7214711348006925065, guid: 2a783bb8669564543a63f8407ba99cb3, type: 3}
   activeLoots: []
-  inventory: {fileID: 0}
+  inventory: {fileID: 1907380265}
+  itemIcon: {fileID: 1907380266}
 --- !u!4 &1843554612
 Transform:
   m_ObjectHideFlags: 0
@@ -1944,6 +1952,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1907380262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1907380265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837925358381900542, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907380262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b31ff4f9e8184a1cb85ceed30b1bd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1907380266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6842649517519653749, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907380262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b315ee50d7dd446db11d723f0ecb35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2007173653
 GameObject:
   m_ObjectHideFlags: 0

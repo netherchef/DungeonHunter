@@ -229,3 +229,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   master: {fileID: 7637710667489682886}
   hp: 2
+  defaultDeath: 0
