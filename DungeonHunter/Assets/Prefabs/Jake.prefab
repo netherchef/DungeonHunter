@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 5837925358381900542}
   - component: {fileID: 5837925358381900543}
   - component: {fileID: 5837925358381900541}
+  - component: {fileID: 2291523592834361544}
   m_Layer: 0
   m_Name: Jake
   m_TagString: Player
@@ -276,6 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 5837925358381900517}
+  invincibility: {fileID: 2291523592834361544}
+  type: 1
   hp: 4
   defaultDeath: 1
 --- !u!114 &5837925358381900542
@@ -328,6 +331,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2291523592834361544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837925358381900517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd917357beb643c3a46bd4c0f780d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpriteRenderer: {fileID: 5837925357644007046}
+  invincible: 0
 --- !u!1 &8865922819023997766
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418468600216493541}
   - component: {fileID: 1980469593600105480}
-  - component: {fileID: 6842649517519653749}
+  - component: {fileID: 8060812485159660012}
   m_Layer: 0
   m_Name: Item Icon
   m_TagString: Untagged
@@ -411,7 +428,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6842649517519653749
+--- !u!114 &8060812485159660012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +437,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8865922819023997766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b315ee50d7dd446db11d723f0ecb35c, type: 3}
+  m_Script: {fileID: 11500000, guid: d90b7711e74e74bb194c9d6dd3b5cf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSR: {fileID: 1980469593600105480}

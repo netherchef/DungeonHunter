@@ -9,6 +9,11 @@ public class DoorHandler : MonoBehaviour
 
 	public Transform doorContainer;
 
+	[Header ("Scripts:")]
+
+	public HealthSystem playerHealth;
+	public PlayerInventory playerInventory;
+
 	// Variables
 
 	private Door[] doors;
@@ -18,11 +23,11 @@ public class DoorHandler : MonoBehaviour
 	private IEnumerator checkDoors;
 
 	// !!! TEMPORARY !!!
-	private void Start ()
-	{
-		Prep ();
-		Execute ();
-	}
+	//private void Start ()
+	//{
+	//	Prep ();
+	//	Execute ();
+	//}
 
 	public void Prep ()
 	{
@@ -41,9 +46,30 @@ public class DoorHandler : MonoBehaviour
 		{
 			foreach (Door door in doors)
 			{
-				if (door.triggered) SceneManager.LoadScene (door.transform.name);
+				if (door.triggered)
+				{
+					// Pass Data
 
-				yield return null;
+					// Player Health
+
+					DataPasser.DPInstance.playerHealth = playerHealth.hp;
+
+					// Player Inventory
+
+					if (playerInventory.HasItems ())
+					DataPasser.DPInstance.inventoryItems = playerInventory.ItemsAsArray ();
+
+					// Record Room & Door Direction
+
+					DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
+					DataPasser.DPInstance.previousDoorDir = door.direction;
+
+					// Load Next Scene
+
+					SceneManager.LoadScene (door.transform.name);
+
+					yield break;
+				}
 			}
 
 			yield return null;
@@ -60,5 +86,15 @@ public class DoorHandler : MonoBehaviour
 		}
 
 		return tempDoors;
+	}
+
+	public Vector3 DoorPosition (string doorName)
+	{
+		foreach (Door door in doors)
+		{
+			if (door.gameObject.name == doorName) return door.transform.position;
+		}
+
+		return new Vector3 (0, 0);
 	}
 }

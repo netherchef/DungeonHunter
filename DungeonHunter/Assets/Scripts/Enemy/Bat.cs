@@ -17,10 +17,10 @@ public class Bat : MonoBehaviour
 	//private Vector3 direction;
 	private float speed = 1f;
 
-	private float freqX = 2f;
-	private float ampX = 1f;
-	private float freqY = 0f;
-	private float ampY = .2f;
+	//private float freqX = 2f;
+	//private float ampX = 1f;
+	//private float freqY = 0f;
+	//private float ampY = .2f;
 
 	//public void SetDirection (Vector3 playerPos)
 	//{

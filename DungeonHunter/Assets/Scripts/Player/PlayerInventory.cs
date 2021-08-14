@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-	public List<ItemType> items;
+	[SerializeField]
+	private List<ItemType> items = new List<ItemType> ();
 
 	public void AddItem (ItemType itemType)
 	{
 		items.Add (itemType);
+	}
+
+	public void AddItems (ItemType[] itemList)
+	{
+		foreach (ItemType item in itemList)
+		{
+			items.Add (item);
+		}
 	}
 
 	public int GoldCount ()
@@ -26,5 +35,15 @@ public class PlayerInventory : MonoBehaviour
 	public void RemoveItem (ItemType item)
 	{
 		items.Remove (item);
+	}
+
+	public ItemType[] ItemsAsArray ()
+	{
+		return items.ToArray ();
+	}
+
+	public bool HasItems ()
+	{
+		return items.Count > 0;
 	}
 }
