@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntryHandler : MonoBehaviour
 {
 	public HealthSystem playerHealth;
+	public HealthBar healthBar;
 	public PlayerInventory playerInventory;
 	public DoorHandler doorHandler;
 	public Transform player;
@@ -15,17 +16,23 @@ public class EntryHandler : MonoBehaviour
 
 		// Data Passer
 
+		// !!! TEMPORARY !!!
+		// If there is NO Data Passer, create one.
+
 		if (DataPasser.DPInstance == null)
 		{
 			GameObject dataPasser = new GameObject { name = "Data Passer" };
 			dataPasser.AddComponent<DataPasser> ();
 		}
-		else
-		{
-			// Player Health
 
-			playerHealth.hp = DataPasser.DPInstance.playerHealth;
-		}
+		// Player Health
+
+		if (DataPasser.DPInstance.playerCurrHp == 0) DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
+		else playerHealth.currHp = DataPasser.DPInstance.playerCurrHp;
+
+		// Health Bar
+
+		healthBar.Prep (playerHealth);
 
 		// Player Inventory
 

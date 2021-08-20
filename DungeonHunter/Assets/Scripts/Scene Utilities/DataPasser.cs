@@ -39,7 +39,8 @@ public class DataPasser : MonoBehaviour
 
 	#region Player _____________________________________________________________
 
-	public int playerHealth;
+	public int playerCurrHp;
+	public int playerFullHp;
 	public ItemType[] inventoryItems;
 
 	#endregion

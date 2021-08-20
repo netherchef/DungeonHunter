@@ -52,7 +52,8 @@ public class DoorHandler : MonoBehaviour
 
 					// Player Health
 
-					DataPasser.DPInstance.playerHealth = playerHealth.hp;
+					DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
+					DataPasser.DPInstance.playerFullHp = playerHealth.fullHp;
 
 					// Player Inventory
 

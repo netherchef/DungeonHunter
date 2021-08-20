@@ -77,66 +77,69 @@ public class EnemyHandler : MonoBehaviour
 		{
 			for (int c = 0; c < enemies.Length; c++)
 			{
-				Transform enemy = transform.GetChild (c);
-
-				if (!enemies[c].healthSystem.Dead ())
+				if (targetHealthSystem.currHp > 0)
 				{
-					// Chase
+					Transform enemy = transform.GetChild (c);
 
-					if (!enemies[c].attack)
+					if (!enemies[c].healthSystem.Dead ())
 					{
-						if (Vector3.Magnitude (enemy.position - target.position) > enemies[c].enemyInfo.attackRange)
+						// Chase
+
+						if (!enemies[c].attack)
 						{
-							Vector3 moveValue = -(enemy.position - target.position);
-							moveValue.z = 0;
-
-							if (Mathf.Abs (moveValue.x) > Mathf.Abs (moveValue.y))
+							if (Vector3.Magnitude (enemy.position - target.position) > enemies[c].enemyInfo.attackRange)
 							{
-								float x = Mathf.Sign (moveValue.x);
-								float y = Mathf.Clamp (Mathf.Sign (moveValue.y) * Mathf.Abs (moveValue.y / moveValue.x), -1, 1);
-								moveValue = new Vector3 (x, y);
-							}
-							else if (Mathf.Abs (moveValue.x) < Mathf.Abs (moveValue.y))
-							{
-								float x = Mathf.Clamp (Mathf.Sign (moveValue.x) * Mathf.Abs (moveValue.x / moveValue.y), -1, 1);
-								float y = Mathf.Sign (moveValue.y);
-								moveValue = new Vector3 (x, y);
-							}
+								Vector3 moveValue = -(enemy.position - target.position);
+								moveValue.z = 0;
 
-							enemy.position += moveValue * enemies[c].enemyInfo.moveSpeed * Time.deltaTime;
+								if (Mathf.Abs (moveValue.x) > Mathf.Abs (moveValue.y))
+								{
+									float x = Mathf.Sign (moveValue.x);
+									float y = Mathf.Clamp (Mathf.Sign (moveValue.y) * Mathf.Abs (moveValue.y / moveValue.x), -1, 1);
+									moveValue = new Vector3 (x, y);
+								}
+								else if (Mathf.Abs (moveValue.x) < Mathf.Abs (moveValue.y))
+								{
+									float x = Mathf.Clamp (Mathf.Sign (moveValue.x) * Mathf.Abs (moveValue.x / moveValue.y), -1, 1);
+									float y = Mathf.Sign (moveValue.y);
+									moveValue = new Vector3 (x, y);
+								}
+
+								enemy.position += moveValue * enemies[c].enemyInfo.moveSpeed * Time.deltaTime;
+							}
+						}
+
+						// Check Attack
+
+						if (Vector3.Magnitude (enemy.position - target.position) < enemies[c].enemyInfo.attackRange)
+						{
+							if (!enemies[c].attack) enemies[c].attack = true;
+						}
+
+						// Remove Health
+
+						if (enemies[c].damageTarget)
+						{
+							enemies[c].damageTarget = false;
+
+							targetHealthSystem.Damage ();
 						}
 					}
-
-					// Check Attack
-
-					if (Vector3.Magnitude (enemy.position - target.position) < enemies[c].enemyInfo.attackRange)
+					else
 					{
-						if (!enemies[c].attack) enemies[c].attack = true;
-					}
+						// Death
 
-					// Remove Health
+						if (enemy.gameObject.activeSelf)
+						{
+							enemy.gameObject.SetActive (false);
 
-					if (enemies[c].damageTarget)
-					{
-						enemies[c].damageTarget = false;
+							// Drop Loot
 
-						targetHealthSystem.Damage ();
-					}
-				}
-				else
-				{
-					// Death
+							ItemType[] items = new ItemType[1];
+							items[0] = ItemType.Gold;
 
-					if (enemy.gameObject.activeSelf)
-					{
-						enemy.gameObject.SetActive (false);
-
-						// Drop Loot
-
-						ItemType[] items = new ItemType[1];
-						items[0] = ItemType.Gold;
-
-						lootHandler.DropLoot (items, enemy.transform.position);
+							lootHandler.DropLoot (items, enemy.transform.position);
+						}
 					}
 				}
 
@@ -149,7 +152,7 @@ public class EnemyHandler : MonoBehaviour
 
 	private IEnumerator AttackCoroutine (int index)
 	{
-		while (enemies[index].healthSystem.hp > 0)
+		while (enemies[index].healthSystem.currHp > 0)
 		{
 			if (enemies[index].attack)
 			{

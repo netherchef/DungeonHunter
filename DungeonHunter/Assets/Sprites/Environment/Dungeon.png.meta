@@ -26,6 +26,24 @@ TextureImporter:
   - first:
       213: 6098089514873771090
     second: Wall_Vertical
+  - first:
+      213: 6643711269398968355
+    second: Red_Carpet_Corner
+  - first:
+      213: 4654243933662768636
+    second: Red_Carpet
+  - first:
+      213: 8241026149576720579
+    second: Red_Carpet_Vertical
+  - first:
+      213: -7107195022900573981
+    second: Red_Carpet_Horizontal
+  - first:
+      213: 8237061683751424216
+    second: Red_Carpe
+  - first:
+      213: -4233890063712905844
+    second: Gold_Skull
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -286,6 +304,132 @@ TextureImporter:
       bones: []
       spriteID: 254d59eca14c0a450800000000000000
       internalID: 6098089514873771090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Carpet_Corner
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328f8ca1334333c50800000000000000
+      internalID: 6643711269398968355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Carpet
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd6cfbc232379040800000000000000
+      internalID: 4654243933662768636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Carpet_Vertical
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0c936ce910e5270800000000000000
+      internalID: 8241026149576720579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Carpet_Horizontal
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8469e38cb2e5d90800000000000000
+      internalID: -7107195022900573981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Carpe
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d01cf4a5fbef4270800000000000000
+      internalID: 8237061683751424216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_Skull
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85165e4b633e35c0800000000000000
+      internalID: -4233890063712905844
       vertices: []
       indices: 
       edges: []

@@ -207,7 +207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 3555007251633281429}
-  hp: 2
+  invincibility: {fileID: 0}
+  healthBar: {fileID: 0}
+  playerDeath: {fileID: 0}
+  type: 0
+  currHp: 2
   defaultDeath: 1
 --- !u!95 &988299369579206678
 Animator:
