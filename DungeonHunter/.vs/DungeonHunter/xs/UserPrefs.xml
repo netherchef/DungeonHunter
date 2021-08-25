@@ -1,8 +1,12 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerInputHandler.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Player/PlayerInputHandler.cs" Line="78" Column="42" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6bc183ae-d7cf-4b99-8033-7d04aced25b1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2dcd669d-d1f4-4087-af3c-c24c0529ec4a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -197,6 +197,8 @@ GameObject:
   - component: {fileID: 5837925358381900543}
   - component: {fileID: 5837925358381900541}
   - component: {fileID: 2291523592834361544}
+  - component: {fileID: 3030159107448069241}
+  - component: {fileID: 9078384356771393117}
   m_Layer: 0
   m_Name: Jake
   m_TagString: Player
@@ -235,6 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 5837925358231853009}
   playerMovement: {fileID: 5837925358381900539}
+  direction: {fileID: 9078384356771393117}
+  dodge: {fileID: 3030159107448069241}
   spriteFlipper: {fileID: 5837925358381900536}
   shop: {fileID: 0}
 --- !u!114 &5837925358381900539
@@ -283,6 +287,7 @@ MonoBehaviour:
   type: 1
   currHp: 4
   defaultDeath: 1
+  fullHp: 4
 --- !u!114 &5837925358381900542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +352,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpriteRenderer: {fileID: 5837925357644007046}
   invincible: 0
+--- !u!114 &3030159107448069241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837925358381900517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee481381124140b297513696ee63704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 5837925358381900516}
+  sceneBounds: {fileID: 0}
+  direction: {fileID: 9078384356771393117}
+  distance: 1.5
+  dodgeSpeed: 6
+--- !u!114 &9078384356771393117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837925358381900517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d5c81a37cf941a0a1740735f35f75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8865922819023997766
 GameObject:
   m_ObjectHideFlags: 0

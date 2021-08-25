@@ -20,12 +20,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		Vector3 tempPos = master.position;
 
-		//float denom = Mathf.Abs (dir.x) + Mathf.Abs (dir.y);
-
-		//if (Mathf.Abs(denom) < Mathf.Epsilon) return;
-
-		//dir /= denom;
-
 		tempPos += new Vector3 (dir.x, dir.y) * speed * Time.deltaTime;
 
 		tempPos = sceneBounds.ClampPointInBounds (tempPos);

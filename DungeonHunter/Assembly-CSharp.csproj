@@ -80,8 +80,10 @@
     <Compile Include="Assets\Scripts\Loot\LootCreature.cs" />
     <Compile Include="Assets\Scripts\Loot\LootCreatureHandler.cs" />
     <Compile Include="Assets\Scripts\Loot\LootHandler.cs" />
+    <Compile Include="Assets\Scripts\Player\Dodge.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDeath.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerDirection.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInputHandler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInvincibility.cs" />

@@ -2360,6 +2360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3030159107448069241, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+        type: 3}
+      propertyPath: sceneBounds
+      value: 
+      objectReference: {fileID: 702942771}
     - target: {fileID: 5500199220228549055, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
         type: 3}
       propertyPath: deathScreen

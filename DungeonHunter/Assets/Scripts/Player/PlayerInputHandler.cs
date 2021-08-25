@@ -7,8 +7,9 @@ public class PlayerInputHandler : MonoBehaviour
 	[Header ("Scripts:")]
 
 	public PlayerAttack playerAttack;
-
 	public PlayerMovement playerMovement;
+	public PlayerDirection direction;
+	public Dodge dodge;
 
 	public SpriteFlipper spriteFlipper;
 
@@ -32,6 +33,10 @@ public class PlayerInputHandler : MonoBehaviour
 	{
 		while (enabled)
 		{
+			// Dodge
+
+			if (Input.GetButtonDown ("Dodge")) yield return dodge.DoDodge ();
+
 			// Submit
 
 			if (Input.GetButtonDown ("Submit"))
@@ -47,7 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
 
 			// Direction
 
-			Vector2 playerInput = new Vector2 (0, 0);
+			Vector2 dirInput = new Vector2 (0, 0);
 
 			if (Input.GetAxisRaw ("Horizontal") > 0)
 			{
@@ -57,7 +62,7 @@ public class PlayerInputHandler : MonoBehaviour
 					spriteFlipper.Flip ();
 				}
 
-				playerInput.x = 1;
+				dirInput.x = 1;
 			}
 			else if (Input.GetAxisRaw ("Horizontal") < 0)
 			{
@@ -67,19 +72,25 @@ public class PlayerInputHandler : MonoBehaviour
 					spriteFlipper.Flip ();
 				}
 
-				playerInput.x = -1;
+				dirInput.x = -1;
 			}
 
 			if (Input.GetAxisRaw ("Vertical") > 0)
 			{
-				playerInput.y = 1;
+				dirInput.y = 1;
 			}
 			else if (Input.GetAxisRaw ("Vertical") < 0)
 			{
-				playerInput.y = -1;
+				dirInput.y = -1;
 			}
 
-			playerMovement.Move (playerInput);
+			// Record Direction Changes
+
+			if (dirInput != new Vector2 (0, 0)) direction.SetDirection (Vector3.Normalize (dirInput));
+
+			// Move in Direction
+
+			playerMovement.Move (Vector3.Normalize (dirInput));
 
 			yield return null;
 		}
