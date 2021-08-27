@@ -70,6 +70,8 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyAnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyInfo.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Skeleton Priest\SkeletonPriestAnimatorFunctions.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Skeleton Priest\SkeletonPriestFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\The Eye\TheEyeAnimator.cs" />
     <Compile Include="Assets\Scripts\Enemy\The Eye\TheEyeAttack.cs" />
     <Compile Include="Assets\Scripts\Health\HealthBar.cs" />

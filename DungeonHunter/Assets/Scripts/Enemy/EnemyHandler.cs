@@ -176,7 +176,7 @@ public class EnemyHandler : MonoBehaviour
 		}
 	}
 
-	private void SpawnAtRandomLocations (GameObject enemyPrefab, int count = 1)
+	public void SpawnAtRandomLocations (GameObject enemyPrefab, int count = 1)
 	{
 		while (count > 0)
 		{

@@ -10,19 +10,17 @@ public class HealthSystem : MonoBehaviour
 
 	public GameObject master;
 
-	[Header ("Scripts:")]
-
-	public PlayerInvincibility invincibility;
-	public HealthBar healthBar;
-	public PlayerDeath playerDeath;
-
 	[Header ("Generic Variables:")]
 
 	public UnitType type;
 	public int currHp = 4;
 	public bool defaultDeath = true;
 
-	[Header ("Player Variables:")]
+	[Header ("Player:")]
+
+	public PlayerInvincibility invincibility;
+	public HealthBar healthBar;
+	public PlayerDeath playerDeath;
 
 	public int fullHp = 4;
 
