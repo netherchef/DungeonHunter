@@ -41,4 +41,9 @@ public class SceneBounds : MonoBehaviour
 
 		return point;
 	}
+
+	public Vector3 RandomPointInBounds ()
+	{
+		return new Vector3 (Random.Range (-width / 2, width / 2), Random.Range (height / 2, -height / 2));
+	}
 }

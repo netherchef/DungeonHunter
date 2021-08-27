@@ -214,7 +214,7 @@ MonoBehaviour:
   windUp: 0.1
   attackDuration: 0.5
   coolDown: 0.2
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!114 &7637710667489682883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +234,4 @@ MonoBehaviour:
   type: 0
   currHp: 2
   defaultDeath: 0
+  fullHp: 4

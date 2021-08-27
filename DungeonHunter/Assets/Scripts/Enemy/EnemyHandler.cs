@@ -7,6 +7,7 @@ public struct Enemy
 {
 	// Enemy Info
 
+	public GameObject enemyObject;
 	public EnemyInfo enemyInfo;
 
 	// Health
@@ -28,47 +29,43 @@ public class EnemyHandler : MonoBehaviour
 	[Header ("Components:")]
 
 	public Transform target;
+	public Transform enemyContainer;
+
+	public GameObject skeletonPrefab;
 
 	[Header ("Scripts:")]
 
 	public HealthSystem targetHealthSystem;
 	public LootHandler lootHandler;
 
-	private Enemy[] enemies;
+	public SceneBounds sceneBounds;
+
+	[Header ("Variables:")]
+
+	[SerializeField]
+	private int spawnOnEntry = 1;
+
+	private Enemy[] enemies = new Enemy[0];
 
 	// Enumerators
 
 	private IEnumerator checkEnemies;
 
 	// !!! TEMPORARY !!!
-	private void Start () { Prep (); }
+	private void Start ()
+	{
+		Prep ();
+		Execute ();
+	}
 
 	public void Prep ()
 	{
-		// Initialise Enemies
+		SpawnAtRandomLocations (skeletonPrefab, spawnOnEntry);
+	}
 
-		enemies = new Enemy[transform.childCount];
-
-		for (int e = 0; e < enemies.Length; e++)
-		{
-			// Enemy Info
-
-			enemies[e].enemyInfo = transform.GetChild (e).GetComponent<EnemyInfo> ();
-
-			// Health
-
-			enemies[e].healthSystem = transform.GetChild (e).GetComponent<HealthSystem> ();
-
-			// Enumerator
-
-			enemies[e].attackCoroutine = AttackCoroutine (e);
-			StartCoroutine (enemies[e].attackCoroutine);
-		}
-
-		// Begin
-
-		checkEnemies = CheckEnemies ();
-		StartCoroutine (checkEnemies);
+	public void Execute ()
+	{
+		StartCoroutine (CheckEnemies ());
 	}
 
 	private IEnumerator CheckEnemies ()
@@ -77,73 +74,55 @@ public class EnemyHandler : MonoBehaviour
 		{
 			for (int c = 0; c < enemies.Length; c++)
 			{
-				if (targetHealthSystem.currHp > 0)
+				if (!enemies[c].healthSystem.Dead ())
 				{
-					Transform enemy = transform.GetChild (c);
+					// Chase
 
-					if (!enemies[c].healthSystem.Dead ())
+					float gapToTarg = Vector3.Magnitude (enemies[c].enemyObject.transform.position - target.position);
+
+					if (!enemies[c].attack)
 					{
-						// Chase
-
-						if (!enemies[c].attack)
+						if (gapToTarg > enemies[c].enemyInfo.attackRange)
 						{
-							if (Vector3.Magnitude (enemy.position - target.position) > enemies[c].enemyInfo.attackRange)
-							{
-								Vector3 moveValue = -(enemy.position - target.position);
-								moveValue.z = 0;
+							Vector3 moveValue = Vector3.Normalize (target.position - enemies[c].enemyObject.transform.position);
+							moveValue.z = 0;
 
-								if (Mathf.Abs (moveValue.x) > Mathf.Abs (moveValue.y))
-								{
-									float x = Mathf.Sign (moveValue.x);
-									float y = Mathf.Clamp (Mathf.Sign (moveValue.y) * Mathf.Abs (moveValue.y / moveValue.x), -1, 1);
-									moveValue = new Vector3 (x, y);
-								}
-								else if (Mathf.Abs (moveValue.x) < Mathf.Abs (moveValue.y))
-								{
-									float x = Mathf.Clamp (Mathf.Sign (moveValue.x) * Mathf.Abs (moveValue.x / moveValue.y), -1, 1);
-									float y = Mathf.Sign (moveValue.y);
-									moveValue = new Vector3 (x, y);
-								}
-
-								enemy.position += moveValue * enemies[c].enemyInfo.moveSpeed * Time.deltaTime;
-							}
-						}
-
-						// Check Attack
-
-						if (Vector3.Magnitude (enemy.position - target.position) < enemies[c].enemyInfo.attackRange)
-						{
-							if (!enemies[c].attack) enemies[c].attack = true;
-						}
-
-						// Remove Health
-
-						if (enemies[c].damageTarget)
-						{
-							enemies[c].damageTarget = false;
-
-							targetHealthSystem.Damage ();
+							enemies[c].enemyObject.transform.position += moveValue * enemies[c].enemyInfo.moveSpeed * Time.deltaTime;
 						}
 					}
-					else
+
+					// Check Attack
+
+					if (gapToTarg < enemies[c].enemyInfo.attackRange)
 					{
-						// Death
+						if (!enemies[c].attack) enemies[c].attack = true;
+					}
 
-						if (enemy.gameObject.activeSelf)
-						{
-							enemy.gameObject.SetActive (false);
+					 //Remove Health
 
-							// Drop Loot
+					if (enemies[c].damageTarget)
+					{
+						enemies[c].damageTarget = false;
 
-							ItemType[] items = new ItemType[1];
-							items[0] = ItemType.Gold;
-
-							lootHandler.DropLoot (items, enemy.transform.position);
-						}
+						targetHealthSystem.Damage ();
 					}
 				}
+				else
+				{
+					// Death
 
-				yield return null;
+					if (enemies[c].enemyObject.activeSelf)
+					{
+						enemies[c].enemyObject.SetActive (false);
+
+						// Drop Loot
+
+						ItemType[] items = new ItemType[1];
+						items[0] = ItemType.Gold;
+
+						lootHandler.DropLoot (items, enemies[c].enemyObject.transform.position);
+					}
+				}
 			}
 
 			yield return null;
@@ -194,6 +173,33 @@ public class EnemyHandler : MonoBehaviour
 			}
 
 			yield return null;
+		}
+	}
+
+	private void SpawnAtRandomLocations (GameObject enemyPrefab, int count = 1)
+	{
+		while (count > 0)
+		{
+			GameObject newEnemy = Instantiate (skeletonPrefab, sceneBounds.RandomPointInBounds (), Quaternion.identity, enemyContainer);
+
+			Enemy[] tempEnemies = new Enemy[enemies.Length + 1];
+
+			enemies.CopyTo (tempEnemies, 0);
+
+			tempEnemies[tempEnemies.Length - 1] = new Enemy
+			{
+				enemyObject = newEnemy,
+				enemyInfo = newEnemy.GetComponent<EnemyInfo> (),
+				healthSystem = newEnemy.GetComponent<HealthSystem> ()
+			};
+
+			enemies = tempEnemies;
+
+			enemies[enemies.Length - 1].attackCoroutine = AttackCoroutine (enemies.Length - 1);
+
+			StartCoroutine (enemies[enemies.Length - 1].attackCoroutine);
+
+			count--;
 		}
 	}
 }
