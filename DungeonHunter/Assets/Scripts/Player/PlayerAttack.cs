@@ -15,6 +15,10 @@ public class PlayerAttack : MonoBehaviour
 
 	[Header ("Variables:")]
 
+	[SerializeField]
+	private int currDamage = 1;
+	private int initDamage = 1;
+
 	private float animDuration = 0.25f;
 	private float colDuration = 0.1f;
 
@@ -44,11 +48,31 @@ public class PlayerAttack : MonoBehaviour
 		spriteRenderer.sprite = initSprite;
 	}
 
+	#region Set Damage _________________________________________________________
+
+	public void SetDamage (int value, bool multiply = false, bool reset = false)
+	{
+		if (reset)
+		{
+			currDamage = initDamage;
+			return;
+		}
+
+		if (multiply) currDamage *= value;
+		else currDamage = value;
+	}
+
+	public bool DamageChanged () { return currDamage != initDamage; }
+
+	public int CurrentDamage () { return currDamage; }
+
+	#endregion
+
 	private void OnTriggerEnter2D (Collider2D collision)
 	{
 		if (collision.CompareTag ("AttackTarget"))
 		{
-			collision.GetComponent<HealthSystem> ().Damage ();
+			collision.GetComponent<HealthSystem> ().Damage (currDamage);
 		}
 	}
 }

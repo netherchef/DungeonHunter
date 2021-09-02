@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntryHandler : MonoBehaviour
 {
 	public HealthSystem playerHealth;
+	public PlayerAttack playerAttack;
 	public HealthBar healthBar;
 	public PlayerInventory playerInventory;
 	public DoorHandler doorHandler;
@@ -29,6 +30,11 @@ public class EntryHandler : MonoBehaviour
 
 		if (DataPasser.DPInstance.playerCurrHp == 0) DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
 		else playerHealth.currHp = DataPasser.DPInstance.playerCurrHp;
+
+		// Player Damage
+
+		if (DataPasser.DPInstance.currDamage != 0)
+			playerAttack.SetDamage (DataPasser.DPInstance.currDamage);
 
 		// Health Bar
 

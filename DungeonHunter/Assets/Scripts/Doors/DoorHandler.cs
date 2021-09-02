@@ -12,6 +12,7 @@ public class DoorHandler : MonoBehaviour
 	[Header ("Scripts:")]
 
 	public HealthSystem playerHealth;
+	public PlayerAttack playerAttack;
 	public PlayerInventory playerInventory;
 
 	// Variables
@@ -46,35 +47,48 @@ public class DoorHandler : MonoBehaviour
 		{
 			foreach (Door door in doors)
 			{
-				if (door.triggered)
-				{
-					// Pass Data
-
-					// Player Health
-
-					DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
-					DataPasser.DPInstance.playerFullHp = playerHealth.fullHp;
-
-					// Player Inventory
-
-					if (playerInventory.HasItems ())
-					DataPasser.DPInstance.inventoryItems = playerInventory.ItemsAsArray ();
-
-					// Record Room & Door Direction
-
-					DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
-					DataPasser.DPInstance.previousDoorDir = door.direction;
-
-					// Load Next Scene
-
-					SceneManager.LoadScene (door.transform.name);
-
-					yield break;
-				}
+				if (door.triggered && InputMatchDoorDir (door)) ChangeScene (door);
 			}
 
 			yield return null;
 		}
+	}
+
+	private bool InputMatchDoorDir (Door door)
+	{
+		if (Input.GetAxisRaw ("Horizontal") > 0 && door.direction == DoorDirection.Right) return true;
+		if (Input.GetAxisRaw ("Horizontal") < 0 && door.direction == DoorDirection.Left) return true;
+		if (Input.GetAxisRaw ("Vertical") > 0 && door.direction == DoorDirection.Up) return true;
+		if (Input.GetAxisRaw ("Vertical") < 0 && door.direction == DoorDirection.Down) return true;
+
+		return false;
+	}
+
+	private void ChangeScene (Door door)
+	{
+		// Player Health
+
+		DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
+		DataPasser.DPInstance.playerFullHp = playerHealth.fullHp;
+
+		// Record Player Current Damage
+
+		if (playerAttack.DamageChanged ())
+			DataPasser.DPInstance.currDamage = playerAttack.CurrentDamage ();
+
+		// Player Inventory
+
+		if (playerInventory.HasItems ())
+			DataPasser.DPInstance.inventoryItems = playerInventory.ItemsAsArray ();
+
+		// Record Room & Door Direction
+
+		DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
+		DataPasser.DPInstance.previousDoorDir = door.direction;
+
+		// Load Next Scene
+
+		SceneManager.LoadScene (door.transform.name);
 	}
 
 	private Door[] DoorsFromContainer (Transform container)

@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 40064555}
   - component: {fileID: 40064554}
   m_Layer: 0
-  m_Name: Shop Item
+  m_Name: Potion of Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,6 +297,11 @@ PrefabInstance:
       objectReference: {fileID: 1717602027}
     - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
         type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 1312603749}
+    - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
+        type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 977575442}
@@ -358,6 +363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopItemContainer: {fileID: 1360341891}
+  playerHealth: {fileID: 977575442}
+  playerAttack: {fileID: 1312603749}
   inventory: {fileID: 977575445}
   itemIcon: {fileID: 5837925359023930604}
 --- !u!1 &218851892
@@ -1227,7 +1234,7 @@ GameObject:
   - component: {fileID: 1227212476}
   - component: {fileID: 1227212475}
   m_Layer: 0
-  m_Name: Shop Item (2)
+  m_Name: Potion of Strength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755608a3a288f4e08a641ca1de1ef074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 3
   ready: 0
 --- !u!58 &1227212476
 CircleCollider2D:
@@ -1360,6 +1367,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1312603749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837925358231853009, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5837925359023930603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428938d9c3b1449d78739f0013f8b6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1360341890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,6 +1917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorContainer: {fileID: 1717602026}
   playerHealth: {fileID: 977575442}
+  playerAttack: {fileID: 1312603749}
   playerInventory: {fileID: 977575445}
 --- !u!1 &1743651138
 GameObject:
@@ -1911,7 +1931,7 @@ GameObject:
   - component: {fileID: 1743651141}
   - component: {fileID: 1743651140}
   m_Layer: 0
-  m_Name: Shop Item (1)
+  m_Name: Potion of Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2032,7 +2052,7 @@ SpriteRenderer:
   m_SortingLayerID: -1293067827
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1185527514606905908, guid: c924da65111474b13a6444d21aa0aed0,
+  m_Sprite: {fileID: -1061600653231999548, guid: c924da65111474b13a6444d21aa0aed0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -17,6 +17,8 @@ public class Shop : MonoBehaviour
 
 	[Header ("Scripts:")]
 
+	public HealthSystem playerHealth;
+	public PlayerAttack playerAttack;
 	public PlayerInventory inventory;
 	public ItemIcon itemIcon;
 
@@ -72,7 +74,18 @@ public class Shop : MonoBehaviour
 
 		// Add to Inventory
 
-		inventory.AddItem (currItem.type);
+		switch (currItem.type)
+		{
+			case ItemType.PotionOfHealth:
+				playerHealth.Heal ();
+				break;
+			case ItemType.PotionOfStrength:
+				playerAttack.SetDamage (2, true);
+				break;
+			default: inventory.AddItem (currItem.type);
+				break;
+		}
+
 		itemIcon.FlashByItemType (currItem.type);
 
 		// Remove Item from Shop

@@ -37,6 +37,16 @@ public class HealthSystem : MonoBehaviour
 		DecreaseHP (value);
 	}
 
+	public void Heal (int val = 1)
+	{
+		if (currHp < fullHp)
+		{
+			currHp += val;
+
+			healthBar.FillHeart ();
+		}
+	}
+
 	private void DecreaseHP (int value)
 	{
 		if (type == UnitType.Player)

@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Health/HealthSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerAttack.cs">
     <Files>
-      <File FileName="Assets/Scripts/Health/HealthSystem.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/Shop/Shop.cs" Line="83" Column="25" />
+      <File FileName="Assets/Scripts/Player/PlayerAttack.cs" Line="61" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ebf63a55-c98b-4329-b749-c2205da1ec5b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2764c569-4506-47e9-8b3c-c2f144350360" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

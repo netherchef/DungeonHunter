@@ -1546,6 +1546,11 @@ PrefabInstance:
       objectReference: {fileID: 1717602027}
     - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
         type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 1907380266}
+    - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
+        type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1907380263}
@@ -1626,12 +1631,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 1488162116}
-  invincibility: {fileID: 0}
-  healthBar: {fileID: 0}
-  playerDeath: {fileID: 0}
   type: 0
   currHp: 4
   defaultDeath: 1
+  invincibility: {fileID: 0}
+  healthBar: {fileID: 0}
+  playerDeath: {fileID: 0}
   fullHp: 20
 --- !u!58 &1488162120
 CircleCollider2D:
@@ -1969,6 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorContainer: {fileID: 1717602026}
   playerHealth: {fileID: 1907380263}
+  playerAttack: {fileID: 1907380266}
   playerInventory: {fileID: 1907380265}
 --- !u!1 &1763897827
 GameObject:
@@ -2281,6 +2287,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b31ff4f9e8184a1cb85ceed30b1bd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1907380266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837925358231853009, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907380262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428938d9c3b1449d78739f0013f8b6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2007173653

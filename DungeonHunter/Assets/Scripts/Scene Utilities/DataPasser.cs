@@ -41,6 +41,7 @@ public class DataPasser : MonoBehaviour
 
 	public int playerCurrHp;
 	public int playerFullHp;
+	public int currDamage;
 	public ItemType[] inventoryItems;
 
 	#endregion
