@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType { NULL, SkeletonWarrior, SkeletonPriest }
+
 [System.Serializable]
 public struct Enemy
 {
@@ -43,161 +45,173 @@ public class EnemyHandler : MonoBehaviour
 	[Header ("Variables:")]
 
 	[SerializeField]
-	private int spawnOnEntry = 1;
+	private EnemyType[] spawnOnEntry;
 
-	private Enemy[] enemies = new Enemy[0];
+	//private Enemy[] enemies = new Enemy[0];
 
 	// Enumerators
 
-	private IEnumerator checkEnemies;
+	//private IEnumerator checkEnemies;
 
 	// !!! TEMPORARY !!!
 	private void Start ()
 	{
 		Prep ();
-		Execute ();
+		//Execute ();
 	}
 
 	public void Prep ()
 	{
-		SpawnAtRandomLocations (skeletonPrefab, spawnOnEntry);
+		SpawnAtRandomLocations (skeletonPrefab, spawnOnEntry.Length);
 	}
 
-	public void Execute ()
-	{
-		StartCoroutine (CheckEnemies ());
-	}
+	//public void Execute ()
+	//{
+	//	StartCoroutine (CheckEnemies ());
+	//}
 
-	private IEnumerator CheckEnemies ()
-	{
-		while (enabled)
-		{
-			for (int c = 0; c < enemies.Length; c++)
-			{
-				if (!enemies[c].healthSystem.Dead ())
-				{
-					// Chase
+	//private IEnumerator CheckEnemies ()
+	//{
+	//	while (enabled)
+	//	{
+	//		for (int c = 0; c < enemies.Length; c++)
+	//		{
+	//			if (!enemies[c].healthSystem.Dead ())
+	//			{
+	//				// Chase
 
-					float gapToTarg = Vector3.Magnitude (enemies[c].enemyObject.transform.position - target.position);
+	//				float gapToTarg = Vector3.Magnitude (enemies[c].enemyObject.transform.position - target.position);
 
-					if (!enemies[c].attack)
-					{
-						if (gapToTarg > enemies[c].enemyInfo.attackRange)
-						{
-							Vector3 moveValue = Vector3.Normalize (target.position - enemies[c].enemyObject.transform.position);
-							moveValue.z = 0;
+	//				if (!enemies[c].attack)
+	//				{
+	//					if (gapToTarg > enemies[c].enemyInfo.attackRange)
+	//					{
+	//						Vector3 moveValue = Vector3.Normalize (target.position - enemies[c].enemyObject.transform.position);
+	//						moveValue.z = 0;
 
-							enemies[c].enemyObject.transform.position += moveValue * enemies[c].enemyInfo.moveSpeed * Time.deltaTime;
-						}
-					}
+	//						enemies[c].enemyObject.transform.position += moveValue * enemies[c].enemyInfo.moveSpeed * Time.deltaTime;
+	//					}
+	//				}
 
-					// Check Attack
+	//				// Check Attack
 
-					if (gapToTarg < enemies[c].enemyInfo.attackRange)
-					{
-						if (!enemies[c].attack) enemies[c].attack = true;
-					}
+	//				if (gapToTarg < enemies[c].enemyInfo.attackRange)
+	//				{
+	//					if (!enemies[c].attack) enemies[c].attack = true;
+	//				}
 
-					 //Remove Health
+	//				 //Remove Health
 
-					if (enemies[c].damageTarget)
-					{
-						enemies[c].damageTarget = false;
+	//				if (enemies[c].damageTarget)
+	//				{
+	//					enemies[c].damageTarget = false;
 
-						targetHealthSystem.Damage ();
-					}
-				}
-				else
-				{
-					// Death
+	//					targetHealthSystem.Damage ();
+	//				}
+	//			}
+	//			else
+	//			{
+	//				// Death
 
-					if (enemies[c].enemyObject.activeSelf)
-					{
-						enemies[c].enemyObject.SetActive (false);
+	//				if (enemies[c].enemyObject.activeSelf)
+	//				{
+	//					enemies[c].enemyObject.SetActive (false);
 
-						// Drop Loot
+	//					// Drop Loot
 
-						ItemType[] items = new ItemType[1];
-						items[0] = ItemType.Gold;
+	//					ItemType[] items = new ItemType[1];
+	//					items[0] = ItemType.Gold;
 
-						lootHandler.DropLoot (items, enemies[c].enemyObject.transform.position);
-					}
-				}
-			}
+	//					lootHandler.DropLoot (items, enemies[c].enemyObject.transform.position);
+	//				}
+	//			}
+	//		}
 
-			yield return null;
-		}
-	}
+	//		yield return null;
+	//	}
+	//}
 
-	private IEnumerator AttackCoroutine (int index)
-	{
-		while (enemies[index].healthSystem.currHp > 0)
-		{
-			if (enemies[index].attack)
-			{
-				EnemyInfo info = enemies[index].enemyInfo;
+	//private IEnumerator AttackCoroutine (int index)
+	//{
+	//	while (enemies[index].healthSystem.currHp > 0)
+	//	{
+	//		if (enemies[index].attack)
+	//		{
+	//			EnemyInfo info = enemies[index].enemyInfo;
 
-				// Wind Up
+	//			// Wind Up
 
-				for (float windupTimer = info.windUp; windupTimer > 0; windupTimer -= Time.deltaTime) yield return null;
+	//			for (float windupTimer = info.windUp; windupTimer > 0; windupTimer -= Time.deltaTime) yield return null;
 
-				// Attack Animation
+	//			// Attack Animation
 
-				info.enemyAnimatorFunctions.AttackStart ();
+	//			info.enemyAnimatorFunctions.AttackStart ();
 
-				// Attack
+	//			// Attack
 
-				bool foundTarget = false;
+	//			bool foundTarget = false;
 
-				while (!info.enemyAnimatorFunctions.Is_AttackDone ())
-				{
-					if (!foundTarget)
-					{
-						if (Vector3.Magnitude (target.position - transform.GetChild (index).position) < info.attackRange)
-						{
-							foundTarget = true;
-							enemies[index].damageTarget = true;
-						}
-					}
+	//			while (!info.enemyAnimatorFunctions.Is_AttackDone ())
+	//			{
+	//				if (!foundTarget)
+	//				{
+	//					if (Vector3.Magnitude (target.position - transform.GetChild (index).position) < info.attackRange)
+	//					{
+	//						foundTarget = true;
+	//						enemies[index].damageTarget = true;
+	//					}
+	//				}
 
-					yield return null;
-				}
+	//				yield return null;
+	//			}
 
-				// Cooldown
+	//			// Cooldown
 
-				for (float cdTimer = info.coolDown; cdTimer > 0; cdTimer -= Time.deltaTime) yield return null;
+	//			for (float cdTimer = info.coolDown; cdTimer > 0; cdTimer -= Time.deltaTime) yield return null;
 
-				// Reset
+	//			// Reset
 
-				enemies[index].attack = false;
-			}
+	//			enemies[index].attack = false;
+	//		}
 
-			yield return null;
-		}
-	}
+	//		yield return null;
+	//	}
+	//}
 
 	public void SpawnAtRandomLocations (GameObject enemyPrefab, int count = 1)
 	{
 		while (count > 0)
 		{
+			// Spawn Enemy
+
 			GameObject newEnemy = Instantiate (skeletonPrefab, sceneBounds.RandomPointInBounds (), Quaternion.identity, enemyContainer);
 
-			Enemy[] tempEnemies = new Enemy[enemies.Length + 1];
+			SkeletonWarriorFunctions skelFuncs = newEnemy.GetComponent<SkeletonWarriorFunctions> ();
 
-			enemies.CopyTo (tempEnemies, 0);
+			skelFuncs.lootHandler = lootHandler;
 
-			tempEnemies[tempEnemies.Length - 1] = new Enemy
-			{
-				enemyObject = newEnemy,
-				enemyInfo = newEnemy.GetComponent<EnemyInfo> (),
-				healthSystem = newEnemy.GetComponent<HealthSystem> ()
-			};
+			skelFuncs.SetTarget (target);
 
-			enemies = tempEnemies;
+			skelFuncs.Set_TargetHealthSystem (targetHealthSystem);
 
-			enemies[enemies.Length - 1].attackCoroutine = AttackCoroutine (enemies.Length - 1);
+			skelFuncs.Execute ();
 
-			StartCoroutine (enemies[enemies.Length - 1].attackCoroutine);
+			//Enemy[] tempEnemies = new Enemy[enemies.Length + 1];
+
+			//enemies.CopyTo (tempEnemies, 0);
+
+			//tempEnemies[tempEnemies.Length - 1] = new Enemy
+			//{
+			//	enemyObject = newEnemy,
+			//	enemyInfo = newEnemy.GetComponent<EnemyInfo> (),
+			//	healthSystem = newEnemy.GetComponent<HealthSystem> ()
+			//};
+
+			//enemies = tempEnemies;
+
+			//enemies[enemies.Length - 1].attackCoroutine = AttackCoroutine (enemies.Length - 1);
+
+			//StartCoroutine (enemies[enemies.Length - 1].attackCoroutine);
 
 			count--;
 		}

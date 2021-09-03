@@ -2438,6 +2438,31 @@ PrefabInstance:
       propertyPath: targetHealthSystem
       value: 
       objectReference: {fileID: 1907380263}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2348696005510329859, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
       propertyPath: m_Name

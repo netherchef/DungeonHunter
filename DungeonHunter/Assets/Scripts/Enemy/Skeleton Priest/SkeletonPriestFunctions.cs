@@ -25,7 +25,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 	private float castTime = 2f;
 
 	// !!! TEMPORARY !!!
-	private void Start () { Execute (); }
+	private void OnEnable () { Execute (); }
 
 	public void Execute ()
 	{
