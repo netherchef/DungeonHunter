@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 5571398295516082665}
   - component: {fileID: 5571398295516082664}
   - component: {fileID: 433132935846381766}
+  - component: {fileID: 7067847599113571604}
   m_Layer: 0
   m_Name: Skeleton Priest
   m_TagString: AttackTarget
@@ -109,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff888423ba15497fbb72518436d3516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonPrefab: {fileID: 7637710667489682886, guid: 72a931d1e5ce14720b33b45d3b4b5c61,
-    type: 3}
+  master: {fileID: 5571398295516082665}
   animFuncs: {fileID: 5571398295081705841}
   enemyHandler: {fileID: 0}
+  healthSystem: {fileID: 7067847599113571604}
   coolDown: 1
   castTime: 1
 --- !u!58 &433132935846381766
@@ -131,6 +132,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7067847599113571604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571398295516082666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641c200eda2fc4183ade9a19d5531909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 5571398295516082666}
+  type: 0
+  currHp: 2
+  defaultDeath: 0
+  invincibility: {fileID: 0}
+  healthBar: {fileID: 0}
+  playerDeath: {fileID: 0}
+  fullHp: 4
 --- !u!1 &5571398296495835616
 GameObject:
   m_ObjectHideFlags: 0

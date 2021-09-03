@@ -242,25 +242,33 @@ PrefabInstance:
       propertyPath: targetHealthSystem
       value: 
       objectReference: {fileID: 977575442}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnOnEntry.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2348696005510329859, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
       propertyPath: m_Name
-      value: Skeleton Handler
+      value: Enemy Handler
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9365ab9866af74d4da66f2156f35e3b1, type: 3}
---- !u!114 &31144195 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 31144194}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdabc7b20ead34065acbbc3eb0d6d5e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &218851892
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,116 +548,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &589385541
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5571398295516082664, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: castTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082664, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: coolDown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082664, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: enemyHandler
-      value: 
-      objectReference: {fileID: 31144195}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082665, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571398295516082666, guid: f3f0332fd6a3f44baac69a6c534f3880,
-        type: 3}
-      propertyPath: m_Name
-      value: Skeleton Priest
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f3f0332fd6a3f44baac69a6c534f3880, type: 3}
---- !u!1 &589385542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5571398295516082666, guid: f3f0332fd6a3f44baac69a6c534f3880,
-    type: 3}
-  m_PrefabInstance: {fileID: 589385541}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &589385543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589385542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641c200eda2fc4183ade9a19d5531909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  master: {fileID: 589385542}
-  type: 0
-  currHp: 4
-  defaultDeath: 1
-  invincibility: {fileID: 0}
-  healthBar: {fileID: 0}
-  playerDeath: {fileID: 0}
-  fullHp: 4
 --- !u!4 &590183004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7214711348006925068, guid: 2a783bb8669564543a63f8407ba99cb3,

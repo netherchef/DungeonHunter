@@ -7,7 +7,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 	[Header ("Components:")]
 
 	[SerializeField]
-	private GameObject skeletonPrefab;
+	private Transform master;
 
 	[Header ("Scripts:")]
 
@@ -17,15 +17,17 @@ public class SkeletonPriestFunctions : MonoBehaviour
 	[SerializeField]
 	private EnemyHandler enemyHandler;
 
+	[SerializeField]
+	private HealthSystem healthSystem;
+
+	private LootHandler lootHandler;
+
 	[Header ("Variables:")]
 
 	[SerializeField]
 	private float coolDown = 1f;
 	[SerializeField]
 	private float castTime = 2f;
-
-	// !!! TEMPORARY !!!
-	private void OnEnable () { Execute (); }
 
 	public void Execute ()
 	{
@@ -34,7 +36,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 	private IEnumerator PriestCycle ()
 	{
-		while (enabled)
+		while (!healthSystem.Dead ())
 		{
 			// Wait Cool Down
 
@@ -56,10 +58,24 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 			yield return null;
 		}
+
+		gameObject.SetActive (false);
+
+		lootHandler.DropGold (master.position);
 	}
 
     private void Summon ()
 	{
-		enemyHandler.SpawnAtRandomLocations (skeletonPrefab);
+		enemyHandler.Spawn_SkeletonWarrior ();
+	}
+
+	public void Set_EnemyHandler (EnemyHandler handler)
+	{
+		enemyHandler = handler;
+	}
+
+	public void Set_LootHandler (LootHandler handler)
+	{
+		lootHandler = handler;
 	}
 }

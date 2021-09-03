@@ -16,69 +16,58 @@ public class BatHandler : MonoBehaviour
 
 	// Variables
 
-	private List<Bat> bats = new List<Bat> ();
+	//private List<Bat> bats = new List<Bat> ();
 
 	// Enumerators
 
-	private IEnumerator checkBats;
+	//private IEnumerator checkBats;
 
-	private void Start ()
-	{
-		Prep ();
-		Execute ();
-	}
+	//private void Start ()
+	//{
+	//	Prep ();
+	//	Execute ();
+	//}
 
-	public void Prep ()
-	{
-		foreach (Transform child in batContainer)
-		{
-			bats.Add (child.GetComponent<Bat> ());
-		}
-	}
+	//public void Prep ()
+	//{
+	//	foreach (Transform child in batContainer)
+	//	{
+	//		bats.Add (child.GetComponent<Bat> ());
+	//	}
+	//}
 
-	public void Execute ()
-	{
-		checkBats = CheckBats ();
-		StartCoroutine (checkBats);
-	}
+	//public void Execute ()
+	//{
+	//	checkBats = CheckBats ();
+	//	StartCoroutine (checkBats);
+	//}
 
-	private IEnumerator CheckBats ()
-	{
-		// Set Initial Direction
+	//private IEnumerator CheckBats ()
+	//{
+	//	while (enabled)
+	//	{
+	//		foreach (Bat bat in bats)
+	//		{
+	//			// Check HP
 
-		//foreach (Bat bat in bats) bat.SetDirection (playerTransform.position);
+	//			if (bat.healthSystem.currHp > 0)
+	//			{
+	//				// Move
 
-		while (enabled)
-		{
-			foreach (Bat bat in bats)
-			{
-				// Check HP
+	//				bat.MoveToPlayer (playerTransform.position);
 
-				if (bat.healthSystem.currHp > 0)
-				{
-					// Move
+	//				// Damage
 
-					//if (!sceneBounds.WithinBounds (bat.bodyHolder.position))
-					//{
-					//	bat.SetDirection (playerTransform.position);
-					//}
+	//				if (bat.batCollider.triggered)
+	//				{
+	//					bat.batCollider.triggered = false;
 
-					bat.MoveToPlayer (playerTransform.position);
-					//bat.Move ();
-					//bat.OscillateBody ();
+	//					playerHealth.Damage ();
+	//				}
+	//			}
+	//		}
 
-					// Damage
-
-					if (bat.batCollider.triggered)
-					{
-						bat.batCollider.triggered = false;
-
-						playerHealth.Damage ();
-					}
-				}
-			}
-
-			yield return null;
-		}
-	}
+	//		yield return null;
+	//	}
+	//}
 }

@@ -46,67 +46,41 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 	private IEnumerator DoSkeletonSeq ()
 	{
-		while (enabled)
+		while (!healthSystem.Dead ())
 		{
-			if (!healthSystem.Dead ())
+			// Distance to Target
+
+			float gapToTarg = Vector3.Magnitude (master.position - target.position);
+
+			// Chase
+
+			if (gapToTarg > attackRange)
 			{
-				// Distance to Target
+				Vector3 moveValue = Vector3.Normalize (target.position - master.position);
+				moveValue.z = 0;
 
-				float gapToTarg = Vector3.Magnitude (master.position - target.position);
-
-				// Chase
-
-				if (gapToTarg > attackRange)
-				{
-					Vector3 moveValue = Vector3.Normalize (target.position - master.position);
-					moveValue.z = 0;
-
-					master.position += moveValue * moveSpeed * Time.deltaTime;
-				}
-				else
-				{
-					yield return DoAttackSeq (); // Attack
-				}
-
-				// Check Attack
-
-				//yield return DoAttackSeq ();
-
-				//if (gapToTarg < attackRange)
-				//{
-				//if (!attack) attack = true;
-
-				//	yield return DoAttackSeq ();
-				//}
-
-				//Remove Health
-
-				//if (damageTarget)
-				//{
-				//	damageTarget = false;
-
-				//	targetHealthSystem.Damage ();
-				//}
+				master.position += moveValue * moveSpeed * Time.deltaTime;
 			}
 			else
 			{
-				// Death
-
-				if (gameObject.activeSelf)
-				{
-					gameObject.SetActive (false);
-
-					// Drop Loot
-
-					ItemType[] items = new ItemType[1];
-					items[0] = ItemType.Gold;
-
-					lootHandler.DropLoot (items, master.position);
-				}
+				yield return DoAttackSeq (); // Attack
 			}
 
 			yield return null;
 		}
+
+		// Death
+
+		gameObject.SetActive (false);
+
+		// Drop Loot
+
+		lootHandler.DropGold (master.position);
+
+		//ItemType[] items = new ItemType[1];
+		//items[0] = ItemType.Gold;
+
+		//lootHandler.DropLoot (items, master.position);
 	}
 
 	private IEnumerator DoAttackSeq ()

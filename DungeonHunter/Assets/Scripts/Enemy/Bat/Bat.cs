@@ -9,38 +9,60 @@ public class Bat : MonoBehaviour
 	public Transform bodyHolder;
 	public Transform body;
 
-	public BatCollider batCollider;
-	public HealthSystem healthSystem;
+	[SerializeField]
+	private BatCollider batCollider;
+	[SerializeField]
+	private HealthSystem healthSystem;
+
+	private Transform target;
+	private HealthSystem targetHealthSystem;
 
 	// Variables
 
-	//private Vector3 direction;
 	private float speed = 1f;
 
-	//private float freqX = 2f;
-	//private float ampX = 1f;
-	//private float freqY = 0f;
-	//private float ampY = .2f;
+	// Enumerators
 
-	//public void SetDirection (Vector3 playerPos)
-	//{
-	//	direction = Vector3.Normalize (playerPos - bodyHolder.position);
-	//}
+	private IEnumerator BatSeq { get { return DoBatSeq (); } }
 
-	//public void Move ()
-	//{
-	//	bodyHolder.Translate (direction * speed * Time.deltaTime);
-	//}
+	public void Execute ()
+	{
+		StartCoroutine (BatSeq);
+	}
 
-	//public void OscillateBody ()
-	//{
-	//	Vector3 tempPos = body.position;
-	//	tempPos = bodyHolder.position + new Vector3 (Mathf.Cos (Time.time * freqX) * ampX, Mathf.Cos (Time.time * freqY) * ampY);
-	//	body.position = tempPos;
-	//}
+	private IEnumerator DoBatSeq ()
+	{
+		while (healthSystem.currHp > 0)
+		{
+			// Move
+
+			MoveToPlayer (target.position);
+
+			// Damage
+
+			if (batCollider.triggered)
+			{
+				batCollider.triggered = false;
+
+				targetHealthSystem.Damage ();
+			}
+
+			yield return null;
+		}
+	}
 
 	public void MoveToPlayer (Vector3 playerPos)
 	{
 		bodyHolder.Translate (Vector3.Normalize (playerPos - bodyHolder.position) * speed * Time.deltaTime);
+	}
+
+	public void SetTarget (Transform targTrans)
+	{
+		target = targTrans;
+	}
+
+	public void Set_TargetHealth (HealthSystem healthSys)
+	{
+		targetHealthSystem = healthSys;
 	}
 }

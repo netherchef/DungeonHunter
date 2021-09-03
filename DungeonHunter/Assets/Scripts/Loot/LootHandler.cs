@@ -74,6 +74,30 @@ public class LootHandler : MonoBehaviour
 		}
 	}
 
+	public void DropGold (Vector3 dropPos)
+	{
+		Loot[] loots = LootsFromContainer (transform);
+
+		for (int i = 0; i < loots.Length; i++)
+		{
+			if (loots[i].type == ItemType.Gold && !loots[i].gameObject.activeSelf)
+			{
+				loots[i].transform.position = dropPos;
+				loots[i].gameObject.SetActive (true);
+
+				activeLoots = LootsFromContainer (transform, true);
+
+				return;
+			}
+		}
+
+		Instantiate (LootPrefab (ItemType.Gold), dropPos, Quaternion.identity, transform);
+
+		// Initialise
+
+		activeLoots = LootsFromContainer (transform, true);
+	}
+
 	public void DropLoot (ItemType[] drops, Vector3 dropPos)
 	{
 		Loot[] loots = LootsFromContainer (transform);
