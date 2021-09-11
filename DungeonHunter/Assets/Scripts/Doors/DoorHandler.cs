@@ -114,10 +114,13 @@ public class DoorHandler : MonoBehaviour
 		DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
 		DataPasser.DPInstance.playerFullHp = playerHealth.fullHp;
 
-		// Record Player Current Damage
+		// Record Player Current Damage & Attack Effect
 
 		if (playerAttack.DamageChanged ())
 			DataPasser.DPInstance.currDamage = playerAttack.CurrentDamage ();
+
+		if (playerAttack.CurrentAttackEffect () != Attack_Effect.NULL)
+			DataPasser.DPInstance.currAttackEffect = playerAttack.CurrentAttackEffect ();
 
 		// Player Inventory
 

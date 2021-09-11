@@ -177,4 +177,15 @@ public class EnemyHandler : MonoBehaviour
 
 		bat.Execute ();
 	}
+
+	private void OnTriggerEnter2D (Collider2D collision)
+	{
+		if (collision)
+		{
+			if (spawnOnEntry[0] == EnemyType.Bat)
+			{
+
+			}
+		}
+	}
 }

@@ -32,10 +32,13 @@ public class EntryHandler : MonoBehaviour
 		if (DataPasser.DPInstance.playerCurrHp == 0) DataPasser.DPInstance.playerCurrHp = playerHealth.currHp;
 		else playerHealth.currHp = DataPasser.DPInstance.playerCurrHp;
 
-		// Player Damage
+		// Player Damage & Attack Effect
 
 		if (DataPasser.DPInstance.currDamage != 0)
 			playerAttack.SetDamage (DataPasser.DPInstance.currDamage);
+
+		if (DataPasser.DPInstance.currAttackEffect != Attack_Effect.NULL)
+			playerAttack.Set_AttackEffect (DataPasser.DPInstance.currAttackEffect);
 
 		// Health Bar
 

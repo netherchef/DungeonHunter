@@ -42,6 +42,7 @@ public class DataPasser : MonoBehaviour
 	public int playerCurrHp;
 	public int playerFullHp;
 	public int currDamage;
+	public Attack_Effect currAttackEffect;
 	public ItemType[] inventoryItems;
 
 	#endregion

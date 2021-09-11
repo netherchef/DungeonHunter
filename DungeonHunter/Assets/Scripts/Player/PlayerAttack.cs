@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Attack_Effect { NULL, DOT }
+
 public class PlayerAttack : MonoBehaviour
 {
 	[Header ("Components:")]
@@ -21,6 +23,9 @@ public class PlayerAttack : MonoBehaviour
 
 	private float animDuration = 0.25f;
 	private float colDuration = 0.1f;
+
+	[SerializeField]
+	private Attack_Effect currEffect;
 
 	public IEnumerator Attack ()
 	{
@@ -72,7 +77,34 @@ public class PlayerAttack : MonoBehaviour
 	{
 		if (collision.CompareTag ("AttackTarget"))
 		{
-			collision.GetComponent<HealthSystem> ().Damage (currDamage);
+			// Attack Effects
+
+			if (currEffect == Attack_Effect.DOT)
+			{
+				HealthSystem targHealth = collision.GetComponent<HealthSystem> ();
+
+				// Apply DOT Effect
+
+				targHealth.ApplyDOT (1, 5);
+
+				// Basic Attack
+
+				targHealth.Damage (currDamage);
+			}
+			else
+			{
+				// Basic Attack
+
+				collision.GetComponent<HealthSystem> ().Damage (currDamage);
+			}
 		}
 	}
+
+	#region Attack Effect ______________________________________________________
+
+	public void Set_AttackEffect (Attack_Effect e) { currEffect = e; }
+
+	public Attack_Effect CurrentAttackEffect () { return currEffect; }
+
+	#endregion
 }

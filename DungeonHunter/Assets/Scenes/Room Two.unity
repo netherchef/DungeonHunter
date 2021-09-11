@@ -786,6 +786,9 @@ MonoBehaviour:
   type: 0
   currHp: 10
   defaultDeath: 1
+  affectedBy: 0
+  DOTDamage: 0
+  DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
@@ -2749,6 +2752,11 @@ PrefabInstance:
       propertyPath: doorHandler
       value: 
       objectReference: {fileID: 1717602027}
+    - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
+        type: 3}
+      propertyPath: enemyHandler
+      value: 
+      objectReference: {fileID: 1708902944}
     - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
         type: 3}
       propertyPath: playerAttack

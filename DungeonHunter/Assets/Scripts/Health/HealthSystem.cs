@@ -16,6 +16,15 @@ public class HealthSystem : MonoBehaviour
 	public int currHp = 4;
 	public bool defaultDeath = true;
 
+	[Space (10)]
+
+	//[SerializeField]
+	//private Attack_Effect affectedBy;
+	[SerializeField]
+	private int DOTDamage;
+	[SerializeField]
+	private float DOTDuration;
+
 	[Header ("Player:")]
 
 	public PlayerInvincibility invincibility;
@@ -23,6 +32,10 @@ public class HealthSystem : MonoBehaviour
 	public PlayerDeath playerDeath;
 
 	public int fullHp = 4;
+
+	// Enumerators
+
+	private IEnumerator DOTSeq;
 
 	// !!! TEMPORARY !!!
 	private void Start () { Prep (); }
@@ -93,4 +106,45 @@ public class HealthSystem : MonoBehaviour
 	{
 		return currHp <= 0;
 	}
+
+	#region DOT ________________________________________________________________
+
+	private IEnumerator DoDOTSeq ()
+	{
+		float wait = 1f;
+
+		while (DOTDuration > 0)
+		{
+			DOTDuration -= Time.deltaTime;
+
+			if (wait > 0)
+			{
+				wait -= Time.deltaTime;
+			}
+			else
+			{
+				DecreaseHP (DOTDamage);
+
+				wait = 1f;
+			}
+
+			yield return null;
+		}
+	}
+
+	public void ApplyDOT (int damage, float duration)
+	{
+		DOTDamage = damage;
+		DOTDuration = duration;
+
+		if (DOTSeq == null)
+		{
+			//affectedBy = Attack_Effect.DOT;
+
+			DOTSeq = DoDOTSeq ();
+			StartCoroutine (DOTSeq);
+		}
+	}
+
+	#endregion
 }
