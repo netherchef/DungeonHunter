@@ -696,13 +696,13 @@ MonoBehaviour:
   type: 0
   currHp: 10
   defaultDeath: 1
-  affectedBy: 0
   DOTDamage: 0
   DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
   fullHp: 4
+  debug: 0
 --- !u!58 &832008972
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1511,6 +1511,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7fbe4a66404f47cb9de70a3cf7b4027, type: 3}
+--- !u!58 &1523148376 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5837925358381900543, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907380262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1569642160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2460,6 +2466,11 @@ PrefabInstance:
       objectReference: {fileID: 1907380264}
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
+      propertyPath: showHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
       propertyPath: doorHandler
       value: 
       objectReference: {fileID: 1717602027}
@@ -2473,6 +2484,11 @@ PrefabInstance:
       propertyPath: sceneBounds
       value: 
       objectReference: {fileID: 702942771}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: targetCollider
+      value: 
+      objectReference: {fileID: 1523148376}
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
       propertyPath: assignDoorHandler
@@ -2506,7 +2522,7 @@ PrefabInstance:
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
       propertyPath: spawnOnEntry.Array.data[3]
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2348696005510329859, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}

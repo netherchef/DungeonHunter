@@ -37,6 +37,11 @@ public class HealthSystem : MonoBehaviour
 
 	private IEnumerator DOTSeq;
 
+	[Header ("Debug:")]
+
+	[SerializeField]
+	private bool debug;
+
 	// !!! TEMPORARY !!!
 	private void Start () { Prep (); }
 
@@ -62,6 +67,8 @@ public class HealthSystem : MonoBehaviour
 
 	private void DecreaseHP (int value)
 	{
+		if (debug) print ("Ouch!");
+
 		if (type == UnitType.Player)
 		{
 			if (!invincibility.invincible)

@@ -8,17 +8,17 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 	[SerializeField]
 	private Transform master;
-	[SerializeField]
+
+	[Header ("Spawn Components:")]
+
 	private Transform target;
+	private HealthSystem targetHealthSystem;
+	private LootHandler lootHandler;
 
 	[Header ("Scripts:")]
 
 	[SerializeField]
 	private HealthSystem healthSystem;
-
-	private HealthSystem targetHealthSystem;
-
-	public LootHandler lootHandler;
 
 	[SerializeField]
 	private EnemyAnimatorFunctions skeletonAnimFunctions;
@@ -133,6 +133,11 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 	public void Set_TargetHealthSystem (HealthSystem healthSys)
 	{
 		targetHealthSystem = healthSys;
+	}
+
+	public void Set_LootHandler (LootHandler handler)
+	{
+		lootHandler = handler;
 	}
 
 	public void Set_SummonStart ()

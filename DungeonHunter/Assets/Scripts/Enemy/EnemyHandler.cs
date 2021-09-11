@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyType { NULL, SkeletonWarrior, SkeletonPriest, Bat }
+#if UNITY_EDITOR
+using UnityEngine.UI;
+#endif
+
+public enum EnemyType { NULL, SkeletonWarrior, SkeletonPriest, Bat, AncientGuard }
 
 [System.Serializable]
 public struct Enemy
@@ -26,17 +30,25 @@ public struct Enemy
 	public IEnumerator attackCoroutine;
 }
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class EnemyHandler : MonoBehaviour
 {
 	[Header ("Components:")]
 
 	public Transform target;
+	[SerializeField]
+	private CircleCollider2D targetCollider;
+
 	public Transform enemyContainer;
 
-	public GameObject skeletonWarriorPrefab;
-	public GameObject skeletonPriestPrefab;
-	public GameObject batPrefab;
+	[SerializeField]
+	private GameObject skeletonWarriorPrefab;
+	[SerializeField]
+	private GameObject skeletonPriestPrefab;
+	[SerializeField]
+	private GameObject batPrefab;
+	[SerializeField]
+	private GameObject ancientGuardPrefab;
 
 	[Header ("Scripts:")]
 
@@ -60,27 +72,6 @@ public class EnemyHandler : MonoBehaviour
 
 	private IEnumerator CheckEnemies { get { return DoCheckEnemies (); } }
 
-	[Header ("Debug:")]
-
-	[SerializeField]
-	private bool assignDoorHandler;
-
-	#if UNITY_EDITOR
-	private void Update ()
-	{
-		if (assignDoorHandler)
-		{
-			assignDoorHandler = false;
-
-			DoorHandler[] handlers = FindObjectsOfType<DoorHandler> ();
-
-			if (handlers.Length == 0) Debug.LogWarning ("No Door Handlers found.");
-			else if (handlers.Length > 1) Debug.LogWarning ("More than 1 Door Handler in scene.");
-			else doorHandler = handlers[0];
-		}
-	}
-	#endif
-
 	public void Prep ()
 	{
 		SpawnAtRandomLocations ();
@@ -102,6 +93,9 @@ public class EnemyHandler : MonoBehaviour
 					break;
 				case EnemyType.Bat:
 					Spawn_Bat ();
+					break;
+				case EnemyType.AncientGuard:
+					Spawn_AncientGuard ();
 					break;
 			}
 		}
@@ -135,7 +129,7 @@ public class EnemyHandler : MonoBehaviour
 
 		enemyHealths.Add (skelFuncs.HealthSystem ());
 
-		skelFuncs.lootHandler = lootHandler;
+		skelFuncs.Set_LootHandler (lootHandler);
 
 		skelFuncs.SetTarget (target);
 
@@ -178,14 +172,70 @@ public class EnemyHandler : MonoBehaviour
 		bat.Execute ();
 	}
 
-	private void OnTriggerEnter2D (Collider2D collision)
+	private void Spawn_AncientGuard ()
 	{
-		if (collision)
-		{
-			if (spawnOnEntry[0] == EnemyType.Bat)
-			{
+		GameObject newEnemy = Instantiate (ancientGuardPrefab, sceneBounds.RandomPointInBounds (), Quaternion.identity, enemyContainer);
 
-			}
-		}
+		AncientGuardFunctions ag = newEnemy.GetComponent<AncientGuardFunctions> ();
+
+		enemyHealths.Add (ag.HealthSystem ());
+
+		ag.Set_TargetTransform (target);
+
+		ag.Set_TargetHealthSystem (targetHealthSystem);
+
+		ag.Set_TargetCollider (targetCollider);
+
+		ag.Set_LootHandler (lootHandler);
+
+		ag.Execute ();
 	}
+
+#if UNITY_EDITOR
+
+	//[SerializeField]
+	//private bool showHealth;
+
+	//[SerializeField]
+	//private bool assignDoorHandler;
+
+	//private void Start ()
+	//{
+	//	if (showHealth)
+	//	{
+	//		print ("Do");
+	//		showHealth = false;
+
+	//		GameObject healthDisplay = new GameObject { name = "Enemy Health Display" };
+
+	//		healthDisplay.AddComponent<Canvas> ();
+	//		healthDisplay.AddComponent<CanvasScaler> ();
+	//		healthDisplay.GetComponent<Canvas> ().renderMode = RenderMode.ScreenSpaceOverlay;
+
+	//		foreach (HealthSystem enemyHealth in enemyHealths)
+	//		{
+	//			GameObject display = new GameObject ("Health Display");
+	//			display.AddComponent<Text> ();
+	//			display.GetComponent<Text> ().color = Color.white;
+	//			display.GetComponent<Text> ().text = "sdsdsdsdsdsdklfslgnkdng";
+	//			display.transform.SetParent (healthDisplay.transform);
+	//		}
+	//	}
+	//}
+
+	//private void Update ()
+	//{
+	//	if (assignDoorHandler)
+	//	{
+	//		assignDoorHandler = false;
+
+	//		DoorHandler[] handlers = FindObjectsOfType<DoorHandler> ();
+
+	//		if (handlers.Length == 0) Debug.LogWarning ("No Door Handlers found.");
+	//		else if (handlers.Length > 1) Debug.LogWarning ("More than 1 Door Handler in scene.");
+	//		else doorHandler = handlers[0];
+	//	}
+	//}
+
+#endif
 }

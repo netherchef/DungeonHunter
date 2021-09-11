@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  targetCollider: {fileID: 0}
   enemyContainer: {fileID: 2348696005510329857}
   skeletonWarriorPrefab: {fileID: 7637710667489682886, guid: 72a931d1e5ce14720b33b45d3b4b5c61,
     type: 3}
@@ -52,12 +53,13 @@ MonoBehaviour:
     type: 3}
   batPrefab: {fileID: 3555007251633281429, guid: 7a8e6468fd4a4422b883aa990a31d630,
     type: 3}
+  ancientGuardPrefab: {fileID: 1527569315933954759, guid: 22aee1b101cfb4f9d82ffc8981193b3e,
+    type: 3}
   targetHealthSystem: {fileID: 0}
   lootHandler: {fileID: 0}
   sceneBounds: {fileID: 0}
   doorHandler: {fileID: 0}
   spawnOnEntry: 
-  assignDoorHandler: 0
 --- !u!114 &3108589866237998629
 MonoBehaviour:
   m_ObjectHideFlags: 0
