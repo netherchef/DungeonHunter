@@ -20,7 +20,8 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 	public LootHandler lootHandler;
 
-	public EnemyAnimatorFunctions enemyAnimatorFunctions;
+	[SerializeField]
+	private EnemyAnimatorFunctions skeletonAnimFunctions;
 
 	[Header ("Variables")]
 
@@ -35,18 +36,21 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 	// Enumerators
 
-	private IEnumerator SkeletonSeq { get { return DoSkeletonSeq (); } }
-	//private IEnumerator AttackSeq { get { return DoAttackSeq (); } }
+	private IEnumerator skeletonSeq;
 
-	public void Execute ()
+	public void Execute (bool summon)
 	{
-		StartCoroutine (SkeletonSeq);
-		//StartCoroutine (AttackSeq);
+		skeletonSeq = DoSkeletonSeq (summon);
+		StartCoroutine (skeletonSeq);
 	}
 
-	private IEnumerator DoSkeletonSeq ()
+	private IEnumerator DoSkeletonSeq (bool summon)
 	{
-		while (!healthSystem.Dead ())
+		// Wait for Summon Animation to End
+
+		if (summon) while (!skeletonAnimFunctions.Is_SummonDone ()) yield return null;
+
+		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
 		{
 			// Distance to Target
 
@@ -91,13 +95,13 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		// Attack Animation
 
-		enemyAnimatorFunctions.AttackStart ();
+		skeletonAnimFunctions.Set_AttackStart ();
 
 		// Attack
 
 		bool foundTarget = false;
 
-		while (!enemyAnimatorFunctions.Is_AttackDone ())
+		while (!skeletonAnimFunctions.Is_AttackDone ())
 		{
 			if (!foundTarget)
 			{
@@ -117,6 +121,10 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 		for (float cdTimer = coolDown; cdTimer > 0; cdTimer -= Time.deltaTime) yield return null;
 	}
 
+	public HealthSystem HealthSystem () { return healthSystem; }
+
+	#region Spawn Functions ____________________________________________________
+
 	public void SetTarget (Transform targTrans)
 	{
 		target = targTrans;
@@ -126,4 +134,11 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 	{
 		targetHealthSystem = healthSys;
 	}
+
+	public void Set_SummonStart ()
+	{
+		skeletonAnimFunctions.Set_SummonStart ();
+	}
+
+	#endregion
 }

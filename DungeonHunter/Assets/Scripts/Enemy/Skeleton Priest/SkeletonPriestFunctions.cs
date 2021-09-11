@@ -22,6 +22,9 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 	private LootHandler lootHandler;
 
+	[SerializeField]
+	private HealthSystem targetHealthSystem;
+
 	[Header ("Variables:")]
 
 	[SerializeField]
@@ -36,7 +39,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 	private IEnumerator PriestCycle ()
 	{
-		while (!healthSystem.Dead ())
+		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
 		{
 			// Wait Cool Down
 
@@ -52,7 +55,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 			// Spawn Skeleton
 
-			Summon ();
+			SummonSkeleton ();
 
 			// Reset
 
@@ -64,10 +67,14 @@ public class SkeletonPriestFunctions : MonoBehaviour
 		lootHandler.DropGold (master.position);
 	}
 
-    private void Summon ()
+    private void SummonSkeleton ()
 	{
-		enemyHandler.Spawn_SkeletonWarrior ();
+		enemyHandler.Spawn_SkeletonWarrior (true);
 	}
+
+	public HealthSystem HealthSystem () { return healthSystem; }
+
+	#region Spawn Functions ____________________________________________________
 
 	public void Set_EnemyHandler (EnemyHandler handler)
 	{
@@ -78,4 +85,11 @@ public class SkeletonPriestFunctions : MonoBehaviour
 	{
 		lootHandler = handler;
 	}
+
+	public void Set_TargetHealthSystem (HealthSystem healthSys)
+	{
+		targetHealthSystem = healthSys;
+	}
+
+	#endregion
 }

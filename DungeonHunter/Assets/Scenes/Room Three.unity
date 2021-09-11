@@ -224,6 +224,11 @@ PrefabInstance:
       objectReference: {fileID: 977575439}
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
+      propertyPath: doorHandler
+      value: 
+      objectReference: {fileID: 1717602027}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
       propertyPath: lootHandler
       value: 
       objectReference: {fileID: 1843554611}
@@ -235,6 +240,11 @@ PrefabInstance:
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
       propertyPath: spawnOnEntry
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: assignDoorHandler
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
@@ -269,6 +279,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9365ab9866af74d4da66f2156f35e3b1, type: 3}
+--- !u!114 &31144195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 31144194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdabc7b20ead34065acbbc3eb0d6d5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &218851892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717602026}
   - component: {fileID: 1717602027}
+  - component: {fileID: 1717602028}
   m_Layer: 0
   m_Name: Door Handler
   m_TagString: Untagged
@@ -1491,9 +1514,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorContainer: {fileID: 1717602026}
+  enemyHandler: {fileID: 31144195}
   playerHealth: {fileID: 977575442}
   playerAttack: {fileID: 5837925359023930605}
   playerInventory: {fileID: 977575445}
+  roomType: 2
+  assignEnemyHandler: 0
+--- !u!114 &1717602028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717602025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d295614fac85847f9adfa70aed25088f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4282429926
+  font: {fileID: 0}
+  textColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  fontSize: 12
+  fontStyle: 0
+  alignment: 0
+  textDropShadow: 0
 --- !u!1 &1843554610
 GameObject:
   m_ObjectHideFlags: 0

@@ -83,6 +83,9 @@
     <Compile Include="Assets\Scripts\Loot\LootCreature.cs" />
     <Compile Include="Assets\Scripts\Loot\LootCreatureHandler.cs" />
     <Compile Include="Assets\Scripts\Loot\LootHandler.cs" />
+    <Compile Include="Assets\Scripts\Misc\Pretty Hierarchy\Runtime\PrettyObject.cs" />
+    <Compile Include="Assets\Scripts\Misc\Pretty Hierarchy\Utils\EditorColors.cs" />
+    <Compile Include="Assets\Scripts\Misc\Pretty Hierarchy\Utils\EditorUtils.cs" />
     <Compile Include="Assets\Scripts\Player\Dodge.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDeath.cs" />

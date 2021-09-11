@@ -26,6 +26,7 @@ public struct Enemy
 	public IEnumerator attackCoroutine;
 }
 
+[ExecuteInEditMode]
 public class EnemyHandler : MonoBehaviour
 {
 	[Header ("Components:")]
@@ -39,20 +40,53 @@ public class EnemyHandler : MonoBehaviour
 
 	[Header ("Scripts:")]
 
-	public HealthSystem targetHealthSystem;
+	[SerializeField]
+	private HealthSystem targetHealthSystem;
 	public LootHandler lootHandler;
 
 	public SceneBounds sceneBounds;
+
+	[SerializeField]
+	private DoorHandler doorHandler;
 
 	[Header ("Variables:")]
 
 	[SerializeField]
 	private EnemyType[] spawnOnEntry;
 
-	// !!! TEMPORARY !!!
-	private void Start () { Prep (); }
+	private List<HealthSystem> enemyHealths = new List<HealthSystem> ();
 
-	public void Prep () { SpawnAtRandomLocations (); }
+	// Enumerators
+
+	private IEnumerator CheckEnemies { get { return DoCheckEnemies (); } }
+
+	[Header ("Debug:")]
+
+	[SerializeField]
+	private bool assignDoorHandler;
+
+	#if UNITY_EDITOR
+	private void Update ()
+	{
+		if (assignDoorHandler)
+		{
+			assignDoorHandler = false;
+
+			DoorHandler[] handlers = FindObjectsOfType<DoorHandler> ();
+
+			if (handlers.Length == 0) Debug.LogWarning ("No Door Handlers found.");
+			else if (handlers.Length > 1) Debug.LogWarning ("More than 1 Door Handler in scene.");
+			else doorHandler = handlers[0];
+		}
+	}
+	#endif
+
+	public void Prep ()
+	{
+		SpawnAtRandomLocations ();
+
+		StartCoroutine (CheckEnemies);
+	}
 
 	public void SpawnAtRandomLocations ()
 	{
@@ -73,11 +107,33 @@ public class EnemyHandler : MonoBehaviour
 		}
 	}
 
-	public void Spawn_SkeletonWarrior ()
+	private IEnumerator DoCheckEnemies ()
+	{
+		while (enemyHealths.Count > 0)
+		{
+			//foreach (HealthSystem enemyHealth in enemyHealths)
+			//{
+			//	if (enemyHealth.Dead ()) enemyHealths.Remove (enemyHealth);
+			//}
+
+			for (int i = 0; i < enemyHealths.Count; i++)
+			{
+				if (enemyHealths[i].Dead ()) enemyHealths.Remove (enemyHealths[i]);
+			}
+
+			yield return null;
+		}
+
+		doorHandler.Unlock ();
+	}
+
+	public void Spawn_SkeletonWarrior (bool summon = false)
 	{
 		GameObject newEnemy = Instantiate (skeletonWarriorPrefab, sceneBounds.RandomPointInBounds (), Quaternion.identity, enemyContainer);
 
 		SkeletonWarriorFunctions skelFuncs = newEnemy.GetComponent<SkeletonWarriorFunctions> ();
+
+		enemyHealths.Add (skelFuncs.HealthSystem ());
 
 		skelFuncs.lootHandler = lootHandler;
 
@@ -85,7 +141,9 @@ public class EnemyHandler : MonoBehaviour
 
 		skelFuncs.Set_TargetHealthSystem (targetHealthSystem);
 
-		skelFuncs.Execute ();
+		if (summon) skelFuncs.Set_SummonStart ();
+
+		skelFuncs.Execute (summon);
 	}
 
 	private void Spawn_SkeletonPriest ()
@@ -94,9 +152,13 @@ public class EnemyHandler : MonoBehaviour
 
 		SkeletonPriestFunctions priestFuncs = newEnemy.GetComponent<SkeletonPriestFunctions> ();
 
+		enemyHealths.Add (priestFuncs.HealthSystem ());
+
 		priestFuncs.Set_EnemyHandler (this);
 
 		priestFuncs.Set_LootHandler (lootHandler);
+
+		priestFuncs.Set_TargetHealthSystem (targetHealthSystem);
 
 		priestFuncs.Execute ();
 	}
@@ -106,6 +168,8 @@ public class EnemyHandler : MonoBehaviour
 		GameObject newEnemy = Instantiate (batPrefab, sceneBounds.RandomPointInBounds (), Quaternion.identity, enemyContainer);
 
 		Bat bat = newEnemy.GetComponent<Bat> ();
+
+		enemyHealths.Add (bat.HealthSystem ());
 
 		bat.SetTarget (target);
 

@@ -10,6 +10,7 @@ public class EntryHandler : MonoBehaviour
 	public PlayerInventory playerInventory;
 	public DoorHandler doorHandler;
 	public Transform player;
+	public EnemyHandler enemyHandler;
 
 	private void Start ()
 	{
@@ -73,6 +74,10 @@ public class EntryHandler : MonoBehaviour
 
 			player.position = newPos;
 		}
+
+		// Spawn Enemies
+
+		if (enemyHandler) enemyHandler.Prep ();
 
 		// Execute /////////////////////////////////////////////////////////////
 

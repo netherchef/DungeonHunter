@@ -114,7 +114,8 @@ MonoBehaviour:
   animFuncs: {fileID: 5571398295081705841}
   enemyHandler: {fileID: 0}
   healthSystem: {fileID: 7067847599113571604}
-  coolDown: 1
+  targetHealthSystem: {fileID: 0}
+  coolDown: 3
   castTime: 1
 --- !u!58 &433132935846381766
 CircleCollider2D:

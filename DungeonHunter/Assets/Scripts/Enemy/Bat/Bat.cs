@@ -32,7 +32,7 @@ public class Bat : MonoBehaviour
 
 	private IEnumerator DoBatSeq ()
 	{
-		while (healthSystem.currHp > 0)
+		while (healthSystem.currHp > 0 && !targetHealthSystem.Dead ())
 		{
 			// Move
 
@@ -56,6 +56,10 @@ public class Bat : MonoBehaviour
 		bodyHolder.Translate (Vector3.Normalize (playerPos - bodyHolder.position) * speed * Time.deltaTime);
 	}
 
+	public HealthSystem HealthSystem () { return healthSystem; }
+
+	#region Spawn Functions ____________________________________________________
+
 	public void SetTarget (Transform targTrans)
 	{
 		target = targTrans;
@@ -65,4 +69,6 @@ public class Bat : MonoBehaviour
 	{
 		targetHealthSystem = healthSys;
 	}
+
+	#endregion
 }

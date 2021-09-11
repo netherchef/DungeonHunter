@@ -30,6 +30,8 @@ public class PlayerDeath : MonoBehaviour
 		// !!! TEMPORARY !!!
 		DataPasser.DPInstance.playerCurrHp = 4;
 
+		DataPasser.DPInstance.previousRoom = "";
+
 		SceneManager.LoadScene (startingScene);
 
 		yield return null;

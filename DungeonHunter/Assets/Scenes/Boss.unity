@@ -1616,7 +1616,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 838218869984089656, guid: 11e1dbc5e5f314f89a521a408bd771ea,
     type: 3}
   player: {fileID: 1907380264}
+  eyeHealth: {fileID: 1488162119}
   playerHealth: {fileID: 1907380263}
+  doorHandler: {fileID: 1717602027}
   eyeAnimator: {fileID: 1432759220}
 --- !u!114 &1488162119
 MonoBehaviour:
@@ -1633,7 +1635,7 @@ MonoBehaviour:
   master: {fileID: 1488162116}
   type: 0
   currHp: 4
-  defaultDeath: 1
+  defaultDeath: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
@@ -1937,6 +1939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717602026}
   - component: {fileID: 1717602027}
+  - component: {fileID: 1717602028}
   m_Layer: 0
   m_Name: Door Handler
   m_TagString: Untagged
@@ -1973,9 +1976,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorContainer: {fileID: 1717602026}
+  enemyHandler: {fileID: 0}
   playerHealth: {fileID: 1907380263}
   playerAttack: {fileID: 1907380266}
   playerInventory: {fileID: 1907380265}
+  roomType: 3
+  assignEnemyHandler: 0
+--- !u!114 &1717602028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717602025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d295614fac85847f9adfa70aed25088f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4282429926
+  font: {fileID: 0}
+  textColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  fontSize: 12
+  fontStyle: 0
+  alignment: 0
+  textDropShadow: 0
 --- !u!1 &1763897827
 GameObject:
   m_ObjectHideFlags: 0

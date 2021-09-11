@@ -18,7 +18,17 @@ public class TheEyeAttack : MonoBehaviour
 	public GameObject projectilePrefab;
 
 	public Transform player;
-	public HealthSystem playerHealth;
+
+	[Header ("Scripts:")]
+
+	[SerializeField]
+	private HealthSystem eyeHealth;
+
+	[SerializeField]
+	private HealthSystem playerHealth;
+
+	[SerializeField]
+	private DoorHandler doorHandler;
 
 	[Header ("Variables:")]
 
@@ -48,12 +58,20 @@ public class TheEyeAttack : MonoBehaviour
 
 	private IEnumerator EyeAttackSequence ()
 	{
-		while (enabled)
+		while (!eyeHealth.Dead ())
 		{
 			for (float coolDown = attackCoolDown; coolDown > 0; coolDown -= Time.deltaTime) yield return null; // Cool Down
 
 			yield return ProjectileAttack ();
 		}
+
+		// Let Player Exit
+
+		doorHandler.Unlock ();
+
+		// Kill Eye
+
+		gameObject.SetActive (false);
 	}
 
 	private IEnumerator ProjectileAttack ()

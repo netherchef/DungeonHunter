@@ -1020,11 +1020,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 977575439}
   enemyContainer: {fileID: 0}
-  skeletonPrefab: {fileID: 0}
+  skeletonWarriorPrefab: {fileID: 0}
+  skeletonPriestPrefab: {fileID: 0}
+  batPrefab: {fileID: 0}
   targetHealthSystem: {fileID: 977575442}
   lootHandler: {fileID: 0}
   sceneBounds: {fileID: 0}
-  spawnOnEntry: 1
+  doorHandler: {fileID: 0}
+  spawnOnEntry: 
+  assignDoorHandler: 0
 --- !u!4 &906544330
 Transform:
   m_ObjectHideFlags: 0
@@ -1881,6 +1885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717602026}
   - component: {fileID: 1717602027}
+  - component: {fileID: 1717602028}
   m_Layer: 0
   m_Name: Door Handler
   m_TagString: Untagged
@@ -1916,9 +1921,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorContainer: {fileID: 1717602026}
+  enemyHandler: {fileID: 0}
   playerHealth: {fileID: 977575442}
   playerAttack: {fileID: 1312603749}
   playerInventory: {fileID: 977575445}
+  roomType: 1
+  assignEnemyHandler: 0
+--- !u!114 &1717602028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717602025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d295614fac85847f9adfa70aed25088f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4282429926
+  font: {fileID: 0}
+  textColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  fontSize: 12
+  fontStyle: 0
+  alignment: 0
+  textDropShadow: 0
 --- !u!1 &1743651138
 GameObject:
   m_ObjectHideFlags: 0

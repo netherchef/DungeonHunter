@@ -252,7 +252,7 @@ MonoBehaviour:
   target: {fileID: 0}
   healthSystem: {fileID: 7637710667489682883}
   lootHandler: {fileID: 0}
-  enemyAnimatorFunctions: {fileID: 7637710666664673170}
+  skeletonAnimFunctions: {fileID: 7637710666664673170}
   attackRange: 0.6
   moveSpeed: 1
   windUp: 0.2
