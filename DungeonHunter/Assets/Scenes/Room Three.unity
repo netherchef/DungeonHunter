@@ -658,6 +658,11 @@ PrefabInstance:
       propertyPath: direction
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4617528063584786488, guid: 3a4737fd96585475d9300bedcb0d64f1,
+        type: 3}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 5837925359023930607}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a4737fd96585475d9300bedcb0d64f1, type: 3}
 --- !u!4 &654519224 stripped
@@ -2131,6 +2136,18 @@ CircleCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 5837925359023930603}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5837925359023930607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837925358381900538, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5837925359023930603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20919a921014b40f88f3cb6373b0ce58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7214711347450464592
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,9 +23,9 @@ public class PlayerDeath : MonoBehaviour
 
 	private IEnumerator DoDeath ()
 	{
-		if (Input.GetButtonDown ("Submit")) yield return null;
+		if (PlayerInputHandler.Interact_ButtonDown ()) yield return null;
 
-		while (!Input.GetButtonDown ("Submit")) yield return null;
+		while (!PlayerInputHandler.Interact_ButtonDown ()) yield return null;
 
 		// !!! TEMPORARY !!!
 		DataPasser.DPInstance.playerCurrHp = 4;

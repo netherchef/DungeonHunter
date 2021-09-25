@@ -513,6 +513,11 @@ PrefabInstance:
       propertyPath: direction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4617528063584786488, guid: 3a4737fd96585475d9300bedcb0d64f1,
+        type: 3}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 1907380267}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a4737fd96585475d9300bedcb0d64f1, type: 3}
 --- !u!4 &654519224 stripped
@@ -1365,6 +1370,11 @@ PrefabInstance:
       propertyPath: direction
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4617528063584786488, guid: 3a4737fd96585475d9300bedcb0d64f1,
+        type: 3}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 1907380267}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a4737fd96585475d9300bedcb0d64f1, type: 3}
 --- !u!4 &1443896215 stripped
@@ -1636,10 +1646,13 @@ MonoBehaviour:
   type: 0
   currHp: 4
   defaultDeath: 0
+  DOTDamage: 0
+  DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
   fullHp: 20
+  debug: 0
 --- !u!58 &1488162120
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2328,6 +2341,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 428938d9c3b1449d78739f0013f8b6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1907380267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837925358381900538, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907380262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20919a921014b40f88f3cb6373b0ce58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2007173653

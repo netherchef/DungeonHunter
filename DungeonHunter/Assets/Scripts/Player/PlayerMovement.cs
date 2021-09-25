@@ -12,12 +12,17 @@ public class PlayerMovement : MonoBehaviour
 
 	public SceneBounds sceneBounds;
 
+	[SerializeField]
+	private PlayerAnimator animator;
+
 	// Variables
 
 	private float speed = 2f;
 
 	public void Move (Vector2 dir)
 	{
+		animator.AnimateByDir (dir);
+
 		Vector3 tempPos = master.position;
 
 		tempPos += new Vector3 (dir.x, dir.y) * speed * Time.deltaTime;

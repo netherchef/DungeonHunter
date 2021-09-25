@@ -27,11 +27,34 @@ public class PlayerAttack : MonoBehaviour
 	[SerializeField]
 	private Attack_Effect currEffect;
 
-	public IEnumerator Attack ()
+	public IEnumerator Attack (Vector2 dir)
 	{
+		// Animate
+
 		spriteRenderer.sprite = attackSprite;
 
+		// Prep Collider
+
+		Vector3 tempRot = attackCollider.transform.localRotation.eulerAngles;
+
+		Vector2 absDir = new Vector2 (Mathf.Abs (dir.x), Mathf.Abs (dir.y));
+
+		if (absDir.x > absDir.y)
+		{
+			if (dir.x > 0) tempRot.z = 180;
+			else if (dir.x < 0) tempRot.z = 0;
+		}
+		else if (absDir.y > absDir.x)
+		{
+			if (dir.y > 0) tempRot.z = -90;
+			else if (dir.y < 0) tempRot.z = 90;
+		}
+
+		attackCollider.transform.localRotation = Quaternion.Euler (tempRot.x, tempRot.y, tempRot.z);
+
 		attackCollider.enabled = true;
+
+		// Attack Sequence
 
 		bool done = false;
 

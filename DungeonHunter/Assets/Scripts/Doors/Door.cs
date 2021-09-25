@@ -6,6 +6,13 @@ public enum DoorDirection { NULL, Up, Down, Left, Right }
 
 public class Door : MonoBehaviour
 {
+	//[Header ("Scripts:")]
+
+	//[SerializeField]
+	//private PlayerInputHandler inputHandler;
+
+	[Header ("Variables:")]
+
 	public DoorDirection direction;
 	public bool triggered;
 
@@ -16,19 +23,19 @@ public class Door : MonoBehaviour
 			switch (direction)
 			{
 				case DoorDirection.Up:
-					if (Input.GetAxisRaw ("Vertical") > 0) triggered = true;
+					if (PlayerInputHandler.Direction ().y > 0 && direction == DoorDirection.Up) triggered = true;
 					break;
 
 				case DoorDirection.Down:
-					if (Input.GetAxisRaw ("Vertical") < 0) triggered = true;
+					if (PlayerInputHandler.Direction ().y < 0 && direction == DoorDirection.Down) triggered = true;
 					break;
 
 				case DoorDirection.Left:
-					if (Input.GetAxisRaw ("Horizontal") < 0) triggered = true;
+					if (PlayerInputHandler.Direction ().x < 0 && direction == DoorDirection.Left) triggered = true;
 					break;
 
 				case DoorDirection.Right:
-					if (Input.GetAxisRaw ("Horizontal") > 0) triggered = true;
+					if (PlayerInputHandler.Direction ().x > 0 && direction == DoorDirection.Right) triggered = true;
 					break;
 
 				case DoorDirection.NULL:

@@ -89,23 +89,23 @@ public class DoorHandler : MonoBehaviour
 		{
 			foreach (Door door in doors)
 			{
-				if (door.triggered && InputMatchDoorDir (door))
-					ChangeScene (door);
+				//if (door.triggered && InputMatchDoorDir (door))
+				if (door.triggered) ChangeScene (door);
 			}
 
 			yield return null;
 		}
 	}
 
-	private bool InputMatchDoorDir (Door door)
-	{
-		if (Input.GetAxisRaw ("Horizontal") > 0 && door.direction == DoorDirection.Right) return true;
-		if (Input.GetAxisRaw ("Horizontal") < 0 && door.direction == DoorDirection.Left) return true;
-		if (Input.GetAxisRaw ("Vertical") > 0 && door.direction == DoorDirection.Up) return true;
-		if (Input.GetAxisRaw ("Vertical") < 0 && door.direction == DoorDirection.Down) return true;
+	//private bool InputMatchDoorDir (Door door)
+	//{
+	//	if (Input.GetAxisRaw ("Horizontal") > 0 && door.direction == DoorDirection.Right) return true;
+	//	if (Input.GetAxisRaw ("Horizontal") < 0 && door.direction == DoorDirection.Left) return true;
+	//	if (Input.GetAxisRaw ("Vertical") > 0 && door.direction == DoorDirection.Up) return true;
+	//	if (Input.GetAxisRaw ("Vertical") < 0 && door.direction == DoorDirection.Down) return true;
 
-		return false;
-	}
+	//	return false;
+	//}
 
 	private void ChangeScene (Door door)
 	{
