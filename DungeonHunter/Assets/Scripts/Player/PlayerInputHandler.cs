@@ -12,6 +12,8 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 	[SerializeField]
 	private PlayerDirection direction;
 	public Dodge dodge;
+	[SerializeField]
+	private HealthSystem healthSystem;
 
 	//public SpriteFlipper spriteFlipper;
 
@@ -59,7 +61,7 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 
 	private IEnumerator DoInput ()
 	{
-		while (enabled)
+		while (!healthSystem.Dead ())
 		{
 			// Dodge
 

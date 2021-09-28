@@ -18,8 +18,6 @@ public class HealthSystem : MonoBehaviour
 
 	[Space (10)]
 
-	//[SerializeField]
-	//private Attack_Effect affectedBy;
 	[SerializeField]
 	private int DOTDamage;
 	[SerializeField]
@@ -83,14 +81,8 @@ public class HealthSystem : MonoBehaviour
 
 				// Invincibility or Death
 
-				if (currHp > 0)
-				{
-					invincibility.GoInvincible ();
-				}
-				else
-				{
-					playerDeath.ShowDeathScreen ();
-				}
+				if (currHp > 0) invincibility.GoInvincible ();
+				else playerDeath.StartDeath ();
 			}
 		}
 		else
@@ -112,6 +104,11 @@ public class HealthSystem : MonoBehaviour
 	public bool Dead ()
 	{
 		return currHp <= 0;
+	}
+
+	public int CurrHP ()
+	{
+		return currHp;
 	}
 
 	#region DOT ________________________________________________________________

@@ -1,17 +1,8 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerDeath.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Player/PlayerInputHandler.cs" Line="11" Column="39" />
-      <File FileName="Assets/Scripts/Player/PlayerAttack.cs" Line="44" Column="35" />
-      <File FileName="Assets/Scripts/Player/PlayerDirection.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Doors/Door.cs" Line="30" Column="95" />
-      <File FileName="Assets/Scripts/Doors/DoorHandler.cs" Line="93" Column="25" />
-      <File FileName="Assets/Scripts/Player/PlayerDeath.cs" Line="22" Column="3" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fa85480c-5509-4fa4-9058-a22f65ad79e3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0fc14c34-fc8a-458e-847f-81c1612ba89f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

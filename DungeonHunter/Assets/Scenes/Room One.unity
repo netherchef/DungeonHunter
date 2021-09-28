@@ -1953,6 +1953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 1569642161}
+  animator: {fileID: 1907380268}
   startingScene: Entrance
 --- !u!4 &1763897829
 Transform:
@@ -2253,6 +2254,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20919a921014b40f88f3cb6373b0ce58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1907380268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2774957491513415823, guid: 1d19c0cd80fbe4c5999cf7dc68261aa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907380262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321e513d7ae1847ee87cad74797ed943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2007173653

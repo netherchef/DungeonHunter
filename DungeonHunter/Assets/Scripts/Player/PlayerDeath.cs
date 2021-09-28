@@ -5,7 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
-	public GameObject deathScreen;
+	[Header ("Components:")]
+
+	[SerializeField]
+	private GameObject deathScreen;
+
+	[Header ("Scripts:")]
+
+	[SerializeField]
+	private PlayerAnimator animator;
+
+	[Header ("Variables:")]
 
 	public string startingScene = "Entrance";
 
@@ -13,16 +23,20 @@ public class PlayerDeath : MonoBehaviour
 
 	private IEnumerator doDeath;
 
-	public void ShowDeathScreen ()
+	public void StartDeath ()
 	{
-		deathScreen.SetActive (true);
-
 		doDeath = DoDeath ();
 		StartCoroutine (doDeath);
 	}
 
 	private IEnumerator DoDeath ()
 	{
+		animator.Set_Dead (true);
+
+		for (float timer = 5f; timer > 0; timer -= Time.deltaTime) yield return null;
+
+		deathScreen.SetActive (true);
+
 		if (PlayerInputHandler.Interact_ButtonDown ()) yield return null;
 
 		while (!PlayerInputHandler.Interact_ButtonDown ()) yield return null;

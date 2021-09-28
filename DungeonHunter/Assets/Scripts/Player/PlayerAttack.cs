@@ -15,6 +15,11 @@ public class PlayerAttack : MonoBehaviour
 
 	public BoxCollider2D attackCollider;
 
+	[Header ("Scripts:")]
+
+	[SerializeField]
+	private PlayerAnimator animator;
+
 	[Header ("Variables:")]
 
 	[SerializeField]
@@ -41,39 +46,67 @@ public class PlayerAttack : MonoBehaviour
 
 		if (absDir.x > absDir.y)
 		{
-			if (dir.x > 0) tempRot.z = 180;
-			else if (dir.x < 0) tempRot.z = 0;
+			if (dir.x > 0) // Right
+			{
+				tempRot.z = 180;
+
+				animator.Set_FacingRight ();
+			}
+			else if (dir.x < 0) // Left
+			{
+				tempRot.z = 0;
+
+				animator.Set_FacingLeft ();
+			}
 		}
 		else if (absDir.y > absDir.x)
 		{
-			if (dir.y > 0) tempRot.z = -90;
-			else if (dir.y < 0) tempRot.z = 90;
+			if (dir.y > 0) // Up
+			{
+				tempRot.z = -90;
+
+				animator.Set_FacingUp ();
+			}
+			else if (dir.y < 0) // Down
+			{
+				tempRot.z = 90;
+
+				animator.Set_FacingDown ();
+			}
 		}
 
-		attackCollider.transform.localRotation = Quaternion.Euler (tempRot.x, tempRot.y, tempRot.z);
+		attackCollider.transform.localRotation = Quaternion.Euler (tempRot.x, tempRot.y, tempRot.z); // Decide Attack Direction
 
-		attackCollider.enabled = true;
+		attackCollider.enabled = true; // Enable Collider
 
 		// Attack Sequence
 
-		bool done = false;
+		animator.Set_Attacking (true);
 
-		float animTimer = animDuration;
-		float colTimer = colDuration;
+		for (float timer = 0.25f; timer > 0; timer -= Time.deltaTime) yield return null;
 
-		while (!done)
-		{
-			if (animTimer > 0) animTimer -= Time.deltaTime;
+		attackCollider.enabled = false;
 
-			if (colTimer > 0) colTimer -= Time.deltaTime;
-			else attackCollider.enabled = false;
+		animator.Set_Attacking (false);
 
-			if (animTimer <= 0 && colTimer <= 0) done = true;
+		//bool done = false;
 
-			yield return null;
-		}
+		//float animTimer = animDuration;
+		//float colTimer = colDuration;
 
-		spriteRenderer.sprite = initSprite;
+		//while (!done)
+		//{
+		//	if (animTimer > 0) animTimer -= Time.deltaTime;
+
+		//	if (colTimer > 0) colTimer -= Time.deltaTime;
+		//	else attackCollider.enabled = false;
+
+		//	if (animTimer <= 0 && colTimer <= 0) done = true;
+
+		//	yield return null;
+		//}
+
+		//spriteRenderer.sprite = initSprite;
 	}
 
 	#region Set Damage _________________________________________________________
@@ -100,12 +133,10 @@ public class PlayerAttack : MonoBehaviour
 	{
 		if (collision.CompareTag ("AttackTarget"))
 		{
-			// Attack Effects
+			HealthSystem targHealth = collision.GetComponent<HealthSystem> ();
 
 			if (currEffect == Attack_Effect.DOT)
 			{
-				HealthSystem targHealth = collision.GetComponent<HealthSystem> ();
-
 				// Apply DOT Effect
 
 				targHealth.ApplyDOT (1, 5);
@@ -118,7 +149,9 @@ public class PlayerAttack : MonoBehaviour
 			{
 				// Basic Attack
 
-				collision.GetComponent<HealthSystem> ().Damage (currDamage);
+				targHealth.Damage (currDamage);
+
+				Debug.Log ("Damage " + targHealth.transform.name + " | " + "DMG: " + currDamage + ", " + "Final HP: " + targHealth.CurrHP ());
 			}
 		}
 	}

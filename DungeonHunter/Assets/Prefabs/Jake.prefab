@@ -198,6 +198,7 @@ MonoBehaviour:
   attackSprite: {fileID: 5350955492053121551, guid: cd68aa0ddca2044d4aea8bbf0fb3e22a,
     type: 3}
   attackCollider: {fileID: 5837925358231853008}
+  animator: {fileID: 2774957491513415823}
   currDamage: 1
   currEffect: 0
 --- !u!61 &5837925358231853008
@@ -307,6 +308,7 @@ MonoBehaviour:
   playerMovement: {fileID: 5837925358381900539}
   direction: {fileID: 9078384356771393117}
   dodge: {fileID: 3030159107448069241}
+  healthSystem: {fileID: 5837925358381900537}
   shop: {fileID: 0}
 --- !u!114 &5837925358381900539
 MonoBehaviour:
@@ -351,7 +353,7 @@ MonoBehaviour:
   master: {fileID: 5837925358381900517}
   type: 1
   currHp: 4
-  defaultDeath: 1
+  defaultDeath: 0
   DOTDamage: 0
   DOTDuration: 0
   invincibility: {fileID: 2291523592834361544}

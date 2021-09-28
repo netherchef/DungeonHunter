@@ -4,10 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 6285912514520907756
-    second: Jake Idle
+    second: Jake Idle - Down
   - first:
       213: 5350955492053121551
-    second: Jake Attack
+    second: Jake Attack - Side
+  - first:
+      213: 381060237469803124
+    second: Jake Idle - Up
+  - first:
+      213: -5705364590701319987
+    second: Jake Idle - Side
+  - first:
+      213: 6409333022842779489
+    second: Jake Attack - Down
+  - first:
+      213: -8755164594469859336
+    second: Jake Attack - Up
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jake Idle
+      name: Jake Idle - Down
       rect:
         serializedVersion: 2
         x: 0
@@ -113,7 +125,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,15 +138,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Attack
+      name: Jake Attack - Side
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
+        x: 96
+        y: 480
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,6 +154,90 @@ TextureImporter:
       bones: []
       spriteID: f0a70c06ba9624a40800000000000000
       internalID: 5350955492053121551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake Idle - Up
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472e96c544cc94500800000000000000
+      internalID: 381060237469803124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake Idle - Side
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8e721122972d0b0800000000000000
+      internalID: -5705364590701319987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake Attack - Down
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16779b91d6682f850800000000000000
+      internalID: 6409333022842779489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake Attack - Up
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff0c8c20386f7680800000000000000
+      internalID: -8755164594469859336
       vertices: []
       indices: 
       edges: []
