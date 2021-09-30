@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Doors\DoorHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\Ancient Guard\AncientGuardFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\Bat\Bat.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Bat\BatAnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\Bat\BatCollider.cs" />
     <Compile Include="Assets\Scripts\Enemy\Bat\BatHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAnimatorFunctions.cs" />

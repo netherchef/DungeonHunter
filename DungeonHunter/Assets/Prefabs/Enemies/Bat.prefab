@@ -48,6 +48,7 @@ MonoBehaviour:
   body: {fileID: 3555007252954999708}
   batCollider: {fileID: 3555007252954999711}
   healthSystem: {fileID: 3555007252954999705}
+  batAnim: {fileID: 6955173649098131703}
 --- !u!1 &3555007252837823005
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 8225036372641592557, guid: 38bc80faa9b4d4f8fac69c3a55ca479f,
     type: 3}
-  m_Color: {r: 0.6608963, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -143,6 +144,7 @@ GameObject:
   - component: {fileID: 3555007252954999711}
   - component: {fileID: 3555007252954999705}
   - component: {fileID: 988299369579206678}
+  - component: {fileID: 6955173649098131703}
   m_Layer: 0
   m_Name: Bat Collider
   m_TagString: AttackTarget
@@ -207,12 +209,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 3555007251633281429}
+  type: 0
+  currHp: 2
+  defaultDeath: 0
+  DOTDamage: 0
+  DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
-  type: 0
-  currHp: 2
-  defaultDeath: 1
+  fullHp: 4
+  debug: 0
 --- !u!95 &988299369579206678
 Animator:
   serializedVersion: 3
@@ -232,3 +238,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6955173649098131703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555007252954999709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182f66a25773944e7b8bdb7643daa2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 988299369579206678}

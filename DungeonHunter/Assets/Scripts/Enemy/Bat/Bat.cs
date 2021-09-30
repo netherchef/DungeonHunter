@@ -17,6 +17,11 @@ public class Bat : MonoBehaviour
 	private Transform target;
 	private HealthSystem targetHealthSystem;
 
+	[Header ("Scripts:")]
+
+	[SerializeField]
+	private BatAnimatorFunctions batAnim;
+
 	// Variables
 
 	private float speed = 1f;
@@ -25,14 +30,12 @@ public class Bat : MonoBehaviour
 
 	private IEnumerator BatSeq { get { return DoBatSeq (); } }
 
-	public void Execute ()
-	{
-		StartCoroutine (BatSeq);
-	}
+	public void Execute () { StartCoroutine (BatSeq); }
 
 	private IEnumerator DoBatSeq ()
 	{
-		while (healthSystem.currHp > 0 && !targetHealthSystem.Dead ())
+		//while (healthSystem.currHp > 0 && !targetHealthSystem.Dead ())
+		while (!healthSystem.Dead ())
 		{
 			// Move
 
@@ -49,6 +52,10 @@ public class Bat : MonoBehaviour
 
 			yield return null;
 		}
+
+		// Death
+
+		batAnim.Set_Dead ();
 	}
 
 	public void MoveToPlayer (Vector3 playerPos)
