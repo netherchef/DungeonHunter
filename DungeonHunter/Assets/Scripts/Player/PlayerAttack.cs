@@ -26,9 +26,6 @@ public class PlayerAttack : MonoBehaviour
 	private int currDamage = 1;
 	private int initDamage = 1;
 
-	private float animDuration = 0.25f;
-	private float colDuration = 0.1f;
-
 	[SerializeField]
 	private Attack_Effect currEffect;
 

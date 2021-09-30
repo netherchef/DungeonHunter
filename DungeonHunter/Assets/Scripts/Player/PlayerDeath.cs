@@ -33,7 +33,7 @@ public class PlayerDeath : MonoBehaviour
 	{
 		animator.Set_Dead (true);
 
-		for (float timer = 5f; timer > 0; timer -= Time.deltaTime) yield return null;
+		for (float timer = 3f; timer > 0; timer -= Time.deltaTime) yield return null;
 
 		deathScreen.SetActive (true);
 
