@@ -6,7 +6,7 @@ public class Bat : MonoBehaviour
 {
 	[Header ("Components:")]
 
-	public Transform bodyHolder;
+	public Transform master;
 	public Transform body;
 
 	[SerializeField]
@@ -26,6 +26,13 @@ public class Bat : MonoBehaviour
 
 	private float speed = 1f;
 
+	private bool attacking;
+	private bool swoop;
+
+	private Vector3 atkStartPos;
+	private Vector3 attackDir;
+	private Vector3 atkEndPos;
+
 	// Enumerators
 
 	private IEnumerator BatSeq { get { return DoBatSeq (); } }
@@ -34,33 +41,115 @@ public class Bat : MonoBehaviour
 
 	private IEnumerator DoBatSeq ()
 	{
-		//while (healthSystem.currHp > 0 && !targetHealthSystem.Dead ())
-		while (!healthSystem.Dead ())
+		while (enabled)
 		{
-			// Move
-
-			MoveToPlayer (target.position);
-
-			// Damage
-
-			if (batCollider.triggered)
+			if (!healthSystem.Dead ())
 			{
-				batCollider.triggered = false;
+				if (!attacking)
+				{
+					if (Vector3.Magnitude (master.position - target.position) > 1)
+					{
+						// Move
 
-				targetHealthSystem.Damage ();
+						MoveToTarget (target.position);
+
+						// Damage
+
+						if (batCollider.triggered)
+						{
+							batCollider.triggered = false;
+
+							targetHealthSystem.Damage ();
+						}
+					}
+					else
+					{
+						attacking = true;
+
+						atkStartPos = master.position;
+						attackDir = Vector3.Normalize (target.position - master.position);
+						atkEndPos = atkStartPos + attackDir * 2f;
+					}
+				}
+				else
+				{
+					if (!swoop)
+					{
+						// Wind Up
+
+						if (Vector3.Magnitude (master.position - atkStartPos) < 0.75f)
+						{
+							master.Translate (-attackDir * speed * Time.deltaTime);
+						}
+						else
+						{
+							swoop = true;
+						}
+					}
+					else
+					{
+						if (Vector3.Magnitude (master.position - atkEndPos) > 0.1f)
+						{
+							Vector3 newPos = Vector3.Lerp (master.position, atkEndPos, speed * 3 * Time.deltaTime);
+
+							master.position = newPos;
+						}
+						else
+						{
+							attacking = false;
+							swoop = false;
+
+							atkStartPos = new Vector3 (0, 0, 0);
+							attackDir = new Vector3 (0, 0, 0);
+							atkEndPos = new Vector3 (0, 0, 0);
+						}
+					}
+				}
+			}
+			else
+			{
+				// Death
+
+				batAnim.Set_Dead ();
 			}
 
 			yield return null;
 		}
 
-		// Death
+		//while (healthSystem.currHp > 0 && !targetHealthSystem.Dead ())
+		//while (!healthSystem.Dead ())
+		//{
+		//	if (Vector3.Magnitude (master.position - target.position) > 1)
+		//	{
+		//		// Move
 
-		batAnim.Set_Dead ();
+		//		MoveToTarget (target.position);
+
+		//		// Damage
+
+		//		if (batCollider.triggered)
+		//		{
+		//			batCollider.triggered = false;
+
+		//			targetHealthSystem.Damage ();
+		//		}
+		//	}
+		//	else
+		//	{
+
+		//	}
+
+		//	yield return null;
+		//}
+
+		//// Death
+
+		//batAnim.Set_Dead ();
 	}
 
-	public void MoveToPlayer (Vector3 playerPos)
+	public void MoveToTarget (Vector3 targPos)
 	{
-		bodyHolder.Translate (Vector3.Normalize (playerPos - bodyHolder.position) * speed * Time.deltaTime);
+		master.Translate (Vector3.Normalize (targPos - master.position) * speed * Time.deltaTime);
 	}
 
 	public HealthSystem HealthSystem () { return healthSystem; }

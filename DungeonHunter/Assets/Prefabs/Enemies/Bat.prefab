@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0a6812b14004256b7f4e4c4943fba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyHolder: {fileID: 3555007251633281428}
+  master: {fileID: 3555007251633281428}
   body: {fileID: 3555007252954999708}
   batCollider: {fileID: 3555007252954999711}
   healthSystem: {fileID: 3555007252954999705}

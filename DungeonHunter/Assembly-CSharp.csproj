@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Audio\PlayerSounds.cs" />
     <Compile Include="Assets\Scripts\Doors\Door.cs" />
     <Compile Include="Assets\Scripts\Doors\DoorHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\Ancient Guard\AncientGuardFunctions.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Assets\Scripts\Enemy\Skeleton Priest\SkeletonPriestAnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\Skeleton Priest\SkeletonPriestFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\Skeleton Warrior\SkeletonWarriorFunctions.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Slime\SlimeAnimatorFunctions.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Slime\SlimeFunctions.cs" />
     <Compile Include="Assets\Scripts\Enemy\The Eye\TheEyeAnimator.cs" />
     <Compile Include="Assets\Scripts\Enemy\The Eye\TheEyeAttack.cs" />
     <Compile Include="Assets\Scripts\Health\HealthBar.cs" />

@@ -20,6 +20,9 @@ public class PlayerAttack : MonoBehaviour
 	[SerializeField]
 	private PlayerAnimator animator;
 
+	[SerializeField]
+	private PlayerSounds sounds;
+
 	[Header ("Variables:")]
 
 	[SerializeField]
@@ -28,6 +31,11 @@ public class PlayerAttack : MonoBehaviour
 
 	[SerializeField]
 	private Attack_Effect currEffect;
+
+	[Header ("Debug:")]
+
+	[SerializeField]
+	private bool debugAttack;
 
 	public IEnumerator Attack (Vector2 dir)
 	{
@@ -80,30 +88,13 @@ public class PlayerAttack : MonoBehaviour
 
 		animator.Set_Attacking (true);
 
+		sounds.Play_SwordSwing (); // Attack Sound
+
 		for (float timer = 0.25f; timer > 0; timer -= Time.deltaTime) yield return null;
 
 		attackCollider.enabled = false;
 
 		animator.Set_Attacking (false);
-
-		//bool done = false;
-
-		//float animTimer = animDuration;
-		//float colTimer = colDuration;
-
-		//while (!done)
-		//{
-		//	if (animTimer > 0) animTimer -= Time.deltaTime;
-
-		//	if (colTimer > 0) colTimer -= Time.deltaTime;
-		//	else attackCollider.enabled = false;
-
-		//	if (animTimer <= 0 && colTimer <= 0) done = true;
-
-		//	yield return null;
-		//}
-
-		//spriteRenderer.sprite = initSprite;
 	}
 
 	#region Set Damage _________________________________________________________
@@ -148,7 +139,10 @@ public class PlayerAttack : MonoBehaviour
 
 				targHealth.Damage (currDamage);
 
-				Debug.Log ("Damage " + targHealth.transform.name + " | " + "DMG: " + currDamage + ", " + "Final HP: " + targHealth.CurrHP ());
+#if UNITY_EDITOR
+				if (debugAttack)
+					Debug.Log ("Damage " + targHealth.transform.name + " | " + "DMG: " + currDamage + ", " + "Final HP: " + targHealth.CurrHP ());
+#endif
 			}
 		}
 	}
