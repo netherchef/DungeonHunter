@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Slime/SlimeFunctions.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Enemy/Slime/SlimeAnimatorFunctions.cs" Line="16" Column="69" />
-      <File FileName="Assets/Scripts/Enemy/Slime/SlimeFunctions.cs" Line="7" Column="12" />
-      <File FileName="Assets/Scripts/Enemy/Bat/Bat.cs" Line="14" Column="18" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e93a7502-e34f-4609-823c-72765c787aa1" />

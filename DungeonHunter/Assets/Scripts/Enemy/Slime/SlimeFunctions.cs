@@ -20,8 +20,12 @@ public class SlimeFunctions : MonoBehaviour
 	[SerializeField]
 	private SlimeAnimatorFunctions animFunctions;
 
-	[SerializeField]
 	private SceneBounds sceneBounds;
+
+	private HealthSystem targetHealth;
+	private CircleCollider2D targCol;
+
+	private LootHandler lootHandler;
 
 	// Variables
 
@@ -31,13 +35,7 @@ public class SlimeFunctions : MonoBehaviour
 
 	private IEnumerator SlimeSeq { get { return DoSlimeSeq (); } }
 
-	// !!! TEMPORARY !!!
-	private void Start () { Execute (); }
-
-	public void Execute ()
-	{
-		StartCoroutine (SlimeSeq);
-	}
+	public void Execute () { StartCoroutine (SlimeSeq); }
 
 	private IEnumerator DoSlimeSeq ()
 	{
@@ -60,5 +58,32 @@ public class SlimeFunctions : MonoBehaviour
 		animFunctions.Set_Dead (true); // Death Animation
 
 		while (animFunctions.Is_Dead ()) yield return null;
+	}
+
+	public HealthSystem HealthSystem () { return health; }
+
+	public void Set_TargetTransform (Transform trans)
+	{
+		target = trans;
+	}
+
+	public void Set_TargetHealthSystem (HealthSystem healthSys)
+	{
+		targetHealth = healthSys;
+	}
+
+	public void Set_TargetCollider (CircleCollider2D col)
+	{
+		targCol = col;
+	}
+
+	public void Set_LootHandler (LootHandler handler)
+	{
+		lootHandler = handler;
+	}
+
+	public void Set_SceneBounds (SceneBounds sb)
+	{
+		sceneBounds = sb;
 	}
 }

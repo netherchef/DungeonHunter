@@ -47,6 +47,10 @@ MonoBehaviour:
   target: {fileID: 0}
   targetCollider: {fileID: 0}
   enemyContainer: {fileID: 2348696005510329857}
+  targetHealthSystem: {fileID: 0}
+  lootHandler: {fileID: 0}
+  sceneBounds: {fileID: 0}
+  doorHandler: {fileID: 0}
   skeletonWarriorPrefab: {fileID: 7637710667489682886, guid: 72a931d1e5ce14720b33b45d3b4b5c61,
     type: 3}
   skeletonPriestPrefab: {fileID: 5571398295516082666, guid: f3f0332fd6a3f44baac69a6c534f3880,
@@ -55,10 +59,8 @@ MonoBehaviour:
     type: 3}
   ancientGuardPrefab: {fileID: 1527569315933954759, guid: 22aee1b101cfb4f9d82ffc8981193b3e,
     type: 3}
-  targetHealthSystem: {fileID: 0}
-  lootHandler: {fileID: 0}
-  sceneBounds: {fileID: 0}
-  doorHandler: {fileID: 0}
+  slimePrefab: {fileID: 4267519591673847523, guid: dbc1a7477c93d420581d8c6055631639,
+    type: 3}
   spawnOnEntry: 
 --- !u!114 &3108589866237998629
 MonoBehaviour:

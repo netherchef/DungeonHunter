@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 #endif
 
-public enum EnemyType { NULL, SkeletonWarrior, SkeletonPriest, Bat, AncientGuard }
+public enum EnemyType { NULL, SkeletonWarrior, SkeletonPriest, Bat, AncientGuard, Slime }
 
 [System.Serializable]
 public struct Enemy
@@ -41,15 +41,6 @@ public class EnemyHandler : MonoBehaviour
 
 	public Transform enemyContainer;
 
-	[SerializeField]
-	private GameObject skeletonWarriorPrefab;
-	[SerializeField]
-	private GameObject skeletonPriestPrefab;
-	[SerializeField]
-	private GameObject batPrefab;
-	[SerializeField]
-	private GameObject ancientGuardPrefab;
-
 	[Header ("Scripts:")]
 
 	[SerializeField]
@@ -60,6 +51,19 @@ public class EnemyHandler : MonoBehaviour
 
 	[SerializeField]
 	private DoorHandler doorHandler;
+
+	[Header ("Prefabs:")]
+
+	[SerializeField]
+	private GameObject skeletonWarriorPrefab;
+	[SerializeField]
+	private GameObject skeletonPriestPrefab;
+	[SerializeField]
+	private GameObject batPrefab;
+	[SerializeField]
+	private GameObject ancientGuardPrefab;
+	[SerializeField]
+	private GameObject slimePrefab;
 
 	[Header ("Variables:")]
 
@@ -96,6 +100,9 @@ public class EnemyHandler : MonoBehaviour
 					break;
 				case EnemyType.AncientGuard:
 					Spawn_AncientGuard ();
+					break;
+				case EnemyType.Slime:
+					Spawn_Slime ();
 					break;
 			}
 		}
@@ -189,6 +196,27 @@ public class EnemyHandler : MonoBehaviour
 		ag.Set_LootHandler (lootHandler);
 
 		ag.Execute ();
+	}
+
+	private void Spawn_Slime ()
+	{
+		GameObject newEnemy = Instantiate (slimePrefab, sceneBounds.RandomPointInBounds (), Quaternion.identity, enemyContainer);
+
+		SlimeFunctions sf = newEnemy.GetComponent<SlimeFunctions> ();
+
+		enemyHealths.Add (sf.HealthSystem ());
+
+		sf.Set_TargetTransform (target);
+
+		sf.Set_TargetHealthSystem (targetHealthSystem);
+
+		sf.Set_TargetCollider (targetCollider);
+
+		sf.Set_LootHandler (lootHandler);
+
+		sf.Set_SceneBounds (sceneBounds);
+
+		sf.Execute ();
 	}
 
 #if UNITY_EDITOR
