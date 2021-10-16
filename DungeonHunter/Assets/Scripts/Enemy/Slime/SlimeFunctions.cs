@@ -10,6 +10,9 @@ public class SlimeFunctions : MonoBehaviour
 	private Transform master;
 
 	[SerializeField]
+	private CircleCollider2D attackCollider;
+
+	[SerializeField]
 	private Transform target;
 
 	[Header ("Scripts:")]
@@ -19,6 +22,9 @@ public class SlimeFunctions : MonoBehaviour
 
 	[SerializeField]
 	private SlimeAnimatorFunctions animFunctions;
+
+	[SerializeField]
+	private JumpArch jumpArch;
 
 	private SceneBounds sceneBounds;
 
@@ -43,11 +49,42 @@ public class SlimeFunctions : MonoBehaviour
 		{
 			if (!health.Dead ())
 			{
-				Vector3 dir = Vector3.Normalize (target.position - master.position);
+				if (Vector3.Distance (target.position, master.position) > 1f)
+				{
+					Vector3 dir = Vector3.Normalize (target.position - master.position);
 
-				Vector3 newPos = sceneBounds.ClampPointInBounds (master.position + (dir * speed * Time.deltaTime));
+					Vector3 newPos = sceneBounds.ClampPointInBounds (master.position + (dir * speed * Time.deltaTime));
 
-				master.position = newPos;
+					master.position = newPos;
+				}
+				else
+				{
+					// Attack
+
+					jumpArch.Jump (master.position, target.position, 4, 0.5f);
+
+					while (jumpArch.Is_Jumping ()) yield return null;
+
+					attackCollider.enabled = true;
+
+					for (float attackDur = 0.5f; attackDur > 0; attackDur -= Time.deltaTime)
+					{
+						if (attackCollider.IsTouching (targCol))
+						{
+							targetHealth.Damage ();
+
+							attackCollider.enabled = false;
+
+							attackDur = 0;
+						}
+
+						yield return null; // Attack Collision
+					}
+
+					attackCollider.enabled = false;
+
+					for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) yield return null; // Cooldown
+				}
 			}
 
 			yield return null;
@@ -55,9 +92,11 @@ public class SlimeFunctions : MonoBehaviour
 
 		// Death
 
-		animFunctions.Set_Dead (true); // Death Animation
+		animFunctions.Set_Dead (true); // Start Death Animation
 
-		while (animFunctions.Is_Dead ()) yield return null;
+		while (animFunctions.Is_Dead ()) yield return null; // Wait for Death Animation to End.
+
+		lootHandler.DropGold (master.position);
 	}
 
 	public HealthSystem HealthSystem () { return health; }

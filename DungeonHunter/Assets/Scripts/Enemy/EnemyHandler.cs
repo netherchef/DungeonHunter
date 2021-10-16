@@ -33,6 +33,11 @@ public struct Enemy
 //[ExecuteInEditMode]
 public class EnemyHandler : MonoBehaviour
 {
+	[Header ("Enemies:")]
+
+	[SerializeField]
+	private EnemyType[] spawnOnEntry;
+
 	[Header ("Components:")]
 
 	public Transform target;
@@ -66,9 +71,6 @@ public class EnemyHandler : MonoBehaviour
 	private GameObject slimePrefab;
 
 	[Header ("Variables:")]
-
-	[SerializeField]
-	private EnemyType[] spawnOnEntry;
 
 	private List<HealthSystem> enemyHealths = new List<HealthSystem> ();
 

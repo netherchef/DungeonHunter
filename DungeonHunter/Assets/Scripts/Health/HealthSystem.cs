@@ -39,6 +39,8 @@ public class HealthSystem : MonoBehaviour
 
 	[SerializeField]
 	private bool debug;
+	[SerializeField]
+	private bool godMode;
 
 	// !!! TEMPORARY !!!
 	private void Start () { Prep (); }
@@ -50,6 +52,10 @@ public class HealthSystem : MonoBehaviour
 
 	public void Damage (int value = 1)
 	{
+#if UNITY_EDITOR
+		if (godMode) return;
+#endif
+
 		DecreaseHP (value);
 	}
 
