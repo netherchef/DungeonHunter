@@ -51,7 +51,7 @@ public class AncientGuardFunctions : MonoBehaviour
 		{
 			// Move
 
-			while (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f)
+			while (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Dead ())
 			{
 				Move ();
 
@@ -62,17 +62,27 @@ public class AncientGuardFunctions : MonoBehaviour
 
 			sr.color = Color.red;
 
-			for (float chargeTime = 2f; chargeTime > 0; chargeTime -= Time.deltaTime) yield return null;
+			for (float chargeTime = 2f; chargeTime > 0; chargeTime -= Time.deltaTime)
+			{
+				if (healthSystem.Dead ()) chargeTime = 0;
+
+				yield return null;
+			}
 
 			// Attack
 
 			sr.color = Color.white;
 
-			yield return Attack ();
+			if (!healthSystem.Dead ()) yield return Attack ();
 
 			// Cool Down
 
-			for (float cooldown = 1f; cooldown > 0; cooldown -= Time.deltaTime) yield return null;
+			for (float cooldown = 1f; cooldown > 0; cooldown -= Time.deltaTime)
+			{
+				if (healthSystem.Dead ()) cooldown = 0;
+
+				yield return null;
+			}
 
 			yield return null;
 		}
