@@ -98,7 +98,8 @@ public class Bat : MonoBehaviour
 							if (batCollider.triggered)
 							{
 								batCollider.triggered = false;
-								batCollider.enabled = false;
+
+								batCollider.enabled = false; // Disable Attack
 
 								// Damage Player
 
@@ -117,6 +118,15 @@ public class Bat : MonoBehaviour
 							atkStartPos = new Vector3 (0, 0, 0);
 							attackDir = new Vector3 (0, 0, 0);
 							atkEndPos = new Vector3 (0, 0, 0);
+
+							if (batCollider.enabled) batCollider.enabled = false; // Disable Attack
+
+							for (float coolDown = 1f; coolDown > 0; coolDown -= Time.deltaTime)
+							{
+								if (healthSystem.Dead ()) batAnim.Set_Dead (true);
+
+								yield return null;
+							}
 						}
 					}
 				}
@@ -125,7 +135,7 @@ public class Bat : MonoBehaviour
 			{
 				// Death
 
-				batAnim.Set_Dead ();
+				batAnim.Set_Dead (true);
 			}
 
 			yield return null;

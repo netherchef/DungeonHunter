@@ -219,6 +219,7 @@ MonoBehaviour:
   playerDeath: {fileID: 0}
   fullHp: 4
   debug: 0
+  godMode: 0
 --- !u!95 &988299369579206678
 Animator:
   serializedVersion: 3
@@ -250,4 +251,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182f66a25773944e7b8bdb7643daa2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: {fileID: 3555007251633281429}
   animator: {fileID: 988299369579206678}
