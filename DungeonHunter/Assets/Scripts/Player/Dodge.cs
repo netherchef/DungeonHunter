@@ -22,7 +22,7 @@ public class Dodge : MonoBehaviour
 	[SerializeField]
 	private float dodgeSpeed = 6f;
 
-	public IEnumerator DoDodge ()
+	public IEnumerator DoDodge (HealthSystem health)
 	{
 		Vector3 dir = direction.GetDirection ();
 
@@ -30,7 +30,7 @@ public class Dodge : MonoBehaviour
 
 		bool dodging = true;
 
-		while (dodging)
+		while (dodging && !health.Dead ())
 		{
 			Vector3 next = Vector3.Lerp (playerTransform.position, dest, dodgeSpeed * Time.deltaTime);
 

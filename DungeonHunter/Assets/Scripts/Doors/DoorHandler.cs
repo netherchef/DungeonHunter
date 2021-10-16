@@ -73,6 +73,13 @@ public class DoorHandler : MonoBehaviour
 		// Get Doors in Scene
 
 		doors = DoorsFromContainer (doorContainer);
+
+		// Disable All Doors
+
+		foreach (Door door in doors)
+		{
+			door.transform.GetComponent<CircleCollider2D> ().enabled = false;
+		}
 	}
 
 	public void Execute ()
@@ -85,6 +92,13 @@ public class DoorHandler : MonoBehaviour
 	{
 		while (locked) yield return null;
 
+		// Enable all Doors
+
+		foreach (Door door in doors)
+		{
+			door.transform.GetComponent<CircleCollider2D> ().enabled = true;
+		}
+
 		while (enabled)
 		{
 			foreach (Door door in doors)
@@ -96,16 +110,6 @@ public class DoorHandler : MonoBehaviour
 			yield return null;
 		}
 	}
-
-	//private bool InputMatchDoorDir (Door door)
-	//{
-	//	if (Input.GetAxisRaw ("Horizontal") > 0 && door.direction == DoorDirection.Right) return true;
-	//	if (Input.GetAxisRaw ("Horizontal") < 0 && door.direction == DoorDirection.Left) return true;
-	//	if (Input.GetAxisRaw ("Vertical") > 0 && door.direction == DoorDirection.Up) return true;
-	//	if (Input.GetAxisRaw ("Vertical") < 0 && door.direction == DoorDirection.Down) return true;
-
-	//	return false;
-	//}
 
 	private void ChangeScene (Door door)
 	{

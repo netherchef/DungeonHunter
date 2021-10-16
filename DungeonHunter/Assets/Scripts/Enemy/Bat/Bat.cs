@@ -41,6 +41,8 @@ public class Bat : MonoBehaviour
 
 	private IEnumerator DoBatSeq ()
 	{
+		batCollider.enabled = false;
+
 		while (enabled)
 		{
 			if (!healthSystem.Dead ())
@@ -55,16 +57,16 @@ public class Bat : MonoBehaviour
 
 						// Damage
 
-						if (batCollider.triggered)
-						{
-							batCollider.triggered = false;
+						//if (batCollider.triggered)
+						//{
+						//	batCollider.triggered = false;
 
-							targetHealthSystem.Damage ();
-						}
+						//	targetHealthSystem.Damage ();
+						//}
 					}
 					else
 					{
-						attacking = true;
+						attacking = true; // Player found, start Attack
 
 						atkStartPos = master.position;
 						attackDir = Vector3.Normalize (target.position - master.position);
@@ -84,12 +86,25 @@ public class Bat : MonoBehaviour
 						else
 						{
 							swoop = true;
+
+							batCollider.enabled = true;
 						}
 					}
 					else
 					{
 						if (Vector3.Magnitude (master.position - atkEndPos) > 0.1f)
 						{
+
+							if (batCollider.triggered)
+							{
+								batCollider.triggered = false;
+								batCollider.enabled = false;
+
+								// Damage Player
+
+								targetHealthSystem.Damage ();
+							}
+
 							Vector3 newPos = Vector3.Lerp (master.position, atkEndPos, speed * 3 * Time.deltaTime);
 
 							master.position = newPos;

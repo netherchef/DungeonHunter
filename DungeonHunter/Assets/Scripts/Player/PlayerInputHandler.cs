@@ -11,7 +11,8 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 	public PlayerMovement playerMovement;
 	[SerializeField]
 	private PlayerDirection direction;
-	public Dodge dodge;
+	[SerializeField]
+	private Dodge dodge;
 	[SerializeField]
 	private HealthSystem healthSystem;
 
@@ -26,6 +27,7 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 	private static Vector2 dirInput;
 	private static bool interact;
 	private bool attack;
+	private bool doDodge;
 
 	// Enumerators
 
@@ -48,11 +50,20 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 		}
 	}
 
+	public void OnDodge (InputAction.CallbackContext context)
+	{
+		if (context.started)
+		{
+			doDodge = true;
+		}
+	}
+
 	public void OnDirection (InputAction.CallbackContext context)
 	{
 		dirInput = context.ReadValue<Vector2> ();
 	}
 
+	// !!! TEMPORARY !!!
 	private void Start ()
 	{
 		doInput = DoInput ();
@@ -65,21 +76,27 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 		{
 			// Dodge
 
-			//if (Input.GetButtonDown ("Dodge")) yield return dodge.DoDodge ();
+			if (doDodge)
+			{
+				doDodge = false;
+
+				yield return dodge.DoDodge (healthSystem);
+			}
 
 			// Submit
 
-			//if (Input.GetButtonDown ("Submit"))
-			//{
-			//	// Shop
+			if (interact)
+			{
+				interact = false;
 
-			//	if (shop) shop.MakePurchase ();
-
+				if (shop) shop.MakePurchase (); // Shop
+			}
 			// Attack
 
 			if (attack)
 			{
-				yield return playerAttack.Attack (Vector3.Normalize (dirInput));
+				//yield return playerAttack.Attack (Vector3.Normalize (dirInput));
+				yield return playerAttack.Attack (direction.GetDirection ());
 
 				attack = false;
 			}
@@ -115,7 +132,7 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 
 			// Record Direction Changes
 
-			//if (dirInput != new Vector2 (0, 0)) direction.SetDirection (Vector3.Normalize (dirInput));
+			if (dirInput != new Vector2 (0, 0)) direction.SetDirection (Vector3.Normalize (dirInput));
 
 			// Move in Direction
 

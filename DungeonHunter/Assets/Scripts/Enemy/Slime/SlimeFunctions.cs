@@ -73,15 +73,15 @@ public class SlimeFunctions : MonoBehaviour
 						{
 							targetHealth.Damage ();
 
-							attackCollider.enabled = false;
+							attackCollider.enabled = false; // Disable Attack
 
 							attackDur = 0;
 						}
 
-						yield return null; // Attack Collision
+						yield return null;
 					}
 
-					attackCollider.enabled = false;
+					attackCollider.enabled = false; // Disable Attack
 
 					for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) yield return null; // Cooldown
 				}

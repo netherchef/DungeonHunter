@@ -31,6 +31,9 @@ public class PlayerAttack : MonoBehaviour
 
 	[SerializeField]
 	private Attack_Effect currEffect;
+	private float knockback = 0.2f;
+
+	private Vector2 attackDir;
 
 	[Header ("Debug:")]
 
@@ -39,6 +42,8 @@ public class PlayerAttack : MonoBehaviour
 
 	public IEnumerator Attack (Vector2 dir)
 	{
+		attackDir = dir;
+
 		// Animate
 
 		spriteRenderer.sprite = attackSprite;
@@ -123,27 +128,20 @@ public class PlayerAttack : MonoBehaviour
 		{
 			HealthSystem targHealth = collision.GetComponent<HealthSystem> ();
 
-			if (currEffect == Attack_Effect.DOT)
-			{
-				// Apply DOT Effect
+			if (currEffect == Attack_Effect.DOT) targHealth.ApplyDOT (1, 5); // DOT Effect
 
-				targHealth.ApplyDOT (1, 5);
+			// Basic Attack
 
-				// Basic Attack
+			targHealth.Damage (currDamage);
 
-				targHealth.Damage (currDamage);
-			}
-			else
-			{
-				// Basic Attack
+			// Knockback
 
-				targHealth.Damage (currDamage);
+			targHealth.transform.position += new Vector3 (attackDir.x, attackDir.y) * knockback;
 
 #if UNITY_EDITOR
-				if (debugAttack)
-					Debug.Log ("Damage " + targHealth.transform.name + " | " + "DMG: " + currDamage + ", " + "Final HP: " + targHealth.CurrHP ());
+			if (debugAttack)
+				Debug.Log ("Damage " + targHealth.transform.name + " | " + "DMG: " + currDamage + ", " + "Final HP: " + targHealth.CurrHP ());
 #endif
-			}
 		}
 	}
 

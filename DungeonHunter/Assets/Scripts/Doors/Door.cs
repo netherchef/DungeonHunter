@@ -20,30 +20,32 @@ public class Door : MonoBehaviour
 	{
 		if (collision.CompareTag ("Player"))
 		{
-			switch (direction)
-			{
-				case DoorDirection.Up:
-					if (PlayerInputHandler.Direction ().y > 0 && direction == DoorDirection.Up) triggered = true;
-					break;
+			triggered = true;
 
-				case DoorDirection.Down:
-					if (PlayerInputHandler.Direction ().y < 0 && direction == DoorDirection.Down) triggered = true;
-					break;
+//			switch (direction)
+//			{
+//				case DoorDirection.Up:
+//					if (PlayerInputHandler.Direction ().y > 0 && direction == DoorDirection.Up) triggered = true;
+//					break;
 
-				case DoorDirection.Left:
-					if (PlayerInputHandler.Direction ().x < 0 && direction == DoorDirection.Left) triggered = true;
-					break;
+//				case DoorDirection.Down:
+//					if (PlayerInputHandler.Direction ().y < 0 && direction == DoorDirection.Down) triggered = true;
+//					break;
 
-				case DoorDirection.Right:
-					if (PlayerInputHandler.Direction ().x > 0 && direction == DoorDirection.Right) triggered = true;
-					break;
+//				case DoorDirection.Left:
+//					if (PlayerInputHandler.Direction ().x < 0 && direction == DoorDirection.Left) triggered = true;
+//					break;
 
-				case DoorDirection.NULL:
-#if UNITY_EDITOR
-					Debug.LogWarning ("Direction NOT set for door: " + transform.name);
-#endif
-					break;
-			}
+//				case DoorDirection.Right:
+//					if (PlayerInputHandler.Direction ().x > 0 && direction == DoorDirection.Right) triggered = true;
+//					break;
+
+//				case DoorDirection.NULL:
+//#if UNITY_EDITOR
+//					Debug.LogWarning ("Direction NOT set for door: " + transform.name);
+//#endif
+			//		break;
+			//}
 		}
 	}
 }
