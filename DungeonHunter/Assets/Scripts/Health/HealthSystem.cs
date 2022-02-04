@@ -10,6 +10,9 @@ public class HealthSystem : MonoBehaviour
 
 	public GameObject master;
 
+	[SerializeField]
+	private CameraShaker camShaker;
+
 	[Header ("Generic Variables:")]
 
 	public UnitType type;
@@ -89,6 +92,10 @@ public class HealthSystem : MonoBehaviour
 
 				if (currHp > 0) invincibility.GoInvincible ();
 				else playerDeath.StartDeath ();
+
+				// Camera Shake
+
+				camShaker.Shake (0.2f, 2f);
 			}
 		}
 		else

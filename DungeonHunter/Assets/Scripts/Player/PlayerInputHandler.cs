@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
+public class PlayerInputHandler : MonoBehaviour
 {
 	[Header ("Scripts:")]
 
@@ -22,12 +21,12 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 
 	[Header ("Variables:")]
 
-	private InputMaster inputMaster;
+	//private InputMaster inputMaster;
 
-	private static Vector2 dirInput;
-	private static bool interact;
-	private bool attack;
-	private bool doDodge;
+	//private static Vector2 dirInput;
+	//private static bool interact;
+	//private bool attack;
+	//private bool doDodge;
 
 	// Enumerators
 
@@ -35,33 +34,34 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 
 	private void Awake ()
 	{
-		inputMaster = new InputMaster ();
-		inputMaster.Player.SetCallbacks (this);
+		// Input
 
-		inputMaster.Player.Enable ();
+		//inputMaster = new InputMaster ();
+		//inputMaster.Player.SetCallbacks (this);
+
+		//inputMaster.Player.Enable ();
 	}
 
-	public void OnInteract (InputAction.CallbackContext context)
-	{
-		if (context.started)
-		{
-			attack = true;
-			interact = true;
-		}
-	}
+	//public void OnInteract (InputAction.CallbackContext context)
+	//{
+	//	if (context.started)
+	//	{
+	//		attack = true;
+	//		interact = true;
+	//	}
+	//}
 
-	public void OnDodge (InputAction.CallbackContext context)
-	{
-		if (context.started)
-		{
-			doDodge = true;
-		}
-	}
+	//public void OnDodge (InputAction.CallbackContext context)
+	//{
+	//	if (context.started) doDodge = true;
+	//}
 
-	public void OnDirection (InputAction.CallbackContext context)
-	{
-		dirInput = context.ReadValue<Vector2> ();
-	}
+	//public void OnDirection (InputAction.CallbackContext context)
+	//{
+	//	dirInput = context.ReadValue<Vector2> ();
+	//}
+
+	//public void OnPause (InputAction.CallbackContext context) { }
 
 	// !!! TEMPORARY !!!
 	private void Start ()
@@ -76,59 +76,69 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 		{
 			// Dodge
 
-			if (doDodge)
-			{
-				doDodge = false;
+			if (Input.GetButtonDown ("Dodge")) yield return dodge.DoDodge (healthSystem);
 
-				yield return dodge.DoDodge (healthSystem);
-			}
+			//if (doDodge)
+			//{
+			//	doDodge = false;
+
+			//	yield return dodge.DoDodge (healthSystem);
+			//}
 
 			// Submit
 
-			if (interact)
+			if (Input.GetButtonDown ("Interact"))
 			{
-				interact = false;
-
 				if (shop) shop.MakePurchase (); // Shop
+
+				else yield return playerAttack.Attack (direction.GetDirection ()); // Attack
 			}
+
+			//if (interact)
+			//{
+			//	interact = false;
+
+			//	if (shop) shop.MakePurchase (); // Shop
+			//}
+
 			// Attack
 
-			if (attack)
-			{
-				//yield return playerAttack.Attack (Vector3.Normalize (dirInput));
-				yield return playerAttack.Attack (direction.GetDirection ());
+			//if (attack)
+			//{
+			//	//yield return playerAttack.Attack (Vector3.Normalize (dirInput));
+			//	yield return playerAttack.Attack (direction.GetDirection ());
 
-				attack = false;
-			}
+			//	attack = false;
+			//}
 			//}
 
 			// Direction
 
-			//Vector2 dirInput = new Vector2 (0, 0);
+			Vector2 dirInput = new Vector2 (0, 0);
 
-			//if (Input.GetAxisRaw ("Horizontal") > 0)
-			//{
-			//	//if (!facingRight)
-			//	//{
-			//	//	facingRight = !facingRight;
-			//	//	spriteFlipper.Flip ();
-			//	//}
+			if (Input.GetAxisRaw ("Horizontal") > 0)
+			{
+				//if (!facingRight)
+				//{
+				//	facingRight = !facingRight;
+				//	spriteFlipper.Flip ();
+				//}
 
-			//	dirInput.x = 1;
-			//}
-			//else if (Input.GetAxisRaw ("Horizontal") < 0)
-			//{
-			//	//if (facingRight)
-			//	//{
-			//	//	facingRight = !facingRight;
-			//	//	spriteFlipper.Flip ();
-			//	//}
+				dirInput.x = 1;
+			}
+			else if (Input.GetAxisRaw ("Horizontal") < 0)
+			{
+				//if (facingRight)
+				//{
+				//	facingRight = !facingRight;
+				//	spriteFlipper.Flip ();
+				//}
 
-			//	dirInput.x = -1;
-			//}
+				dirInput.x = -1;
+			}
 
-			//if (Input.GetAxisRaw ("Vertical") > 0) dirInput.y = 1;
-			//else if (Input.GetAxisRaw ("Vertical") < 0) dirInput.y = -1;
+			if (Input.GetAxisRaw ("Vertical") > 0) dirInput.y = 1;
+			else if (Input.GetAxisRaw ("Vertical") < 0) dirInput.y = -1;
 
 			// Record Direction Changes
 
@@ -142,16 +152,16 @@ public class PlayerInputHandler : MonoBehaviour, InputMaster.IPlayerActions
 		}
 	}
 
-	public static Vector2 Direction () { return dirInput; }
+	//public static Vector2 Direction () { return dirInput; }
 
-	public static bool Interact_ButtonDown ()
-	{
-		if (interact)
-		{
-			interact = false;
-			return true;
-		}
+	//public static bool Interact_ButtonDown ()
+	//{
+	//	if (interact)
+	//	{
+	//		interact = false;
+	//		return true;
+	//	}
 
-		return false;
-	}
+	//	return false;
+	//}
 }

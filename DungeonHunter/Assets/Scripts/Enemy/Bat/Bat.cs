@@ -28,6 +28,7 @@ public class Bat : MonoBehaviour
 
 	private bool attacking;
 	private bool swoop;
+	private float swoopStopThresh = 0.5f;
 
 	private Vector3 atkStartPos;
 	private Vector3 attackDir;
@@ -36,6 +37,11 @@ public class Bat : MonoBehaviour
 	// Enumerators
 
 	private IEnumerator BatSeq { get { return DoBatSeq (); } }
+
+	[Header ("Debug:")]
+
+	[SerializeField]
+	private SpriteRenderer debugSR;
 
 	public void Execute () { StartCoroutine (BatSeq); }
 
@@ -77,6 +83,10 @@ public class Bat : MonoBehaviour
 				{
 					if (!swoop)
 					{
+#if UNITY_EDITOR
+						if (debugSR) debugSR.color = Color.blue;
+#endif
+
 						// Wind Up
 
 						if (Vector3.Magnitude (master.position - atkStartPos) < 0.75f)
@@ -92,11 +102,18 @@ public class Bat : MonoBehaviour
 					}
 					else
 					{
-						if (Vector3.Magnitude (master.position - atkEndPos) > 0.1f)
-						{
+#if UNITY_EDITOR
+						if (debugSR) debugSR.color = Color.red;
+#endif
 
+						if (Vector3.Magnitude (master.position - atkEndPos) > swoopStopThresh)
+						{
 							if (batCollider.triggered)
 							{
+#if UNITY_EDITOR
+								if (debugSR) debugSR.color = Color.white;
+#endif
+
 								batCollider.triggered = false;
 
 								batCollider.enabled = false; // Disable Attack
@@ -112,6 +129,10 @@ public class Bat : MonoBehaviour
 						}
 						else
 						{
+#if UNITY_EDITOR
+							if (debugSR) debugSR.color = Color.white;
+#endif
+
 							attacking = false;
 							swoop = false;
 
@@ -121,7 +142,7 @@ public class Bat : MonoBehaviour
 
 							if (batCollider.enabled) batCollider.enabled = false; // Disable Attack
 
-							for (float coolDown = 1f; coolDown > 0; coolDown -= Time.deltaTime)
+							for (float coolDown = 2f; coolDown > 0; coolDown -= Time.deltaTime)
 							{
 								if (healthSystem.Dead ()) batAnim.Set_Dead (true);
 

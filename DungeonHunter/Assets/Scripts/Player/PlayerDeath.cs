@@ -37,9 +37,10 @@ public class PlayerDeath : MonoBehaviour
 
 		deathScreen.SetActive (true);
 
-		if (PlayerInputHandler.Interact_ButtonDown ()) yield return null;
+		if (Input.GetButtonDown ("Interact")) yield return null;
+		//if (PlayerInputHandler.Interact_ButtonDown ()) yield return null;
 
-		while (!PlayerInputHandler.Interact_ButtonDown ()) yield return null;
+		while (!Input.GetButtonDown ("Interact")) yield return null;
 
 		// !!! TEMPORARY !!!
 		DataPasser.DPInstance.playerCurrHp = 4;

@@ -5,14 +5,25 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class SceneBounds : MonoBehaviour
 {
+	//private static SceneBounds _instance;
+	//public static SceneBounds SBInstance { get { return _instance; } }
+
 	[Header ("Dimensions:")]
 
-	public int width = 10;
-	public int height = 10;
+	[SerializeField]
+	private int width = 10;
+	[SerializeField]
+	private int height = 10;
 
 	[Header ("Debug:")]
 
 	public bool debug;
+
+	//private void Start ()
+	//{
+	//	if (_instance != null && _instance != this) Destroy (this);
+	//	else _instance = this;
+	//}
 
 #if UNITY_EDITOR
 	private void Update ()

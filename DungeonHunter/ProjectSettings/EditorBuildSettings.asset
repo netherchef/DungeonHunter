@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Room Two.unity
     guid: 56b83ef24a0b44d7d9aa3751f6655096
   - enabled: 1
-    path: Assets/Scenes/Potion Trader.unity
-    guid: a9a995bea05fe4adbbfa8dfe1223544c
-  - enabled: 1
     path: Assets/Scenes/Room Three.unity
     guid: 9b9cbfebc6ad645d0800424427d5b8bd
+  - enabled: 1
+    path: Assets/Scenes/Potion Trader.unity
+    guid: a9a995bea05fe4adbbfa8dfe1223544c
   - enabled: 1
     path: Assets/Scenes/Boss.unity
     guid: 6cfbcf640daf241e088e19642385b86c

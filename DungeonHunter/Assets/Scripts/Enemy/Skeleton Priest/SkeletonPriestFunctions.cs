@@ -43,26 +43,38 @@ public class SkeletonPriestFunctions : MonoBehaviour
 		{
 			// Wait Cool Down
 
-			for (float cd = coolDown; cd > 0; cd -= Time.deltaTime) yield return null;
+			for (float cd = coolDown; cd > 0; cd -= Time.deltaTime)
+			{
+				if (healthSystem.Dead ()) cd = 0;
+
+				yield return null;
+			}
 
 			// Summon
 
 			animFuncs.Set_PrepPray ();
 
-			for (float ct = castTime; ct > 0; ct -= Time.deltaTime) yield return null;
+			for (float ct = castTime; ct > 0; ct -= Time.deltaTime)
+			{
+				if (healthSystem.Dead ()) ct = 0;
+
+				yield return null;
+			}
 
 			animFuncs.Set_DonePray ();
 
 			// Spawn Skeleton
 
-			SummonSkeleton ();
+			if (!healthSystem.Dead ()) SummonSkeleton ();
 
 			// Reset
 
 			yield return null;
 		}
 
-		gameObject.SetActive (false);
+		animFuncs.Set_Dead ();
+
+		//gameObject.SetActive (false);
 
 		lootHandler.DropGold (master.position);
 	}

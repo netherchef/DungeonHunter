@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2348696005510329857}
   - component: {fileID: 2348696005510329858}
-  - component: {fileID: 3108589866237998629}
   m_Layer: 0
   m_Name: Enemy Handler
   m_TagString: Untagged
@@ -44,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdabc7b20ead34065acbbc3eb0d6d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnOnEntry: 
   target: {fileID: 0}
   targetCollider: {fileID: 0}
   enemyContainer: {fileID: 2348696005510329857}
@@ -61,27 +61,3 @@ MonoBehaviour:
     type: 3}
   slimePrefab: {fileID: 4267519591673847523, guid: dbc1a7477c93d420581d8c6055631639,
     type: 3}
-  spawnOnEntry: 
---- !u!114 &3108589866237998629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2348696005510329859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d295614fac85847f9adfa70aed25088f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundColor:
-    serializedVersion: 2
-    rgba: 4279177827
-  font: {fileID: 0}
-  textColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  fontSize: 12
-  fontStyle: 0
-  alignment: 0
-  textDropShadow: 0

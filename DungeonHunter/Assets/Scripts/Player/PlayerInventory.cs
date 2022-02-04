@@ -14,10 +14,7 @@ public class PlayerInventory : MonoBehaviour
 
 	public void AddItems (ItemType[] itemList)
 	{
-		foreach (ItemType item in itemList)
-		{
-			items.Add (item);
-		}
+		foreach (ItemType item in itemList) items.Add (item);
 	}
 
 	public int GoldCount ()

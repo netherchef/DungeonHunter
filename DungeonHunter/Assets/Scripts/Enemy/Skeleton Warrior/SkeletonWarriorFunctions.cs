@@ -19,6 +19,8 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 	[SerializeField]
 	private HealthSystem healthSystem;
+	[SerializeField]
+	private GoAround goAround;
 
 	[SerializeField]
 	private EnemyAnimatorFunctions skeletonAnimFunctions;
@@ -57,6 +59,15 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 			float gapToTarg = Vector3.Magnitude (master.position - target.position);
 
 			// Chase
+
+			// If Blocked by Pillar, Go Around
+
+			if (goAround.Blocked (goAround.master.position, goAround.target.position))
+			{
+
+			}
+
+			// If Not Blocked, Run at Target
 
 			if (gapToTarg > attackRange)
 			{
@@ -138,6 +149,11 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 	public void Set_LootHandler (LootHandler handler)
 	{
 		lootHandler = handler;
+	}
+
+	public void Set_GoAround (Transform playerTrans)
+	{
+		goAround.target = playerTrans;
 	}
 
 	public void Set_SummonStart ()

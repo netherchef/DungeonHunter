@@ -144,6 +144,8 @@ public class EnemyHandler : MonoBehaviour
 
 		skelFuncs.Set_TargetHealthSystem (targetHealthSystem);
 
+		skelFuncs.Set_GoAround (target);
+
 		if (summon) skelFuncs.Set_SummonStart ();
 
 		skelFuncs.Execute (summon);
@@ -220,52 +222,4 @@ public class EnemyHandler : MonoBehaviour
 
 		sf.Execute ();
 	}
-
-#if UNITY_EDITOR
-
-	//[SerializeField]
-	//private bool showHealth;
-
-	//[SerializeField]
-	//private bool assignDoorHandler;
-
-	//private void Start ()
-	//{
-	//	if (showHealth)
-	//	{
-	//		print ("Do");
-	//		showHealth = false;
-
-	//		GameObject healthDisplay = new GameObject { name = "Enemy Health Display" };
-
-	//		healthDisplay.AddComponent<Canvas> ();
-	//		healthDisplay.AddComponent<CanvasScaler> ();
-	//		healthDisplay.GetComponent<Canvas> ().renderMode = RenderMode.ScreenSpaceOverlay;
-
-	//		foreach (HealthSystem enemyHealth in enemyHealths)
-	//		{
-	//			GameObject display = new GameObject ("Health Display");
-	//			display.AddComponent<Text> ();
-	//			display.GetComponent<Text> ().color = Color.white;
-	//			display.GetComponent<Text> ().text = "sdsdsdsdsdsdklfslgnkdng";
-	//			display.transform.SetParent (healthDisplay.transform);
-	//		}
-	//	}
-	//}
-
-	//private void Update ()
-	//{
-	//	if (assignDoorHandler)
-	//	{
-	//		assignDoorHandler = false;
-
-	//		DoorHandler[] handlers = FindObjectsOfType<DoorHandler> ();
-
-	//		if (handlers.Length == 0) Debug.LogWarning ("No Door Handlers found.");
-	//		else if (handlers.Length > 1) Debug.LogWarning ("More than 1 Door Handler in scene.");
-	//		else doorHandler = handlers[0];
-	//	}
-	//}
-
-#endif
 }

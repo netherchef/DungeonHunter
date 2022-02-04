@@ -256,7 +256,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 822728b9275d241b9a4e8a351fbd3292, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -344,6 +344,7 @@ MonoBehaviour:
   sounds: {fileID: 25523405187696428}
   currDamage: 1
   currEffect: 0
+  debugAttack: 0
 --- !u!61 &5837925358231853008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -410,7 +411,6 @@ GameObject:
   - component: {fileID: 2291523592834361544}
   - component: {fileID: 3030159107448069241}
   - component: {fileID: 9078384356771393117}
-  - component: {fileID: 1440512720560445940}
   m_Layer: 0
   m_Name: Jake
   m_TagString: Player
@@ -495,6 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 5837925358381900517}
+  camShaker: {fileID: 0}
   type: 1
   currHp: 4
   defaultDeath: 0
@@ -505,6 +506,7 @@ MonoBehaviour:
   playerDeath: {fileID: 0}
   fullHp: 4
   debug: 0
+  godMode: 0
 --- !u!114 &5837925358381900542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +535,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
 --- !u!50 &5837925358381900541
 Rigidbody2D:
   serializedVersion: 4
@@ -598,29 +600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d5c81a37cf941a0a1740735f35f75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1440512720560445940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5837925358381900517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d295614fac85847f9adfa70aed25088f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundColor:
-    serializedVersion: 2
-    rgba: 4292698944
-  font: {fileID: 0}
-  textColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  fontSize: 12
-  fontStyle: 0
-  alignment: 0
-  textDropShadow: 0
 --- !u!1 &8865922819023997766
 GameObject:
   m_ObjectHideFlags: 0

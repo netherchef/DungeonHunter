@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 7637710667489682880}
   - component: {fileID: 7637710667489682883}
   - component: {fileID: 4516651577294540654}
+  - component: {fileID: 7852357031174266674}
   m_Layer: 0
   m_Name: Skeleton Warrior
   m_TagString: AttackTarget
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 7637710667489682886}
+  camShaker: {fileID: 0}
   type: 0
   currHp: 2
   defaultDeath: 0
@@ -220,6 +222,7 @@ MonoBehaviour:
   playerDeath: {fileID: 0}
   fullHp: 4
   debug: 0
+  godMode: 0
 --- !u!114 &4516651577294540654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,11 +236,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 7637710667489682881}
-  target: {fileID: 0}
   healthSystem: {fileID: 7637710667489682883}
-  lootHandler: {fileID: 0}
+  goAround: {fileID: 7852357031174266674}
   skeletonAnimFunctions: {fileID: 7637710666664673170}
   attackRange: 0.6
-  moveSpeed: 1
+  moveSpeed: 0.5
   windUp: 0.2
   coolDown: 0.2
+--- !u!114 &7852357031174266674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637710667489682886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edad45f1dffee4c4483d99da3d63b395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 7637710667489682881}
+  target: {fileID: 0}
+  chase: 0
+  moveSpeed: 2
+  turnSpeed: 72
+  range: 2

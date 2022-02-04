@@ -27,6 +27,9 @@ public class AncientGuardFunctions : MonoBehaviour
 	[SerializeField]
 	private HealthSystem healthSystem;
 
+	[SerializeField]
+	private AncientGuardAnimatorFunctions animatorFunctions;
+
 	// Variables
 
 	private int damage = 4;
@@ -60,7 +63,9 @@ public class AncientGuardFunctions : MonoBehaviour
 
 			// Charge Up
 
-			sr.color = Color.red;
+			//sr.color = Color.red;
+
+			animatorFunctions.Set_Attacking (true); // Start Attack Animation
 
 			for (float chargeTime = 2f; chargeTime > 0; chargeTime -= Time.deltaTime)
 			{
@@ -71,7 +76,9 @@ public class AncientGuardFunctions : MonoBehaviour
 
 			// Attack
 
-			sr.color = Color.white;
+			//sr.color = Color.white;
+
+			animatorFunctions.Set_Release (); // Animate Attack Release
 
 			if (!healthSystem.Dead ()) yield return Attack ();
 
@@ -84,12 +91,16 @@ public class AncientGuardFunctions : MonoBehaviour
 				yield return null;
 			}
 
+			animatorFunctions.Set_Attacking (false); // Exit Attack Animation
+
 			yield return null;
 		}
 
 		lootHandler.DropGold (master.position);
 
-		gameObject.SetActive (false);
+		animatorFunctions.Set_Dead (true); // Death Animation
+
+		//gameObject.SetActive (false);
 	}
 
 	private void Move ()
@@ -101,21 +112,43 @@ public class AncientGuardFunctions : MonoBehaviour
 
 	private IEnumerator Attack ()
 	{
-		bool attacking = true;
+		//bool attacking = true;
 
 		attackCollider.enabled = true;
 
-		float attackDur = 0.1f;
+		//float attackDur = 0.1f;
 
-		while (attacking)
+		//while (attacking)
+		//{
+		//	if (attackDur > 0) attackDur -= Time.deltaTime;
+		//	else attacking = false;
+
+		//	if (attackCollider.IsTouching (targCol))
+		//	{
+		//		attacking = false;
+
+		//		targetHealth.Damage (damage);
+		//	}
+
+		//	yield return null;
+		//}
+
+		//while (attackDur > 0)
+		//{
+		//	attackDur -= Time.deltaTime;
+
+		//	if (attackCollider.IsTouching (targCol))
+		//	{
+		//		targetHealth.Damage (damage);
+		//	}
+
+		//	yield return null;
+		//}
+
+		for (float a = 0.1f; a > 0; a -= Time.deltaTime)
 		{
-			if (attackDur > 0) attackDur -= Time.deltaTime;
-			else attacking = false;
-
 			if (attackCollider.IsTouching (targCol))
 			{
-				attacking = false;
-
 				targetHealth.Damage (damage);
 			}
 
