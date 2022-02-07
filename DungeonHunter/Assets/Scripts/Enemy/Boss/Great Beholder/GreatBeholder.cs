@@ -14,9 +14,16 @@ public class GreatBeholder : MonoBehaviour
 	[SerializeField]
 	private GreatBeholderAnimation gBAnim;
 
+	[SerializeField]
+	private SceneBounds sceneBounds;
+
 	// Variables
 
 	private float moveSpeed = 1f;
+
+	// Enumerators
+
+	private IEnumerator currentAction;
 
 	public IEnumerator Misc (Transform gb, Transform targ, Transform pupil, Transform pupilCont)
 	{
@@ -83,29 +90,76 @@ public class GreatBeholder : MonoBehaviour
 		return dirToTarg.normalized;
 	}
 
+	void Update ()
+	{
+		if (Input.GetButtonDown ("Cancel"))
+		{
+			float dice = Random.Range (0, 4);
+			
+			Vector3 pos = new Vector3 ();
+
+			if (dice == 0) pos = sceneBounds.TopRight ();
+			else if (dice == 1) pos = sceneBounds.BtmRight ();
+			else if (dice == 2) pos = sceneBounds.BtmLeft ();
+			else if (dice == 3) pos = sceneBounds.TopLeft ();
+
+			Teleport (transform, pos);
+			print (pos);
+		}
+	}
+
+	private void Teleport (Transform trans, Vector3 targPos)
+	{
+		if (currentAction != null)
+		{
+			StopCoroutine (currentAction);
+			currentAction = null;
+		}
+		
+		currentAction = DoTeleport (trans, targPos);
+
+		StartCoroutine (currentAction);
+	}
+
+	private IEnumerator DoTeleport (Transform trans, Vector3 targPos)
+	{
+		while (trans.localScale.y > 0)
+		{
+			trans.localScale -= new Vector3 (1, 1, 0) * Time.deltaTime;
+			yield return null;
+		}
+
+		SnapTransToPos (trans, targPos);
+
+		while (trans.localScale.y < 1)
+		{
+			trans.localScale += new Vector3 (1, 1, 0) * Time.deltaTime;
+			yield return null;
+		}
+
+		trans.localScale = new Vector3 (1, 1, trans.localScale.z);
+	}
+
+	private void SnapTransToPos (Transform trans, Vector3 targPos)
+	{
+		trans.position = targPos;
+	}
+
 	#endregion
 
 	#region Attack _____________________________________________________________
 
 	private IEnumerator LazerGaze ()
 	{
-		// Charge
+		for (float duration = 2f; duration > 0; duration -= Time.deltaTime) yield return null; // Charge
 
-		for (float duration = 2f; duration > 0; duration -= Time.deltaTime) yield return null;
-
-		// Release
-
-		lazer.SetActive (true);
+		lazer.SetActive (true); // Release
 
 		for (float duration = 3; duration > 0; duration -= Time.deltaTime) yield return null;
 
-		// Stop
+		lazer.SetActive (false); // Stop
 
-		lazer.SetActive (false);
-
-		// Cooldown
-
-		for (float cooldown = 4f; cooldown > 0; cooldown -= Time.deltaTime) yield return null;
+		for (float cooldown = 4f; cooldown > 0; cooldown -= Time.deltaTime) yield return null; // Cooldown
 	}
 
 	private IEnumerator TrackerGaze (Transform beholder, Transform targ)

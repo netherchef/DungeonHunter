@@ -35,6 +35,18 @@ public class SceneBounds : MonoBehaviour
 		Debug.DrawLine (new Vector2 (width / 2, -height / 2), new Vector2 (-width / 2, -height / 2), Color.magenta);
 		Debug.DrawLine (new Vector2 (-width / 2, -height / 2), new Vector2 (-width / 2, height / 2), Color.magenta);
 	}
+
+	private void OnDrawGizmos ()
+	{
+		if (!debug) return;
+
+		// Visualize Corners
+
+		Gizmos.DrawSphere (new Vector3 (width / 2, height / 2, 0), 0.2f); // Top Right
+		Gizmos.DrawSphere (new Vector3 (width / 2, -height / 2, 0), 0.2f); // Btm Right
+		Gizmos.DrawSphere (new Vector3 (-width / 2, -height / 2, 0), 0.2f); // Btm Left
+		Gizmos.DrawSphere (new Vector3 (-width / 2, height / 2, 0), 0.2f); // Top Left
+	}
 #endif
 
 	public bool WithinBounds (Vector3 point)
@@ -57,4 +69,9 @@ public class SceneBounds : MonoBehaviour
 	{
 		return new Vector3 (Random.Range (-width / 2, width / 2), Random.Range (height / 2, -height / 2));
 	}
+
+	public Vector3 TopRight () { return new Vector3 (width / 2, height / 2, 0); }
+	public Vector3 BtmRight () { return new Vector3 (width / 2, -height / 2, 0); }
+	public Vector3 BtmLeft () { return new Vector3 (-width / 2, -height / 2, 0); }
+	public Vector3 TopLeft () { return new Vector3 (-width / 2, height / 2, 0); }
 }
