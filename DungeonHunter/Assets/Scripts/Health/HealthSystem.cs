@@ -9,6 +9,10 @@ public class HealthSystem : MonoBehaviour
 	[Header ("Optional Components:")]
 
 	public GameObject master;
+	// [SerializeField]
+	// private SpriteRenderer masterSprite;
+	// private Shader shaderGUIText;
+	// private Shader shaderSpriteDefault;
 
 	[SerializeField]
 	private CameraShaker camShaker;
@@ -17,7 +21,11 @@ public class HealthSystem : MonoBehaviour
 
 	public UnitType type;
 	public int currHp = 4;
+	public int fullHp = 4;
 	public bool defaultDeath = true;
+
+	private Color initCol;
+	private float whiteTimer;
 
 	[Space (10)]
 
@@ -32,11 +40,18 @@ public class HealthSystem : MonoBehaviour
 	public HealthBar healthBar;
 	public PlayerDeath playerDeath;
 
-	public int fullHp = 4;
+	[Header ("Boss:")]
+
+	[SerializeField]
+	private bool boss;
+	[SerializeField]
+	private UnityEngine.UI.Image bossHealthBar;
 
 	// Enumerators
 
 	private IEnumerator DOTSeq;
+
+	// private IEnumerator doPaintWhite;
 
 	[Header ("Debug:")]
 
@@ -50,7 +65,11 @@ public class HealthSystem : MonoBehaviour
 
 	public void Prep ()
 	{
-		if (type != UnitType.Player) currHp = fullHp;
+		if (type != UnitType.Player) currHp = fullHp; // Set Current HP
+
+		// For painting sprite white.
+		// shaderGUIText = Shader.Find ("GUI/Text Shader");
+		// shaderSpriteDefault = Shader.Find ("Sprites/Default");
 	}
 
 	public void Damage (int value = 1)
@@ -60,6 +79,16 @@ public class HealthSystem : MonoBehaviour
 #endif
 
 		DecreaseHP (value);
+
+		// PaintWhite (masterSprite);
+
+		if (boss)
+		{
+			// Boss Health Bar
+
+			float newVal = (1 / (float) fullHp) * (float) currHp;
+			bossHealthBar.rectTransform.localScale = new Vector2 (newVal, bossHealthBar.rectTransform.localScale.y);
+		}
 	}
 
 	public void Heal (int val = 1)
@@ -80,22 +109,16 @@ public class HealthSystem : MonoBehaviour
 		{
 			if (!invincibility.invincible)
 			{
-				// Decrease HP
+				currHp -= value; // Decrease HP
 
-				currHp -= value;
-
-				// Health Bar
-
-				healthBar.DrainHeart ();
+				healthBar.DrainHeart (); // Health Bar
 
 				// Invincibility or Death
 
 				if (currHp > 0) invincibility.GoInvincible ();
 				else playerDeath.StartDeath ();
 
-				// Camera Shake
-
-				camShaker.Shake (0.2f, 2f);
+				camShaker.Shake (0.2f, 2f); // Camera Shake
 			}
 		}
 		else
@@ -114,15 +137,9 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	public bool Dead ()
-	{
-		return currHp <= 0;
-	}
+	public bool Dead () { return currHp <= 0; }
 
-	public int CurrHP ()
-	{
-		return currHp;
-	}
+	public int CurrHP () { return currHp; }
 
 	#region DOT ________________________________________________________________
 
@@ -164,4 +181,42 @@ public class HealthSystem : MonoBehaviour
 	}
 
 	#endregion
+
+	#region Boss __________________________________________________
+
+	public bool IsBoss () { return boss; }
+
+	#endregion __________________________________________________
+
+	#region Sprite Colour __________________________________________________
+
+	// private void PaintWhite (SpriteRenderer sr)
+	// {	
+	// 	if (doPaintWhite == null)
+	// 	{
+	// 		doPaintWhite = DoPaintWhite (sr);
+	// 		StartCoroutine (doPaintWhite);
+	// 	}
+
+	// 	whiteTimer = 0.5f;
+	// }
+
+	// private IEnumerator DoPaintWhite (SpriteRenderer sr)
+	// {
+	// 	masterSprite.material.shader = shaderGUIText;
+	// 	masterSprite.color = Color.white;
+
+	// 	while (whiteTimer > 0)
+	// 	{
+	// 		whiteTimer -= Time.deltaTime;
+	// 		yield return null;
+	// 	}
+
+	// 	masterSprite.material.shader = shaderSpriteDefault;
+	// 	masterSprite.color = Color.white;
+
+	// 	doPaintWhite = null;
+	// }
+
+	#endregion __________________________________________________
 }

@@ -58,7 +58,7 @@ public class EntryHandler : MonoBehaviour
 		if (DataPasser.DPInstance.previousRoom != "")
 		{
 			Vector3 newPos = doorHandler.DoorPosition (DataPasser.DPInstance.previousRoom);
-
+			
 			switch (DataPasser.DPInstance.previousDoorDir)
 			{
 				case DoorDirection.Up:

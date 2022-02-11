@@ -66,26 +66,132 @@ public class Boss : MonoBehaviour
 	private IEnumerator GBLoop ()
 	{
 		// Intro
-
+		
 		// Main Loop
+		
+		// Phase 1
+
+		float attackInterval = 5f;
+		float delay = 0;
+		bool telStart = false;
+
+		// while (bossHealth.CurrHP() > 15 && !pHealth.Dead ())
+		// {
+		// 	greatBeholder.LookAtPlayer (pupil, pupilContainer, pTrans); // Misc Action
+
+		// 	if (attackInterval > 0)
+		// 	{
+		// 		attackInterval -= Time.deltaTime;
+
+		// 		// Teleport
+
+		// 		if (Vector2.Distance (trans.position, pTrans.position) < 1f)
+		// 		{
+		// 			if (!telStart && !greatBeholder.Teleporting ())
+		// 			{
+		// 				telStart = true;
+		// 				delay = 0.5f;
+		// 			}
+		// 			else if (telStart && !greatBeholder.Teleporting ())
+		// 			{
+		// 				if (delay <= 0) // Delay Complete
+		// 				{
+		// 					greatBeholder.TeleportRandom (trans);
+
+		// 					telStart = false;
+		// 				}
+		// 				else
+		// 				{
+		// 					delay -= Time.deltaTime;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		yield return greatBeholder.Attack (trans, pTrans, bossHealth); // Attack
+
+		// 		attackInterval = 5f;
+		// 	}
+
+		// 	yield return null;
+		// }
+
+		// Phase 2
+
+		// while (bossHealth.CurrHP() > 10 && !pHealth.Dead ())
+		// {
+		// 	yield return null;
+		// }
+
+		// Phase 3
+
+		// while (bossHealth.CurrHP() > 5 && !pHealth.Dead ())
+		// {
+		// 	yield return null;
+		// }
+
+		// Phase 4
 
 		while (!bossHealth.Dead () && !pHealth.Dead ())
 		{
-			// Phase 1
+			// TEMPORARY
 
-			yield return greatBeholder.Misc (trans, pTrans, pupil, pupilContainer); // Misc Action
-			//yield return greatBeholder.Attack (trans, pTrans, bossHealth); // Attack
+			greatBeholder.LookAtPlayer (pupil, pupilContainer, pTrans); // Misc Action
 
-			// Phase 2
+			if (attackInterval > 0)
+			{
+				attackInterval -= Time.deltaTime;
+
+				// Teleport
+
+				if (Vector2.Distance (trans.position, pTrans.position) < 1f)
+				{
+					if (!telStart && !greatBeholder.Teleporting ())
+					{
+						telStart = true;
+						delay = 0.5f;
+					}
+					else if (telStart && !greatBeholder.Teleporting ())
+					{
+						if (delay <= 0) // Delay Complete
+						{
+							greatBeholder.TeleportRandom (trans);
+
+							telStart = false;
+						}
+						else
+						{
+							delay -= Time.deltaTime;
+						}
+					}
+				}
+			}
+			else
+			{
+				yield return greatBeholder.Attack (trans, pTrans, bossHealth); // Attack
+
+				attackInterval = 5f;
+			}
+
+			yield return null;
 		}
+		
+		// Unlock Doors
+
+		doorHandler.Unlock ();
 
 		// Death
 
 		if (pHealth.Dead ()) { } // Player Death
-		if (bossHealth.Dead ()) yield return greatBeholder.Death (); // Boss Death
 
-		// Unlock Doors
+		// Disabling the Boss here temporarily to allow other processes
+		// before disabling it altogether.
 
-		doorHandler.Unlock ();
+		if (bossHealth.Dead ()) // Boss Death
+		{
+			// yield return greatBeholder.Death ();
+			gameObject.SetActive (false);
+		}
 	}
 }

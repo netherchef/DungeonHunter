@@ -130,13 +130,14 @@ public class PlayerAttack : MonoBehaviour
 
 			if (currEffect == Attack_Effect.DOT) targHealth.ApplyDOT (1, 5); // DOT Effect
 
-			// Basic Attack
-
-			targHealth.Damage (currDamage);
+			targHealth.Damage (currDamage); // Basic Attack
 
 			// Knockback
 
-			targHealth.transform.position += new Vector3 (attackDir.x, attackDir.y) * knockback;
+			if (!targHealth.IsBoss ())
+			{
+				targHealth.transform.position += new Vector3 (attackDir.x, attackDir.y) * knockback;
+			}
 
 #if UNITY_EDITOR
 			if (debugAttack)

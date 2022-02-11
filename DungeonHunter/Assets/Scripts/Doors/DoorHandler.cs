@@ -166,5 +166,9 @@ public class DoorHandler : MonoBehaviour
 	public void Unlock ()
 	{
 		locked = false;
+
+		#if UNITY_EDITOR
+		print ("Door Unlocked!");
+		#endif
 	}
 }

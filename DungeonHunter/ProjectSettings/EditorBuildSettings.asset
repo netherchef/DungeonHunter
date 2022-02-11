@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Entrance.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Room One.unity
+    path: Assets/Scenes/ANC_SKELS.unity
     guid: 52f5d2904e3b54ba094d979ac65eb09c
   - enabled: 1
-    path: Assets/Scenes/Room Two.unity
+    path: Assets/Scenes/BATS.unity
     guid: 56b83ef24a0b44d7d9aa3751f6655096
   - enabled: 1
-    path: Assets/Scenes/Room Three.unity
+    path: Assets/Scenes/PRI_BAT_SKEL.unity
     guid: 9b9cbfebc6ad645d0800424427d5b8bd
   - enabled: 1
     path: Assets/Scenes/Potion Trader.unity
