@@ -6,24 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Entrance.unity
+    path: Assets/Scenes/Start Screen.unity
+    guid: 728ff4584ec5b40e1b815a635cc2e2f0
+  - enabled: 1
+    path: Assets/Scenes/Quiet/Entrance.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/ANC_SKELS.unity
+    path: Assets/Scenes/Fight/ANC_SKELS.unity
     guid: 52f5d2904e3b54ba094d979ac65eb09c
   - enabled: 1
-    path: Assets/Scenes/BATS.unity
+    path: Assets/Scenes/Fight/BATS.unity
     guid: 56b83ef24a0b44d7d9aa3751f6655096
   - enabled: 1
-    path: Assets/Scenes/PRI_BAT_SKEL.unity
+    path: Assets/Scenes/Fight/PRI_BAT_SKEL.unity
     guid: 9b9cbfebc6ad645d0800424427d5b8bd
   - enabled: 1
-    path: Assets/Scenes/Potion Trader.unity
+    path: Assets/Scenes/Quiet/Potion Trader.unity
     guid: a9a995bea05fe4adbbfa8dfe1223544c
   - enabled: 1
-    path: Assets/Scenes/Boss.unity
+    path: Assets/Scenes/Boss/Boss.unity
     guid: 6cfbcf640daf241e088e19642385b86c
   - enabled: 1
-    path: Assets/Scenes/Slime Room.unity
+    path: Assets/Scenes/Fight/Slime Room.unity
     guid: d1804c45743d24482b028dd71e23a4d6
+  - enabled: 1
+    path: Assets/Scenes/Boss/Great Beholder.unity
+    guid: 2205237bcee9a46e6ae40fbfa59e2263
+  - enabled: 1
+    path: Assets/Scenes/Cut Scenes/Opening Cut Scene.unity
+    guid: 4a555a32ad6a44879a22582163627170
   m_configObjects: {}

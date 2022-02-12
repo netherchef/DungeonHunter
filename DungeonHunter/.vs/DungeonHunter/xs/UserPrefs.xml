@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Boss/Boss.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Start Screen/StartScreen.cs">
     <Files>
       <File FileName="Assets/Scripts/Enemy/Boss/Boss.cs" Line="30" Column="1" />
+      <File FileName="Assets/Scripts/Start Screen/StartScreen.cs" Line="4" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1d14d2b3-df03-4669-9498-db1b6465ca5f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c1839677-7149-4226-96c7-311abb75f8ca" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
