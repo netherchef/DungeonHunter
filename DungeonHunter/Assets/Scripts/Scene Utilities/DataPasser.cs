@@ -50,7 +50,7 @@ public class DataPasser : MonoBehaviour
 	#region  _________________________________________________________
 
 	public string previousRoom;
-	public DoorDirection previousDoorDir;
+	//public DoorDirection previousDoorDir;
 
 	#endregion
 }

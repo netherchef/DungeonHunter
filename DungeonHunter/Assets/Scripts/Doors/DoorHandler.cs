@@ -8,11 +8,10 @@ public enum RoomType { NULL, QuietRoom, BattleRoom, BossRoom }
 [ExecuteInEditMode]
 public class DoorHandler : MonoBehaviour
 {
-	[Header ("Components:")]
+	[Header("Scripts:")]
 
-	public Transform doorContainer;
-
-	[Header ("Scripts:")]
+	[SerializeField]
+	private DoorMaker doorMaker;
 
 	[SerializeField]
 	private EnemyHandler enemyHandler;
@@ -70,9 +69,13 @@ public class DoorHandler : MonoBehaviour
 				break;
 		}
 
+		// Make Doors
+
+		doorMaker.PlaceDoors(SceneManager.GetActiveScene ().name);
+
 		// Get Doors in Scene
 
-		doors = DoorsFromContainer (doorContainer);
+		doors = DoorsFromContainer (transform);
 
 		// Disable All Doors
 
@@ -133,21 +136,21 @@ public class DoorHandler : MonoBehaviour
 
 		// Record Room & Door Direction
 
-		DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
-		DataPasser.DPInstance.previousDoorDir = door.direction;
+		//DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
+		//DataPasser.DPInstance.previousDoorDir = door.direction;
 
 		// Load Next Scene
 
 		SceneManager.LoadScene (door.transform.name);
 	}
 
-	private Door[] DoorsFromContainer (Transform container)
+	private Door[] DoorsFromContainer(Transform container)
 	{
 		Door[] tempDoors = new Door[container.childCount];
 
 		for (int i = 0; i < tempDoors.Length; i++)
 		{
-			tempDoors[i] = container.GetChild (i).GetComponent<Door> ();
+			tempDoors[i] = container.GetChild(i).GetComponent<Door>();
 		}
 
 		return tempDoors;

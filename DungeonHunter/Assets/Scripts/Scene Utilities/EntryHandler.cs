@@ -57,23 +57,23 @@ public class EntryHandler : MonoBehaviour
 
 		if (DataPasser.DPInstance.previousRoom != "")
 		{
-			Vector3 newPos = doorHandler.DoorPosition (DataPasser.DPInstance.previousRoom);
-			
-			switch (DataPasser.DPInstance.previousDoorDir)
-			{
-				case DoorDirection.Up:
-					newPos += new Vector3 (0, 1);
-					break;
-				case DoorDirection.Down:
-					newPos += new Vector3 (0, -1);
-					break;
-				case DoorDirection.Right:
-					newPos += new Vector3 (1, 0);
-					break;
-				case DoorDirection.Left:
-					newPos += new Vector3 (-1, 0);
-					break;
-			}
+			Vector3 newPos = doorHandler.DoorPosition(DataPasser.DPInstance.previousRoom);
+
+			//switch (DataPasser.DPInstance.previousDoorDir)
+			//{
+			//	case DoorDirection.Up:
+			//		newPos += new Vector3(0, 1);
+			//		break;
+			//	case DoorDirection.Down:
+			//		newPos += new Vector3(0, -1);
+			//		break;
+			//	case DoorDirection.Right:
+			//		newPos += new Vector3(1, 0);
+			//		break;
+			//	case DoorDirection.Left:
+			//		newPos += new Vector3(-1, 0);
+			//		break;
+			//}
 
 			player.position = newPos;
 		}

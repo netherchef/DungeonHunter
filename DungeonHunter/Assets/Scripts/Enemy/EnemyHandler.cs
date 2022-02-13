@@ -30,7 +30,6 @@ public struct Enemy
 	public IEnumerator attackCoroutine;
 }
 
-//[ExecuteInEditMode]
 public class EnemyHandler : MonoBehaviour
 {
 	[Header ("Enemies:")]
