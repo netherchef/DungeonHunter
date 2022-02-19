@@ -26,11 +26,23 @@ public class CutSceneHandler : MonoBehaviour
 	[SerializeField]
 	private Shot[] shots;
 
+	[Header ("Skip:")]
+
+	[SerializeField]
+	private string nextScene;
+
+	[SerializeField]
+	private GameObject skipButton;
+
 	// Debug
 
 	//public bool proceed;
 
-	private void Start () { StartCoroutine (PlayCutScene (shots)); }
+	private void Start ()
+	{
+		StartCoroutine(PlayCutScene(shots));
+		StartCoroutine ("ShowSkipBtn");
+	}
 
 	//private void Start () { StartCoroutine (MainLoop ()); }
 
@@ -44,6 +56,19 @@ public class CutSceneHandler : MonoBehaviour
 	//		yield return PlayCutScene (shots);
 	//	}
 	//}
+
+	private IEnumerator ShowSkipBtn ()
+	{
+		while (enabled)
+		{
+			if (Input.GetButtonDown ("Cancel"))
+			{
+				if (!skipButton.activeSelf) skipButton.SetActive (true);
+			}
+
+			yield return null;
+		}
+	}
 
 	private IEnumerator PlayCutScene (Shot[] shots)
 	{
@@ -156,5 +181,10 @@ public class CutSceneHandler : MonoBehaviour
 #endif
 
 		return default;
+	}
+
+	public void SkipToNextScene ()
+	{
+		SceneManager.LoadScene (nextScene);
 	}
 }

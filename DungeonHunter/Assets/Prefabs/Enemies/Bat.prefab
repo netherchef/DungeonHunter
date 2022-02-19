@@ -49,6 +49,7 @@ MonoBehaviour:
   batCollider: {fileID: 3555007252954999711}
   healthSystem: {fileID: 3555007252954999705}
   batAnim: {fileID: 6955173649098131703}
+  debugSR: {fileID: 0}
 --- !u!1 &3555007252837823005
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +96,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -180,9 +182,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.015, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.15
 --- !u!114 &3555007252954999711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,15 +211,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 3555007251633281429}
+  camShaker: {fileID: 0}
   type: 0
   currHp: 2
+  fullHp: 4
   defaultDeath: 0
   DOTDamage: 0
   DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
-  fullHp: 4
+  boss: 0
+  bossHealthBar: {fileID: 0}
   debug: 0
   godMode: 0
 --- !u!95 &988299369579206678

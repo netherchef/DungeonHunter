@@ -32,8 +32,9 @@ public class DoorMaker : MonoBehaviour
                 }
                 if (doorInfo.down != "")
                 {
-                    doorPos = new Vector2 (0, sceneBounds.BtmLeft().y);
+                    doorPos = new Vector2 (0, sceneBounds.BtmLeft().y - (1f / 32f * 12f));
                     GameObject newDoor = Instantiate(doorPrefab, doorPos, Quaternion.identity, transform);
+                    newDoor.transform.Rotate(new Vector3(0, 0, 180));
                     newDoor.name = doorInfo.down;
                 }
                 if (doorInfo.left != "")

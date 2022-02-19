@@ -253,6 +253,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -498,13 +499,15 @@ MonoBehaviour:
   camShaker: {fileID: 0}
   type: 1
   currHp: 4
+  fullHp: 4
   defaultDeath: 0
   DOTDamage: 0
   DOTDuration: 0
   invincibility: {fileID: 2291523592834361544}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
-  fullHp: 4
+  boss: 0
+  bossHealthBar: {fileID: 0}
   debug: 0
   godMode: 0
 --- !u!114 &5837925358381900542
@@ -647,6 +650,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

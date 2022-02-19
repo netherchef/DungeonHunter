@@ -48,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,7 +98,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.35}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &4617528063584786488
@@ -112,5 +113,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4671e05a25f3b4cb4ac05a514c055706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
   triggered: 0

@@ -1,25 +1,25 @@
-﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene Utilities/EntryHandler.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Scene Utilities/SceneBounds.cs" Line="20" Column="17" />
-      <File FileName="Assets/Scripts/Scene Utilities/EntryHandler.cs" Line="28" Column="4" />
-    </Files>
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DungeonHunter" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Doors" expanded="True" />
-                <Node name="Enemy" expanded="True" />
-                <Node name="Player" expanded="True" />
-                <Node name="Scene Utilities" expanded="True">
-                  <Node name="EntryHandler.cs" selected="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Doors" expanded="True" />
+                  <Node name="Scene Utilities" expanded="True" />
+                  <Node name="UI" expanded="True">
+                    <Node name="PauseMenu.cs" selected="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

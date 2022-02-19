@@ -18,15 +18,9 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField]
 	private Image blackOverlay;
 
-	// Scripts
-
-	//private InputMaster inputMaster;
-
 	// Variables
 
-	//private static bool pause;
-
-	private bool quitting;
+	private bool paused;
 
 	private IEnumerator DoPauseMenuSeq { get { return DoPauseMenu (); } }
 
@@ -39,29 +33,10 @@ public class PauseMenu : MonoBehaviour
 
 		DontDestroyOnLoad (this);
 
-		// Input
-
-		//inputMaster = new InputMaster ();
-		//inputMaster.Player.SetCallbacks (this);
-
-		//inputMaster.Player.Enable ();
-
 		// Pause Menu
 
 		StartCoroutine (DoPauseMenuSeq);
 	}
-
-	//public void OnInteract (InputAction.CallbackContext context) { }
-	//public void OnDodge (InputAction.CallbackContext context) { }
-	//public void OnDirection (InputAction.CallbackContext context) { }
-
-	//public void OnPause (InputAction.CallbackContext context)
-	//{
-	//	//pause = !pause;
-
-	//	if (context.started) quitting = true;
-	//	else if (context.canceled) quitting = false;
-	//}
 
 	private IEnumerator DoPauseMenu ()
 	{
@@ -69,42 +44,49 @@ public class PauseMenu : MonoBehaviour
 		{
 			if (Input.GetButtonDown ("Cancel"))
 			{
-				overlayCanvas.SetActive (true);
-
-				Color tempCol = blackOverlay.color;
-				tempCol.a = 0;
-				blackOverlay.color = tempCol;
-
-				while (Input.GetButton ("Cancel"))
+				if (!paused)
 				{
-					if (blackOverlay.color.a >= 1)
-					{
-						Application.Quit (); // Quit
+					paused = true;
 
-#if UNITY_EDITOR
-						print ("Quit!");
-#endif
-					}
-					else
-					{
-						tempCol = blackOverlay.color;
-						tempCol.a += Time.deltaTime;
-						blackOverlay.color = tempCol;
-					}
+					Time.timeScale = 0f;
 
-					yield return null;
+					overlayCanvas.SetActive(true);
 				}
+				else
+				{
+					paused = false;
 
-				overlayCanvas.SetActive (false);
+					Time.timeScale = 1f;
+
+					overlayCanvas.SetActive (false);
+				}
 			}
 
-			//if (pause)
+			//if (Input.GetButtonDown ("Cancel"))
 			//{
-			//	Time.timeScale = 0;
+			//	overlayCanvas.SetActive (true);
 
-			//	while (pause) yield return null;
+			//	Color tempCol = blackOverlay.color;
+			//	tempCol.a = 0;
+			//	blackOverlay.color = tempCol;
 
-			//	Time.timeScale = 1;
+			//	while (Input.GetButton ("Cancel"))
+			//	{
+			//		if (blackOverlay.color.a >= 1)
+			//		{
+			//			Exit();
+			//		}
+			//		else
+			//		{
+			//			tempCol = blackOverlay.color;
+			//			tempCol.a += Time.deltaTime;
+			//			blackOverlay.color = tempCol;
+			//		}
+
+			//		yield return null;
+			//	}
+
+			//	overlayCanvas.SetActive (false);
 			//}
 
 			yield return null;
@@ -115,4 +97,12 @@ public class PauseMenu : MonoBehaviour
 	//{
 	//	return pause;
 	//}
+
+	public void Exit ()
+	{
+		Application.Quit ();
+#if UNITY_EDITOR
+		print("Quit!");
+#endif
+	}
 }

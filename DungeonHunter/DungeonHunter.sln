@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{50FF3394-E597-A80E-86BC-3402DFC73013}"
 EndProject
 Global
@@ -16,21 +16,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		Policies = $0
-		$0.TextStylePolicy = $1
-		$1.FileWidth = 80
-		$1.RemoveTrailingWhitespace = False
-		$1.scope = text/x-csharp
-		$0.CSharpFormattingPolicy = $2
-		$2.scope = text/x-csharp
-		$0.TextStylePolicy = $3
-		$3.FileWidth = 80
-		$3.TabsToSpaces = True
-		$3.scope = text/plain
-		$0.TextStylePolicy = $4
-		$4.inheritsSet = null
-		$4.scope = text/unityshader
 	EndGlobalSection
 EndGlobal
