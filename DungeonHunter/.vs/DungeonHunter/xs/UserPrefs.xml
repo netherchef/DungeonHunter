@@ -1,31 +1,30 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/GoldMeter.cs">
+    <Files>
+      <File FileName="Assets/Scripts/UI/GoldMeter.cs" Line="19" Column="3" />
+      <File FileName="Assets/Scripts/Audio/BackgroundAudio.cs" Line="14" Column="18" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DungeonHunter" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="Doors" expanded="True" />
-                  <Node name="Scene Utilities" expanded="True" />
-                  <Node name="UI" expanded="True">
-                    <Node name="PauseMenu.cs" selected="True" />
-                  </Node>
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Audio" expanded="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="UI" expanded="True">
+                  <Node name="GoldMeter.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a9e60bec-83b8-4a06-9845-16399f393b8e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3eb5f820-bb97-4a33-81e7-3bc02e297db1" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
