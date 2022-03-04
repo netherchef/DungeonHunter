@@ -136,7 +136,7 @@ public class DoorHandler : MonoBehaviour
 
 		// Record Room & Door Direction
 
-		//DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
+		DataPasser.DPInstance.previousRoom = SceneManager.GetActiveScene ().name;
 		//DataPasser.DPInstance.previousDoorDir = door.direction;
 
 		// Load Next Scene

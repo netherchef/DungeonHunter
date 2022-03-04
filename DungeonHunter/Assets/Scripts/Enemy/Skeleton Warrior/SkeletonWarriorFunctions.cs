@@ -58,18 +58,7 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 			float gapToTarg = Vector3.Magnitude (master.position - target.position);
 
-			// Chase
-
-			// If Blocked by Pillar, Go Around
-
-			if (goAround.Blocked (goAround.master.position, goAround.target.position))
-			{
-
-			}
-
-			// If Not Blocked, Run at Target
-
-			if (gapToTarg > attackRange)
+			if(gapToTarg > attackRange)
 			{
 				Vector3 moveValue = Vector3.Normalize (target.position - master.position);
 				moveValue.z = 0;
@@ -83,6 +72,38 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 			yield return null;
 		}
+		print ("Death");
+		//while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
+		//{
+			// Distance to Target
+
+			//float gapToTarg = Vector3.Magnitude (master.position - target.position);
+
+			// Chase
+
+			// If Blocked by Pillar, Go Around
+
+			//if (goAround.Blocked (goAround.master.position, goAround.target.position))
+			//{
+
+			//}
+
+			// If Not Blocked, Run at Target
+
+			//if(gapToTarg > attackRange)
+			//{
+			//	Vector3 moveValue = Vector3.Normalize (target.position - master.position);
+			//	moveValue.z = 0;
+
+			//	master.position += moveValue * moveSpeed * Time.deltaTime;
+			//}
+			//else
+			//{
+			//	yield return DoAttackSeq (); // Attack
+			//}
+
+			//yield return null;
+		//}
 
 		// Death
 
@@ -102,7 +123,10 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 	{
 		// Wind Up
 
-		for (float windupTimer = windUp; windupTimer > 0; windupTimer -= Time.deltaTime) yield return null;
+		for (float windupTimer = windUp; windupTimer > 0; windupTimer -= Time.deltaTime)
+		{
+			if (!healthSystem.Dead ())  yield return null;
+		}
 
 		// Attack Animation
 
@@ -112,14 +136,13 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		bool foundTarget = false;
 
-		while (!skeletonAnimFunctions.Is_AttackDone ())
+		while (!skeletonAnimFunctions.Is_AttackDone () && !healthSystem.Dead ())
 		{
 			if (!foundTarget)
 			{
 				if (Vector3.Magnitude (target.position - master.position) < attackRange)
 				{
 					foundTarget = true;
-					//damageTarget = true;
 					targetHealthSystem.Damage ();
 				}
 			}
@@ -129,7 +152,10 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		// Cooldown
 
-		for (float cdTimer = coolDown; cdTimer > 0; cdTimer -= Time.deltaTime) yield return null;
+		for (float cdTimer = coolDown; cdTimer > 0; cdTimer -= Time.deltaTime)
+		{
+			if(!healthSystem.Dead ()) yield return null;
+		}
 	}
 
 	public HealthSystem HealthSystem () { return healthSystem; }

@@ -7,6 +7,8 @@ public class GoldMeter : MonoBehaviour
 	// Singleton
 
 	private static GoldMeter _instance;
+
+	public static GoldMeter GMInstance { get { return _instance; } }
 	
 	[Header ("Components:")]
 
@@ -30,7 +32,7 @@ public class GoldMeter : MonoBehaviour
 		DontDestroyOnLoad(this);
 	}
 
-	private void AddGold ()
+	public void AddGold ()
 	{
 		Vector3 newPos = 
 			currGold <= 0 ? transform.position :

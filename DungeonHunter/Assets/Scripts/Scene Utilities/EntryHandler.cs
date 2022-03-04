@@ -46,6 +46,8 @@ public class EntryHandler : MonoBehaviour
 
 		// Player Inventory
 
+		playerInventory.AssignGoldMeter ();
+
 		if (DataPasser.DPInstance.inventoryItems != null)
 		playerInventory.AddItems (DataPasser.DPInstance.inventoryItems);
 
@@ -58,6 +60,13 @@ public class EntryHandler : MonoBehaviour
 		if (DataPasser.DPInstance.previousRoom != "")
 		{
 			Vector3 newPos = doorHandler.DoorPosition(DataPasser.DPInstance.previousRoom);
+
+			float displacement = 0.5f;
+
+			if (newPos.x > 0) newPos += new Vector3 (-displacement,0);
+			else if (newPos.x < 0) newPos += new Vector3 (displacement,0);
+			else if (newPos.y > 0) newPos += new Vector3 (0,-displacement);
+			else newPos += new Vector3 (0,displacement);
 
 			//switch (DataPasser.DPInstance.previousDoorDir)
 			//{
