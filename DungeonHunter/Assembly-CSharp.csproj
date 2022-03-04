@@ -86,6 +86,7 @@
     <Compile Include="Assets/Scripts/UI/PauseMenu.cs" />
     <Compile Include="Assets/Scripts/Enemy/Slime/SlimeFunctions.cs" />
     <Compile Include="Assets/Scripts/Health/HealthBar.cs" />
+    <Compile Include="Assets/Scripts/UI/GoldMeter.cs" />
     <Compile Include="Assets/Scripts/Enemy/Bat/BatHandler.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopItem.cs" />
     <Compile Include="Assets/Scripts/CameraShaker.cs" />
@@ -114,7 +115,7 @@
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimation.cs" />
-    <Compile Include="Assets/Scripts/UI/GoldMeter.cs" />
+    <Compile Include="Assets/Room Plotter/RoomPlotter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
