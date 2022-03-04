@@ -1,10 +1,5 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Boss/Boss.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Enemy/EnemyHandler.cs" Line="130" Column="3" />
-      <File FileName="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholder.cs" Line="42" Column="25" />
-      <File FileName="Assets/Scripts/Enemy/Boss/Boss.cs" Line="167" Column="7" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -14,10 +9,7 @@
                 <Node name="Audio" expanded="True" />
                 <Node name="Doors" expanded="True" />
                 <Node name="Enemy" expanded="True">
-                  <Node name="Boss" expanded="True">
-                    <Node name="Great Beholder" expanded="True" />
-                    <Node name="Boss.cs" selected="True" />
-                  </Node>
+                  <Node name="EnemyHandler.cs" selected="True" />
                 </Node>
                 <Node name="Items" expanded="True" />
                 <Node name="Loot" expanded="True" />

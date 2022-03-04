@@ -69,12 +69,19 @@ public class SlimeFunctions : MonoBehaviour
 
 					for (float attackDur = 0.5f; attackDur > 0; attackDur -= Time.deltaTime)
 					{
-						if (attackCollider.IsTouching (targCol))
+						if (!health.Dead ())
 						{
-							targetHealth.Damage ();
+							if(attackCollider.IsTouching (targCol))
+							{
+								targetHealth.Damage ();
 
-							attackCollider.enabled = false; // Disable Attack
+								attackCollider.enabled = false; // Disable Attack
 
+								attackDur = 0;
+							}
+						}
+						else
+						{
 							attackDur = 0;
 						}
 
@@ -83,7 +90,12 @@ public class SlimeFunctions : MonoBehaviour
 
 					attackCollider.enabled = false; // Disable Attack
 
-					for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) yield return null; // Cooldown
+					for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) // Cooldown
+					{
+						if (health.Dead ()) coolDown = 0;
+
+						yield return null;
+					}
 				}
 			}
 

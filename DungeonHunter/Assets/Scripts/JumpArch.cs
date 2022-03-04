@@ -89,43 +89,6 @@ public class JumpArch : MonoBehaviour
 #if UNITY_EDITOR
 		if (testJump) Jump (startPos, endPos, moveSpeed, archHeight);
 #endif
-
-		//if (move)
-		//{
-		//	Vector3 currPos = corePos;
-
-		//	if (Vector3.Distance (currPos, endPos) > 0.1f)
-		//	{
-		//		currPos += Vector3.Normalize (endPos - currPos) * moveSpeed * Time.deltaTime;
-		//	}
-
-		//	corePos = currPos;
-		//}
-
-		//if (resetPos)
-		//{
-		//	resetPos = false;
-		//	corePos = Vector3.zero;
-		//}
-
-		//if (Vector3.Distance (corePos, endPos) > 0)
-		//{
-		//	// Calculate Jump Arch depending on the core's current position
-		//	// in relation with the distance between the Start and End positions.
-
-		//	distance = Vector3.Distance (startPos, endPos);
-		//	float amount = (Vector3.Distance (startPos, corePos) / distance) * 3.142f;
-
-		//	Vector3 tempPos = corePos;
-
-		//	// Apply Jump Arch modifier
-
-		//	tempPos.y += Mathf.Sin (amount) * archHeight;
-
-		//	// Apply the new position to the transform
-
-		//	target.position = tempPos;
-		//}
 	}
 
 	public void Jump (Vector3 start, Vector3 end, float speed = 4f, float height = 2f)
