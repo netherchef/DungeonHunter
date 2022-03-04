@@ -60,15 +60,6 @@ public class Bat : MonoBehaviour
 						// Move
 
 						MoveToTarget (target.position);
-
-						// Damage
-
-						//if (batCollider.triggered)
-						//{
-						//	batCollider.triggered = false;
-
-						//	targetHealthSystem.Damage ();
-						//}
 					}
 					else
 					{

@@ -72,7 +72,7 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 			yield return null;
 		}
-		print ("Death");
+		
 		//while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
 		//{
 			// Distance to Target

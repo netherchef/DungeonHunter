@@ -156,7 +156,7 @@ public class Boss : MonoBehaviour
 					{
 						if (delay <= 0) // Delay Complete
 						{
-							greatBeholder.TeleportRandom (trans);
+							greatBeholder.TeleportRandom (trans, bossHealth);
 
 							telStart = false;
 						}
