@@ -11,19 +11,18 @@ public struct Room
 
 public class RoomPlotter : MonoBehaviour
 {
-	[Header ("Components:")]
-
-	[SerializeField]
-	private GameObject roomPrefab;
-	[SerializeField]
-	private GameObject currRoomGO;
-
 	[Header ("Variables:")]
 
 	[SerializeField]
 	private Room currRoom;
-	[SerializeField]
 	private List<Room> roomList = new List<Room> ();
+
+	[Header ("Components:")]
+
+	[SerializeField]
+	private GameObject roomPrefab;
+
+	private GameObject currRoomGO;
 
 	private void OnEnable()
 	{
@@ -141,5 +140,10 @@ public class RoomPlotter : MonoBehaviour
 		currRoomGO.GetComponent<SpriteRenderer> ().color = Color.green;
 
 		currRoom = newRoom;
+	}
+
+	public List<Room> RoomList ()
+	{
+		return roomList;
 	}
 }

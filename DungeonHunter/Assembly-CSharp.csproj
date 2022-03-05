@@ -60,6 +60,7 @@
     <Compile Include="Assets/Scripts/Audio/BackgroundAudio.cs" />
     <Compile Include="Assets/Scripts/Loot/Loot.cs" />
     <Compile Include="Assets/Scripts/Enemy/Bat/BatCollider.cs" />
+    <Compile Include="Assets/Room Plotter/RoomPlotter.cs" />
     <Compile Include="Assets/Scripts/Enemy/Skeleton Priest/SkeletonPriestAnimatorFunctions.cs" />
     <Compile Include="Assets/Scripts/Scene Utilities/SceneSelector.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyInfo.cs" />
@@ -115,7 +116,7 @@
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimation.cs" />
-    <Compile Include="Assets/Room Plotter/RoomPlotter.cs" />
+    <Compile Include="Assets/Room Plotter/Room_JSONeer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
