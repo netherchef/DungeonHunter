@@ -77,7 +77,7 @@ public class Shop : MonoBehaviour
 		switch (currItem.type)
 		{
 			case ItemType.PotionOfHealth:
-				playerHealth.Heal ();
+				playerHealth.GetHealed ();
 				break;
 			case ItemType.PotionOfStrength:
 				playerAttack.SetDamage (2, true);

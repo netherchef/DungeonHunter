@@ -73,7 +73,7 @@ public class SlimeFunctions : MonoBehaviour
 						{
 							if(attackCollider.IsTouching (targCol))
 							{
-								targetHealth.Damage ();
+								targetHealth.GetHurt ();
 
 								attackCollider.enabled = false; // Disable Attack
 

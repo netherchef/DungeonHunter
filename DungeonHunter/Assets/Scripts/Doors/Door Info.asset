@@ -44,7 +44,12 @@ MonoBehaviour:
     left: Slime Room
     right: BATS
   - roomName: Slime Room
-    up: 
+    up: Smithy
     down: 
     left: 
     right: PRI_BAT_SKEL
+  - roomName: Smithy
+    up: 
+    down: Slime Room
+    left: 
+    right: 

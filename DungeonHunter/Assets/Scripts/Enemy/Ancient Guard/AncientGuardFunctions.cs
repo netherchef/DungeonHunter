@@ -151,7 +151,7 @@ public class AncientGuardFunctions : MonoBehaviour
 			{
 				if(attackCollider.IsTouching (targCol))
 				{
-					targetHealth.Damage (damage);
+					targetHealth.GetHurt (damage);
 				}
 			}
 			else

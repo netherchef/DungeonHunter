@@ -111,7 +111,7 @@ public class Bat : MonoBehaviour
 
 								// Damage Player
 
-								targetHealthSystem.Damage ();
+								targetHealthSystem.GetHurt ();
 							}
 
 							Vector3 newPos = Vector3.Lerp (master.position, atkEndPos, speed * 3 * Time.deltaTime);

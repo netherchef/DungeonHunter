@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cut Scenes/Opening Cut Scene.unity
     guid: 4a555a32ad6a44879a22582163627170
+  - enabled: 1
+    path: Assets/Scenes/Quiet/Smithy.unity
+    guid: 46f9056f2c6f445ffad1d7823f751dc5
   m_configObjects: {}

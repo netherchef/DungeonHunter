@@ -140,7 +140,7 @@ public class TheEyeAttack : MonoBehaviour
 						{
 							// Damage Player
 
-							playerHealth.Damage (projectileDamage);
+							playerHealth.GetHurt (projectileDamage);
 
 							// Destroy this Projectile
 

@@ -15,7 +15,7 @@ public class LazerAttack : MonoBehaviour
             {
                 lazerHit = true;
 
-                other.transform.GetComponent<HealthSystem> ().Damage (lazerDamage);
+                other.transform.GetComponent<HealthSystem> ().GetHurt (lazerDamage);
             }
         }
     }

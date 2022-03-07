@@ -41,9 +41,20 @@ public class DataPasser : MonoBehaviour
 
 	public int playerCurrHp;
 	public int playerFullHp;
+	private ArmorType armorType;
 	public int currDamage;
 	public Attack_Effect currAttackEffect;
 	public ItemType[] inventoryItems;
+
+	public ArmorType CurrentArmorType ()
+	{
+		return armorType;
+	}
+
+	public void SetArmorType (ArmorType newType)
+	{
+		armorType = newType;
+	}
 
 	#endregion
 

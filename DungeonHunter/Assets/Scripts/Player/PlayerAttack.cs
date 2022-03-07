@@ -130,7 +130,7 @@ public class PlayerAttack : MonoBehaviour
 
 			if (currEffect == Attack_Effect.DOT) targHealth.ApplyDOT (1, 5); // DOT Effect
 
-			targHealth.Damage (currDamage); // Basic Attack
+			targHealth.GetHurt (currDamage); // Basic Attack
 
 			// Knockback
 

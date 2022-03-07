@@ -143,7 +143,7 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 				if (Vector3.Magnitude (target.position - master.position) < attackRange)
 				{
 					foundTarget = true;
-					targetHealthSystem.Damage ();
+					targetHealthSystem.GetHurt ();
 				}
 			}
 

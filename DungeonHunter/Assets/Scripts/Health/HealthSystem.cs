@@ -72,7 +72,7 @@ public class HealthSystem : MonoBehaviour
 		// shaderSpriteDefault = Shader.Find ("Sprites/Default");
 	}
 
-	public void Damage (int value = 1)
+	public void GetHurt (int value = 1)
 	{
 #if UNITY_EDITOR
 		if (godMode) return;
@@ -91,11 +91,12 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	public void Heal (int val = 1)
+	public void GetHealed (int val = 1)
 	{
 		if (currHp < fullHp)
 		{
-			currHp += val;
+			if (currHp + val > fullHp) currHp = fullHp;
+			else currHp += val;
 
 			healthBar.FillHeart ();
 		}
@@ -109,6 +110,19 @@ public class HealthSystem : MonoBehaviour
 		{
 			if (!invincibility.invincible)
 			{
+				switch (DataPasser.DPInstance.CurrentArmorType ())
+				{
+					case ArmorType.Gold:
+						value -= 1;
+						break;
+					case ArmorType.Bronze:
+						value /= 2;
+						break;
+					case ArmorType.Ruby:
+						value = 1;
+						break;
+				}
+
 				currHp -= value; // Decrease HP
 
 				healthBar.DrainHeart (); // Health Bar
@@ -185,38 +199,6 @@ public class HealthSystem : MonoBehaviour
 	#region Boss __________________________________________________
 
 	public bool IsBoss () { return boss; }
-
-	#endregion __________________________________________________
-
-	#region Sprite Colour __________________________________________________
-
-	// private void PaintWhite (SpriteRenderer sr)
-	// {	
-	// 	if (doPaintWhite == null)
-	// 	{
-	// 		doPaintWhite = DoPaintWhite (sr);
-	// 		StartCoroutine (doPaintWhite);
-	// 	}
-
-	// 	whiteTimer = 0.5f;
-	// }
-
-	// private IEnumerator DoPaintWhite (SpriteRenderer sr)
-	// {
-	// 	masterSprite.material.shader = shaderGUIText;
-	// 	masterSprite.color = Color.white;
-
-	// 	while (whiteTimer > 0)
-	// 	{
-	// 		whiteTimer -= Time.deltaTime;
-	// 		yield return null;
-	// 	}
-
-	// 	masterSprite.material.shader = shaderSpriteDefault;
-	// 	masterSprite.color = Color.white;
-
-	// 	doPaintWhite = null;
-	// }
 
 	#endregion __________________________________________________
 }
