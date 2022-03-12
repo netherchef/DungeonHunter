@@ -45,7 +45,7 @@ public class Shop : MonoBehaviour
 
 	public void MakePurchase ()
 	{
-		// Get Shop Item
+		// Locate Intended Shop Item in List
 
 		SaleItem currItem = default;
 
@@ -64,6 +64,10 @@ public class Shop : MonoBehaviour
 
 		for (int i = currItem.goldCost; i > 0; i--)
 		{
+			GoldMeter.GMInstance.MinusGold ();
+
+			// Obsolete Gold Handling. Consider removing.
+
 			inventory.RemoveItem (ItemType.Gold);
 		}
 

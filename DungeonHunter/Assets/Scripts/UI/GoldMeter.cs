@@ -48,7 +48,7 @@ public class GoldMeter : MonoBehaviour
 		currGold++;
 	}
 
-	private void MinusGold ()
+	public void MinusGold (int amount = 1)
 	{
 		if (currGold > 0)
 		{
