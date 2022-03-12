@@ -892,7 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6
   height: 4
-  debug: 1
+  debug: 0
 --- !u!1 &856409282
 GameObject:
   m_ObjectHideFlags: 0

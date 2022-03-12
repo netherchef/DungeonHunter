@@ -21,6 +21,11 @@ public class ArmorShopItem : MonoBehaviour
 		if (collision.CompareTag ("Player")) playerDetected = false;
 	}
 
+	public void Disable()
+	{
+		playerDetected = false;
+	}
+
 	public bool PlayerDetected()
 	{
 		return playerDetected;

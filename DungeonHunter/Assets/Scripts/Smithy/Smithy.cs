@@ -26,25 +26,25 @@ public class Smithy : MonoBehaviour
 			print (DataPasser.DPInstance.CurrentArmorType ());
 		}
 
-		if (Input.GetButtonDown ("Interact"))
-		{
-			foreach (ArmorShopItem shopItem in armorShopItems)
-			{
-				if (shopItem.PlayerDetected ())
-				{
-					if (DataPasser.DPInstance.CurrentArmorType () != shopItem.ShopArmorType ())
-					{
-						BuyArmor (shopItem.ShopArmorType ());
-						shopItem.gameObject.SetActive (false);
-						return;
-					}
-				}
-			}
-		}
+		//if (Input.GetButtonDown ("Interact"))
+		//{
+		//	foreach (ArmorShopItem shopItem in armorShopItems)
+		//	{
+		//		if (shopItem.PlayerDetected ())
+		//		{
+		//			if (DataPasser.DPInstance.CurrentArmorType () != shopItem.ShopArmorType ())
+		//			{
+		//				BuyArmor (shopItem.ShopArmorType ());
+		//				shopItem.gameObject.SetActive (false);
+		//				return;
+		//			}
+		//		}
+		//	}
+		//}
 	}
 
-	private void BuyArmor (ArmorType type)
-	{
-		DataPasser.DPInstance.SetArmorType (type);
-	}
+	//private void BuyArmor (ArmorType type)
+	//{
+	//	DataPasser.DPInstance.SetArmorType (type);
+	//}
 }

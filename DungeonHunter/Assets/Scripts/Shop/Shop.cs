@@ -24,6 +24,7 @@ public class Shop : MonoBehaviour
 
 	// Variables
 
+	[SerializeField]
 	private List<ShopItem> shopItems = new List<ShopItem> ();
 
 	// !!! TEMPORARY !!!
@@ -34,14 +35,6 @@ public class Shop : MonoBehaviour
 		foreach (Transform child in shopItemContainer)
 		{
 			shopItems.Add (child.GetComponent<ShopItem> ());
-
-			//ShopItem shopItem = child.GetComponent<ShopItem> ();
-
-			//shopItems.Add (new SaleItem {
-			//	type = shopItem.type,
-			//	goldCost = 1,
-			//	shopItem = shopItem
-			//});
 		}
 	}
 
@@ -59,14 +52,7 @@ public class Shop : MonoBehaviour
 			}
 		}
 
-		if (currShopItem == null) return;
-		
-		//SaleItem currItem = default;
-
-		//foreach (SaleItem saleItem in shopItems)
-		//{
-		//	if (saleItem.shopItem.ready) currItem = saleItem;
-		//}
+		if (currShopItem == null) return; // If No Shop Item was Found, Cancel Purchase
 
 		if (currShopItem.Type () == ItemType.NULL)
 		{
@@ -77,7 +63,8 @@ public class Shop : MonoBehaviour
 
 		// Check Gold
 
-		if (inventory.GoldCount () < currShopItem.Cost ()) return;
+		if (GoldMeter.GMInstance.CurrentGold () < currShopItem.Cost ()) return;
+		//if (inventory.GoldCount () < currShopItem.Cost ()) return;
 
 		// Deduct Gold
 
@@ -87,7 +74,7 @@ public class Shop : MonoBehaviour
 
 			// Obsolete Gold Handling. Consider removing.
 
-			inventory.RemoveItem (ItemType.Gold);
+			//inventory.RemoveItem (ItemType.Gold);
 		}
 
 		// Make Sale
@@ -105,7 +92,15 @@ public class Shop : MonoBehaviour
 			case ItemType.PotionOfStrength:
 				playerAttack.SetDamage (2, true);
 				break;
-			default: inventory.AddItem (currShopItem.Type ());
+
+			case ItemType.GoldArmor:
+				DataPasser.DPInstance.SetArmorType (ArmorType.Gold);
+				break;
+			case ItemType.BronzeArmor:
+				DataPasser.DPInstance.SetArmorType (ArmorType.Bronze);
+				break;
+			case ItemType.RubyArmor:
+				DataPasser.DPInstance.SetArmorType (ArmorType.Ruby);
 				break;
 		}
 

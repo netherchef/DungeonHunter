@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
 
 	public void AddItem (ItemType itemType)
 	{
-		items.Add (itemType);
+		//items.Add (itemType);
 
 		if (itemType == ItemType.Gold) goldMeter.AddGold (); // Gold Meter
 	}
@@ -30,17 +30,17 @@ public class PlayerInventory : MonoBehaviour
 		foreach (ItemType item in itemList) items.Add (item);
 	}
 
-	public int GoldCount ()
-	{
-		int count = 0;
+	//public int GoldCount ()
+	//{
+	//	int count = 0;
 
-		foreach (ItemType item in items)
-		{
-			if (item == ItemType.Gold) count++;
-		}
+	//	foreach (ItemType item in items)
+	//	{
+	//		if (item == ItemType.Gold) count++;
+	//	}
 
-		return count;
-	}
+	//	return count;
+	//}
 
 	public void RemoveItem (ItemType item)
 	{
