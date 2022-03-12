@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ShopItem : MonoBehaviour
 {
-	public ItemType type;
+	// Variables
 
-	public bool ready;
+	[SerializeField]
+	private ItemType type;
+	[SerializeField]
+	private int cost = 1;
+
+	private bool ready;
 
 	private void OnTriggerEnter2D (Collider2D collision)
 	{
@@ -16,5 +21,25 @@ public class ShopItem : MonoBehaviour
 	private void OnTriggerExit2D (Collider2D collision)
 	{
 		if (collision.CompareTag ("Player")) ready = false;
+	}
+
+	public bool Ready ()
+	{
+		return ready;
+	}
+
+	public void Disable ()
+	{
+		ready = false;
+	}
+
+	public ItemType Type ()
+	{
+		return type;
+	}
+
+	public int Cost ()
+	{
+		return cost;
 	}
 }

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  ready: 0
+  cost: 1
 --- !u!58 &40064555
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 124183256}
   - component: {fileID: 124183257}
   m_Layer: 0
-  m_Name: Trader
+  m_Name: Potion Trader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  ready: 0
+  cost: 3
 --- !u!58 &1227212476
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  ready: 0
+  cost: 1
 --- !u!58 &1743651141
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct SaleItem
-{
-	public ItemType type;
-	public int goldCost;
-	public ShopItem shopItem;
-}
+//public struct SaleItem
+//{
+//	public ItemType type;
+//	public int goldCost;
+//	public ShopItem shopItem;
+//}
 
 public class Shop : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class Shop : MonoBehaviour
 
 	// Variables
 
-	private List<SaleItem> saleItems = new List<SaleItem> ();
+	private List<ShopItem> shopItems = new List<ShopItem> ();
 
 	// !!! TEMPORARY !!!
 	private void Start () { Prep (); }
@@ -33,13 +33,15 @@ public class Shop : MonoBehaviour
 	{
 		foreach (Transform child in shopItemContainer)
 		{
-			ShopItem shopItem = child.GetComponent<ShopItem> ();
+			shopItems.Add (child.GetComponent<ShopItem> ());
 
-			saleItems.Add (new SaleItem {
-				type = shopItem.type,
-				goldCost = 1,
-				shopItem = shopItem
-			});
+			//ShopItem shopItem = child.GetComponent<ShopItem> ();
+
+			//shopItems.Add (new SaleItem {
+			//	type = shopItem.type,
+			//	goldCost = 1,
+			//	shopItem = shopItem
+			//});
 		}
 	}
 
@@ -47,22 +49,39 @@ public class Shop : MonoBehaviour
 	{
 		// Locate Intended Shop Item in List
 
-		SaleItem currItem = default;
+		ShopItem currShopItem = null;
 
-		foreach (SaleItem saleItem in saleItems)
+		foreach (ShopItem shopItem in shopItems)
 		{
-			if (saleItem.shopItem.ready) currItem = saleItem;
+			if (shopItem.Ready ())
+			{
+				currShopItem = shopItem;
+			}
 		}
 
-		if (currItem.type == ItemType.NULL) return;
+		if (currShopItem == null) return;
+		
+		//SaleItem currItem = default;
+
+		//foreach (SaleItem saleItem in shopItems)
+		//{
+		//	if (saleItem.shopItem.ready) currItem = saleItem;
+		//}
+
+		if (currShopItem.Type () == ItemType.NULL)
+		{
+			Debug.LogWarning ("Item Type NOT Set!");
+
+			return;
+		}
 
 		// Check Gold
 
-		if (inventory.GoldCount () < currItem.goldCost) return;
+		if (inventory.GoldCount () < currShopItem.Cost ()) return;
 
 		// Deduct Gold
 
-		for (int i = currItem.goldCost; i > 0; i--)
+		for (int i = currShopItem.Cost (); i > 0; i--)
 		{
 			GoldMeter.GMInstance.MinusGold ();
 
@@ -73,12 +92,12 @@ public class Shop : MonoBehaviour
 
 		// Make Sale
 
-		currItem.shopItem.ready = false;
-		currItem.shopItem.gameObject.SetActive (false);
+		currShopItem.Disable ();
+		currShopItem.gameObject.SetActive (false);
 
 		// Add to Inventory
 
-		switch (currItem.type)
+		switch (currShopItem.Type ())
 		{
 			case ItemType.PotionOfHealth:
 				playerHealth.GetHealed ();
@@ -86,14 +105,14 @@ public class Shop : MonoBehaviour
 			case ItemType.PotionOfStrength:
 				playerAttack.SetDamage (2, true);
 				break;
-			default: inventory.AddItem (currItem.type);
+			default: inventory.AddItem (currShopItem.Type ());
 				break;
 		}
 
-		itemIcon.FlashByItemType (currItem.type);
+		itemIcon.FlashByItemType (currShopItem.Type ());
 
 		// Remove Item from Shop
 
-		saleItems.Remove (currItem);
+		shopItems.Remove (currShopItem);
 	}
 }
