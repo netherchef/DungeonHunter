@@ -11,6 +11,9 @@ public class ShopItem : MonoBehaviour
 	[SerializeField]
 	private int cost = 1;
 
+	[SerializeField]
+	private AudioClip itemSound;
+
 	private bool ready;
 
 	private void OnTriggerEnter2D (Collider2D collision)
@@ -41,5 +44,10 @@ public class ShopItem : MonoBehaviour
 	public int Cost ()
 	{
 		return cost;
+	}
+
+	public void PlayItemSound (AudioSource audioS)
+	{
+		if (itemSound != null) audioS.PlayOneShot (itemSound);
 	}
 }

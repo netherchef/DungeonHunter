@@ -618,47 +618,46 @@ MonoBehaviour:
   audioSources: []
   shots:
   - shotName: 1
-    sprite: {fileID: 1910383903476272488, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: 7223844325383607643, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: Long before time, there was once a peaceful kingdom.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 2
-    sprite: {fileID: -6338989211793416537, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: 5405592672241604301, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: "The people there lived in peace and harmony, with no violence or war. 
       But, their happiness was short-lived\u2026 "
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 3
-    sprite: {fileID: -3915814291984222706, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: -8921272321144620088, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: The very earth quaked beneath their feet, spewing dark energy through the
       land in a beacon of crimson light.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 4
-    sprite: {fileID: 7748164110753108761, guid: bdec1648562b742abb076c334f742287,
-      type: 3}
+    sprite: {fileID: 738782102848049422, guid: 56d2f8ce8833e4975a607fc6d897f643, type: 3}
     text: Monsters of evil intent rose from the ground, and marched upon the peaceful
       kingdom.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 5
-    sprite: {fileID: 7974624936700405253, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: 2772578531006536512, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: Panicked and screaming, villagers throughout the kingdom fled in terror.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 6
-    sprite: {fileID: 3431806784553366691, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: -4901539258154098545, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: "But then, the king\u2019s army was sent out to ward off the monsters. 
       Having slain thousands of evil skeletons, they emerged victorious. "
     audioclip: {fileID: 8300000, guid: 73a2fadedd5f344c286f02e7d7eea003, type: 3}
     audioVolume: 0.1
   - shotName: 7
-    sprite: {fileID: 4903489396647246630, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: -4240184212332821120, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: 'What remained of the evil army retreated far from the kingdom, to impenetrable
       fortresses built on the cracked earth from whence they came.  Again and again,
@@ -667,7 +666,7 @@ MonoBehaviour:
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 8
-    sprite: {fileID: -4640427400436868641, guid: bdec1648562b742abb076c334f742287,
+    sprite: {fileID: -1236770547298419481, guid: 56d2f8ce8833e4975a607fc6d897f643,
       type: 3}
     text: "The old texts spoke of a chosen hero who would appear in this hour of
       darkness to drive back the evil and return order to the land.  No such hero
@@ -856,7 +855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724366555
@@ -879,7 +878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1910383903476272488, guid: bdec1648562b742abb076c334f742287,
+  m_Sprite: {fileID: -1236770547298419481, guid: 56d2f8ce8833e4975a607fc6d897f643,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

@@ -4,28 +4,28 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1910383903476272488
-    second: Opening Cutscene_0
+    second: OLD Opening Cutscene_0
   - first:
       213: -6338989211793416537
-    second: Opening Cutscene_1
+    second: OLD Opening Cutscene_1
   - first:
       213: -3915814291984222706
-    second: Opening Cutscene_2
+    second: OLD Opening Cutscene_2
   - first:
       213: 7748164110753108761
-    second: Opening Cutscene_3
+    second: OLD Opening Cutscene_3
   - first:
       213: 7974624936700405253
-    second: Opening Cutscene_4
+    second: OLD Opening Cutscene_4
   - first:
       213: 3431806784553366691
-    second: Opening Cutscene_5
+    second: OLD Opening Cutscene_5
   - first:
       213: 4903489396647246630
-    second: Opening Cutscene_6
+    second: OLD Opening Cutscene_6
   - first:
       213: -4640427400436868641
-    second: Opening Cutscene_7
+    second: OLD Opening Cutscene_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,6 +47,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -56,8 +57,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -78,9 +79,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -123,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Opening Cutscene_0
+      name: OLD Opening Cutscene_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +135,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,7 +148,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_1
+      name: OLD Opening Cutscene_1
       rect:
         serializedVersion: 2
         x: 120
@@ -152,7 +156,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +169,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_2
+      name: OLD Opening Cutscene_2
       rect:
         serializedVersion: 2
         x: 240
@@ -173,7 +177,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,7 +190,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_3
+      name: OLD Opening Cutscene_3
       rect:
         serializedVersion: 2
         x: 360
@@ -194,7 +198,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,7 +211,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_4
+      name: OLD Opening Cutscene_4
       rect:
         serializedVersion: 2
         x: 0
@@ -215,7 +219,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,7 +232,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_5
+      name: OLD Opening Cutscene_5
       rect:
         serializedVersion: 2
         x: 120
@@ -236,7 +240,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_6
+      name: OLD Opening Cutscene_6
       rect:
         serializedVersion: 2
         x: 240
@@ -257,7 +261,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,7 +274,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Opening Cutscene_7
+      name: OLD Opening Cutscene_7
       rect:
         serializedVersion: 2
         x: 360
@@ -278,7 +282,7 @@ TextureImporter:
         width: 120
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

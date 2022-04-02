@@ -13,7 +13,11 @@ public class Shop : MonoBehaviour
 {
 	[Header ("Components:")]
 
-	public Transform shopItemContainer;
+	[SerializeField]
+	private Transform shopItemContainer;
+
+	[SerializeField]
+	private AudioSource audioSource;
 
 	[Header ("Scripts:")]
 
@@ -103,6 +107,8 @@ public class Shop : MonoBehaviour
 				DataPasser.DPInstance.SetArmorType (ArmorType.Ruby);
 				break;
 		}
+
+		currShopItem.PlayItemSound (audioSource);
 
 		itemIcon.FlashByItemType (currShopItem.Type ());
 
