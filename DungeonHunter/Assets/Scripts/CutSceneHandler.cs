@@ -10,6 +10,10 @@ public struct Shot
 	public string shotName;
 	public Sprite sprite;
 	public string text;
+
+	public AudioClip audioclip;
+	//public float audioDuration;
+	public float audioVolume;
 }
 
 public class CutSceneHandler : MonoBehaviour
@@ -20,6 +24,8 @@ public class CutSceneHandler : MonoBehaviour
 	private Image sceneImage;
 	[SerializeField]
 	private Text sceneText;
+	[SerializeField]
+	private List<AudioSource> audioSources = new List<AudioSource> ();
 
 	[Header ("Variables:")]
 
@@ -61,6 +67,8 @@ public class CutSceneHandler : MonoBehaviour
 	{
 		while (enabled)
 		{
+			// Skip Button
+
 			if (Input.GetButtonDown ("Cancel"))
 			{
 				if (!skipButton.activeSelf) skipButton.SetActive (true);
@@ -104,40 +112,47 @@ public class CutSceneHandler : MonoBehaviour
 
 		sceneText.text = shot.text;
 
+		// Change Audio
+
+		//if (shot.sound != null) sceneAudio = shot.sound;
+
 		// Show Image & Text
 
-		yield return Show (sceneImage, sceneText);
+		yield return Show (sceneImage, sceneText, shot);
+
+		// Reset Audio
+
+		//sceneAudio = null;
 	}
 
-	private IEnumerator Hide (Image image, Text text)
+	private IEnumerator Show(Image image, Text text, Shot shot)
 	{
-		// Hide Image
+		// Sound
 
-		while (image.color.a > 0)
+		if (shot.audioclip != null)
 		{
-			Color tempColor = image.color;
-			tempColor.a -= Time.deltaTime;
+			//StartCoroutine (PlaySceneSound (shot));
 
-			image.color = tempColor;
+			foreach (AudioSource audioSrc in audioSources)
+			{
+				if (audioSrc.clip == null)
+				{
+					audioSrc.clip = shot.audioclip;
+					audioSrc.volume = shot.audioVolume;
+					audioSrc.Play ();
 
-			yield return null;
+					break;
+				}
+			}
+
+			AudioSource newSource = gameObject.AddComponent<AudioSource> ();
+			newSource.clip = shot.audioclip;
+			newSource.volume = shot.audioVolume;
+			audioSources.Add (newSource);
+
+			newSource.Play ();
 		}
 
-		// Hide Text
-
-		while (text.color.a > 0)
-		{
-			Color tempColor = text.color;
-			tempColor.a -= Time.deltaTime;
-
-			text.color = tempColor;
-
-			yield return null;
-		}
-	}
-
-	private IEnumerator Show (Image image, Text text)
-	{
 		// Show Image
 
 		while (image.color.a < 1)
@@ -161,6 +176,110 @@ public class CutSceneHandler : MonoBehaviour
 
 			yield return null;
 		}
+	}
+
+	private IEnumerator Hide (Image image, Text text)
+	{
+		// Hide Image
+
+		//while (image.color.a > 0)
+		//{
+		//	Color tempColor = image.color;
+		//	tempColor.a -= Time.deltaTime;
+
+		//	image.color = tempColor;
+
+		//	yield return null;
+		//}
+
+		// Hide Text
+
+		//while (text.color.a > 0)
+		//{
+		//	Color tempColor = text.color;
+		//	tempColor.a -= Time.deltaTime;
+
+		//	text.color = tempColor;
+
+		//	yield return null;
+		//}
+
+		while (image.color.a > 0 || text.color.a > 0)
+		{
+			// Image
+
+			Color tempColor = image.color;
+			tempColor.a -= Time.deltaTime;
+
+			image.color = tempColor;
+
+			// Text
+
+			tempColor = text.color;
+			tempColor.a -= Time.deltaTime * 0.8f;
+
+			text.color = tempColor;
+
+			yield return null;
+		}
+
+		// Stop Sound
+
+		foreach (AudioSource audioSource in audioSources)
+		{
+			if (audioSource.isPlaying) audioSource.Stop ();
+		}
+	}
+
+	private IEnumerator PlaySceneSound(Shot shot)
+	{
+		//#if UNITY_EDITOR
+		//		if (shot.audioDuration <= 0) Debug.LogWarning ("Shot Audio Duration is 0");
+		//		if (shot.audioVolume <= 0) Debug.LogWarning ("Shot Audio Volume is 0");
+		//#endif
+
+		//		foreach (AudioSource source in audioSources)
+		//		{
+		//			if (source.clip = null)
+		//			{
+		//				print ("Reusing Audio Source!");
+
+		//				source.clip = shot.audioclip;
+		//				source.volume = shot.audioVolume;
+		//				source.Play ();
+
+		//				for (float soundDur = shot.audioDuration; soundDur > 0; soundDur -= Time.deltaTime)
+		//				{
+		//					yield return null;
+		//				}
+
+		//				source.Stop ();
+
+		//				source.clip = null;
+
+		//				yield break;
+		//			}
+
+		//			yield return null;
+		//	}
+
+		//	AudioSource newSource = gameObject.AddComponent<AudioSource> ();
+		//	audioSources.Add(newSource);
+
+		//		newSource.clip = shot.audioclip;
+		//		newSource.volume = shot.audioVolume;
+		//		newSource.Play();
+
+		//		for (float soundDur = shot.audioDuration; soundDur > 0; soundDur -= Time.deltaTime)
+		//		{
+		//			yield return null;
+		//		}
+
+		//		newSource.Stop ();
+
+		//		newSource.clip = null;
+
+		yield return null;
 	}
 
 	//private void Set_SceneImage (Shot shot)

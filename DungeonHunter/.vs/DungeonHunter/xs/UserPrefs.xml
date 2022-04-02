@@ -1,17 +1,14 @@
-﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerInputHandler.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene Utilities/DataPasser.cs">
     <Files>
-      <File FileName="Assets/Scripts/Smithy/ArmorShopItem.cs" Line="28" Column="1" />
-      <File FileName="Assets/Scripts/Smithy/Smithy.cs" Line="24" Column="30" />
-      <File FileName="Assets/Scripts/Shop/Shop.cs" Line="41" Column="25" />
-      <File FileName="Assets/Scripts/Shop/ShopItem.cs" Line="12" Column="23" />
-      <File FileName="Assets/Scripts/Items/Item.cs" Line="9" Column="23" />
-      <File FileName="Assets/Scripts/Player/PlayerInputHandler.cs" Line="97" Column="19" />
+      <File FileName="Assets/Scripts/Enemy/EnemyHandler.cs" Line="80" Column="17" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Boss.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene Utilities/DataPasser.cs" Line="79" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b2f40a72-0a15-4832-8814-9bb4e3da937f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="08850d12-4aa4-44ac-bd66-52ff06b03e75" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

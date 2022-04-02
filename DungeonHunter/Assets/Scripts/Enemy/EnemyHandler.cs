@@ -73,6 +73,13 @@ public class EnemyHandler : MonoBehaviour
 
 	private List<HealthSystem> enemyHealths = new List<HealthSystem> ();
 
+	[Header ("Debug:")]
+
+	[SerializeField]
+	private bool spawnEnemy;
+	[SerializeField]
+	private EnemyType debugEnemy;
+
 	// Enumerators
 
 	private IEnumerator CheckEnemies { get { return DoCheckEnemies (); } }
@@ -83,6 +90,39 @@ public class EnemyHandler : MonoBehaviour
 
 		StartCoroutine (CheckEnemies);
 	}
+
+#if UNITY_EDITOR
+	private void Update()
+	{
+		if (spawnEnemy)
+		{
+			spawnEnemy = false;
+
+			switch (debugEnemy)
+			{
+				case EnemyType.SkeletonWarrior:
+					Spawn_SkeletonWarrior ();
+					break;
+				case EnemyType.SkeletonPriest:
+					Spawn_SkeletonPriest ();
+					break;
+				case EnemyType.Bat:
+					Spawn_Bat ();
+					break;
+				case EnemyType.AncientGuard:
+					Spawn_AncientGuard ();
+					break;
+				case EnemyType.Slime:
+					Spawn_Slime ();
+					break;
+				default:
+					Spawn_SkeletonWarrior ();
+					break;
+			}
+		}
+	}
+#endif
+
 
 	public void SpawnAtRandomLocations ()
 	{

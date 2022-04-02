@@ -46,6 +46,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -1293067827
   m_SortingLayer: 2
   m_SortingOrder: 20
-  m_Sprite: {fileID: 2572996886857676669, guid: f59d474cc271f44b8bf1efbf4d3ce07e,
+  m_Sprite: {fileID: 7960102565659833547, guid: ce3366e6e897f4d77901f09cc3e69cd1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,7 +198,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
 --- !u!114 &7637710667489682883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,13 +215,15 @@ MonoBehaviour:
   camShaker: {fileID: 0}
   type: 0
   currHp: 2
+  fullHp: 4
   defaultDeath: 0
   DOTDamage: 0
   DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
-  fullHp: 4
+  boss: 0
+  bossHealthBar: {fileID: 0}
   debug: 0
   godMode: 0
 --- !u!114 &4516651577294540654

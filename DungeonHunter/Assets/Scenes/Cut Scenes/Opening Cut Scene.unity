@@ -310,6 +310,133 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &647196039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647196041}
+  - component: {fileID: 647196040}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &647196040
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647196039}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a4fe7f41b76b743ae9b98c40186ac717, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &647196041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647196039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713875824
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,47 +615,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneImage: {fileID: 1724366555}
   sceneText: {fileID: 1094925667}
+  audioSources: []
   shots:
   - shotName: 1
     sprite: {fileID: 1910383903476272488, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: Long before time, there was once a peaceful kingdom.
+    audioclip: {fileID: 0}
+    audioVolume: 0
+  - shotName: 2
     sprite: {fileID: -6338989211793416537, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: "The people there lived in peace and harmony, with no violence or war. 
+      But, their happiness was short-lived\u2026 "
+    audioclip: {fileID: 0}
+    audioVolume: 0
+  - shotName: 3
     sprite: {fileID: -3915814291984222706, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: The very earth quaked beneath their feet, spewing dark energy through the
+      land in a beacon of crimson light.
+    audioclip: {fileID: 0}
+    audioVolume: 0
+  - shotName: 4
     sprite: {fileID: 7748164110753108761, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: Monsters of evil intent rose from the ground, and marched upon the peaceful
+      kingdom.
+    audioclip: {fileID: 0}
+    audioVolume: 0
+  - shotName: 5
     sprite: {fileID: 7974624936700405253, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: Panicked and screaming, villagers throughout the kingdom fled in terror.
+    audioclip: {fileID: 0}
+    audioVolume: 0
+  - shotName: 6
     sprite: {fileID: 3431806784553366691, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: "But then, the king\u2019s army was sent out to ward off the monsters. 
+      Having slain thousands of evil skeletons, they emerged victorious. "
+    audioclip: {fileID: 8300000, guid: 73a2fadedd5f344c286f02e7d7eea003, type: 3}
+    audioVolume: 0.1
+  - shotName: 7
     sprite: {fileID: 4903489396647246630, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
-  - shotName: 1
+    text: 'What remained of the evil army retreated far from the kingdom, to impenetrable
+      fortresses built on the cracked earth from whence they came.  Again and again,
+      the skeletons attempted to raid the kingdom. Each raid was more brutal than
+      the last. '
+    audioclip: {fileID: 0}
+    audioVolume: 0
+  - shotName: 8
     sprite: {fileID: -4640427400436868641, guid: bdec1648562b742abb076c334f742287,
       type: 3}
-    text: The quick brown fox jumps over the sleeping dog. The quick brown fox jumps
-      over the sleeping dog.
+    text: "The old texts spoke of a chosen hero who would appear in this hour of
+      darkness to drive back the evil and return order to the land.  No such hero
+      came\u2026 Jake would have to do."
+    audioclip: {fileID: 0}
+    audioVolume: 0
   nextScene: Entrance
   skipButton: {fileID: 713875824}
 --- !u!1 &1094925665

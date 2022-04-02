@@ -41,9 +41,12 @@ public class DataPasser : MonoBehaviour
 
 	public int playerCurrHp;
 	public int playerFullHp;
+	
 	private ArmorType armorType;
+
 	public int currDamage;
 	public Attack_Effect currAttackEffect;
+
 	public ItemType[] inventoryItems;
 
 	public ArmorType CurrentArmorType ()
@@ -58,10 +61,31 @@ public class DataPasser : MonoBehaviour
 
 	#endregion
 
-	#region  _________________________________________________________
+	#region Room ______________________________________________________________
 
 	public string previousRoom;
 	//public DoorDirection previousDoorDir;
+
+	#endregion
+
+	#region ____________________________________________________________________
+
+	public List<BossType> defeatedBosses = new List<BossType> ();
+
+	public void RecordBossDefeat (BossType bossType)
+	{
+		defeatedBosses.Add (bossType);
+	}
+
+	public bool IsDefeated(BossType bossType)
+	{
+		foreach (BossType boss in defeatedBosses)
+		{
+			if (boss == bossType) return true;
+		}
+
+		return false;
+	}
 
 	#endregion
 }

@@ -49,7 +49,7 @@ public class SlimeFunctions : MonoBehaviour
 		{
 			if (!health.Dead ())
 			{
-				if (Vector3.Distance (target.position, master.position) > 1f)
+				if (Vector3.Distance (target.position, master.position) > 1f) // If far away
 				{
 					Vector3 dir = Vector3.Normalize (target.position - master.position);
 
@@ -59,42 +59,49 @@ public class SlimeFunctions : MonoBehaviour
 				}
 				else
 				{
-					// Attack
+					for (float windUp = 1f; windUp > 0; windUp -= Time.deltaTime) yield return null;
+
+					// Jump
 
 					jumpArch.Jump (master.position, target.position, 4, 0.5f);
 
 					while (jumpArch.Is_Jumping ()) yield return null;
 
-					attackCollider.enabled = true;
+					// Impact On Landing
 
-					for (float attackDur = 0.5f; attackDur > 0; attackDur -= Time.deltaTime)
+					if (!health.Dead ())
 					{
-						if (!health.Dead ())
+						attackCollider.enabled = true;
+
+						for (float attackDur = 0.25f; attackDur > 0; attackDur -= Time.deltaTime)
 						{
-							if(attackCollider.IsTouching (targCol))
+							if (!health.Dead ())
 							{
-								targetHealth.GetHurt ();
+								if (attackCollider.IsTouching (targCol))
+								{
+									targetHealth.GetHurt ();
 
-								attackCollider.enabled = false; // Disable Attack
+									attackCollider.enabled = false; // Disable Attack
 
+									attackDur = 0;
+								}
+							}
+							else
+							{
 								attackDur = 0;
 							}
+
+							yield return null;
 						}
-						else
+
+						attackCollider.enabled = false; // Disable Attack
+
+						for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) // Cooldown
 						{
-							attackDur = 0;
+							if (health.Dead ()) coolDown = 0;
+
+							yield return null;
 						}
-
-						yield return null;
-					}
-
-					attackCollider.enabled = false; // Disable Attack
-
-					for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) // Cooldown
-					{
-						if (health.Dead ()) coolDown = 0;
-
-						yield return null;
 					}
 				}
 			}
