@@ -1968,6 +1968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootPrefabs:
   - {fileID: 7214711348006925065, guid: 2a783bb8669564543a63f8407ba99cb3, type: 3}
+  - {fileID: 7214711348006925065, guid: e8d7fa2341d324458b196582b01677a2, type: 3}
   activeLoots: []
   inventory: {fileID: 1907380265}
   itemIcon: {fileID: 1455590568}

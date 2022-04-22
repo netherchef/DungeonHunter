@@ -22,6 +22,11 @@ public class AncientGuardFunctions : MonoBehaviour
 	private CircleCollider2D targCol;
 	private LootHandler lootHandler;
 
+	[Header ("Variables:")]
+
+	[SerializeField]
+	private ItemType[] itemDrops;
+
 	[Header ("Scripts:")]
 
 	[SerializeField]
@@ -96,7 +101,8 @@ public class AncientGuardFunctions : MonoBehaviour
 			yield return null;
 		}
 
-		lootHandler.DropGold (master.position);
+		lootHandler.DropLoot (itemDrops, master.position);
+		//lootHandler.DropGold (master.position);
 
 		animatorFunctions.Set_Dead (true); // Death Animation
 

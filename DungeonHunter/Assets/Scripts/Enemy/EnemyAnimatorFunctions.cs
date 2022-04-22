@@ -9,6 +9,19 @@ public class EnemyAnimatorFunctions : MonoBehaviour
 	[SerializeField]
 	private Animator animator;
 
+	// Facing Right
+
+	private int animHash_FacingRight = Animator.StringToHash ("FacingRight");
+	public void Set_FacingRight (bool state) { animator.SetBool (animHash_FacingRight, state); }
+	public bool Is_FacingRight () { return animator.GetBool (animHash_FacingRight); }
+
+	// Wind Up
+
+	private int animHash_WindUpDone = Animator.StringToHash ("WindUpDone");
+	public void Set_WindUpDone_True () { animator.SetBool (animHash_WindUpDone, true); } // Accessed through Editor
+	public void Set_WindUpDone_False() { animator.SetBool (animHash_WindUpDone, false); }
+	public bool Is_WindUpDone () { return animator.GetBool (animHash_WindUpDone); }
+
 	// Attack
 
 	private int animHash_AttackStart = Animator.StringToHash ("AttackStart");

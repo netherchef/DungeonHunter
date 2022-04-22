@@ -54,12 +54,12 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
 		{
-			// Distance to Target
+			float gapToTarg = Vector3.Magnitude (master.position - target.position); // Distance to Target
 
-			float gapToTarg = Vector3.Magnitude (master.position - target.position);
-
-			if(gapToTarg > attackRange)
+			if (gapToTarg > attackRange)
 			{
+				// Move to Target
+
 				Vector3 moveValue = Vector3.Normalize (target.position - master.position);
 				moveValue.z = 0;
 
@@ -72,38 +72,6 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 			yield return null;
 		}
-		
-		//while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
-		//{
-			// Distance to Target
-
-			//float gapToTarg = Vector3.Magnitude (master.position - target.position);
-
-			// Chase
-
-			// If Blocked by Pillar, Go Around
-
-			//if (goAround.Blocked (goAround.master.position, goAround.target.position))
-			//{
-
-			//}
-
-			// If Not Blocked, Run at Target
-
-			//if(gapToTarg > attackRange)
-			//{
-			//	Vector3 moveValue = Vector3.Normalize (target.position - master.position);
-			//	moveValue.z = 0;
-
-			//	master.position += moveValue * moveSpeed * Time.deltaTime;
-			//}
-			//else
-			//{
-			//	yield return DoAttackSeq (); // Attack
-			//}
-
-			//yield return null;
-		//}
 
 		// Death
 
@@ -121,16 +89,21 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 	private IEnumerator DoAttackSeq ()
 	{
-		// Wind Up
+		// Set Direction for Animation
 
-		for (float windupTimer = windUp; windupTimer > 0; windupTimer -= Time.deltaTime)
-		{
-			if (!healthSystem.Dead ())  yield return null;
-		}
+		float dir = Mathf.Sign (target.position.x - master.position.x);
 
-		// Attack Animation
+		skeletonAnimFunctions.Set_FacingRight (dir <= 0 ? false : true);
+
+		// Start Attack Animation
 
 		skeletonAnimFunctions.Set_AttackStart ();
+
+		// Wind Up
+
+		while (!skeletonAnimFunctions.Is_WindUpDone ()) yield return null;
+
+		skeletonAnimFunctions.Set_WindUpDone_False ();
 
 		// Attack
 

@@ -59,9 +59,9 @@ public class LootHandler : MonoBehaviour
 				{
 					loot.collected = false;
 					loot.gameObject.SetActive (false);
-
+					
 					inventory.AddItem (loot.type);
-
+					
 					activeLoots = LootsFromContainer (transform, true);
 
 					itemIcon.FlashByItemType (loot.type);

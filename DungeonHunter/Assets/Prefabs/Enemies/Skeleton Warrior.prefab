@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7637710666664673168}
   - component: {fileID: 7637710666664673171}
-  - component: {fileID: 7637710666664673170}
+  - component: {fileID: 8295436374256744222}
   m_Layer: 0
   m_Name: Sprite Animations
   m_TagString: Untagged
@@ -135,7 +135,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7637710666664673170
+--- !u!114 &8295436374256744222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +241,7 @@ MonoBehaviour:
   master: {fileID: 7637710667489682881}
   healthSystem: {fileID: 7637710667489682883}
   goAround: {fileID: 7852357031174266674}
-  skeletonAnimFunctions: {fileID: 7637710666664673170}
+  skeletonAnimFunctions: {fileID: 8295436374256744222}
   attackRange: 0.6
   moveSpeed: 0.5
   windUp: 0.2

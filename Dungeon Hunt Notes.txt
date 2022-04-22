@@ -1,0 +1,9 @@
+Dungeon Hunt Bug list:
+1. Bat Swoop Collision
+2. Remove knock back for Ancient Guard
+
+Creative Questions:
+1. What happens after beating dungeon?
+
+Todo:
+1. Ending screen

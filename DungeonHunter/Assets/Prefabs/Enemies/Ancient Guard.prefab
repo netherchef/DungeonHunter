@@ -52,6 +52,7 @@ MonoBehaviour:
   master: {fileID: 1527569315933954756}
   attackCollider: {fileID: 1527569316242176275}
   sr: {fileID: 1527569317481028105}
+  itemDrops: 04000000
   healthSystem: {fileID: 1527569315933954755}
   animatorFunctions: {fileID: 758142334223246760}
 --- !u!58 &1527569315933954757
