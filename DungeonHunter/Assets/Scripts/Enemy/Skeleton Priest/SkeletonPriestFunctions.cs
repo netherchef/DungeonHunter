@@ -8,6 +8,10 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 	[SerializeField]
 	private Transform master;
+	private Transform target;
+
+	[SerializeField]
+	private GameObject arcanceOrb;
 
 	[Header ("Scripts:")]
 
@@ -39,6 +43,13 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 	private IEnumerator PriestCycle ()
 	{
+		bool summonDone = false;
+		bool attackDone = false;
+
+		bool summon = false;
+		bool attack = false;
+		bool panic = false;
+
 		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
 		{
 			// Wait Cool Down
@@ -50,31 +61,89 @@ public class SkeletonPriestFunctions : MonoBehaviour
 				yield return null;
 			}
 
-			// Summon
+			// Decide Next Action
 
-			animFuncs.Set_PrepPray ();
-
-			for (float ct = castTime; ct > 0; ct -= Time.deltaTime)
+			if (!summonDone)
 			{
-				if (healthSystem.Dead ()) ct = 0;
-
-				yield return null;
+				summon = true;
 			}
+			else
+			{
+				if (!attackDone) attack = true;
+				else panic = true;
+			}			
 
-			animFuncs.Set_DonePray ();
+			if (attack) // Arcane Orb
+			{
+				attack = false;
 
-			// Spawn Skeleton
+				attackDone = true;
 
-			if (!healthSystem.Dead ()) SummonSkeleton ();
+				animFuncs.Set_SummonStart ();
 
-			// Reset
+				GameObject orb = null;
+
+				if (!healthSystem.Dead ())
+				{
+					orb = Instantiate (arcanceOrb, master.position, Quaternion.identity);
+					orb.transform.position += new Vector3 (0, 0.5f);
+				}
+
+				for (float timer = 3f; timer > 0; timer -= Time.deltaTime)
+				{
+					if (healthSystem.Dead ()) timer = 0;
+					else yield return null;
+				}
+
+				if (!healthSystem.Dead ())
+				{
+					animFuncs.Set_SummonDone ();
+
+					Vector2 dir = target.position - orb.transform.position;
+					orb.GetComponent<ArcaneOrbShot> ().Shoot (dir.normalized);
+				}
+			}
+			else if (summon) // Summon Skeletons
+			{
+				summon = false;
+
+				summonDone = true;
+
+				animFuncs.Set_SummonStart ();
+
+				for (float timer = 3f; timer > 0; timer -= Time.deltaTime)
+				{
+					if (healthSystem.Dead ()) timer = 0;
+					else yield return null;
+				}
+
+				animFuncs.Set_SummonDone ();
+
+				if (!healthSystem.Dead ()) SummonSkeleton (); // Spawn Skeleton
+			}
+			else if (panic) // Panic
+			{
+				panic = false;
+				summonDone = false;
+				attackDone = false;
+
+				animFuncs.Set_Panic (true);
+
+				for (float timer = 3f; timer > 0; timer -= Time.deltaTime)
+				{
+					if (healthSystem.Dead ()) timer = 0;
+					else yield return null;
+				}
+
+				animFuncs.Set_Panic (false);
+			}
 
 			yield return null;
 		}
 
-		animFuncs.Set_Dead ();
+		// Dead
 
-		//gameObject.SetActive (false);
+		animFuncs.Set_Dead ();
 
 		lootHandler.DropGold (master.position);
 	}
@@ -96,6 +165,11 @@ public class SkeletonPriestFunctions : MonoBehaviour
 	public void Set_LootHandler (LootHandler handler)
 	{
 		lootHandler = handler;
+	}
+
+	public void SetTarget(Transform targTrans)
+	{
+		target = targTrans;
 	}
 
 	public void Set_TargetHealthSystem (HealthSystem healthSys)

@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   master: {fileID: 5571398295516082665}
+  arcanceOrb: {fileID: 713506268034514492, guid: 80b7f8cb5c1fb48e2ac594bffdcdfaa5,
+    type: 3}
   animFuncs: {fileID: 5571398295081705841}
   enemyHandler: {fileID: 0}
   healthSystem: {fileID: 7067847599113571604}

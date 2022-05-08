@@ -2229,6 +2229,16 @@ PrefabInstance:
       objectReference: {fileID: 971571178}
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
+      propertyPath: debugEnemy
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
+      propertyPath: spawnEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
+        type: 3}
       propertyPath: doorHandler
       value: 
       objectReference: {fileID: 692358501}
@@ -2252,11 +2262,6 @@ PrefabInstance:
       propertyPath: targetHealthSystem
       value: 
       objectReference: {fileID: 113518923}
-    - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
-        type: 3}
-      propertyPath: spawnOnEntry.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2348696005510329858, guid: 9365ab9866af74d4da66f2156f35e3b1,
         type: 3}
       propertyPath: spawnOnEntry.Array.data[0]

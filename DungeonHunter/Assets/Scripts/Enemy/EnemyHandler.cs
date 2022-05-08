@@ -202,6 +202,8 @@ public class EnemyHandler : MonoBehaviour
 
 		priestFuncs.Set_LootHandler (lootHandler);
 
+		priestFuncs.SetTarget (target);
+
 		priestFuncs.Set_TargetHealthSystem (targetHealthSystem);
 
 		priestFuncs.Execute ();

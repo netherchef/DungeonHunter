@@ -54,11 +54,18 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
 		{
+			// Set Direction for Animation
+
+			float dir = Mathf.Sign (target.position.x - master.position.x);
+			skeletonAnimFunctions.Set_FacingRight (dir <= 0 ? false : true);
+
 			float gapToTarg = Vector3.Magnitude (master.position - target.position); // Distance to Target
 
 			if (gapToTarg > attackRange)
 			{
 				// Move to Target
+
+				if (!skeletonAnimFunctions.Is_Moving ()) skeletonAnimFunctions.Set_Moving (true); // Start Move Animation
 
 				Vector3 moveValue = Vector3.Normalize (target.position - master.position);
 				moveValue.z = 0;
@@ -67,6 +74,8 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 			}
 			else
 			{
+				if (skeletonAnimFunctions.Is_Moving ()) skeletonAnimFunctions.Set_Moving (false); // Stop Move Animation
+
 				yield return DoAttackSeq (); // Attack
 			}
 
@@ -75,25 +84,21 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		// Death
 
-		gameObject.SetActive (false);
+		if (skeletonAnimFunctions.Is_Moving ()) skeletonAnimFunctions.Set_Moving (false); // Stop Move Animation
+
+		skeletonAnimFunctions.Set_Dead_True ();
 
 		// Drop Loot
 
 		lootHandler.DropGold (master.position);
-
-		//ItemType[] items = new ItemType[1];
-		//items[0] = ItemType.Gold;
-
-		//lootHandler.DropLoot (items, master.position);
 	}
 
 	private IEnumerator DoAttackSeq ()
 	{
 		// Set Direction for Animation
 
-		float dir = Mathf.Sign (target.position.x - master.position.x);
-
-		skeletonAnimFunctions.Set_FacingRight (dir <= 0 ? false : true);
+		//float dir = Mathf.Sign (target.position.x - master.position.x);
+		//skeletonAnimFunctions.Set_FacingRight (dir <= 0 ? false : true);
 
 		// Start Attack Animation
 
