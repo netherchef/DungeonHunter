@@ -100,6 +100,7 @@
     <Compile Include="Assets/Scripts/Enemy/Boss/Boss.cs" />
     <Compile Include="Assets/Scripts/Enemy/Slime/SlimeAnimatorFunctions.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerAttack.cs" />
+    <Compile Include="Assets/Scripts/ArcaneOrbShot.cs" />
     <Compile Include="Assets/Scripts/SpriteFlipper.cs" />
     <Compile Include="Assets/Scripts/Enemy/Ancient Guard/AncientGuardFunctions.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/LazerAttack.cs" />
@@ -118,8 +119,7 @@
     <Compile Include="Assets/Scripts/Loot/LootCreature.cs" />
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimation.cs" />
-    <Compile Include="Assets/Scripts/ArcaneOrbShot.cs" />
+    <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimatorFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

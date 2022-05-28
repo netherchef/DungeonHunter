@@ -12,13 +12,21 @@ public class GreatBeholder : MonoBehaviour
 	[Header ("Scripts:")]
 
 	[SerializeField]
-	private GreatBeholderAnimation gBAnim;
+	private GreatBeholderAnimatorFunctions animFuncs;
 
 	[SerializeField]
 	private LazerAttack lazerAttack;
 
 	[SerializeField]
 	private SceneBounds sceneBounds;
+
+	[Header ("Death Components:")]
+
+	[SerializeField]
+	private CircleCollider2D beholderCollider;
+
+	[SerializeField]
+	private Canvas healthCanvas;
 
 	// Variables
 
@@ -30,28 +38,18 @@ public class GreatBeholder : MonoBehaviour
 
 	private IEnumerator currentAction;
 
-	// public IEnumerator Misc (Transform gb, Transform targ, Transform pupil, Transform pupilCont)
-	// {
-	// 	LookAtPlayer (pupil,pupilCont, targ);
-
-	// 	//yield return Move (gb, targ, 4f);
-
-	// 	yield return null;
-	// }
-
 	public IEnumerator Attack (Transform beholder, Transform targ, HealthSystem hs)
 	{
+		animFuncs.Set_Attacking (true);
+
 		// Attacks
 
 		yield return LazerGaze (targ, beholder, hs);
 
 		// if (hs.currHp < hs.fullHp / 2) yield return TrackerGaze (beholder, targ);
 		// else yield return LazerGaze (targ, beholder);
-	}
 
-	public IEnumerator Death ()
-	{
-		yield return null;
+		animFuncs.Set_Attacking (false);
 	}
 
 	#region Misc _______________________________________________________________
@@ -175,12 +173,12 @@ public class GreatBeholder : MonoBehaviour
 
 	private IEnumerator LazerGaze (Transform pTrans, Transform gbTrans, HealthSystem hs)
 	{
-		for (float chargeDur = 2f; chargeDur > 0; chargeDur -= Time.deltaTime) // Charge
-		{
-			if(hs.Dead ()) chargeDur = 0;
+		//for (float chargeDur = 1f; chargeDur > 0; chargeDur -= Time.deltaTime) // Charge
+		//{
+		//	if(hs.Dead ()) chargeDur = 0;
 
-			yield return null;
-		}
+		//	yield return null;
+		//}
 
 		// Lazer Rotation
 
@@ -194,6 +192,13 @@ public class GreatBeholder : MonoBehaviour
 		float newLength = lazer.transform.localScale.y * Vector3.Magnitude (pTrans.position - gbTrans.position) * 3.5f;
 		Vector3 newScale = new Vector3 (lazer.transform.localScale.x, newLength, lazer.transform.localScale.z);
 		lazer.transform.localScale = newScale;
+
+		for (float chargeDur = 1f; chargeDur > 0; chargeDur -= Time.deltaTime) // Charge
+		{
+			if (hs.Dead ()) chargeDur = 0;
+
+			yield return null;
+		}
 
 		lazer.SetActive (true); // Release
 
@@ -214,6 +219,21 @@ public class GreatBeholder : MonoBehaviour
 	#endregion
 
 	#region Death ______________________________________________________________
+
+	public void Start_Death ()
+	{
+		StartCoroutine ("Death");
+	}
+
+	private IEnumerator Death ()
+	{
+		beholderCollider.enabled = false;
+		healthCanvas.gameObject.SetActive (false);
+
+		animFuncs.Set_Dead (true);
+
+		yield return null;
+	}
 
 	#endregion
 }

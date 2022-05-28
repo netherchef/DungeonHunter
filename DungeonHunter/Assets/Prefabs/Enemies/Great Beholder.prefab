@@ -72,9 +72,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lazer: {fileID: 328305122401478429}
-  gBAnim: {fileID: 0}
+  animFuncs: {fileID: 6792646221748216219}
   lazerAttack: {fileID: 328305122401478424}
   sceneBounds: {fileID: 0}
+  beholderCollider: {fileID: 328305120435885339}
+  healthCanvas: {fileID: 328305121216684697}
 --- !u!114 &328305120435885338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +117,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &328305120453085641
@@ -317,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328305121202067591}
   - component: {fileID: 8921403333508690501}
+  - component: {fileID: 6792646221748216219}
   m_Layer: 0
   m_Name: Sprite Animation
   m_TagString: Untagged
@@ -358,6 +361,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6792646221748216219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328305121202067590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd38374aa2eb4d069423a950949bce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &328305121216684698
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +543,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1293067827
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 415c473e4d30d4e758e7d81c9a686a46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
