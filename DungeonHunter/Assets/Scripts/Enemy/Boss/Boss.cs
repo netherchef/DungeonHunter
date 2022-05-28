@@ -13,10 +13,10 @@ public class Boss : MonoBehaviour
 	[SerializeField]
 	private Transform pTrans;
 
-	[SerializeField]
-	private Transform pupilContainer;
-	[SerializeField]
-	private Transform pupil;
+	//[SerializeField]
+	//private Transform pupilContainer;
+	//[SerializeField]
+	//private Transform pupil;
 
 	[Header ("Scripts:")]
 
@@ -137,7 +137,7 @@ public class Boss : MonoBehaviour
 		{
 			// TEMPORARY
 
-			greatBeholder.LookAtPlayer (pupil, pupilContainer, pTrans); // Misc Action
+			//greatBeholder.LookAtPlayer (pupil, pupilContainer, pTrans); // Misc Action
 
 			if (attackInterval > 0)
 			{

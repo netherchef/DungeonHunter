@@ -59,6 +59,11 @@ public class AncientGuardFunctions : MonoBehaviour
 		{
 			// Move
 
+			if (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Dead ()) // Walking Animation
+			{
+				animatorFunctions.Set_Walking (true);
+			}
+
 			while (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Dead ())
 			{
 				Move ();
@@ -66,9 +71,9 @@ public class AncientGuardFunctions : MonoBehaviour
 				yield return null;
 			}
 
-			// Charge Up
+			animatorFunctions.Set_Walking (false);
 
-			//sr.color = Color.red;
+			// Charge Up
 
 			animatorFunctions.Set_Attacking (true); // Start Attack Animation
 
@@ -80,8 +85,6 @@ public class AncientGuardFunctions : MonoBehaviour
 			}
 
 			// Attack
-
-			//sr.color = Color.white;
 
 			animatorFunctions.Set_Release (); // Animate Attack Release
 
@@ -102,11 +105,8 @@ public class AncientGuardFunctions : MonoBehaviour
 		}
 
 		lootHandler.DropLoot (itemDrops, master.position);
-		//lootHandler.DropGold (master.position);
 
 		animatorFunctions.Set_Dead (true); // Death Animation
-
-		//gameObject.SetActive (false);
 	}
 
 	private void Move ()
@@ -118,38 +118,7 @@ public class AncientGuardFunctions : MonoBehaviour
 
 	private IEnumerator Attack ()
 	{
-		//bool attacking = true;
-
 		attackCollider.enabled = true;
-
-		//float attackDur = 0.1f;
-
-		//while (attacking)
-		//{
-		//	if (attackDur > 0) attackDur -= Time.deltaTime;
-		//	else attacking = false;
-
-		//	if (attackCollider.IsTouching (targCol))
-		//	{
-		//		attacking = false;
-
-		//		targetHealth.Damage (damage);
-		//	}
-
-		//	yield return null;
-		//}
-
-		//while (attackDur > 0)
-		//{
-		//	attackDur -= Time.deltaTime;
-
-		//	if (attackCollider.IsTouching (targCol))
-		//	{
-		//		targetHealth.Damage (damage);
-		//	}
-
-		//	yield return null;
-		//}
 
 		for (float a = 0.1f; a > 0; a -= Time.deltaTime)
 		{
