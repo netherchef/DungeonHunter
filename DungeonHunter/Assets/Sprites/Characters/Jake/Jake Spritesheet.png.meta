@@ -4,25 +4,61 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 3719607332345266953
-    second: Jake Spritesheet_0
+    second: Jake - Walk Left 00
   - first:
       213: 7414079241622020270
-    second: Jake Spritesheet_1
+    second: Jake - Walk Left 01
   - first:
       213: -4207448643174401840
-    second: Jake Spritesheet_2
+    second: Jake - Walk Front 00
   - first:
       213: -1088791277826054416
-    second: Jake Spritesheet_3
+    second: Jake - Walk Front 01
   - first:
       213: 5611066607551352354
-    second: Jake Spritesheet_4
+    second: Jake - Death 00
   - first:
       213: 8121267709074988240
-    second: Jake Spritesheet_5
+    second: Jake - Death 01
   - first:
       213: -2516663733077774191
-    second: Jake Spritesheet_6
+    second: Jake - Death 02
+  - first:
+      213: -5155509088403286372
+    second: Jake - Idle
+  - first:
+      213: 4079534258776876365
+    second: Jake - Attack Left 00
+  - first:
+      213: -3861287306584636364
+    second: Jake - Attack Left 01
+  - first:
+      213: 2323149433581996403
+    second: Jake - Attack Left 02
+  - first:
+      213: -8157206965972956363
+    second: Jake - Attack Front 00
+  - first:
+      213: -6841601284387705330
+    second: Jake - Attack Front 01
+  - first:
+      213: -8790522515679962824
+    second: Jake - Attack Front 02
+  - first:
+      213: 6958709497931443394
+    second: Jake - Attack Back 00
+  - first:
+      213: -5896531661999204299
+    second: Jake - Attack Back 01
+  - first:
+      213: -5825233149826276059
+    second: Jake - Attack Back 02
+  - first:
+      213: -8789064537019223627
+    second: Jake - Walk Back 00
+  - first:
+      213: -867791360389907344
+    second: Jake - Walk Back 01
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,15 +148,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jake Spritesheet_0
+      name: Jake - Walk Left 00
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
+        y: 224
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,15 +169,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Spritesheet_1
+      name: Jake - Walk Left 01
       rect:
         serializedVersion: 2
         x: 16
-        y: 240
+        y: 224
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,15 +190,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Spritesheet_2
+      name: Jake - Walk Front 00
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
+        y: 208
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,15 +211,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Spritesheet_3
+      name: Jake - Walk Front 01
       rect:
         serializedVersion: 2
         x: 16
-        y: 224
+        y: 208
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,15 +232,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Spritesheet_4
+      name: Jake - Death 00
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
+        y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,15 +253,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Spritesheet_5
+      name: Jake - Death 01
       rect:
         serializedVersion: 2
         x: 32
-        y: 160
+        y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,15 +274,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jake Spritesheet_6
+      name: Jake - Death 02
       rect:
         serializedVersion: 2
         x: 64
-        y: 160
+        y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,6 +290,258 @@ TextureImporter:
       bones: []
       spriteID: 1907aca2ba3031dd0800000000000000
       internalID: -2516663733077774191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Idle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c969c659cc3f378b0800000000000000
+      internalID: -5155509088403286372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Left 00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d45ae674bca6d9830800000000000000
+      internalID: 4079534258776876365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Left 01
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4344c4317a3f96ac0800000000000000
+      internalID: -3861287306584636364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Left 02
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3790ecce91c7d3020800000000000000
+      internalID: 2323149433581996403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Front 00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b07d1bb77cbce80800000000000000
+      internalID: -8157206965972956363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Front 01
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ee63551efbd01a0800000000000000
+      internalID: -6841601284387705330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Front 02
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83992de985ac10680800000000000000
+      internalID: -8790522515679962824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Back 00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc27576b6d429060800000000000000
+      internalID: 6958709497931443394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Back 01
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53891bfc1bf4b2ea0800000000000000
+      internalID: -5896531661999204299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Attack Back 02
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52566ca405d982fa0800000000000000
+      internalID: -5825233149826276059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Walk Back 00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b17cfabe58f60680800000000000000
+      internalID: -8789064537019223627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jake - Walk Back 01
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c7ec00b5cf4f3f0800000000000000
+      internalID: -867791360389907344
       vertices: []
       indices: 
       edges: []

@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20919a921014b40f88f3cb6373b0ce58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animFuncs: {fileID: 2774957491513415823}
   playerAttack: {fileID: 5837925358231853009}
   playerMovement: {fileID: 5837925358381900539}
   direction: {fileID: 9078384356771393117}

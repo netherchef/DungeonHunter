@@ -10,7 +10,7 @@ public class PlayerAnimator : MonoBehaviour
 	// Moving
 
 	private int animHash_Moving = Animator.StringToHash ("Moving");
-	private void Set_Moving (bool state) { animator.SetBool (animHash_Moving, state); }
+	public void Set_Moving (bool state) { animator.SetBool (animHash_Moving, state); }
 	public bool Is_Moving () { return animator.GetBool (animHash_Moving); }
 
 	// Attacking
@@ -22,36 +22,61 @@ public class PlayerAnimator : MonoBehaviour
 	// Facing Up, Down, Left, Right
 
 	private int animHash_FacingUp = Animator.StringToHash ("FacingUp");
-	public void Set_FacingUp () { animator.SetTrigger (animHash_FacingUp); }
+	public void Set_FacingUp (bool state) { animator.SetBool (animHash_FacingUp, state); }
 	public bool Is_FacingUp () { return animator.GetBool (animHash_FacingUp); }
 
 	private int animHash_FacingDown = Animator.StringToHash ("FacingDown");
-	public void Set_FacingDown () { animator.SetTrigger (animHash_FacingDown); }
+	public void Set_FacingDown (bool state) { animator.SetBool (animHash_FacingDown, state); }
 	public bool Is_FacingDown () { return animator.GetBool (animHash_FacingDown); }
 
 	private int animHash_FacingLeft = Animator.StringToHash ("FacingLeft");
-	public void Set_FacingLeft () { animator.SetTrigger (animHash_FacingLeft); }
+	public void Set_FacingLeft (bool state) { animator.SetBool (animHash_FacingLeft, state); }
 	public bool Is_FacingLeft () { return animator.GetBool (animHash_FacingLeft); }
 
 	private int animHash_FacingRight = Animator.StringToHash ("FacingRight");
-	public void Set_FacingRight () { animator.SetTrigger (animHash_FacingRight); }
+	public void Set_FacingRight (bool state) { animator.SetBool (animHash_FacingRight, state); }
 	public bool Is_FacingRight () { return animator.GetBool (animHash_FacingRight); }
 
 	public void AnimateByDir (Vector2 dir)
 	{
 		if (dir.x > 0)
 		{
-			Set_FacingRight ();
+			Set_FacingRight (true);
+			Set_FacingLeft (false);
+
+			Set_FacingUp (false);
+			Set_FacingDown (false);
+
 			return;
 		}
 		else if (dir.x < 0)
 		{
-			Set_FacingLeft ();
+			Set_FacingLeft (true);
+			Set_FacingRight (false);
+
+			Set_FacingUp (false);
+			Set_FacingDown (false);
+
 			return;
 		}
 
-		if (dir.y > 0) Set_FacingUp ();
-		else if (dir.y < 0) Set_FacingDown ();
+		if (dir.y > 0)
+		{
+			Set_FacingUp (true);
+			Set_FacingDown (false);
+
+			Set_FacingLeft (false);
+			Set_FacingRight (false);
+
+		}
+		else if (dir.y < 0)
+		{
+			Set_FacingDown (true);
+			Set_FacingUp (false);
+
+			Set_FacingLeft (false);
+			Set_FacingRight (false);
+		}
 	}
 
 	// Death

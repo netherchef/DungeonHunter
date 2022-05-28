@@ -22,104 +22,104 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57181
+56138
 Successfully changed project path to: /Users/ray/Desktop/Projects/Github/DungeonHunter/DungeonHunter
 /Users/ray/Desktop/Projects/Github/DungeonHunter/DungeonHunter
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 104.88 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 44.79 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.33f1 (915a7af8b0d5)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/ray/Desktop/Projects/Github/DungeonHunter/DungeonHunter/Assets
 GfxDevice: creating device client; threaded=0
-2022-05-21 15:34:36.087 Unity[29954:1959524] (null) preferred device: Apple M1 (high power)
-2022-05-21 15:34:36.087 Unity[29954:1959524] Metal devices available: 1
-2022-05-21 15:34:36.087 Unity[29954:1959524] 0: Apple M1 (high power)
-2022-05-21 15:34:36.087 Unity[29954:1959524] Using device Apple M1 (high power)
+2022-05-28 15:35:48.364 Unity[11913:1044823] (null) preferred device: Apple M1 (high power)
+2022-05-28 15:35:48.364 Unity[11913:1044823] Metal devices available: 1
+2022-05-28 15:35:48.364 Unity[11913:1044823] 0: Apple M1 (high power)
+2022-05-28 15:35:48.365 Unity[11913:1044823] Using device Apple M1 (high power)
 Initializing Metal device caps: Apple M1
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56954
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56913
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.33f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002609 seconds.
+Registered in 0.001924 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 72.75 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 44.90 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.706 seconds
+- Completed reload, in  1.134 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1707ms)
-		BeginReloadAssembly (147ms)
+	ReloadAssembly (1135ms)
+		BeginReloadAssembly (92ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (4ms)
-		EndReloadAssembly (1374ms)
-			LoadAssemblies (144ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (929ms)
+			LoadAssemblies (90ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (278ms)
+			SetupTypeCache (173ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (61ms)
-			SetupLoadedEditorAssemblies (671ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (467ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (17ms)
+				InitializePlatformSupportModulesInManaged (13ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (73ms)
-				BeforeProcessingInitializeOnLoad (109ms)
-				ProcessInitializeOnLoadAttributes (354ms)
-				ProcessInitializeOnLoadMethodAttributes (116ms)
+				RefreshPlugins (45ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (253ms)
+				ProcessInitializeOnLoadMethodAttributes (81ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004110 seconds.
+Registered in 0.003523 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/ray/Desktop/Projects/Github/DungeonHunter/DungeonHunter/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 71.47 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 44.16 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.017 seconds
+- Completed reload, in  2.007 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3020ms)
-		BeginReloadAssembly (333ms)
+	ReloadAssembly (2009ms)
+		BeginReloadAssembly (220ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (44ms)
+			DisableScriptedObjects (27ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (2554ms)
-			LoadAssemblies (229ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (1703ms)
+			LoadAssemblies (164ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (529ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (88ms)
-			SetupLoadedEditorAssemblies (1287ms)
+			SetupTypeCache (334ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (873ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
+				InitializePlatformSupportModulesInManaged (10ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (72ms)
-				BeforeProcessingInitializeOnLoad (226ms)
-				ProcessInitializeOnLoadAttributes (909ms)
-				ProcessInitializeOnLoadMethodAttributes (62ms)
+				RefreshPlugins (44ms)
+				BeforeProcessingInitializeOnLoad (156ms)
+				ProcessInitializeOnLoadAttributes (615ms)
+				ProcessInitializeOnLoadMethodAttributes (46ms)
 				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (44ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
 Platform modules already initialized, skipping
-Validating Project structure ... 0.007611 seconds.
+Validating Project structure ... 0.003453 seconds.
 Shader import version has changed; will reimport all shaders...
-Upgrading shader files ...0.024584 seconds.
+Upgrading shader files ...0.014396 seconds.
 Application.AssetDatabase Initial Script Refresh Start
 RefreshInfo: InitialScriptRefreshV2(NoUpdateAssetOptions) scanfilter:  ... 1 filters
 RefreshProfiler: Total: 0.000ms
@@ -129,20 +129,20 @@ Application.AssetDatabase.Refresh End
 RefreshInfo: StopAssetImportingV2(ForceSynchronousImport) scanfilter: 
 RefreshProfiler: Total: 0.000ms
 Launching external process: /Applications/Unity/Hub/Editor/2020.3.33f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
 Initializing Unity extensions:
-2022-05-21 15:34:42.444 Unity[29954:1959524] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002a37800 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2022-05-21 15:34:42.449 Unity[29954:1959524] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002a476b0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+2022-05-28 15:35:52.642 Unity[11913:1044823] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002426450 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+2022-05-28 15:35:52.645 Unity[11913:1044823] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002449810 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
 ========================================================================
 Worker process is ready to serve import requests
-Refreshing native plugins compatible for Editor in 0.52 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.33 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2280 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 217.6 MB.
 System memory in use after: 216.9 MB.
 
 Unloading 162 unused Assets to reduce memory usage. Loaded Objects now: 2760.
-Total: 3.858750 ms (FindLiveObjects: 0.133166 ms CreateObjectMapping: 0.073125 ms MarkObjects: 3.016167 ms  DeleteObjects: 0.633541 ms)
+Total: 2.644208 ms (FindLiveObjects: 0.102542 ms CreateObjectMapping: 0.044583 ms MarkObjects: 2.072750 ms  DeleteObjects: 0.422833 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -156,57 +156,267 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefabs/Arcane Orb Shot.prefab
-  artifactKey: Guid(80b7f8cb5c1fb48e2ac594bffdcdfaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arcane Orb Shot.prefab using Guid(80b7f8cb5c1fb48e2ac594bffdcdfaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b911cd05342d98b24a70caa3118ed3e') in 1.002856 seconds 
+  path: Assets/Sprites/Raw/Environment
+  artifactKey: Guid(5be0f34be26a3416d9c185effe5e72e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/Environment using Guid(5be0f34be26a3416d9c185effe5e72e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e2e53030e32b8c6730d39509abc3819') in 0.006749 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.029650 seconds.
+  path: Assets/Sprites/Raw/Enemies
+  artifactKey: Guid(42c9b29474dee4c82a5d10516621753a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/Enemies using Guid(42c9b29474dee4c82a5d10516621753a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edf441cac5feed3c940be38bf09e4f94') in 0.000664 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.480283 seconds.
+  path: Assets/Sprites/Raw/Cutscenes
+  artifactKey: Guid(29ed5c1a261f14893bc55d32683937b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/Cutscenes using Guid(29ed5c1a261f14893bc55d32683937b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ca4b82a257ea30d3b827b6d758399b3') in 0.001266 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.900533 seconds.
+  path: Assets/Sprites/Raw/Items
+  artifactKey: Guid(28df0796bb40942b5a75ebee17490bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/Items using Guid(28df0796bb40942b5a75ebee17490bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a46c90364b8386cde1df12ceb4ccfc1f') in 0.001229 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.612854 seconds.
+  path: Assets/Sprites/Raw/Jake
+  artifactKey: Guid(e43aa8b711162483888d5f9d8c452ee1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/Jake using Guid(e43aa8b711162483888d5f9d8c452ee1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '644ea8444a03a6d59e4e3e9fa6b2fd00') in 0.001239 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.580372 seconds.
+  path: Assets/Sprites/Raw/Room with the Eye.png
+  artifactKey: Guid(d596dd033dd0e46b2b763fd1ffae20e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/Room with the Eye.png using Guid(d596dd033dd0e46b2b763fd1ffae20e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe3b1a94f03fe3c02007dbce66c284d') in 0.581938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.559776 seconds.
+  path: Assets/Sprites/Raw/The Eye.ase
+  artifactKey: Guid(b52a52cb3118b4ba8bcb14bb435718ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/The Eye.ase using Guid(b52a52cb3118b4ba8bcb14bb435718ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea0652f7381fb4f36a291a7d4be2f583') in 0.118521 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.030025 seconds.
+  path: Assets/Sprites/Raw/The Ultimate Sprite List 7_5_2022.png
+  artifactKey: Guid(d54985486ecd849f0b3106b769075cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Raw/The Ultimate Sprite List 7_5_2022.png using Guid(d54985486ecd849f0b3106b769075cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '340fa501ad3b1934fab7c1c0f1126098') in 0.026923 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 323.545685 seconds.
+  path: Assets/Animation/Jake/Jake Animator.controller
+  artifactKey: Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Animator.controller using Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc42d2a1ee5879f69401ab6e92c6145') in 0.454750 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 97.796187 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3730163adca07fdcb7300ccaea72fc9') in 0.032551 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 189.688276 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb42cbe943d3a82be05a9f137de70f5c') in 0.036038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 122.907859 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93f122c838a53b08d869dbdba24f4ee8') in 0.036044 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 101.697563 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8baeac7674a83533059762e3622ad912') in 0.035030 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2430.060508 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ca8c5fedfcf94650988d108d6db7bb6') in 0.060819 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 137.144744 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6713e5dc8c54a5f983cbee25ccec0461') in 0.065938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.762395 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '060d1235f4ca222a0a5f35fae3529a7d') in 0.064620 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 385.546547 seconds.
+  path: Assets/Animation/Arcane Orb Animation.anim
+  artifactKey: Guid(6461c01ebb22b4556b8bbee22e713855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Arcane Orb Animation.anim using Guid(6461c01ebb22b4556b8bbee22e713855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ce6140ce9a31f7417ae2f15976f6468') in 0.076795 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.292287 seconds.
+  path: Assets/Animation/Arcane Orb Animator.controller
+  artifactKey: Guid(825b4671b439e4061b0057f4fb207e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Arcane Orb Animator.controller using Guid(825b4671b439e4061b0057f4fb207e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fce22530690bcab15fa9c9669b5527ed') in 0.005239 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.852760 seconds.
+  path: Assets/Animation/Jake/Jake Attack - Right.anim
+  artifactKey: Guid(5c7f1569435a94132961e8c0702a2a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Attack - Right.anim using Guid(5c7f1569435a94132961e8c0702a2a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '426358cc7106c3ceacad206bcaecd968') in 0.004271 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.329546 seconds.
+  path: Assets/Animation/Jake/Jake Attack - Down.anim
+  artifactKey: Guid(730a0b65147894936a4148c79aa6dce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Attack - Down.anim using Guid(730a0b65147894936a4148c79aa6dce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69e26c637f2659e390144b867472df98') in 0.003626 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.424529 seconds.
+  path: Assets/Animation/Jake/Jake Attack - Left.anim
+  artifactKey: Guid(960dedcd93fa64b84b6b89e9c61df282) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Attack - Left.anim using Guid(960dedcd93fa64b84b6b89e9c61df282) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efc0a161880d6ae802a3ba82948c22c3') in 0.003242 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.779743 seconds.
+  path: Assets/Animation/Jake/Jake Attack - Right.anim
+  artifactKey: Guid(5c7f1569435a94132961e8c0702a2a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Attack - Right.anim using Guid(5c7f1569435a94132961e8c0702a2a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a9bdca2e56387fb00aac08c43efe068') in 0.002511 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 699.766212 seconds.
+  path: Assets/Animation/Jake/Jake Moving - Right.anim
+  artifactKey: Guid(e4fcf4c8ebf574c1b90c12b150ed113a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Moving - Right.anim using Guid(e4fcf4c8ebf574c1b90c12b150ed113a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fe7aa49217fdb7b056eea40e70addef') in 0.005568 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.375120 seconds.
+  path: Assets/Animation/Jake/Jake Moving - Right.anim
+  artifactKey: Guid(e4fcf4c8ebf574c1b90c12b150ed113a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Moving - Right.anim using Guid(e4fcf4c8ebf574c1b90c12b150ed113a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6204bab26fdd347f3f59867d500ddfbc') in 0.002380 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 67.828027 seconds.
+  path: Assets/Animation/Jake/Jake Moving - Left.anim
+  artifactKey: Guid(6ee37d9b858d84e0695a9174179a3852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Moving - Left.anim using Guid(6ee37d9b858d84e0695a9174179a3852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ed1de8de6f02bc08ac3d44e0e480a99') in 0.003711 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 111.366223 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1c54706a45c4c967a9a6faabc0d47b9') in 0.077481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 69.543402 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd776a362fc8083747eb48daca0d00fe1') in 0.078503 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.268403 seconds.
+  path: Assets/Sprites/Characters/Jake/Jake Spritesheet.png
+  artifactKey: Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/Jake/Jake Spritesheet.png using Guid(2cdc6b2b211db4b9a9c7fb1b9f4b9d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d05c8e4e0f161f0fd062be8e55e5370') in 0.077554 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 206.982241 seconds.
+  path: Assets/Animation/Jake/Jake Animator.controller
+  artifactKey: Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Animator.controller using Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45c9a899bed7cfbbf808559fcce192e0') in 0.005891 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 158.948553 seconds.
+  path: Assets/Animation/Jake/Jake Idle - Up.anim
+  artifactKey: Guid(336f91d836f064bf3abd7d33d1db2705) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Idle - Up.anim using Guid(336f91d836f064bf3abd7d33d1db2705) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '313c8f2951d633dc7c4178395ef9ca93') in 0.004333 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.419685 seconds.
+  path: Assets/Animation/Jake/Jake Moving - Down.anim
+  artifactKey: Guid(bec6df2d423ef4f42908089608f70498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Moving - Down.anim using Guid(bec6df2d423ef4f42908089608f70498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fad9142f1edf7b9d77876018fefd83da') in 0.005332 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.940751 seconds.
+  path: Assets/Animation/Jake/Jake Moving - Up.anim
+  artifactKey: Guid(e30cfd1d0168b4c8fba0b3927bd7280a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Moving - Up.anim using Guid(e30cfd1d0168b4c8fba0b3927bd7280a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae55672123b4f46459a8bfd1bd25642f') in 0.003537 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 230.455307 seconds.
+  path: Assets/Animation/Jake/Jake Animator.controller
+  artifactKey: Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Animator.controller using Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57f766f401af23ef25be9b9f92a3c9a6') in 0.006376 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.043562 seconds.
+  path: Assets/Animation/Jake/Jake Animator.controller
+  artifactKey: Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Animator.controller using Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dcefc61ef1cef21473f85c829cf5596') in 0.004278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 285.607735 seconds.
+  path: Assets/Animation/Jake/Jake Animator.controller
+  artifactKey: Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Animator.controller using Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52b6f9086cbaf63d0d9e8ee91e4a5b0b') in 0.006962 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 74.689375 seconds.
+  path: Assets/Animation/Jake/Jake Animator.controller
+  artifactKey: Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Jake/Jake Animator.controller using Guid(e62c7a4208ca7467ab67b22cc88a9d0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78996643fd9a6bc91d6e63fc616449da') in 0.007460 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006262 seconds.
+Registered in 0.002896 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/ray/Desktop/Projects/Github/DungeonHunter/DungeonHunter/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.44 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-2022-05-21 15:37:16.095 Unity[29954:1959524] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002a2e3e0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+2022-05-28 17:13:57.484 Unity[11913:1044823] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002425c70 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
 Mono: successfully reloaded assembly
-- Completed reload, in  3.201 seconds
+- Completed reload, in  2.022 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3204ms)
-		BeginReloadAssembly (374ms)
+	ReloadAssembly (2023ms)
+		BeginReloadAssembly (217ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (63ms)
+			DisableScriptedObjects (38ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (121ms)
-		EndReloadAssembly (2687ms)
-			LoadAssemblies (302ms)
+			CreateAndSetChildDomain (83ms)
+		EndReloadAssembly (1716ms)
+			LoadAssemblies (154ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (667ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (86ms)
-			SetupLoadedEditorAssemblies (1308ms)
+			SetupTypeCache (328ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (922ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (20ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (346ms)
-				ProcessInitializeOnLoadAttributes (888ms)
-				ProcessInitializeOnLoadMethodAttributes (50ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (244ms)
+				ProcessInitializeOnLoadAttributes (624ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (49ms)
+			AwakeInstancesAfterBackupRestoration (38ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.39 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2256 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.2 MB.
-System memory in use after: 218.4 MB.
+System memory in use before: 231.0 MB.
+System memory in use after: 231.2 MB.
 
-Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 2770.
-Total: 3.172417 ms (FindLiveObjects: 0.138209 ms CreateObjectMapping: 0.070667 ms MarkObjects: 2.922708 ms  DeleteObjects: 0.039042 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 2775.
+Total: 2.211291 ms (FindLiveObjects: 0.088916 ms CreateObjectMapping: 0.046000 ms MarkObjects: 2.050333 ms  DeleteObjects: 0.025042 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -221,51 +431,51 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004787 seconds.
+Registered in 0.004342 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/ray/Desktop/Projects/Github/DungeonHunter/DungeonHunter/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-2022-05-21 15:38:41.225 Unity[29954:1959524] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600002a2ee60 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+2022-05-28 17:18:10.365 Unity[11913:1044823] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x6000024264c0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
 Mono: successfully reloaded assembly
-- Completed reload, in  2.975 seconds
+- Completed reload, in  2.076 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2976ms)
-		BeginReloadAssembly (316ms)
+	ReloadAssembly (2077ms)
+		BeginReloadAssembly (263ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (48ms)
+			DisableScriptedObjects (35ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (113ms)
-		EndReloadAssembly (2529ms)
-			LoadAssemblies (261ms)
+			CreateAndSetChildDomain (80ms)
+		EndReloadAssembly (1725ms)
+			LoadAssemblies (222ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (526ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (85ms)
-			SetupLoadedEditorAssemblies (1323ms)
+			SetupTypeCache (335ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (918ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (20ms)
+				InitializePlatformSupportModulesInManaged (15ms)
 				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (349ms)
-				ProcessInitializeOnLoadAttributes (899ms)
-				ProcessInitializeOnLoadMethodAttributes (50ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (239ms)
+				ProcessInitializeOnLoadAttributes (625ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
 				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (48ms)
+			AwakeInstancesAfterBackupRestoration (32ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.38 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2256 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.4 MB.
-System memory in use after: 218.6 MB.
+System memory in use before: 231.2 MB.
+System memory in use after: 231.4 MB.
 
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2773.
-Total: 3.133917 ms (FindLiveObjects: 0.136208 ms CreateObjectMapping: 0.069208 ms MarkObjects: 2.901250 ms  DeleteObjects: 0.025958 ms)
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2778.
+Total: 2.177917 ms (FindLiveObjects: 0.106625 ms CreateObjectMapping: 0.044875 ms MarkObjects: 2.005750 ms  DeleteObjects: 0.019917 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 

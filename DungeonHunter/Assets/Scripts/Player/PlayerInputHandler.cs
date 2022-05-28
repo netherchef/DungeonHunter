@@ -6,6 +6,9 @@ public class PlayerInputHandler : MonoBehaviour
 {
 	[Header ("Scripts:")]
 
+	[SerializeField]
+	private PlayerAnimator animFuncs;
+
 	public PlayerAttack playerAttack;
 	public PlayerMovement playerMovement;
 	[SerializeField]
@@ -116,37 +119,28 @@ public class PlayerInputHandler : MonoBehaviour
 
 			Vector2 dirInput = new Vector2 (0, 0);
 
-			if (Input.GetAxisRaw ("Horizontal") > 0)
-			{
-				//if (!facingRight)
-				//{
-				//	facingRight = !facingRight;
-				//	spriteFlipper.Flip ();
-				//}
-
-				dirInput.x = 1;
-			}
-			else if (Input.GetAxisRaw ("Horizontal") < 0)
-			{
-				//if (facingRight)
-				//{
-				//	facingRight = !facingRight;
-				//	spriteFlipper.Flip ();
-				//}
-
-				dirInput.x = -1;
-			}
+			if (Input.GetAxisRaw ("Horizontal") > 0) dirInput.x = 1;
+			else if (Input.GetAxisRaw ("Horizontal") < 0) dirInput.x = -1;
 
 			if (Input.GetAxisRaw ("Vertical") > 0) dirInput.y = 1;
 			else if (Input.GetAxisRaw ("Vertical") < 0) dirInput.y = -1;
 
 			// Record Direction Changes
 
-			if (dirInput != new Vector2 (0, 0)) direction.SetDirection (Vector3.Normalize (dirInput));
+			if (dirInput != new Vector2 (0, 0))
+			{
+				direction.SetDirection (Vector3.Normalize (dirInput));
 
-			// Move in Direction
+				// Move in Direction
 
-			playerMovement.Move (Vector3.Normalize (dirInput));
+				if (!animFuncs.Is_Moving ()) animFuncs.Set_Moving (true);
+
+				playerMovement.Move (Vector3.Normalize (dirInput));
+			}
+			else
+			{
+				if (animFuncs.Is_Moving ()) animFuncs.Set_Moving (false);
+			}
 
 			yield return null;
 		}

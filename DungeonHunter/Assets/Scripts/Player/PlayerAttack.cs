@@ -60,13 +60,15 @@ public class PlayerAttack : MonoBehaviour
 			{
 				tempRot.z = 180;
 
-				animator.Set_FacingRight ();
+				animator.Set_FacingRight (true);
+				animator.Set_FacingLeft (false);
 			}
 			else if (dir.x < 0) // Left
 			{
 				tempRot.z = 0;
 
-				animator.Set_FacingLeft ();
+				animator.Set_FacingLeft (true);
+				animator.Set_FacingRight (false);
 			}
 		}
 		else if (absDir.y > absDir.x)
@@ -75,13 +77,15 @@ public class PlayerAttack : MonoBehaviour
 			{
 				tempRot.z = -90;
 
-				animator.Set_FacingUp ();
+				animator.Set_FacingUp (true);
+				animator.Set_FacingDown (false);
 			}
 			else if (dir.y < 0) // Down
 			{
 				tempRot.z = 90;
 
-				animator.Set_FacingDown ();
+				animator.Set_FacingDown (true);
+				animator.Set_FacingUp (false);
 			}
 		}
 
