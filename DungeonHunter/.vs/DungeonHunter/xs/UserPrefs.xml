@@ -1,8 +1,19 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Bat/Bat.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Shop/Shop.cs" Line="115" Column="32" />
+      <File FileName="Assets/Scripts/Player/PlayerInputHandler.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerAnimator.cs" />
+      <File FileName="Assets/Scripts/Health/HealthSystem.cs" />
+      <File FileName="Assets/Scripts/Scene Utilities/DataPasser.cs" />
+      <File FileName="Assets/Scripts/Scene Utilities/EntryHandler.cs" Line="56" Column="62" />
+      <File FileName="Assets/Scripts/Enemy/Bat/BatHandler.cs" Line="24" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Bat/Bat.cs" Line="76" Column="6" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="54c3b143-be21-444a-bb7d-f1dbfc71091e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="979d3567-2625-4be5-a58a-035023955d42" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

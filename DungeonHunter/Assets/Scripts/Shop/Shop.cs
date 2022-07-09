@@ -23,6 +23,7 @@ public class Shop : MonoBehaviour
 
 	public HealthSystem playerHealth;
 	public PlayerAttack playerAttack;
+	private PlayerAnimator playerAnimator;
 	public PlayerInventory inventory;
 	public ItemIcon itemIcon;
 
@@ -32,14 +33,18 @@ public class Shop : MonoBehaviour
 	private List<ShopItem> shopItems = new List<ShopItem> ();
 
 	// !!! TEMPORARY !!!
-	private void Start () { Prep (); }
+	//private void Start () { Prep (); }
 
-	public void Prep ()
+	public void Prep (PlayerAnimator pAnim)
 	{
 		foreach (Transform child in shopItemContainer)
 		{
 			shopItems.Add (child.GetComponent<ShopItem> ());
 		}
+
+		// Player Animator for Switching Armor Animation
+
+		playerAnimator = pAnim;
 	}
 
 	public void MakePurchase ()
@@ -64,7 +69,7 @@ public class Shop : MonoBehaviour
 
 			return;
 		}
-
+		
 		// Check Gold
 
 		if (GoldMeter.GMInstance.CurrentGold () < currShopItem.Cost ()) return;
@@ -87,7 +92,7 @@ public class Shop : MonoBehaviour
 		currShopItem.gameObject.SetActive (false);
 
 		// Add to Inventory
-
+		
 		switch (currShopItem.Type ())
 		{
 			case ItemType.PotionOfHealth:
@@ -99,12 +104,15 @@ public class Shop : MonoBehaviour
 
 			case ItemType.GoldArmor:
 				DataPasser.DPInstance.SetArmorType (ArmorType.Gold);
+				playerAnimator.Set_Gold ();
 				break;
 			case ItemType.BronzeArmor:
 				DataPasser.DPInstance.SetArmorType (ArmorType.Bronze);
+				playerAnimator.Set_Bronze ();
 				break;
 			case ItemType.RubyArmor:
 				DataPasser.DPInstance.SetArmorType (ArmorType.Ruby);
+				playerAnimator.Set_Ruby ();
 				break;
 		}
 

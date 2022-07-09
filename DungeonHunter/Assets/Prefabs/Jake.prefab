@@ -278,7 +278,7 @@ SpriteRenderer:
   m_SortingLayerID: -1293067827
   m_SortingLayer: 2
   m_SortingOrder: 50
-  m_Sprite: {fileID: 6285912514520907756, guid: cd68aa0ddca2044d4aea8bbf0fb3e22a,
+  m_Sprite: {fileID: -5155509088403286372, guid: 2cdc6b2b211db4b9a9c7fb1b9f4b9d27,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -370,7 +370,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.75}
+  m_Size: {x: 0.3, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &5837925358231853014
 Rigidbody2D:

@@ -222,6 +222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
         type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 1791171194}
+    - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 977575439}
@@ -1179,7 +1184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
-  cost: 1
+  cost: 12
+  itemSound: {fileID: 0}
 --- !u!58 &1372847080
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1806,6 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopItemContainer: {fileID: 1791171192}
+  audioSource: {fileID: 0}
   playerHealth: {fileID: 977575442}
   playerAttack: {fileID: 1312603749}
   inventory: {fileID: 977575445}
@@ -2333,7 +2340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  cost: 1
+  cost: 6
+  itemSound: {fileID: 0}
 --- !u!1 &2118591228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2376,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!212 &2118591230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2409,9 +2417,9 @@ SpriteRenderer:
   m_SortingLayerID: -1293067827
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
+  m_Sprite: {fileID: -8999803013870421988, guid: 2cdc6b2b211db4b9a9c7fb1b9f4b9d27,
     type: 3}
-  m_Color: {r: 1, g: 0.8235294, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2430,7 +2438,7 @@ Transform:
   m_GameObject: {fileID: 2118591228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: -1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1791171192}
   m_RootOrder: 0
@@ -2448,7 +2456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
-  cost: 1
+  cost: 3
+  itemSound: {fileID: 0}
 --- !u!1001 &5837925359023930603
 PrefabInstance:
   m_ObjectHideFlags: 0

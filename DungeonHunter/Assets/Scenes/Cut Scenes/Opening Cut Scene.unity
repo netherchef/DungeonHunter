@@ -618,13 +618,13 @@ MonoBehaviour:
   audioSources: []
   shots:
   - shotName: 1
-    sprite: {fileID: 7223844325383607643, guid: 56d2f8ce8833e4975a607fc6d897f643,
+    sprite: {fileID: 1468460596543980240, guid: 413de7008c41b43c68672ae0450c2b82,
       type: 3}
     text: Long before time, there was once a peaceful kingdom.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 2
-    sprite: {fileID: 5405592672241604301, guid: 56d2f8ce8833e4975a607fc6d897f643,
+    sprite: {fileID: 4815264636088104792, guid: 413de7008c41b43c68672ae0450c2b82,
       type: 3}
     text: "The people there lived in peace and harmony, with no violence or war. 
       But, their happiness was short-lived\u2026 "
@@ -638,19 +638,20 @@ MonoBehaviour:
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 4
-    sprite: {fileID: 738782102848049422, guid: 56d2f8ce8833e4975a607fc6d897f643, type: 3}
+    sprite: {fileID: 5042692671139925471, guid: 413de7008c41b43c68672ae0450c2b82,
+      type: 3}
     text: Monsters of evil intent rose from the ground, and marched upon the peaceful
       kingdom.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 5
-    sprite: {fileID: 2772578531006536512, guid: 56d2f8ce8833e4975a607fc6d897f643,
+    sprite: {fileID: -2336403312771701201, guid: 413de7008c41b43c68672ae0450c2b82,
       type: 3}
     text: Panicked and screaming, villagers throughout the kingdom fled in terror.
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 6
-    sprite: {fileID: -4901539258154098545, guid: 56d2f8ce8833e4975a607fc6d897f643,
+    sprite: {fileID: 6802985184183410879, guid: 413de7008c41b43c68672ae0450c2b82,
       type: 3}
     text: "But then, the king\u2019s army was sent out to ward off the monsters. 
       Having slain thousands of evil skeletons, they emerged victorious. "
@@ -666,7 +667,7 @@ MonoBehaviour:
     audioclip: {fileID: 0}
     audioVolume: 0
   - shotName: 8
-    sprite: {fileID: -1236770547298419481, guid: 56d2f8ce8833e4975a607fc6d897f643,
+    sprite: {fileID: -3349043833177391715, guid: 413de7008c41b43c68672ae0450c2b82,
       type: 3}
     text: "The old texts spoke of a chosen hero who would appear in this hour of
       darkness to drive back the evil and return order to the land.  No such hero
@@ -878,7 +879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1236770547298419481, guid: 56d2f8ce8833e4975a607fc6d897f643,
+  m_Sprite: {fileID: -3349043833177391715, guid: 413de7008c41b43c68672ae0450c2b82,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

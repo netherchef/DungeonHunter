@@ -84,4 +84,22 @@ public class PlayerAnimator : MonoBehaviour
 	private int animHash_Dead = Animator.StringToHash ("Dead");
 	public void Set_Dead (bool state) { animator.SetBool (animHash_Dead, state); }
 	public bool Is_Dead () { return animator.GetBool (animHash_Dead); }
+
+	// Gold Armor
+
+	private int animHash_Gold = Animator.StringToHash ("Gold");
+	public void Set_Gold () { animator.SetTrigger (animHash_Gold); }
+	public bool Is_Gold () { return animator.GetBool (animHash_Gold); }
+
+	// Bronze Armor
+
+	private int animHash_Bronze = Animator.StringToHash ("Bronze");
+	public void Set_Bronze () { animator.SetTrigger (animHash_Bronze); }
+	public bool Is_Bronze () { return animator.GetBool (animHash_Bronze); }
+
+	// Ruby Armor
+
+	private int animHash_Ruby = Animator.StringToHash ("Ruby");
+	public void Set_Ruby () { animator.SetTrigger (animHash_Ruby); }
+	public bool Is_Ruby () { return animator.GetBool (animHash_Ruby); }
 }

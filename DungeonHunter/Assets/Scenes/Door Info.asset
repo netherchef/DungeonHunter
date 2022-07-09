@@ -17,7 +17,7 @@ MonoBehaviour:
     up: ANC_SKELS
     down: 
     left: 
-    right: 
+    right: Smithy Test
   - roomName: ANC_SKELS
     up: BATS
     down: Entrance
@@ -57,4 +57,9 @@ MonoBehaviour:
     up: Great Beholder
     down: BATS
     left: 
+    right: 
+  - roomName: Smithy Test
+    up: 
+    down: 
+    left: Entrance
     right: 

@@ -90,11 +90,12 @@ public class PlayerInputHandler : MonoBehaviour
 
 			// Submit
 
-			if (Input.GetButtonDown ("Interact"))
+			if (Input.GetButtonDown ("Interact") || Input.GetMouseButtonDown (0))
 			{
 				if (shop) shop.MakePurchase (); // Shop
 
-				else yield return playerAttack.Attack (direction.GetDirection ()); // Attack
+				//else yield return playerAttack.Attack (direction.GetDirection ()); // Attack
+				yield return playerAttack.Attack (direction.GetDirection ()); // Attack
 			}
 
 			//if (interact)

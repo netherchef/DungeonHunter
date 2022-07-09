@@ -102,7 +102,7 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	private void DecreaseHP (int value)
+	private void DecreaseHP (int damage)
 	{
 		if (debug) print ("Ouch!");
 
@@ -113,19 +113,24 @@ public class HealthSystem : MonoBehaviour
 				switch (DataPasser.DPInstance.CurrentArmorType ())
 				{
 					case ArmorType.Gold:
-						value -= 1;
+						print ("Damage = " + damage + " - 1 = " + (damage - 1));
+						damage -= 1;
 						break;
 					case ArmorType.Bronze:
-						value /= 2;
+						damage /= 2;
 						break;
 					case ArmorType.Ruby:
-						value = 1;
+						damage = 1;
 						break;
 				}
 
-				currHp -= value; // Decrease HP
+				currHp -= damage; // Decrease HP
 
-				healthBar.DrainHeart (); // Health Bar
+#if UNITY_EDITOR
+				Debug.Log (this.gameObject.name + " damaged for " + damage + " | HP: " + currHp);
+#endif
+
+				if (damage > 0) healthBar.DrainHeart (); // Health Bar
 
 				// Invincibility or Death
 
@@ -137,7 +142,7 @@ public class HealthSystem : MonoBehaviour
 		}
 		else
 		{
-			currHp -= value;
+			currHp -= damage;
 		}
 
 		// Death
@@ -155,7 +160,7 @@ public class HealthSystem : MonoBehaviour
 
 	public int CurrHP () { return currHp; }
 
-	#region DOT ________________________________________________________________
+#region DOT ________________________________________________________________
 
 	private IEnumerator DoDOTSeq ()
 	{
@@ -194,11 +199,11 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	#endregion
+#endregion
 
-	#region Boss __________________________________________________
+#region Boss __________________________________________________
 
 	public bool IsBoss () { return boss; }
 
-	#endregion __________________________________________________
+#endregion __________________________________________________
 }

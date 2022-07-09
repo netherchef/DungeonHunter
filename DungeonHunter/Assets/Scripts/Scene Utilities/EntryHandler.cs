@@ -11,6 +11,8 @@ public class EntryHandler : MonoBehaviour
 	public DoorHandler doorHandler;
 	public Transform player;
 	public EnemyHandler enemyHandler;
+	[SerializeField]
+	private Shop shop;
 
 	private void Start ()
 	{
@@ -39,6 +41,23 @@ public class EntryHandler : MonoBehaviour
 
 		if (DataPasser.DPInstance.currAttackEffect != Attack_Effect.NULL)
 			playerAttack.Set_AttackEffect (DataPasser.DPInstance.currAttackEffect);
+
+		// Player Armor
+
+		switch (DataPasser.DPInstance.CurrentArmorType ())
+		{
+			case ArmorType.Gold:
+				player.GetComponentInChildren<PlayerAnimator> ().Set_Gold ();
+				break;
+			case ArmorType.Bronze:
+				player.GetComponentInChildren<PlayerAnimator> ().Set_Bronze ();
+				break;
+			case ArmorType.Ruby:
+				player.GetComponentInChildren<PlayerAnimator> ().Set_Ruby ();
+				break;
+			default:
+				break;
+		}
 
 		// Health Bar
 
@@ -86,6 +105,10 @@ public class EntryHandler : MonoBehaviour
 
 			player.position = newPos;
 		}
+
+		// Shop
+
+		if (shop) shop.Prep (player.GetComponentInChildren<PlayerAnimator> ());
 
 		// Spawn Enemies
 

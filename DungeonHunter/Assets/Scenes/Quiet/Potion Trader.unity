@@ -286,6 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
         type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 124183257}
+    - target: {fileID: 8847322291530694154, guid: b7fbe4a66404f47cb9de70a3cf7b4027,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 977575439}
@@ -624,7 +629,8 @@ SpriteRenderer:
   m_SortingLayerID: -1293067827
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 770b017d5042b451885e498620e705d1, type: 3}
+  m_Sprite: {fileID: 1045403943310557239, guid: 9df8faf313302456f8d196e1a70a8511,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -684,7 +690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &505446536
 Transform:
   m_ObjectHideFlags: 0
