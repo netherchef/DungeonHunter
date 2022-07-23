@@ -51,7 +51,7 @@ public class Bat : MonoBehaviour
 
 		while (enabled)
 		{
-			if (!healthSystem.Dead ())
+			if (!healthSystem.Is_Dead ())
 			{
 				if (!attacking)
 				{
@@ -135,7 +135,7 @@ public class Bat : MonoBehaviour
 
 							for (float coolDown = 2f; coolDown > 0; coolDown -= Time.deltaTime)
 							{
-								if (healthSystem.Dead ()) batAnim.Set_Dead (true);
+								if (healthSystem.Is_Dead ()) batAnim.Set_Dead (true);
 
 								yield return null;
 							}

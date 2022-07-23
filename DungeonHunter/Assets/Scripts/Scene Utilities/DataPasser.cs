@@ -39,32 +39,41 @@ public class DataPasser : MonoBehaviour
 
 	#region Player _____________________________________________________________
 
-	public int playerCurrHp;
-	public int playerFullHp;
-	
-	private ArmorType armorType;
+	// Health
 
-	public int currDamage;
-	public Attack_Effect currAttackEffect;
+	public int playerCurrHp; // Marked for Save
+	public int playerFullHp; // Marked for Save
 
-	public ItemType[] inventoryItems;
+	// Armor
 
-	public ArmorType CurrentArmorType ()
-	{
-		return armorType;
-	}
+	private ArmorType armorType; // Marked for Save
 
-	public void SetArmorType (ArmorType newType)
-	{
-		armorType = newType;
-	}
+	// Attack
+
+	public int currDamage; // Marked for Save
+	public Attack_Effect currAttackEffect; // Marked for Save
+
+	// Items
+
+	public ItemType[] inventoryItems; // Marked for Save
+
+	public ArmorType CurrentArmorType () { return armorType; }
+	public void SetArmorType (ArmorType newType) { armorType = newType; }
+
+	public void Set_CurrDamage (int value) { currDamage = value; }
+
+	public void Set_Items (ItemType[] items) { inventoryItems = items; }
+
+	private int currGold;
+
+	public int CurrentGold () { return currGold; }
+	public void Change_GoldCount (int val) { currGold += val; }
 
 	#endregion
 
 	#region Room ______________________________________________________________
 
-	public string previousRoom;
-	//public DoorDirection previousDoorDir;
+	public string previousRoom; // Marked for Save
 
 	#endregion
 

@@ -113,11 +113,14 @@ public class PlayerAttack : MonoBehaviour
 		if (reset)
 		{
 			currDamage = initDamage;
+			DataPasser.DPInstance.Set_CurrDamage (1);
 			return;
 		}
 
 		if (multiply) currDamage *= value;
 		else currDamage = value;
+
+		DataPasser.DPInstance.Set_CurrDamage (currDamage);
 	}
 
 	public bool DamageChanged () { return currDamage != initDamage; }
@@ -138,10 +141,10 @@ public class PlayerAttack : MonoBehaviour
 
 			// Knockback
 
-			if (!targHealth.IsBoss ())
-			{
-				targHealth.transform.position += new Vector3 (attackDir.x, attackDir.y) * knockback;
-			}
+			//if (!targHealth.IsBoss ())
+			//{
+			//	targHealth.transform.position += new Vector3 (attackDir.x, attackDir.y) * knockback;
+			//}
 
 #if UNITY_EDITOR
 			if (debugAttack)

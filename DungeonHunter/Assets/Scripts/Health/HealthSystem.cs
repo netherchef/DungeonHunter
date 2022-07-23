@@ -156,7 +156,7 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	public bool Dead () { return currHp <= 0; }
+	public bool Is_Dead () { return currHp <= 0; }
 
 	public int CurrHP () { return currHp; }
 

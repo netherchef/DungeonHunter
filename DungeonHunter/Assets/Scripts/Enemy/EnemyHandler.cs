@@ -160,7 +160,7 @@ public class EnemyHandler : MonoBehaviour
 
 			for (int i = 0; i < enemyHealths.Count; i++)
 			{
-				if (enemyHealths[i].Dead ()) enemyHealths.Remove (enemyHealths[i]);
+				if (enemyHealths[i].Is_Dead ()) enemyHealths.Remove (enemyHealths[i]);
 			}
 
 			yield return null;

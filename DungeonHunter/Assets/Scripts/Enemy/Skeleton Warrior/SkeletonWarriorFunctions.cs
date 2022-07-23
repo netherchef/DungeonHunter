@@ -52,7 +52,7 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		if (summon) while (!skeletonAnimFunctions.Is_SummonDone ()) yield return null;
 
-		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
+		while (!healthSystem.Is_Dead () && !targetHealthSystem.Is_Dead ())
 		{
 			// Set Direction for Animation
 
@@ -114,7 +114,7 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		bool foundTarget = false;
 
-		while (!skeletonAnimFunctions.Is_AttackDone () && !healthSystem.Dead ())
+		while (!skeletonAnimFunctions.Is_AttackDone () && !healthSystem.Is_Dead ())
 		{
 			if (!foundTarget)
 			{
@@ -132,7 +132,7 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 		for (float cdTimer = coolDown; cdTimer > 0; cdTimer -= Time.deltaTime)
 		{
-			if(!healthSystem.Dead ()) yield return null;
+			if(!healthSystem.Is_Dead ()) yield return null;
 		}
 	}
 

@@ -82,6 +82,7 @@
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAttack.cs" />
     <Compile Include="Assets/Scripts/ProjectileTrigger.cs" />
     <Compile Include="Assets/Scripts/Enemy/Skeleton Warrior/SkeletonWarriorFunctions.cs" />
+    <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimatorFunctions.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyAnimatorFunctions.cs" />
     <Compile Include="Assets/Scripts/Smithy/Smithy.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerInventory.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets/Scripts/Enemy/Bat/BatHandler.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopItem.cs" />
     <Compile Include="Assets/Scripts/CameraShaker.cs" />
+    <Compile Include="Assets/Scripts/Misc/Cheats.cs" />
     <Compile Include="Assets/Scripts/Doors/Door.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyHandler.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerDirection.cs" />
@@ -119,7 +121,8 @@
     <Compile Include="Assets/Scripts/Loot/LootCreature.cs" />
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimatorFunctions.cs" />
+    <Compile Include="Assets/Scripts/JSONeer/JSONeer.cs" />
+    <Compile Include="Assets/Scripts/JSONeer/JSONeer_Structs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

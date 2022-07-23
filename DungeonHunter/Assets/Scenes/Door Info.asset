@@ -17,7 +17,7 @@ MonoBehaviour:
     up: ANC_SKELS
     down: 
     left: 
-    right: Smithy Test
+    right: 
   - roomName: ANC_SKELS
     up: BATS
     down: Entrance
@@ -27,7 +27,7 @@ MonoBehaviour:
     up: Great Beholder Entrance
     down: ANC_SKELS
     left: PRI_BAT_SKEL
-    right: Potion Trader
+    right: 
   - roomName: Great Beholder
     up: Entrance
     down: Great Beholder Entrance
@@ -35,11 +35,11 @@ MonoBehaviour:
     right: 
   - roomName: Potion Trader
     up: 
-    down: 
-    left: BATS
+    down: PRI_BAT_SKEL
+    left: 
     right: 
   - roomName: PRI_BAT_SKEL
-    up: 
+    up: Potion Trader
     down: 
     left: Slime Room
     right: BATS

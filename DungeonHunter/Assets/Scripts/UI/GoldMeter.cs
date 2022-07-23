@@ -16,8 +16,8 @@ public class GoldMeter : MonoBehaviour
 	private GameObject goldPrefab;
 
 	// Variables
-	[SerializeField]
-	private int currGold;
+	//[SerializeField]
+	//private int currGold;
 	[SerializeField]
 	private int furthest;
 	private const float offset = 0.5f;
@@ -35,7 +35,7 @@ public class GoldMeter : MonoBehaviour
 	public void AddGold ()
 	{
 		Vector3 newPos = 
-			currGold <= 0 ? transform.position :
+			DataPasser.DPInstance.CurrentGold () <= 0 ? transform.position :
 			transform.GetChild(furthest).position + new Vector3(offset, 0);
 
 		GameObject newGold = Instantiate (
@@ -44,22 +44,22 @@ public class GoldMeter : MonoBehaviour
 			Quaternion.identity, 
 			transform);
 
-		if (currGold > 0) furthest++;
-		currGold++;
+		if (DataPasser.DPInstance.CurrentGold () > 0) furthest++;
+		DataPasser.DPInstance.Change_GoldCount (1);
 	}
 
 	public void MinusGold (int amount = 1)
 	{
-		if (currGold > 0)
+		if (DataPasser.DPInstance.CurrentGold () > 0)
 		{
 			Destroy(transform.GetChild(furthest).gameObject);
 
 			if (furthest > 0) furthest--;
-			currGold--;
+			DataPasser.DPInstance.Change_GoldCount (-1);
 		}
 	}
 
-	public int CurrentGold () { return currGold; }
+	//public int CurrentGold () { return currGold; }
 
 	//public bool addGold, minusGold;
 

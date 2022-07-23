@@ -73,7 +73,7 @@ public class Boss : MonoBehaviour
 		float delay = 0;
 		bool telStart = false;
 
-		while (!bossHealth.Dead () && !pHealth.Dead ())
+		while (!bossHealth.Is_Dead () && !pHealth.Is_Dead ())
 		{
 			// TEMPORARY
 
@@ -123,7 +123,7 @@ public class Boss : MonoBehaviour
 
 		// Death
 
-		if (pHealth.Dead ()) { } // Player Death
+		if (pHealth.Is_Dead ()) { } // Player Death
 
 		// Disabling the Boss here temporarily to allow other processes
 		// before disabling it altogether.

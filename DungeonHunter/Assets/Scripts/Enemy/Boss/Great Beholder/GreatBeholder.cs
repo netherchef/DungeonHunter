@@ -127,7 +127,7 @@ public class GreatBeholder : MonoBehaviour
 	{
 		float speed = 2f;
 
-		while (trans.localScale.y > 0 && !hs.Dead ())
+		while (trans.localScale.y > 0 && !hs.Is_Dead ())
 		{
 			Vector3 newScale = trans.localScale - new Vector3 (speed, speed, 0) * Time.deltaTime;
 
@@ -145,7 +145,7 @@ public class GreatBeholder : MonoBehaviour
 
 		SnapTransToPos (trans, targPos);
 
-		while (trans.localScale.y < 1 && !hs.Dead ())
+		while (trans.localScale.y < 1 && !hs.Is_Dead ())
 		{
 			Vector3 newScale = trans.localScale + new Vector3 (speed, speed, 0) * Time.deltaTime;
 
@@ -195,7 +195,7 @@ public class GreatBeholder : MonoBehaviour
 
 		for (float chargeDur = 1f; chargeDur > 0; chargeDur -= Time.deltaTime) // Charge
 		{
-			if (hs.Dead ()) chargeDur = 0;
+			if (hs.Is_Dead ()) chargeDur = 0;
 
 			yield return null;
 		}
@@ -204,7 +204,7 @@ public class GreatBeholder : MonoBehaviour
 
 		for (float duration = 3; duration > 0; duration -= Time.deltaTime)
 		{
-			if(hs.Dead ()) duration = 0;
+			if(hs.Is_Dead ()) duration = 0;
 
 			yield return null;
 		}

@@ -44,6 +44,9 @@ public class PlayerDeath : MonoBehaviour
 
 		// !!! TEMPORARY !!!
 		DataPasser.DPInstance.playerCurrHp = 4;
+		DataPasser.DPInstance.SetArmorType (ArmorType.NULL);
+		DataPasser.DPInstance.Set_CurrDamage (1);
+		DataPasser.DPInstance.Set_Items (new ItemType[0]);
 
 		DataPasser.DPInstance.previousRoom = "";
 

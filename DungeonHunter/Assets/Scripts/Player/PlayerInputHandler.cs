@@ -75,7 +75,7 @@ public class PlayerInputHandler : MonoBehaviour
 
 	private IEnumerator DoInput ()
 	{
-		while (!healthSystem.Dead ())
+		while (!healthSystem.Is_Dead ())
 		{
 			// Dodge
 

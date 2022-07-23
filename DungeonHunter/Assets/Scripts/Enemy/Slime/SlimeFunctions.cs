@@ -45,9 +45,9 @@ public class SlimeFunctions : MonoBehaviour
 
 	private IEnumerator DoSlimeSeq ()
 	{
-		while (!health.Dead ())
+		while (!health.Is_Dead ())
 		{
-			if (!health.Dead ())
+			if (!health.Is_Dead ())
 			{
 				if (Vector3.Distance (target.position, master.position) > 1f) // If far away
 				{
@@ -69,13 +69,13 @@ public class SlimeFunctions : MonoBehaviour
 
 					// Impact On Landing
 
-					if (!health.Dead ())
+					if (!health.Is_Dead ())
 					{
 						attackCollider.enabled = true;
 
 						for (float attackDur = 0.25f; attackDur > 0; attackDur -= Time.deltaTime)
 						{
-							if (!health.Dead ())
+							if (!health.Is_Dead ())
 							{
 								if (attackCollider.IsTouching (targCol))
 								{
@@ -98,7 +98,7 @@ public class SlimeFunctions : MonoBehaviour
 
 						for (float coolDown = 2; coolDown > 0; coolDown -= Time.deltaTime) // Cooldown
 						{
-							if (health.Dead ()) coolDown = 0;
+							if (health.Is_Dead ()) coolDown = 0;
 
 							yield return null;
 						}

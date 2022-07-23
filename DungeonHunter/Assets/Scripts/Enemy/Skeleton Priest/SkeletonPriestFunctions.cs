@@ -50,13 +50,13 @@ public class SkeletonPriestFunctions : MonoBehaviour
 		bool attack = false;
 		bool panic = false;
 
-		while (!healthSystem.Dead () && !targetHealthSystem.Dead ())
+		while (!healthSystem.Is_Dead () && !targetHealthSystem.Is_Dead ())
 		{
 			// Wait Cool Down
 
 			for (float cd = coolDown; cd > 0; cd -= Time.deltaTime)
 			{
-				if (healthSystem.Dead ()) cd = 0;
+				if (healthSystem.Is_Dead ()) cd = 0;
 
 				yield return null;
 			}
@@ -83,7 +83,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 				GameObject orb = null;
 
-				if (!healthSystem.Dead ())
+				if (!healthSystem.Is_Dead ())
 				{
 					orb = Instantiate (arcanceOrb, master.position, Quaternion.identity);
 					orb.transform.position += new Vector3 (0, 0.5f);
@@ -91,11 +91,11 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 				for (float timer = 3f; timer > 0; timer -= Time.deltaTime)
 				{
-					if (healthSystem.Dead ()) timer = 0;
+					if (healthSystem.Is_Dead ()) timer = 0;
 					else yield return null;
 				}
 
-				if (!healthSystem.Dead ())
+				if (!healthSystem.Is_Dead ())
 				{
 					animFuncs.Set_SummonDone ();
 
@@ -113,13 +113,13 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 				for (float timer = 3f; timer > 0; timer -= Time.deltaTime)
 				{
-					if (healthSystem.Dead ()) timer = 0;
+					if (healthSystem.Is_Dead ()) timer = 0;
 					else yield return null;
 				}
 
 				animFuncs.Set_SummonDone ();
 
-				if (!healthSystem.Dead ()) SummonSkeleton (); // Spawn Skeleton
+				if (!healthSystem.Is_Dead ()) SummonSkeleton (); // Spawn Skeleton
 			}
 			else if (panic) // Panic
 			{
@@ -131,7 +131,7 @@ public class SkeletonPriestFunctions : MonoBehaviour
 
 				for (float timer = 3f; timer > 0; timer -= Time.deltaTime)
 				{
-					if (healthSystem.Dead ()) timer = 0;
+					if (healthSystem.Is_Dead ()) timer = 0;
 					else yield return null;
 				}
 

@@ -42,7 +42,7 @@ public class LootCreatureHandler : MonoBehaviour
 		{
 			for (int i = 0; i < creatures.Length; i++)
 			{
-				if (creatures[i].health.Dead ())
+				if (creatures[i].health.Is_Dead ())
 				{
 					creatures[i].gameObject.SetActive (false);
 

@@ -58,7 +58,7 @@ public class TheEyeAttack : MonoBehaviour
 
 	private IEnumerator EyeAttackSequence ()
 	{
-		while (!eyeHealth.Dead ())
+		while (!eyeHealth.Is_Dead ())
 		{
 			for (float coolDown = attackCoolDown; coolDown > 0; coolDown -= Time.deltaTime) yield return null; // Cool Down
 

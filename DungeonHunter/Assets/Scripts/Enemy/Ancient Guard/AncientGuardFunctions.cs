@@ -10,7 +10,7 @@ public class AncientGuardFunctions : MonoBehaviour
 	private Transform master;
 
 	[SerializeField]
-	private BoxCollider2D attackCollider;
+	private CircleCollider2D attackCollider;
 
 	[SerializeField]
 	private SpriteRenderer sr;
@@ -55,16 +55,16 @@ public class AncientGuardFunctions : MonoBehaviour
 
 	private IEnumerator DoAG ()
 	{
-		while (!healthSystem.Dead ())
+		while (!healthSystem.Is_Dead ())
 		{
 			// Move
 
-			if (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Dead ()) // Walking Animation
+			if (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Is_Dead ()) // Walking Animation
 			{
 				animatorFunctions.Set_Walking (true);
 			}
 
-			while (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Dead ())
+			while (Vector3.Magnitude (master.position - targetTrans.position) > 0.5f && !healthSystem.Is_Dead ())
 			{
 				Move ();
 
@@ -79,7 +79,7 @@ public class AncientGuardFunctions : MonoBehaviour
 
 			for (float chargeTime = 2f; chargeTime > 0; chargeTime -= Time.deltaTime)
 			{
-				if (healthSystem.Dead ()) chargeTime = 0;
+				if (healthSystem.Is_Dead ()) chargeTime = 0;
 
 				yield return null;
 			}
@@ -88,13 +88,13 @@ public class AncientGuardFunctions : MonoBehaviour
 
 			animatorFunctions.Set_Release (); // Animate Attack Release
 
-			if (!healthSystem.Dead ()) yield return Attack ();
+			if (!healthSystem.Is_Dead ()) yield return Attack ();
 
 			// Cool Down
 
 			for (float cooldown = 1f; cooldown > 0; cooldown -= Time.deltaTime)
 			{
-				if (healthSystem.Dead ()) cooldown = 0;
+				if (healthSystem.Is_Dead ()) cooldown = 0;
 
 				yield return null;
 			}
@@ -122,7 +122,7 @@ public class AncientGuardFunctions : MonoBehaviour
 
 		for (float a = 0.1f; a > 0; a -= Time.deltaTime)
 		{
-			if (!healthSystem.Dead ())
+			if (!healthSystem.Is_Dead ())
 			{
 				if(attackCollider.IsTouching (targCol))
 				{

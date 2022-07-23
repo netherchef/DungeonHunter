@@ -72,7 +72,7 @@ public class Shop : MonoBehaviour
 		
 		// Check Gold
 
-		if (GoldMeter.GMInstance.CurrentGold () < currShopItem.Cost ()) return;
+		if (DataPasser.DPInstance.CurrentGold () < currShopItem.Cost ()) return;
 		//if (inventory.GoldCount () < currShopItem.Cost ()) return;
 
 		// Deduct Gold

@@ -18,6 +18,10 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField]
 	private Image blackOverlay;
 
+	// Scripts
+
+	private JSONeer JSONeer { get { return GetComponent<JSONeer> (); } }
+
 	// Variables
 
 	private bool paused;
@@ -62,33 +66,6 @@ public class PauseMenu : MonoBehaviour
 				}
 			}
 
-			//if (Input.GetButtonDown ("Cancel"))
-			//{
-			//	overlayCanvas.SetActive (true);
-
-			//	Color tempCol = blackOverlay.color;
-			//	tempCol.a = 0;
-			//	blackOverlay.color = tempCol;
-
-			//	while (Input.GetButton ("Cancel"))
-			//	{
-			//		if (blackOverlay.color.a >= 1)
-			//		{
-			//			Exit();
-			//		}
-			//		else
-			//		{
-			//			tempCol = blackOverlay.color;
-			//			tempCol.a += Time.deltaTime;
-			//			blackOverlay.color = tempCol;
-			//		}
-
-			//		yield return null;
-			//	}
-
-			//	overlayCanvas.SetActive (false);
-			//}
-
 			yield return null;
 		}
 	}
@@ -97,6 +74,8 @@ public class PauseMenu : MonoBehaviour
 	//{
 	//	return pause;
 	//}
+
+	public void Save () { JSONeer.Save (SceneManager.GetActiveScene ().name); }
 
 	public void Exit ()
 	{

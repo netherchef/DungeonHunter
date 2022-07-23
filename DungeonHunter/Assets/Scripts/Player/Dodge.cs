@@ -30,7 +30,7 @@ public class Dodge : MonoBehaviour
 
 		bool dodging = true;
 
-		while (dodging && !health.Dead ())
+		while (dodging && !health.Is_Dead ())
 		{
 			Vector3 next = Vector3.Lerp (playerTransform.position, dest, dodgeSpeed * Time.deltaTime);
 
