@@ -65,6 +65,21 @@ public class Boss : MonoBehaviour
 
 	private IEnumerator GBLoop ()
 	{
+		// Prep
+
+		if (DataPasser.DPInstance.defeatedBosses.Contains (BossType.GreatBeholder))
+		{
+			// Unlock Doors
+
+			doorHandler.Unlock ();
+
+			// Death
+
+			greatBeholder.Start_Death ();
+
+			yield break;
+		}
+
 		// Intro
 		
 		// Main Loop
@@ -131,5 +146,7 @@ public class Boss : MonoBehaviour
 		// Death
 
 		greatBeholder.Start_Death ();
+
+		DataPasser.DPInstance.RecordBossDefeat (BossType.GreatBeholder);
 	}
 }

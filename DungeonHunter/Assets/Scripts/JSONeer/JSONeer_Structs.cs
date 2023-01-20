@@ -24,4 +24,6 @@ public struct DataBranch
 
 	public string currRoom;
 	public string previousRoom;
+
+	public string[] defeatedBosses;
 }

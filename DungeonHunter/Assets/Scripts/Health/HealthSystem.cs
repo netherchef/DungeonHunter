@@ -17,6 +17,9 @@ public class HealthSystem : MonoBehaviour
 	[SerializeField]
 	private CameraShaker camShaker;
 
+	[SerializeField]
+	private SpriteRenderer[] characterSpriteRenderers;
+
 	[Header ("Generic Variables:")]
 
 	public UnitType type;
@@ -50,6 +53,9 @@ public class HealthSystem : MonoBehaviour
 	// Enumerators
 
 	private IEnumerator DOTSeq;
+
+	private IEnumerator colourSprite;
+	private float colTimer;
 
 	// private IEnumerator doPaintWhite;
 
@@ -113,14 +119,15 @@ public class HealthSystem : MonoBehaviour
 				switch (DataPasser.DPInstance.CurrentArmorType ())
 				{
 					case ArmorType.Gold:
-						print ("Damage = " + damage + " - 1 = " + (damage - 1));
 						damage -= 1;
 						break;
 					case ArmorType.Bronze:
-						damage /= 2;
+						if (damage >= 2) damage -= 2;
+						else damage = 0;
 						break;
 					case ArmorType.Ruby:
-						damage = 1;
+						if (damage >= 4) damage -= 4;
+						else damage = 0;
 						break;
 				}
 
@@ -143,6 +150,19 @@ public class HealthSystem : MonoBehaviour
 		else
 		{
 			currHp -= damage;
+
+			// Change to Damaged Sprite Colour
+
+			//if (characterSpriteRenderers[0] == null) return;
+			if (characterSpriteRenderers == null) return;
+
+			colTimer = 1f;
+
+			if (colourSprite == null)
+			{
+				colourSprite = ColourSprite ();
+				StartCoroutine (colourSprite);
+			}
 		}
 
 		// Death
@@ -159,6 +179,28 @@ public class HealthSystem : MonoBehaviour
 	public bool Is_Dead () { return currHp <= 0; }
 
 	public int CurrHP () { return currHp; }
+
+	private IEnumerator ColourSprite ()
+	{
+		foreach (SpriteRenderer sr in characterSpriteRenderers)
+		{
+			sr.color = Color.red;
+		}
+
+		while (colTimer > 0)
+		{
+			colTimer -= Time.deltaTime;
+
+			yield return null;
+		}
+
+		foreach (SpriteRenderer sr in characterSpriteRenderers)
+		{
+			sr.color = Color.white;
+		}
+
+		colourSprite = null;
+	}
 
 #region DOT ________________________________________________________________
 

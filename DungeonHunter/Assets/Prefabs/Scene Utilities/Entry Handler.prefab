@@ -43,3 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed7b6c162c3547029fd63aabef1ed7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldMeterPrefab: {fileID: 5560007333373121958, guid: 28fd84c81763c4a4e93e543d21e3ec17,
+    type: 3}
+  playerHealth: {fileID: 0}
+  playerAttack: {fileID: 0}
+  healthBar: {fileID: 0}
+  playerInventory: {fileID: 0}
+  doorHandler: {fileID: 0}
+  player: {fileID: 0}
+  enemyHandler: {fileID: 0}
+  shop: {fileID: 0}

@@ -6,23 +6,23 @@ public class PlayerInventory : MonoBehaviour
 {
 	// Components
 
-	private GoldMeter goldMeter;
+	//private GoldMeter goldMeter;
 
 	// Variables
 
 	[SerializeField]
 	private List<ItemType> items = new List<ItemType> ();
 
-	public void AssignGoldMeter ()
-	{
-		goldMeter = GoldMeter.GMInstance;
-	}
+	//public void AssignGoldMeter ()
+	//{
+	//	goldMeter = GoldMeter.GMInstance;
+	//}
 
 	public void AddItem (ItemType itemType)
 	{
 		//items.Add (itemType);
 
-		if (itemType == ItemType.Gold) goldMeter.AddGold (); // Gold Meter
+		if (itemType == ItemType.Gold) GoldMeter.GMInstance.AddGold (); // Gold Meter
 	}
 
 	public void AddItems (ItemType[] itemList)

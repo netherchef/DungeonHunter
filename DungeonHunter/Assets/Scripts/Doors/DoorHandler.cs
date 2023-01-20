@@ -38,6 +38,9 @@ public class DoorHandler : MonoBehaviour
 	[SerializeField]
 	private bool assignEnemyHandler;
 
+	[SerializeField]
+	private bool debug_checkingDoors;
+
 	#if UNITY_EDITOR
 	private void Update ()
 	{
@@ -93,10 +96,15 @@ public class DoorHandler : MonoBehaviour
 
 	private IEnumerator CheckDoors ()
 	{
-		while (locked) yield return null;
+		while (locked)
+		{
+			if (debug_checkingDoors) print ("Checking doors!");
+
+			yield return null;
+		}
 
 		// Enable all Doors
-
+		print (doors.Length);
 		foreach (Door door in doors)
 		{
 			door.transform.GetComponent<CircleCollider2D> ().enabled = true;

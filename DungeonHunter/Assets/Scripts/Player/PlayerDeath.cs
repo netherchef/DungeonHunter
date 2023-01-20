@@ -47,6 +47,7 @@ public class PlayerDeath : MonoBehaviour
 		DataPasser.DPInstance.SetArmorType (ArmorType.NULL);
 		DataPasser.DPInstance.Set_CurrDamage (1);
 		DataPasser.DPInstance.Set_Items (new ItemType[0]);
+		GoldMeter.GMInstance.Reset ();
 
 		DataPasser.DPInstance.previousRoom = "";
 

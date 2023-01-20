@@ -43,33 +43,6 @@ public class HealthBar : MonoBehaviour
 		InitialiseHearts (playerHealth.fullHp, playerHealth.currHp);
 	}
 
-	//#if UNITY_EDITOR
-	//	private void Update ()
-	//	{
-	//		if (addHeart)
-	//		{
-	//			addHeart = false;
-	//			AddHeart ();
-	//		}
-	//		else if (removeHeart)
-	//		{
-	//			removeHeart = false;
-	//			RemoveHeart ();
-	//		}
-
-	//		if (fill)
-	//		{
-	//			fill = false;
-	//			FillHeart ();
-	//		}
-	//		else if (drain)
-	//		{
-	//			drain = false;
-	//			DrainHeart ();
-	//		}
-	//	}
-	//#endif
-
 	public void FillHeart ()
 	{
 		for (int h = 0; h < hearts.Count; h++)

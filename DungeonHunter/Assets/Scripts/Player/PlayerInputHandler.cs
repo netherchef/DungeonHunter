@@ -35,39 +35,8 @@ public class PlayerInputHandler : MonoBehaviour
 
 	private IEnumerator doInput;
 
-	private void Awake ()
-	{
-		// Input
-
-		//inputMaster = new InputMaster ();
-		//inputMaster.Player.SetCallbacks (this);
-
-		//inputMaster.Player.Enable ();
-	}
-
-	//public void OnInteract (InputAction.CallbackContext context)
-	//{
-	//	if (context.started)
-	//	{
-	//		attack = true;
-	//		interact = true;
-	//	}
-	//}
-
-	//public void OnDodge (InputAction.CallbackContext context)
-	//{
-	//	if (context.started) doDodge = true;
-	//}
-
-	//public void OnDirection (InputAction.CallbackContext context)
-	//{
-	//	dirInput = context.ReadValue<Vector2> ();
-	//}
-
-	//public void OnPause (InputAction.CallbackContext context) { }
-
 	// !!! TEMPORARY !!!
-	private void Start ()
+	public void Execute ()
 	{
 		doInput = DoInput ();
 		StartCoroutine (doInput);
@@ -119,12 +88,18 @@ public class PlayerInputHandler : MonoBehaviour
 			// Direction
 
 			Vector2 dirInput = new Vector2 (0, 0);
+			
+			if (InputKeyHandler.IKH_Instance.Right_Active ()) dirInput.x = 1;
+			else if (InputKeyHandler.IKH_Instance.Left_Active ()) dirInput.x = -1;
 
-			if (Input.GetAxisRaw ("Horizontal") > 0) dirInput.x = 1;
-			else if (Input.GetAxisRaw ("Horizontal") < 0) dirInput.x = -1;
+			//if (Input.GetAxisRaw ("Horizontal") > 0) dirInput.x = 1;
+			//else if (Input.GetAxisRaw ("Horizontal") < 0) dirInput.x = -1;
 
-			if (Input.GetAxisRaw ("Vertical") > 0) dirInput.y = 1;
-			else if (Input.GetAxisRaw ("Vertical") < 0) dirInput.y = -1;
+			if (InputKeyHandler.IKH_Instance.Up_Active ()) dirInput.y = 1;
+			else if (InputKeyHandler.IKH_Instance.Down_Active ()) dirInput.y = -1;
+
+			//if (Input.GetAxisRaw ("Vertical") > 0) dirInput.y = 1;
+			//else if (Input.GetAxisRaw ("Vertical") < 0) dirInput.y = -1;
 
 			// Record Direction Changes
 
@@ -146,17 +121,4 @@ public class PlayerInputHandler : MonoBehaviour
 			yield return null;
 		}
 	}
-
-	//public static Vector2 Direction () { return dirInput; }
-
-	//public static bool Interact_ButtonDown ()
-	//{
-	//	if (interact)
-	//	{
-	//		interact = false;
-	//		return true;
-	//	}
-
-	//	return false;
-	//}
 }

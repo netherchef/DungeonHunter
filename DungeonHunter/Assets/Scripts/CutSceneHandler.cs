@@ -27,6 +27,9 @@ public class CutSceneHandler : MonoBehaviour
 	[SerializeField]
 	private List<AudioSource> audioSources = new List<AudioSource> ();
 
+	[SerializeField]
+	private GameObject downIndicator;
+
 	[Header ("Variables:")]
 
 	[SerializeField]
@@ -65,14 +68,18 @@ public class CutSceneHandler : MonoBehaviour
 
 	private IEnumerator ShowSkipBtn ()
 	{
+		// Skip Button
+
+		while (!skipButton.activeSelf)
+		{
+			if (Input.GetButtonDown ("Cancel")) skipButton.SetActive (true);
+
+			yield return null;
+		}
+
 		while (enabled)
 		{
-			// Skip Button
-
-			if (Input.GetButtonDown ("Cancel"))
-			{
-				if (!skipButton.activeSelf) skipButton.SetActive (true);
-			}
+			if (InputKeyHandler.IKH_Instance.Interact_Start ()) SkipToNextScene ();
 
 			yield return null;
 		}
@@ -87,10 +94,11 @@ public class CutSceneHandler : MonoBehaviour
 		{
 			yield return ChangeShot (shot);
 
+			downIndicator.SetActive (true);
+
 			while (!Input.GetButtonDown ("Interact")) yield return null;
 
-			//while (!proceed) yield return null;
-			//proceed = false;
+			downIndicator.SetActive (false);
 		}
 
 		yield return Hide (sceneImage, sceneText); // Hide Image & Text

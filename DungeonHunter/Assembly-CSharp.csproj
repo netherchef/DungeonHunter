@@ -65,6 +65,7 @@
     <Compile Include="Assets/Scripts/Scene Utilities/SceneSelector.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyInfo.cs" />
     <Compile Include="Assets/Scripts/Items/Item.cs" />
+    <Compile Include="Assets/Scripts/Chaser.cs" />
     <Compile Include="Assets/Scripts/Items/ItemIcon.cs" />
     <Compile Include="Assets/Scripts/Player/Dodge.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerDeath.cs" />
@@ -77,13 +78,17 @@
     <Compile Include="Assets/Scripts/Enemy/Bat/Bat.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerAnimator.cs" />
     <Compile Include="Assets/Scripts/Doors/DoorHandler.cs" />
+    <Compile Include="Assets/Scripts/JSONeer/JSONeer_Structs.cs" />
     <Compile Include="Assets/Scripts/Scene Utilities/EntryHandler.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/Skele Mech/SkeleMech.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAttack.cs" />
+    <Compile Include="Assets/Scripts/JSONeer/JSONeer.cs" />
     <Compile Include="Assets/Scripts/ProjectileTrigger.cs" />
     <Compile Include="Assets/Scripts/Enemy/Skeleton Warrior/SkeletonWarriorFunctions.cs" />
+    <Compile Include="Assets/Scripts/Scene Utilities/InputKeyHandler.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholderAnimatorFunctions.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyAnimatorFunctions.cs" />
+    <Compile Include="Assets/Scripts/UI/CinematicBars.cs" />
     <Compile Include="Assets/Scripts/Smithy/Smithy.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerInventory.cs" />
     <Compile Include="Assets/Scripts/Doors/DoorMaker.cs" />
@@ -93,7 +98,7 @@
     <Compile Include="Assets/Scripts/UI/GoldMeter.cs" />
     <Compile Include="Assets/Scripts/Enemy/Bat/BatHandler.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopItem.cs" />
-    <Compile Include="Assets/Scripts/CameraShaker.cs" />
+    <Compile Include="Assets/Scripts/Camera/CameraShaker.cs" />
     <Compile Include="Assets/Scripts/Misc/Cheats.cs" />
     <Compile Include="Assets/Scripts/Doors/Door.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyHandler.cs" />
@@ -109,20 +114,24 @@
     <Compile Include="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholder.cs" />
     <Compile Include="Assets/Scripts/GoAround.cs" />
     <Compile Include="Assets/Scripts/Doors/DoorInfo_SO.cs" />
+    <Compile Include="Assets/Scripts/Health/Damager.cs" />
     <Compile Include="Assets/Scripts/Audio/PlayerSounds.cs" />
+    <Compile Include="Assets/Scripts/UI/DownIndicator.cs" />
     <Compile Include="Assets/Scripts/Scene Utilities/DataPasser.cs" />
+    <Compile Include="Assets/Scripts/MenuButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Loot/LootCreatureHandler.cs" />
     <Compile Include="Assets/Scripts/Loot/LootHandler.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerInputHandler.cs" />
+    <Compile Include="Assets/Scripts/Enemy/Boss/Skele Mech/SkeleMechAnim.cs" />
     <Compile Include="Assets/Scripts/CutSceneHandler.cs" />
     <Compile Include="Assets/Scripts/Scene Utilities/SceneBounds.cs" />
     <Compile Include="Assets/Scripts/Enemy/Ancient Guard/AncientGuardAnimatorFunctions.cs" />
     <Compile Include="Assets/Scripts/Smithy/ArmorShopItem.cs" />
+    <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
     <Compile Include="Assets/Scripts/Loot/LootCreature.cs" />
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
-    <Compile Include="Assets/Scripts/JSONeer/JSONeer.cs" />
-    <Compile Include="Assets/Scripts/JSONeer/JSONeer_Structs.cs" />
+    <Compile Include="Assets/Scripts/DemoEnding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

@@ -68,6 +68,7 @@ public class DataPasser : MonoBehaviour
 
 	public int CurrentGold () { return currGold; }
 	public void Change_GoldCount (int val) { currGold += val; }
+	public void Reset_GoldCount () { currGold = 0; }
 
 	#endregion
 

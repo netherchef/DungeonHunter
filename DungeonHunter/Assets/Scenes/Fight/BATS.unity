@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6
   height: 4
-  debug: 1
+  debug: 0
 --- !u!1001 &781495061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -868,6 +868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   master: {fileID: 0}
   camShaker: {fileID: 0}
+  characterSpriteRenderers: []
   type: 0
   currHp: 10
   fullHp: 4

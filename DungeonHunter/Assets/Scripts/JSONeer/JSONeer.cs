@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+[ExecuteInEditMode]
 public class JSONeer : MonoBehaviour
 {
 	[Header ("Scripts:")]
@@ -16,6 +17,11 @@ public class JSONeer : MonoBehaviour
 	public string fileName = "DataList.json";
 	public bool check;
 	public bool write;
+
+	[Header ("Debug:")]
+
+	[SerializeField]
+	private bool clearData;
 
 	private void Update ()
 	{
@@ -38,6 +44,15 @@ public class JSONeer : MonoBehaviour
 
 			Write_DataContainer_To_JSON ();
 		}
+
+		// Clear Data
+
+		if (clearData)
+		{
+			clearData = false;
+
+			container = default;
+		}
 	}
 
 	#region From JSON __________________________________________________________
@@ -57,7 +72,7 @@ public class JSONeer : MonoBehaviour
 			try
 			{
 				// Convert the string from JSON and load it into a struct
-
+				
 				return JsonUtility.FromJson<DataContainer> (jsonContent);
 			}
 			catch
@@ -89,7 +104,7 @@ public class JSONeer : MonoBehaviour
 		{
 			// Format the struct as a JSON string
 
-			string jsonContent = JsonUtility.ToJson (container);
+			string jsonContent = JsonUtility.ToJson (container, true);
 
 			// Write the JSON string to persistent data
 
@@ -163,6 +178,22 @@ public class JSONeer : MonoBehaviour
 
 		branch.currRoom = currRoomName;
 		branch.previousRoom = DataPasser.DPInstance.previousRoom;
+
+		// Bosses
+
+		string[] bossNames;
+
+		if (DataPasser.DPInstance.defeatedBosses != null && DataPasser.DPInstance.defeatedBosses.Count > 0)
+		{
+			bossNames = new string[DataPasser.DPInstance.defeatedBosses.Count];
+
+			for (int i = 0; i < bossNames.Length; i++)
+			{
+				bossNames[i] = DataPasser.DPInstance.defeatedBosses[i].ToString ();
+			}
+
+			branch.defeatedBosses = bossNames;
+		}
 
 		return branch;
 	}

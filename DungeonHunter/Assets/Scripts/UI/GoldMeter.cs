@@ -34,9 +34,13 @@ public class GoldMeter : MonoBehaviour
 
 	public void AddGold ()
 	{
+		//print ("Inventory adding Gold...");
+
 		Vector3 newPos = 
 			DataPasser.DPInstance.CurrentGold () <= 0 ? transform.position :
 			transform.GetChild(furthest).position + new Vector3(offset, 0);
+
+		//print ("Gold pos set!");
 
 		GameObject newGold = Instantiate (
 			goldPrefab, 
@@ -44,8 +48,34 @@ public class GoldMeter : MonoBehaviour
 			Quaternion.identity, 
 			transform);
 
+		//print ("New Gold Instantiated!");
+
 		if (DataPasser.DPInstance.CurrentGold () > 0) furthest++;
 		DataPasser.DPInstance.Change_GoldCount (1);
+
+		//print ("Gold added!");
+	}
+
+	public void UpdateGoldDisplay_OnGameLoad ()
+	{
+		print ("Gold Display Updated!");
+
+		int currGold = DataPasser.DPInstance.CurrentGold ();
+
+		Vector3 spawnPos = transform.position;
+
+		for (int i = 0; i < currGold; i++)
+		{
+			GameObject newGold = Instantiate (
+			goldPrefab,
+			spawnPos,
+			Quaternion.identity,
+			transform);
+
+			if (i > 0) furthest++;
+
+			spawnPos = transform.GetChild (furthest).position + new Vector3 (offset, 0);
+		}
 	}
 
 	public void MinusGold (int amount = 1)
@@ -57,6 +87,18 @@ public class GoldMeter : MonoBehaviour
 			if (furthest > 0) furthest--;
 			DataPasser.DPInstance.Change_GoldCount (-1);
 		}
+	}
+
+	public void Reset ()
+	{
+		foreach (Transform child in transform)
+		{
+			Destroy (child.gameObject);
+		}
+
+		furthest = 0;
+
+		DataPasser.DPInstance.Reset_GoldCount ();
 	}
 
 	//public int CurrentGold () { return currGold; }

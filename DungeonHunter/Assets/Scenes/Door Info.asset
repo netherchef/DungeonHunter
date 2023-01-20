@@ -29,7 +29,7 @@ MonoBehaviour:
     left: PRI_BAT_SKEL
     right: 
   - roomName: Great Beholder
-    up: Entrance
+    up: Balcony
     down: Great Beholder Entrance
     left: 
     right: 
@@ -62,4 +62,9 @@ MonoBehaviour:
     up: 
     down: 
     left: Entrance
+    right: 
+  - roomName: Balcony
+    up: Entrance
+    down: 
+    left: 
     right: 

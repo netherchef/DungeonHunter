@@ -26,6 +26,8 @@ public class PauseMenu : MonoBehaviour
 
 	private bool paused;
 
+	private bool release;
+
 	private IEnumerator DoPauseMenuSeq { get { return DoPauseMenu (); } }
 
 	private void Awake ()
@@ -46,6 +48,10 @@ public class PauseMenu : MonoBehaviour
 	{
 		while (enabled)
 		{
+			// Only enable after Released
+
+			while (!release) yield return null;
+
 			if (Input.GetButtonDown ("Cancel"))
 			{
 				if (!paused)
@@ -83,5 +89,15 @@ public class PauseMenu : MonoBehaviour
 #if UNITY_EDITOR
 		print("Quit!");
 #endif
+	}
+
+	public bool Is_Released ()
+	{
+		return release;
+	}
+
+	public void Release ()
+	{
+		release = true;
 	}
 }

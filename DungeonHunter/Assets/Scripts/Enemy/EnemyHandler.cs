@@ -87,7 +87,10 @@ public class EnemyHandler : MonoBehaviour
 	public void Prep ()
 	{
 		SpawnAtRandomLocations ();
+	}
 
+	public void Execute ()
+	{
 		StartCoroutine (CheckEnemies);
 	}
 
