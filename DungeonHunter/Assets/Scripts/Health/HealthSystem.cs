@@ -67,11 +67,31 @@ public class HealthSystem : MonoBehaviour
 	private bool godMode;
 
 	// !!! TEMPORARY !!!
-	private void Start () { Prep (); }
+	private void Start ()
+	{
+		Prep ();
+	}
 
 	public void Prep ()
 	{
-		if (type != UnitType.Player) currHp = fullHp; // Set Current HP
+		if (type != UnitType.Player) // If Enemy
+		{
+			int loopCount = DataPasser.DPInstance.loopCount;
+
+			if (loopCount <= 0)
+			{
+				currHp = fullHp;
+				return;
+			}
+			else
+			{
+				currHp = fullHp;
+
+				for (int i = 0; i < loopCount; i++) currHp++;
+
+				transform.localScale += new Vector3 (1,1,1) * ((float) loopCount * 1.25f); // BIG ENEMIES!
+			}
+		}
 
 		// For painting sprite white.
 		// shaderGUIText = Shader.Find ("GUI/Text Shader");
@@ -84,6 +104,19 @@ public class HealthSystem : MonoBehaviour
 		if (godMode) return;
 #endif
 
+		// Player gets Hurt
+
+		if (type == UnitType.Player)
+		{
+			if (DataPasser.DPInstance.GodMode ()) return;
+
+			DecreaseHP (value + DataPasser.DPInstance.loopCount);
+
+			return;
+		}
+
+		// Enemy gets Hurt
+
 		DecreaseHP (value);
 
 		// PaintWhite (masterSprite);
@@ -92,7 +125,7 @@ public class HealthSystem : MonoBehaviour
 		{
 			// Boss Health Bar
 
-			float newVal = (1 / (float) fullHp) * (float) currHp;
+			float newVal = (1 / (float)fullHp) * (float)currHp;
 			bossHealthBar.rectTransform.localScale = new Vector2 (newVal, bossHealthBar.rectTransform.localScale.y);
 		}
 	}
@@ -248,4 +281,9 @@ public class HealthSystem : MonoBehaviour
 	public bool IsBoss () { return boss; }
 
 #endregion __________________________________________________
+
+	public void Toggle_GodMode ()
+	{
+		godMode = !godMode;
+	}
 }

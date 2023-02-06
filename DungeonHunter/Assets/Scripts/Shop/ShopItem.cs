@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ShopItem : MonoBehaviour
 {
+	// Components
+
+	[SerializeReference]
+	private GameObject replacementPotion;
+
 	// Variables
 
 	[SerializeField]
@@ -16,6 +21,20 @@ public class ShopItem : MonoBehaviour
 
 	private bool ready;
 
+	private void Start ()
+	{
+		if (type == ItemType.PotionOfStrength)
+		{
+			// Disable Damage Upgrade if already taken
+
+			if (DataPasser.DPInstance.DamageUpgraded ())
+			{
+				replacementPotion.SetActive (true);
+				gameObject.SetActive (false);
+			}
+		}
+	}
+
 	private void OnTriggerEnter2D (Collider2D collision)
 	{
 		if (collision.CompareTag ("Player")) ready = true;
@@ -26,25 +45,13 @@ public class ShopItem : MonoBehaviour
 		if (collision.CompareTag ("Player")) ready = false;
 	}
 
-	public bool Ready ()
-	{
-		return ready;
-	}
+	public bool Ready () { return ready; }
 
-	public void Disable ()
-	{
-		ready = false;
-	}
+	public void Disable () { ready = false; }
 
-	public ItemType Type ()
-	{
-		return type;
-	}
+	public ItemType Type () { return type; }
 
-	public int Cost ()
-	{
-		return cost;
-	}
+	public int Cost () { return cost; }
 
 	public void PlayItemSound (AudioSource audioS)
 	{

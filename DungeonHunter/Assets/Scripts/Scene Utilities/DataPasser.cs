@@ -53,6 +53,8 @@ public class DataPasser : MonoBehaviour
 	public int currDamage; // Marked for Save
 	public Attack_Effect currAttackEffect; // Marked for Save
 
+	private bool damageUpgraded;
+
 	// Items
 
 	public ItemType[] inventoryItems; // Marked for Save
@@ -62,6 +64,10 @@ public class DataPasser : MonoBehaviour
 
 	public void Set_CurrDamage (int value) { currDamage = value; }
 
+	public bool DamageUpgraded () { return damageUpgraded; }
+	public void Flag_DamageUpgrade () { damageUpgraded = true; }
+	public void Unflag_DamageUpgrade () { damageUpgraded = false; }
+
 	public void Set_Items (ItemType[] items) { inventoryItems = items; }
 
 	private int currGold;
@@ -69,6 +75,13 @@ public class DataPasser : MonoBehaviour
 	public int CurrentGold () { return currGold; }
 	public void Change_GoldCount (int val) { currGold += val; }
 	public void Reset_GoldCount () { currGold = 0; }
+
+	// Cheats
+
+	[SerializeField]
+	private bool godMode;
+	public void Toggle_Godmode () { godMode = !godMode; }
+	public bool GodMode () { return godMode; }
 
 	#endregion
 
@@ -78,7 +91,7 @@ public class DataPasser : MonoBehaviour
 
 	#endregion
 
-	#region ____________________________________________________________________
+	#region Bosses _____________________________________________________________
 
 	public List<BossType> defeatedBosses = new List<BossType> ();
 
@@ -87,7 +100,7 @@ public class DataPasser : MonoBehaviour
 		defeatedBosses.Add (bossType);
 	}
 
-	public bool IsDefeated(BossType bossType)
+	public bool IsDefeated (BossType bossType)
 	{
 		foreach (BossType boss in defeatedBosses)
 		{
@@ -96,6 +109,23 @@ public class DataPasser : MonoBehaviour
 
 		return false;
 	}
+
+	#endregion
+
+	#region Loop _______________________________________________________________
+
+	public int loopCount;
+
+	public void Loop ()
+	{
+		Unflag_DamageUpgrade (); // Show Damage Potion in Store
+
+		defeatedBosses = new List<BossType> (); // Clear Bosses
+
+		IncreaseLoop ();
+	}
+
+	private void IncreaseLoop () { loopCount++; }
 
 	#endregion
 }

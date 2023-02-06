@@ -20,6 +20,9 @@ public class DoorHandler : MonoBehaviour
 	public PlayerAttack playerAttack;
 	public PlayerInventory playerInventory;
 
+	[SerializeField]
+	private FinalDoorHandler finalDoorHandler;
+
 	// Variables
 
 	[SerializeField]
@@ -104,21 +107,41 @@ public class DoorHandler : MonoBehaviour
 		}
 
 		// Enable all Doors
-		print (doors.Length);
+		
 		foreach (Door door in doors)
 		{
 			door.transform.GetComponent<CircleCollider2D> ().enabled = true;
 		}
 
-		while (enabled)
+		if (finalDoorHandler == null)
 		{
-			foreach (Door door in doors)
+			while (enabled)
 			{
-				//if (door.triggered && InputMatchDoorDir (door))
-				if (door.triggered) ChangeScene (door);
-			}
+				foreach (Door door in doors)
+				{
+					//if (door.triggered && InputMatchDoorDir (door))
+					if (door.triggered) ChangeScene (door);
+				}
 
-			yield return null;
+				yield return null;
+			}
+		}
+		else
+		{
+			while (enabled)
+			{
+				foreach (Door door in doors)
+				{
+					if (door.triggered)
+					{
+						finalDoorHandler.IncreaseLoop (); // Increase Loop
+
+						ChangeScene (door);// Load next Room
+					}
+				}
+
+				yield return null;
+			}
 		}
 	}
 

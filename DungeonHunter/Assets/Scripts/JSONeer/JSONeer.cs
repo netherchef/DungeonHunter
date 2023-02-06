@@ -153,6 +153,7 @@ public class JSONeer : MonoBehaviour
 
 		branch.damage = DataPasser.DPInstance.currDamage;
 		branch.attackEffect = DataPasser.DPInstance.currAttackEffect.ToString ();
+		branch.damageUpgraded = DataPasser.DPInstance.DamageUpgraded ();
 
 		// Items
 
@@ -194,6 +195,10 @@ public class JSONeer : MonoBehaviour
 
 			branch.defeatedBosses = bossNames;
 		}
+
+		// Loop
+
+		branch.loopCount = DataPasser.DPInstance.loopCount;
 
 		return branch;
 	}

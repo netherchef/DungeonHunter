@@ -54,7 +54,7 @@ TextureImporter:
       213: 860939276611138935
     second: Armored Skeleton Spritesheet_16
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,6 +75,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -113,6 +114,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -128,6 +130,42 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
@@ -508,6 +546,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Armored Skeleton Spritesheet_7: 3526695111353056945
+      Armored Skeleton Spritesheet_5: -5441183605494454033
+      Armored Skeleton Spritesheet_2: 7768577766021174281
+      Armored Skeleton Spritesheet_11: 2653902031242846836
+      Armored Skeleton Spritesheet_12: 669781366160254379
+      Armored Skeleton Spritesheet_1: -3643592886506870132
+      Armored Skeleton Spritesheet_4: -1410962796049929817
+      Armored Skeleton Spritesheet_15: 2802924912182836847
+      Armored Skeleton Spritesheet_14: 5661819761689369181
+      Armored Skeleton Spritesheet_6: -2881937694597326647
+      Armored Skeleton Spritesheet_3: 7960102565659833547
+      Armored Skeleton Spritesheet_8: -9110478866754049554
+      Armored Skeleton Spritesheet_10: 5883712735557222263
+      Armored Skeleton Spritesheet_9: -8182278030325007778
+      Armored Skeleton Spritesheet_13: -2604309575110009499
+      Armored Skeleton Spritesheet_0: -71804376930183474
+      Armored Skeleton Spritesheet_16: 860939276611138935
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

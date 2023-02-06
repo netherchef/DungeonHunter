@@ -57,7 +57,7 @@ TextureImporter:
       213: 1506880272054089053
     second: SkelMechTorso - Dead
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -116,6 +117,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -131,6 +133,42 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
@@ -532,6 +570,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SkelSkelMechHead: -3041592243947031654
+      SkelMechSlam 02: -1764694254400485821
+      SkelMechArm 02: -9095737049975792749
+      SkelSkelMechHead - Dead: -8892974256591069175
+      SkelSkelMechHead - Extend: 6319545289918424485
+      SkelMechArm 05: 3114543665664351613
+      SkelMechSlam 00: 1038472872579309322
+      SkelMechSlam 01: -3876249430420252443
+      SkelMechHead - Sad: 4339044751674372133
+      SkelMechArm 03: 1481314431687617040
+      SkelMechFireball: 1934857365256563595
+      SkelMechTorso - Dead: 1506880272054089053
+      SkelMechTorso: -3069070707273788037
+      SkelMechArm 04: 5919899839343271185
+      SkelMechSlam 03: -3209507365792015323
+      SkelMechArm 01: 5212779567338904476
+      SkelMechArm 00: 5533644804312041872
+      BatCage: 5491683258266417513
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

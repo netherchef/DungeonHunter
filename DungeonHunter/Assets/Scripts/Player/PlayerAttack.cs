@@ -123,6 +123,12 @@ public class PlayerAttack : MonoBehaviour
 		DataPasser.DPInstance.Set_CurrDamage (currDamage);
 	}
 
+	public void IncrementDamage ()
+	{
+		currDamage++;
+		DataPasser.DPInstance.Set_CurrDamage (currDamage);
+	}
+
 	public bool DamageChanged () { return currDamage != initDamage; }
 
 	public int CurrentDamage () { return currDamage; }

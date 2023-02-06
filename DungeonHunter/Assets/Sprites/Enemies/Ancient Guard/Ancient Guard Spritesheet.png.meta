@@ -54,7 +54,7 @@ TextureImporter:
       213: 2647868764860527448
     second: Ancient Guard Spritesheet_16
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,6 +75,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -113,6 +114,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -128,6 +130,42 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
@@ -508,6 +546,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Ancient Guard Spritesheet_3: -8835490306789154816
+      Ancient Guard Spritesheet_16: 2647868764860527448
+      Ancient Guard Spritesheet_14: 763721016507868705
+      Ancient Guard Spritesheet_7: -4548482718612968523
+      Ancient Guard Spritesheet_11: -7436735725580638226
+      Ancient Guard Spritesheet_0: 8672196562934922930
+      Ancient Guard Spritesheet_5: -8623298448789689882
+      Ancient Guard Spritesheet_6: 6078979307239122113
+      Ancient Guard Spritesheet_12: 2967960296102292044
+      Ancient Guard Spritesheet_13: 8749894975784067900
+      Ancient Guard Spritesheet_15: 8624203311308534182
+      Ancient Guard Spritesheet_1: 5538124640183523312
+      Ancient Guard Spritesheet_8: 9212715591618350144
+      Ancient Guard Spritesheet_2: -4681686237050250149
+      Ancient Guard Spritesheet_9: -2361889327912814256
+      Ancient Guard Spritesheet_10: 5982534555959141278
+      Ancient Guard Spritesheet_4: -3048179171110428430
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

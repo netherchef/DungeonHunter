@@ -22,15 +22,6 @@ public class PlayerInputHandler : MonoBehaviour
 
 	public Shop shop;
 
-	[Header ("Variables:")]
-
-	//private InputMaster inputMaster;
-
-	//private static Vector2 dirInput;
-	//private static bool interact;
-	//private bool attack;
-	//private bool doDodge;
-
 	// Enumerators
 
 	private IEnumerator doInput;
@@ -50,13 +41,6 @@ public class PlayerInputHandler : MonoBehaviour
 
 			if (Input.GetButtonDown ("Dodge")) yield return dodge.DoDodge (healthSystem);
 
-			//if (doDodge)
-			//{
-			//	doDodge = false;
-
-			//	yield return dodge.DoDodge (healthSystem);
-			//}
-
 			// Submit
 
 			if (Input.GetButtonDown ("Interact") || Input.GetMouseButtonDown (0))
@@ -67,24 +51,6 @@ public class PlayerInputHandler : MonoBehaviour
 				yield return playerAttack.Attack (direction.GetDirection ()); // Attack
 			}
 
-			//if (interact)
-			//{
-			//	interact = false;
-
-			//	if (shop) shop.MakePurchase (); // Shop
-			//}
-
-			// Attack
-
-			//if (attack)
-			//{
-			//	//yield return playerAttack.Attack (Vector3.Normalize (dirInput));
-			//	yield return playerAttack.Attack (direction.GetDirection ());
-
-			//	attack = false;
-			//}
-			//}
-
 			// Direction
 
 			Vector2 dirInput = new Vector2 (0, 0);
@@ -92,14 +58,8 @@ public class PlayerInputHandler : MonoBehaviour
 			if (InputKeyHandler.IKH_Instance.Right_Active ()) dirInput.x = 1;
 			else if (InputKeyHandler.IKH_Instance.Left_Active ()) dirInput.x = -1;
 
-			//if (Input.GetAxisRaw ("Horizontal") > 0) dirInput.x = 1;
-			//else if (Input.GetAxisRaw ("Horizontal") < 0) dirInput.x = -1;
-
 			if (InputKeyHandler.IKH_Instance.Up_Active ()) dirInput.y = 1;
 			else if (InputKeyHandler.IKH_Instance.Down_Active ()) dirInput.y = -1;
-
-			//if (Input.GetAxisRaw ("Vertical") > 0) dirInput.y = 1;
-			//else if (Input.GetAxisRaw ("Vertical") < 0) dirInput.y = -1;
 
 			// Record Direction Changes
 

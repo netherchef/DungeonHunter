@@ -99,7 +99,9 @@ public class Shop : MonoBehaviour
 				playerHealth.GetHealed ();
 				break;
 			case ItemType.PotionOfStrength:
-				playerAttack.SetDamage (2, true);
+				playerAttack.IncrementDamage ();
+				DataPasser.DPInstance.Flag_DamageUpgrade ();
+				//playerAttack.SetDamage (2, true);
 				break;
 
 			case ItemType.GoldArmor:

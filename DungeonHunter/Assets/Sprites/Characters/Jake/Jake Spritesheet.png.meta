@@ -216,7 +216,7 @@ TextureImporter:
       213: -8738011115154818780
     second: Jake_Shadow
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -237,6 +237,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -275,6 +276,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -290,6 +292,42 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1804,6 +1842,78 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Gold_Armor_Icon: -8999803013870421988
+      JakeBronze_AttackUp_01: 7342243489625401538
+      Jake - Walk Back 00: -8789064537019223627
+      JakeRuby_Idle_00: -9081558273466104425
+      Jake - Attack Front 02: -8790522515679962824
+      JakeBronze_AttackUp_00: -4981491246657765385
+      JakeBronze_AttackDown_02: 4244738876802782724
+      JakeRuby_WalkLeft_00: 5645895612602460942
+      JakeRuby_WalkUp_01: 8189596083412193829
+      JakeGold_AttackDown_02: 6956363429786833475
+      JakeBronze_AttackLeft_00: -1632620519133873053
+      JakeRuby_AttackDown_00: -3024423075822516928
+      JakeRuby_WalkUp_00: -1391085992120793930
+      JakeGold_AttackDown_01: 2479074725673273561
+      Jake - Walk Front 00: -4207448643174401840
+      JakeRuby_AttackDown_02: -2928215078026636078
+      JakeRuby_AttackLeft_00: 3252006599717749607
+      JakeBronze_WalkDown_00: -8385618217429587409
+      Jake - Death 02: -2516663733077774191
+      Jake - Attack Front 00: -8157206965972956363
+      Jake_Shadow: -8738011115154818780
+      Jake - Walk Left 00: 3719607332345266953
+      JakeBronze_AttackUp_02: 4351832076339229453
+      JakeRuby_AttackDown_01: 2766665777902390279
+      Jake - Walk Front 01: -1088791277826054416
+      Jake - Attack Back 01: -5896531661999204299
+      Jake - Attack Back 00: 6958709497931443394
+      JakeGold_AttackUp_00: 1216134031635990054
+      Jake - Attack Back 02: -5825233149826276059
+      JakeRuby_AttackLeft_01: 5994704828005669712
+      JakeGold_WalkDown_00: 3335056824486860456
+      Jake - Attack Left 00: 4079534258776876365
+      JakeGold_WalkLeft_01: 1983601773167541601
+      JakeGold_AttackLeft_00: -6159749502686808035
+      JakeGold_AttackUp_02: 3555273930651900926
+      JakeBronze_WalkLeft_01: 311377983018083409
+      JakeRuby_WalkLeft_01: 6099542258376435918
+      Jake - Walk Left 01: 7414079241622020270
+      JakeBronze_Idle_00: -4295195345737557969
+      Jake - Death 01: 8121267709074988240
+      JakeRuby_WalkDown_01: -4292594389162260596
+      JakeBronze_WalkDown_01: 725385548141397596
+      JakeBronze_AttackLeft_01: -7030591924339592805
+      JakeRuby_AttackUp_00: -1501071939920228012
+      Jake - Walk Back 01: -867791360389907344
+      JakeBronze_AttackDown_01: -118788036163776315
+      JakeGold_WalkDown_01: 3100825436463463751
+      Jake - Attack Left 02: 2323149433581996403
+      JakeGold_Idle_00: 4845620003592101688
+      JakeBronze_AttackLeft_02: -2338747104120848638
+      JakeBronze_WalkUp_00: -722349546611813037
+      JakeGold_WalkUp_01: -2032582485795954321
+      Jake - Attack Front 01: -6841601284387705330
+      JakeGold_AttackLeft_02: -9054901788552573072
+      JakeGold_AttackUp_01: 5809584196445632967
+      JakeGold_WalkUp_00: -4615558410753054587
+      Jake - Death 00: 5611066607551352354
+      JakeBronze_AttackDown_00: -3240621590580583762
+      Ruby_Armor_Icon: -661790623671241512
+      Jake - Attack Left 01: -3861287306584636364
+      Jake - Idle: -5155509088403286372
+      JakeRuby_AttackUp_01: 7409130200438863625
+      JakeGold_AttackDown_00: -4724360647017535419
+      JakeGold_WalkLeft_00: 1801299497166830283
+      JakeGold_AttackLeft_01: 4792736093614874516
+      Bronze_Armor_Icon: 1468868522582041697
+      JakeBronze_WalkUp_01: 7749028629151670347
+      JakeRuby_WalkDown_00: 8629374953760116387
+      JakeRuby_AttackUp_02: -2748786690715392939
+      JakeBronze_WalkLeft_00: -5967364067784564453
+      JakeRuby_AttackLeft_02: 8310658425184957293
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

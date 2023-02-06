@@ -120,7 +120,7 @@ TextureImporter:
       213: -4686193426983128631
     second: Skeleton Warrior Summon-sheet_38
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -140,6 +140,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -149,8 +151,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -171,10 +173,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -202,6 +208,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1044,6 +1074,46 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Skeleton Warrior Summon-sheet_31: -330121549927780154
+      Skeleton Warrior Summon-sheet_17: -4693492413671613098
+      Skeleton Warrior Summon-sheet_27: 1608244023093724449
+      Skeleton Warrior Summon-sheet_38: -4686193426983128631
+      Skeleton Warrior Summon-sheet_22: -874428416051337887
+      Skeleton Warrior Summon-sheet_7: -3942797873958100556
+      Skeleton Warrior Summon-sheet_1: 3716022445097051850
+      Skeleton Warrior Summon-sheet_8: -7159848302966306465
+      Skeleton Warrior Summon-sheet_37: 5465800632630723082
+      Skeleton Warrior Summon-sheet_13: -6407603170547238658
+      Skeleton Warrior Summon-sheet_9: -6300831687606501534
+      Skeleton Warrior Summon-sheet_15: 7842915391949963198
+      Skeleton Warrior Summon-sheet_20: 2041011245888486841
+      Skeleton Warrior Summon-sheet_26: -3699485761603735569
+      Skeleton Warrior Summon-sheet_29: -4110300151668154361
+      Skeleton Warrior Summon-sheet_32: 4974881479644077046
+      Skeleton Warrior Summon-sheet_28: -4030996020213863154
+      Skeleton Warrior Summon-sheet_3: 808969249455598993
+      Skeleton Warrior Summon-sheet_21: -7117298811256185763
+      Skeleton Warrior Summon-sheet_23: -6833948236695637232
+      Skeleton Warrior Summon-sheet_30: 5347169733608366775
+      Skeleton Warrior Summon-sheet_6: 1712267958395652508
+      Skeleton Warrior Summon-sheet_24: -4540334197721026455
+      Skeleton Warrior Summon-sheet_34: -788559460987753338
+      Skeleton Warrior Summon-sheet_2: -8960649590790287347
+      Skeleton Warrior Summon-sheet_12: 4662386856040885216
+      Skeleton Warrior Summon-sheet_33: -5228533597232001226
+      Skeleton Warrior Summon-sheet_19: -3092640446103250177
+      Skeleton Warrior Summon-sheet_5: 6691857463099831110
+      Skeleton Warrior Summon-sheet_11: 5391803916572254856
+      Skeleton Warrior Summon-sheet_14: -3599362557128393607
+      Skeleton Warrior Summon-sheet_36: -6490071766076883320
+      Skeleton Warrior Summon-sheet_0: 5853445266477225162
+      Skeleton Warrior Summon-sheet_10: 1973683029317362120
+      Skeleton Warrior Summon-sheet_18: -8012998243496817214
+      Skeleton Warrior Summon-sheet_25: 4004812014096426699
+      Skeleton Warrior Summon-sheet_35: 7845516768949268144
+      Skeleton Warrior Summon-sheet_4: -4548961921015402087
+      Skeleton Warrior Summon-sheet_16: 4177813602056058981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -51,6 +51,8 @@ public class PlayerDeath : MonoBehaviour
 
 		DataPasser.DPInstance.previousRoom = "";
 
+		DataPasser.DPInstance.loopCount = 0;
+
 		SceneManager.LoadScene (startingScene);
 
 		yield return null;

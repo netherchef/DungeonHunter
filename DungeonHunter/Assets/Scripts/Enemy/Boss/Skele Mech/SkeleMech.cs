@@ -108,8 +108,9 @@ public class SkeleMech : MonoBehaviour
 		Disable_Colliders ();
 
 		// Record Boss Defeat
+		// Disabled since this is the last Boss of the Dungeon
 
-		DataPasser.DPInstance.RecordBossDefeat (BossType.SkeleMech);
+		//DataPasser.DPInstance.RecordBossDefeat (BossType.SkeleMech);
 
 		// Wait 2 Seconds
 
@@ -117,7 +118,10 @@ public class SkeleMech : MonoBehaviour
 
 		// Display Ending Message
 
-		yield return demoEndingHandler.ShowEndingMessage ();
+		if (DataPasser.DPInstance.loopCount <= 0)
+		{
+			yield return demoEndingHandler.ShowEndingMessage ();
+		}
 
 		// Unlock Doors
 

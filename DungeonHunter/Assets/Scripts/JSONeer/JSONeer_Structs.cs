@@ -17,6 +17,7 @@ public struct DataBranch
 
 	public int damage;
 	public string attackEffect;
+	public bool damageUpgraded;
 
 	public string[] items;
 
@@ -26,4 +27,6 @@ public struct DataBranch
 	public string previousRoom;
 
 	public string[] defeatedBosses;
+
+	public int loopCount;
 }
