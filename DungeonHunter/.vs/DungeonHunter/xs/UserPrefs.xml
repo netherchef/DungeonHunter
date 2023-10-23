@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Shop/ShopItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerInputHandler.cs">
     <Files>
-      <File FileName="Assets/Scripts/Audio/BackgroundAudio.cs" Line="45" Column="36" />
-      <File FileName="Assets/Scripts/CutSceneHandler.cs" Line="55" Column="57" />
-      <File FileName="Assets/Scripts/Enemy/Slime/SlimeFunctions.cs" Line="60" Column="3" />
-      <File FileName="Assets/Scripts/Items/Item.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Shop/Shop.cs" Line="33" Column="20" />
-      <File FileName="Assets/Scripts/Shop/ShopItem.cs" Line="5" Column="14" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Skele Mech/SkeleMech.cs" Line="184" Column="23" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Skele Mech/SkeleMechAnim.cs" Line="26" Column="14" />
+      <File FileName="Assets/Scripts/Health/HealthBar.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Health/HealthSystem.cs" Line="130" Column="21" />
+      <File FileName="Assets/Scripts/JSONeer/JSONeer.cs" Line="154" Column="47" />
+      <File FileName="Assets/Scripts/Scene Utilities/DataPasser.cs" Line="86" Column="23" />
+      <File FileName="Assets/Scripts/Misc/Cheats.cs" Line="144" Column="43" />
+      <File FileName="Assets/Scripts/Player/PlayerInputHandler.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,17 +20,21 @@
                 <Node name="Enemy" expanded="True">
                   <Node name="Ancient Guard" expanded="True" />
                   <Node name="Bat" expanded="True" />
+                  <Node name="Boss" expanded="True">
+                    <Node name="Skele Mech" expanded="True" />
+                  </Node>
                   <Node name="Skeleton Warrior" expanded="True" />
                   <Node name="Slime" expanded="True" />
                 </Node>
                 <Node name="Health" expanded="True" />
                 <Node name="Items" expanded="True" />
+                <Node name="JSONeer" expanded="True" />
                 <Node name="Misc" expanded="True" />
-                <Node name="Player" expanded="True" />
-                <Node name="Scene Utilities" expanded="True" />
-                <Node name="Shop" expanded="True">
-                  <Node name="ShopItem.cs" selected="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="PlayerInputHandler.cs" selected="True" />
                 </Node>
+                <Node name="Scene Utilities" expanded="True" />
+                <Node name="Shop" expanded="True" />
                 <Node name="Start Screen" expanded="True" />
               </Node>
             </Node>

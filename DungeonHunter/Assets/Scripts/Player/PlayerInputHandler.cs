@@ -22,6 +22,11 @@ public class PlayerInputHandler : MonoBehaviour
 
 	public Shop shop;
 
+	// Variables
+
+	[SerializeField]
+	private bool _becomeGod;
+
 	// Enumerators
 
 	private IEnumerator doInput;
@@ -31,6 +36,15 @@ public class PlayerInputHandler : MonoBehaviour
 	{
 		doInput = DoInput ();
 		StartCoroutine (doInput);
+	}
+
+	private void Update ()
+	{
+		if (_becomeGod)
+		{
+			_becomeGod = false;
+			DataPasser.DPInstance.Toggle_Godmode ();
+		}
 	}
 
 	private IEnumerator DoInput ()

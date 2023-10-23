@@ -19,6 +19,25 @@ public class SkeleMech : MonoBehaviour
 	[SerializeField]
 	private Collider2D[] colliders;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _groundSlamAudioSource;
+	[SerializeField]
+	private float _landing_Volume = 10f;
+	[SerializeField]
+	private float _groundSlam_Volume = 5f;
+
+	[SerializeField]
+	private AudioSource _breathAudioSource;
+	[SerializeField]
+	private AudioSource _fireStartAudioSource;
+
+	[SerializeField]
+	private AudioSource _deathAudioSource;
+	[SerializeField]
+	private float _deathSound_Volume = 2f;
+
 	// Scripts
 
 	[SerializeField]
@@ -95,6 +114,10 @@ public class SkeleMech : MonoBehaviour
 			yield return Idle (2f);
 		}
 
+		// Death Sound
+
+		_deathAudioSource.PlayOneShot (_deathAudioSource.clip, _deathSound_Volume);
+
 		// Death
 
 		skeleMechAnim.Death (); // Death Animation
@@ -154,6 +177,10 @@ public class SkeleMech : MonoBehaviour
 
 		skeleTrans.position = new Vector3 (endPos.x, endPos.y, skeleTrans.position.z);
 
+		// Landing Sound
+
+		_groundSlamAudioSource.PlayOneShot (_groundSlamAudioSource.clip, _landing_Volume);
+
 		// Camera Shake on Landing
 
 		camShaker.Shake (0.5f, 0.5f);
@@ -174,11 +201,23 @@ public class SkeleMech : MonoBehaviour
 			yield return null;
 		}
 
+		// Ground Slam Audio
+
+		_groundSlamAudioSource.PlayOneShot (_groundSlamAudioSource.clip, _groundSlam_Volume);
+
+		// Ground Slam Animation
+
 		skeleMechAnim.GroundSlam ();
 	}
 
 	private IEnumerator Fireball ()
 	{
+		// Windup Sound
+
+		_breathAudioSource.PlayOneShot (_breathAudioSource.clip);
+
+		// Fireball Windup Animation
+
 		skeleMechAnim.Fireball_Wind ();
 
 		for (float timer = 0; timer < 2f; timer += Time.deltaTime)
@@ -187,7 +226,11 @@ public class SkeleMech : MonoBehaviour
 
 			yield return null;
 		}
-		
+
+		// Fireball Sound
+
+		_fireStartAudioSource.PlayOneShot (_fireStartAudioSource.clip);
+
 		Spawn_Fireball ();
 
 		skeleMechAnim.Fireball_End ();

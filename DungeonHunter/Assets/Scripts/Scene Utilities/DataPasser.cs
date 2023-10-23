@@ -80,7 +80,11 @@ public class DataPasser : MonoBehaviour
 
 	[SerializeField]
 	private bool godMode;
-	public void Toggle_Godmode () { godMode = !godMode; }
+	public void Toggle_Godmode ()
+	{
+		godMode = !godMode;
+		Set_CurrDamage (9999);
+	}
 	public bool GodMode () { return godMode; }
 
 	#endregion
