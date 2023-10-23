@@ -15,6 +15,19 @@ public class SlimeFunctions : MonoBehaviour
 	[SerializeField]
 	private Transform target;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _audioSource;
+	[SerializeField]
+	private AudioClip _slime_Move_Sound;
+	[SerializeField]
+	private AudioClip _slime_Jump_Sound;
+	[SerializeField]
+	private AudioClip _slime_Land_Sound;
+	[SerializeField]
+	private AudioClip _slime_Burst_Sound;
+
 	[Header ("Scripts:")]
 
 	[SerializeField]
@@ -51,6 +64,11 @@ public class SlimeFunctions : MonoBehaviour
 			{
 				if (Vector3.Distance (target.position, master.position) > 1f) // If far away
 				{
+					// Slime Move Sound
+
+					if (!_audioSource.isPlaying)
+						_audioSource.PlayOneShot (_slime_Move_Sound);
+
 					Vector3 dir = Vector3.Normalize (target.position - master.position);
 
 					Vector3 newPos = sceneBounds.ClampPointInBounds (master.position + (dir * speed * Time.deltaTime));
@@ -61,11 +79,19 @@ public class SlimeFunctions : MonoBehaviour
 				{
 					for (float windUp = 1f; windUp > 0; windUp -= Time.deltaTime) yield return null;
 
+					// Jump Sound
+
+					_audioSource.PlayOneShot (_slime_Jump_Sound);
+
 					// Jump
 
 					jumpArch.Jump (master.position, target.position, 4, 0.5f);
 
 					while (jumpArch.Is_Jumping ()) yield return null;
+
+					// Landing Sound
+
+					_audioSource.PlayOneShot (_slime_Land_Sound);
 
 					// Impact On Landing
 
@@ -108,6 +134,10 @@ public class SlimeFunctions : MonoBehaviour
 
 			yield return null;
 		}
+
+		// Slime Death Sound
+
+		_audioSource.PlayOneShot (_slime_Burst_Sound);
 
 		// Death
 

@@ -17,6 +17,17 @@ public class Bat : MonoBehaviour
 	private Transform target;
 	private HealthSystem targetHealthSystem;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _audioSource;
+	[SerializeField]
+	private AudioClip _batIdle_Sound;
+	[SerializeField]
+	private AudioClip _bat_WindUp_Sound;
+	[SerializeField]
+	private AudioClip _death_Sound;
+
 	[Header ("Scripts:")]
 
 	[SerializeField]
@@ -59,6 +70,9 @@ public class Bat : MonoBehaviour
 					{
 						// Move
 
+						if (!_audioSource.isPlaying)
+							_audioSource.PlayOneShot (_batIdle_Sound);
+
 						MoveToTarget (target.position);
 					}
 					else
@@ -82,6 +96,11 @@ public class Bat : MonoBehaviour
 
 						if (Vector3.Magnitude (master.position - atkStartPos) < 0.75f)
 						{
+							// Wind Up Sound
+
+							if (!_audioSource.isPlaying)
+								_audioSource.PlayOneShot (_bat_WindUp_Sound);
+
 							master.Translate (-attackDir * speed * Time.deltaTime);
 						}
 						else
@@ -145,7 +164,12 @@ public class Bat : MonoBehaviour
 			}
 			else
 			{
-				// Death
+				// Death Sound
+
+				if (_death_Sound)
+					_audioSource.PlayOneShot (_death_Sound, 0.5f);
+
+				// Death Animation
 
 				batAnim.Set_Dead (true);
 			}

@@ -133,6 +133,8 @@
     <Compile Include="Assets/Scripts/Loot/LootCreature.cs" />
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
+    <Compile Include="Assets/Scripts/FontColourChanger.cs" />
+    <Compile Include="Assets/Scripts/ButtonSounds.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

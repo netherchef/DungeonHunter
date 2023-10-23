@@ -111,7 +111,7 @@ public class Cheats : MonoBehaviour
 
 					if (reset) // No Input, Reset
 					{
-						print ("Reset");
+						//print ("Reset");
 						currCombo = "";
 					}
 

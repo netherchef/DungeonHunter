@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class StartScreen : MonoBehaviour
 {
@@ -12,6 +14,23 @@ public class StartScreen : MonoBehaviour
 	private JSONeer jSONeer;
 
 	private DataContainer data;
+
+	// Start Screen UI
+
+	[SerializeField]
+	private TMP_Text _title;
+	[SerializeField]
+	private Image[] _buttonImage;
+
+	// Audio
+
+	[SerializeField]
+	private AudioSource[] _buttonSounds;
+
+	// Persistent Audio Handler
+
+	[SerializeField]
+	private GameObject _ambientSoundHandler;
 
 	// Coroutines
 
@@ -68,12 +87,47 @@ public class StartScreen : MonoBehaviour
 		}
 	}
 
-	public void New_Game ()
+	public void New_Game_Seq ()
+	{
+		IEnumerator do_New_Game_Seq = Do_New_Game_Seq ();
+		StartCoroutine (do_New_Game_Seq);
+	}
+
+	private IEnumerator Do_New_Game_Seq ()
+	{
+		foreach (AudioSource btnSound in _buttonSounds)
+		{
+			while (btnSound.isPlaying)
+			{
+				yield return null;
+			}
+		}
+
+		New_Game ();
+	}
+
+	private void New_Game ()
 	{
 		SceneManager.LoadScene ("Opening Cut Scene");
 	}
 
-	public void Load_Game ()
+	public void Load_Game_Seq ()
+	{
+		IEnumerator do_Load_Game_Seq = Do_Load_Game_Seq ();
+		StartCoroutine (do_Load_Game_Seq);
+	}
+
+	private IEnumerator Do_Load_Game_Seq ()
+	{
+		foreach (AudioSource btnSound in _buttonSounds)
+		{
+			while (btnSound.isPlaying) { yield return null; }
+		}
+
+		Load_Game ();
+	}
+
+	private void Load_Game ()
 	{
 		//DataContainer dataContainer = jSONeer.DataContainer_From_JSON ();
 
@@ -139,8 +193,23 @@ public class StartScreen : MonoBehaviour
 			}
 		}
 
+		// Ambient Sound Handler
+
+		Instantiate (_ambientSoundHandler);
+
 		// Data Converted, Start the Game
 
 		SceneManager.LoadScene (data.dungeonHunt_DataBranches[0].currRoom);
+	}
+
+	public void Hide_StartScreen ()
+	{
+		_title.gameObject.SetActive (false);
+
+		foreach (Image image in _buttonImage)
+		{
+			image.enabled = false;
+			image.transform.GetChild (0).gameObject.SetActive (false);
+		}
 	}
 }

@@ -20,6 +20,13 @@ public class HealthSystem : MonoBehaviour
 	[SerializeField]
 	private SpriteRenderer[] characterSpriteRenderers;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _audioSource;
+	[SerializeField]
+	private AudioClip _hurt_Sound;
+
 	[Header ("Generic Variables:")]
 
 	public UnitType type;
@@ -103,6 +110,11 @@ public class HealthSystem : MonoBehaviour
 #if UNITY_EDITOR
 		if (godMode) return;
 #endif
+
+		// Hurt Sound
+
+		if (_hurt_Sound && !_audioSource.isPlaying)
+			_audioSource.PlayOneShot (_hurt_Sound);
 
 		// Player gets Hurt
 

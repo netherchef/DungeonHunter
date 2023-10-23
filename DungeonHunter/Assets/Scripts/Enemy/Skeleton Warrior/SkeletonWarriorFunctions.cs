@@ -9,6 +9,15 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 	[SerializeField]
 	private Transform master;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _audioSource;
+	[SerializeField]
+	private AudioClip _swordSwingSound;
+	[SerializeField]
+	private AudioClip _skeletonWalkSound;
+
 	[Header ("Spawn Components:")]
 
 	private Transform target;
@@ -63,6 +72,11 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 
 			if (gapToTarg > attackRange)
 			{
+				// Walk Sound
+
+				if (!_audioSource.isPlaying)
+					_audioSource.PlayOneShot (_skeletonWalkSound);
+
 				// Move to Target
 
 				if (!skeletonAnimFunctions.Is_Moving ()) skeletonAnimFunctions.Set_Moving (true); // Start Move Animation
@@ -111,6 +125,10 @@ public class SkeletonWarriorFunctions : MonoBehaviour
 		skeletonAnimFunctions.Set_WindUpDone_False ();
 
 		// Attack
+
+		// Sword Swing Sound
+
+		_audioSource.PlayOneShot (_swordSwingSound);
 
 		bool foundTarget = false;
 

@@ -463,22 +463,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thank you for playing the demo of our
-
-    very first game! There''s nothing
-    much else to see
-
-    beyond this point, but you can keep going to see
-
-    how
-    many times you can loop through the dungeon!
-
-    Naturally, enemies get X2 damage
-    every time you loop.
-
-
-    THANK YOU FOR PLAYING!            - The Dungeon Hunt
-    Team'
+  m_text: "Thank you for coming along on this adventure!\nThere's nothing much else
+    to see beyond this point, but \nyou can keep going to see how many times you
+    can loop \nthrough the dungeon! Naturally, your foes will be granted \nX2 damage
+    every time you loop.\n\nTHANK YOU FOR PLAYING!            - The Dungeon Hunt
+    Team"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7eec0929339441e081e9fa5ab427e68, type: 2}
   m_sharedMaterial: {fileID: 2534333822743234874, guid: b7eec0929339441e081e9fa5ab427e68,
@@ -614,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU'VE REACHED THE END OF THE DEMO OF
+  m_text: YOU HAVE SLAIN THE GREAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7eec0929339441e081e9fa5ab427e68, type: 2}
   m_sharedMaterial: {fileID: 2534333822743234874, guid: b7eec0929339441e081e9fa5ab427e68,
@@ -4411,7 +4400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DUNGEON HUNT!
+  m_text: SKELETON MECH!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7eec0929339441e081e9fa5ab427e68, type: 2}
   m_sharedMaterial: {fileID: 2534333822743234874, guid: b7eec0929339441e081e9fa5ab427e68,
@@ -4513,7 +4502,7 @@ GameObject:
   - component: {fileID: 8973855972570110488}
   - component: {fileID: 8973855972570110489}
   m_Layer: 5
-  m_Name: DUNGEON HUNT
+  m_Name: SKELETON MECH!
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

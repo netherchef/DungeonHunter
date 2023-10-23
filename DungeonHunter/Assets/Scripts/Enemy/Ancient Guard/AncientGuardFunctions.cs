@@ -22,6 +22,17 @@ public class AncientGuardFunctions : MonoBehaviour
 	private CircleCollider2D targCol;
 	private LootHandler lootHandler;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _audioSource;
+	[SerializeField]
+	private AudioClip _axeSwingSound;
+	[SerializeField]
+	private AudioClip _step_Sound;
+	[SerializeField]
+	private AudioClip _metal_Scatter;
+
 	[Header ("Variables:")]
 
 	[SerializeField]
@@ -104,6 +115,10 @@ public class AncientGuardFunctions : MonoBehaviour
 			yield return null;
 		}
 
+		// Death Sound
+
+		_audioSource.PlayOneShot (_metal_Scatter);
+
 		lootHandler.DropLoot (itemDrops, master.position);
 
 		animatorFunctions.Set_Dead (true); // Death Animation
@@ -118,6 +133,10 @@ public class AncientGuardFunctions : MonoBehaviour
 
 	private IEnumerator Attack ()
 	{
+		// Axe Swing Sound
+
+		_audioSource.PlayOneShot (_axeSwingSound, 2.0f);
+
 		attackCollider.enabled = true;
 
 		for (float a = 0.1f; a > 0; a -= Time.deltaTime)

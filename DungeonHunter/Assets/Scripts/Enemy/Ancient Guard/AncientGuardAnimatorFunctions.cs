@@ -29,4 +29,16 @@ public class AncientGuardAnimatorFunctions : MonoBehaviour
 	private int animHash_Walking = Animator.StringToHash ("Walking");
 	public void Set_Walking (bool state) { animator.SetBool (animHash_Walking, state); }
 	public bool Is_Walking () { return animator.GetBool (animHash_Walking); }
+
+	// Audio
+
+	[SerializeField]
+	private AudioSource _audioSource;
+	[SerializeField]
+	private AudioClip _walk_Sound;
+
+	public void Play_StepSound () // Accessed through Animator
+	{
+		_audioSource.PlayOneShot (_walk_Sound, 0.25f);
+	}
 }
