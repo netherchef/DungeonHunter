@@ -79,6 +79,7 @@
     <Compile Include="Assets/Scripts/Player/PlayerAnimator.cs" />
     <Compile Include="Assets/Scripts/Doors/DoorHandler.cs" />
     <Compile Include="Assets/Scripts/JSONeer/JSONeer_Structs.cs" />
+    <Compile Include="Assets/Scripts/FontColourChanger.cs" />
     <Compile Include="Assets/Scripts/Scene Utilities/EntryHandler.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/Skele Mech/SkeleMech.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAttack.cs" />
@@ -133,7 +134,6 @@
     <Compile Include="Assets/Scripts/Loot/LootCreature.cs" />
     <Compile Include="Assets/Scripts/Start Screen/StartScreen.cs" />
     <Compile Include="Assets/Scripts/Enemy/The Eye/TheEyeAnimator.cs" />
-    <Compile Include="Assets/Scripts/FontColourChanger.cs" />
     <Compile Include="Assets/Scripts/ButtonSounds.cs" />
   </ItemGroup>
   <ItemGroup>

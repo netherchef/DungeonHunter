@@ -27,11 +27,6 @@ public class StartScreen : MonoBehaviour
 	[SerializeField]
 	private AudioSource[] _buttonSounds;
 
-	// Persistent Audio Handler
-
-	[SerializeField]
-	private GameObject _ambientSoundHandler;
-
 	// Coroutines
 
 	private IEnumerator Do_StartMenuLoop { get { return StartMenuLoop (); } }
@@ -192,10 +187,6 @@ public class StartScreen : MonoBehaviour
 					break;
 			}
 		}
-
-		// Ambient Sound Handler
-
-		Instantiate (_ambientSoundHandler);
 
 		// Data Converted, Start the Game
 

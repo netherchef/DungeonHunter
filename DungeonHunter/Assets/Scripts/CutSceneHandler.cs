@@ -51,6 +51,8 @@ public class CutSceneHandler : MonoBehaviour
 	{
 		StartCoroutine(PlayCutScene(shots));
 		StartCoroutine ("ShowSkipBtn");
+
+		BackgroundAudio.BGMA_Instance.Stop_BackgroundAudio ();
 	}
 
 	//private void Start () { StartCoroutine (MainLoop ()); }

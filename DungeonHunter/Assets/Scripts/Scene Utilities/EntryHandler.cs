@@ -161,6 +161,10 @@ public class EntryHandler : MonoBehaviour
 
 		if (enemyHandler) enemyHandler.Prep ();
 
+		// Check Ambience according to Current Scene
+
+		BackgroundAudio.BGMA_Instance.Check_BackgroundAudio ();
+
 		// Execute /////////////////////////////////////////////////////////////
 
 		// Door Handler
