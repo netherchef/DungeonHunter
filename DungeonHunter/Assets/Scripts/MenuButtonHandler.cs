@@ -48,18 +48,6 @@ public class MenuButtonHandler : MonoBehaviour
 			if (InputKeyHandler.IKH_Instance.Interact_Start ())
 			{
 				menuColumn[currentIndex].buttonEvent.Invoke ();
-
-				// Play Click Sound
-
-				_buttonSounds.Play_ClickSound ();
-
-				// Start Game Seq
-
-				_startScreen.New_Game_Seq ();
-
-				// Hide Menu
-
-				_startScreen.Hide_StartScreen ();
 			}
 			else if (InputKeyHandler.IKH_Instance.Up_Start ())
 			{

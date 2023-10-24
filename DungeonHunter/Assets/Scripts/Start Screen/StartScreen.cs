@@ -90,6 +90,9 @@ public class StartScreen : MonoBehaviour
 
 	private IEnumerator Do_New_Game_Seq ()
 	{
+		Hide_StartScreen ();
+		_buttonSounds.Play_ClickSound ();
+
 		// Wait for sound to end
 
 		while (_buttonSounds.Is_Playing ()) yield return null;
@@ -110,6 +113,9 @@ public class StartScreen : MonoBehaviour
 
 	private IEnumerator Do_Load_Game_Seq ()
 	{
+		Hide_StartScreen ();
+		_buttonSounds.Play_ClickSound ();
+
 		// Wait for sound to end
 
 		while (_buttonSounds.Is_Playing ()) yield return null;
@@ -186,6 +192,7 @@ public class StartScreen : MonoBehaviour
 		// Data Converted, Start the Game
 
 		SceneManager.LoadScene (data.dungeonHunt_DataBranches[0].currRoom);
+		print (data.dungeonHunt_DataBranches[0].currRoom);
 	}
 
 	public void Hide_StartScreen ()
