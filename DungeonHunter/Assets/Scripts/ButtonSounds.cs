@@ -32,4 +32,9 @@ public class ButtonSounds : MonoBehaviour
 		_audioSource.pitch = _pitch;
 		_audioSource.PlayOneShot (_clickSound, _volume);
 	}
+
+	public bool Is_Playing ()
+	{
+		return _audioSource.isPlaying;
+	}
 }

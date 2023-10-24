@@ -2064,9 +2064,7 @@ MonoBehaviour:
   _buttonImage:
   - {fileID: 1698421430}
   - {fileID: 1381725203}
-  _buttonSounds:
-  - {fileID: 1698421432}
-  - {fileID: 1381725205}
+  _buttonSounds: {fileID: 1698421433}
 --- !u!4 &2069907789
 Transform:
   m_ObjectHideFlags: 0
@@ -2102,7 +2100,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2069907788}
           m_TargetAssemblyTypeName: StartScreen, Assembly-CSharp
-          m_MethodName: New_Game
+          m_MethodName: New_Game_Seq
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2119,7 +2117,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2069907788}
           m_TargetAssemblyTypeName: StartScreen, Assembly-CSharp
-          m_MethodName: Load_Game
+          m_MethodName: Load_Game_Seq
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2129,4 +2127,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  _startScreen: {fileID: 2069907788}
+  _buttonSounds: {fileID: 1698421433}
   currentIndex: 0

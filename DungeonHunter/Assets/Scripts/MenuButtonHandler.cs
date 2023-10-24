@@ -17,6 +17,14 @@ public class MenuButtonHandler : MonoBehaviour
 	[SerializeField]
 	private MenuButton[] menuColumn;
 
+	[SerializeField]
+	private StartScreen _startScreen;
+
+	// Audio
+
+	[SerializeField]
+	private ButtonSounds _buttonSounds;
+
 	// Variables
 
 	[SerializeField]
@@ -40,6 +48,18 @@ public class MenuButtonHandler : MonoBehaviour
 			if (InputKeyHandler.IKH_Instance.Interact_Start ())
 			{
 				menuColumn[currentIndex].buttonEvent.Invoke ();
+
+				// Play Click Sound
+
+				_buttonSounds.Play_ClickSound ();
+
+				// Start Game Seq
+
+				_startScreen.New_Game_Seq ();
+
+				// Hide Menu
+
+				_startScreen.Hide_StartScreen ();
 			}
 			else if (InputKeyHandler.IKH_Instance.Up_Start ())
 			{
@@ -120,7 +140,11 @@ public class MenuButtonHandler : MonoBehaviour
 	private void GoToButton_Above ()
 	{
 		if (currentIndex == 0) return;
-		
+
+		// Button Sound
+
+		_buttonSounds.Play_HoverSound ();
+
 		try
 		{
 			SelectNextButton_SR (-1);
@@ -134,6 +158,10 @@ public class MenuButtonHandler : MonoBehaviour
 	private void GoToButton_Below ()
 	{
 		if (currentIndex >= menuColumn.Length - 1) return;
+
+		// Button Sound
+
+		_buttonSounds.Play_HoverSound ();
 
 		try
 		{

@@ -25,7 +25,7 @@ public class StartScreen : MonoBehaviour
 	// Audio
 
 	[SerializeField]
-	private AudioSource[] _buttonSounds;
+	private ButtonSounds _buttonSounds;
 
 	// Coroutines
 
@@ -90,13 +90,9 @@ public class StartScreen : MonoBehaviour
 
 	private IEnumerator Do_New_Game_Seq ()
 	{
-		foreach (AudioSource btnSound in _buttonSounds)
-		{
-			while (btnSound.isPlaying)
-			{
-				yield return null;
-			}
-		}
+		// Wait for sound to end
+
+		while (_buttonSounds.Is_Playing ()) yield return null;
 
 		New_Game ();
 	}
@@ -114,10 +110,9 @@ public class StartScreen : MonoBehaviour
 
 	private IEnumerator Do_Load_Game_Seq ()
 	{
-		foreach (AudioSource btnSound in _buttonSounds)
-		{
-			while (btnSound.isPlaying) { yield return null; }
-		}
+		// Wait for sound to end
+
+		while (_buttonSounds.Is_Playing ()) yield return null;
 
 		Load_Game ();
 	}
