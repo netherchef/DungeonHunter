@@ -141,17 +141,13 @@ public class AncientGuardFunctions : MonoBehaviour
 
 		for (float a = 0.1f; a > 0; a -= Time.deltaTime)
 		{
-			if (!healthSystem.Is_Dead ())
+			if (attackCollider.IsTouching (targCol))
 			{
-				if(attackCollider.IsTouching (targCol))
-				{
-					targetHealth.GetHurt (damage);
-				}
+				targetHealth.GetHurt (damage, true);
 			}
-			else
-			{
+
+			if (healthSystem.Is_Dead ())
 				a = 0;
-			}
 
 			yield return null;
 		}

@@ -9,6 +9,11 @@ public class Dodge : MonoBehaviour
 	[SerializeField]
 	private Transform playerTransform;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _dodgeAudioSource;
+
 	[Header ("Scripts:")]
 	[SerializeField]
 	private SceneBounds sceneBounds;
@@ -27,6 +32,10 @@ public class Dodge : MonoBehaviour
 		Vector3 dir = direction.GetDirection ();
 
 		Vector3 dest = playerTransform.position + dir * distance;
+
+		// Dodge Sound
+
+		_dodgeAudioSource.PlayOneShot (_dodgeAudioSource.clip);
 
 		bool dodging = true;
 

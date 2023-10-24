@@ -31,6 +31,8 @@ public class PlayerDeath : MonoBehaviour
 
 	private IEnumerator DoDeath ()
 	{
+		// Death Animation
+
 		animator.Set_Dead (true);
 
 		for (float timer = 3f; timer > 0; timer -= Time.deltaTime) yield return null;

@@ -20,13 +20,6 @@ public class HealthSystem : MonoBehaviour
 	[SerializeField]
 	private SpriteRenderer[] characterSpriteRenderers;
 
-	// Audio
-
-	[SerializeField]
-	private AudioSource _audioSource;
-	[SerializeField]
-	private AudioClip _hurt_Sound;
-
 	[Header ("Generic Variables:")]
 
 	public UnitType type;
@@ -49,6 +42,14 @@ public class HealthSystem : MonoBehaviour
 	public PlayerInvincibility invincibility;
 	public HealthBar healthBar;
 	public PlayerDeath playerDeath;
+
+	// Audio
+
+	[SerializeField]
+	private PlayerSounds _playerSounds;
+
+	[SerializeField]
+	private AudioSource _hurtAudioSource;
 
 	[Header ("Boss:")]
 
@@ -105,16 +106,22 @@ public class HealthSystem : MonoBehaviour
 		// shaderSpriteDefault = Shader.Find ("Sprites/Default");
 	}
 
-	public void GetHurt (int value = 1)
+	public void GetHurt (int value = 1, bool ignoreInvin = false)
 	{
 #if UNITY_EDITOR
 		if (godMode) return;
 #endif
+		if (Is_Dead ()) return;
 
 		// Hurt Sound
 
-		if (_hurt_Sound && !_audioSource.isPlaying)
-			_audioSource.PlayOneShot (_hurt_Sound);
+		if (_hurtAudioSource && !Is_Dead ())
+		{
+			if (_hurtAudioSource.isPlaying)
+				_hurtAudioSource.Stop ();
+
+			_hurtAudioSource.PlayOneShot (_hurtAudioSource.clip, 0.5f);
+		}
 
 		// Player gets Hurt
 
@@ -122,7 +129,7 @@ public class HealthSystem : MonoBehaviour
 		{
 			if (DataPasser.DPInstance.GodMode ()) return;
 
-			DecreaseHP (value + DataPasser.DPInstance.loopCount);
+			DecreaseHP (value + DataPasser.DPInstance.loopCount, true);
 
 			return;
 		}
@@ -153,13 +160,13 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	private void DecreaseHP (int damage)
+	private void DecreaseHP (int damage, bool ignoreInvin = false)
 	{
 		if (debug) print ("Ouch!");
 
 		if (type == UnitType.Player)
 		{
-			if (!invincibility.invincible)
+			if (!invincibility.invincible || ignoreInvin)
 			{
 				switch (DataPasser.DPInstance.CurrentArmorType ())
 				{
@@ -179,7 +186,7 @@ public class HealthSystem : MonoBehaviour
 				currHp -= damage; // Decrease HP
 
 #if UNITY_EDITOR
-				Debug.Log (this.gameObject.name + " damaged for " + damage + " | HP: " + currHp);
+				//Debug.Log (this.gameObject.name + " damaged for " + damage + " | HP: " + currHp);
 #endif
 
 				if (damage > 0) healthBar.DrainHeart (); // Health Bar
@@ -187,7 +194,14 @@ public class HealthSystem : MonoBehaviour
 				// Invincibility or Death
 
 				if (currHp > 0) invincibility.GoInvincible ();
-				else playerDeath.StartDeath ();
+				else
+				{
+					// Player Death Sound
+
+					_playerSounds.Play_DeathSound ();
+
+					playerDeath.StartDeath ();
+				}
 
 				camShaker.Shake (0.2f, 2f); // Camera Shake
 			}

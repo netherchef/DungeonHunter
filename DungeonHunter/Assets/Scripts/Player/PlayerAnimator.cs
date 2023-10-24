@@ -7,11 +7,20 @@ public class PlayerAnimator : MonoBehaviour
 	[SerializeField]
 	private Animator animator;
 
+	// Audio
+	[SerializeField]
+	private PlayerSounds _playerSounds;
+
 	// Moving
 
 	private int animHash_Moving = Animator.StringToHash ("Moving");
 	public void Set_Moving (bool state) { animator.SetBool (animHash_Moving, state); }
 	public bool Is_Moving () { return animator.GetBool (animHash_Moving); }
+
+	public void Play_Footstep_Sound ()
+	{
+		_playerSounds.Play_FootstepSound ();
+	}
 
 	// Attacking
 
