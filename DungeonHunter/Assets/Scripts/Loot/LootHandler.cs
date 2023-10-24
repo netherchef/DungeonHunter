@@ -11,6 +11,13 @@ public class LootHandler : MonoBehaviour
 	public Loot[] activeLoots;
 	private Loot[] prefabLoots;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _lootAudioSource;
+	[SerializeField]
+	private AudioClip _lootPickupSound;
+
 	[Header ("Scripts:")]
 
 	public PlayerInventory inventory;
@@ -57,6 +64,13 @@ public class LootHandler : MonoBehaviour
 			{
 				if (loot.collected)
 				{
+					if (loot.type == ItemType.Gold)
+					{
+						// Play Loot Pickup Sound
+
+						_lootAudioSource.PlayOneShot (_lootPickupSound);
+					}
+
 					loot.collected = false;
 					loot.gameObject.SetActive (false);
 					

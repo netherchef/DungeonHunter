@@ -11,6 +11,8 @@ public class PlayerSounds : MonoBehaviour
 	private AudioClip swordSwing;
 	[SerializeField]
 	private AudioClip _man_Hurt_Sound;
+	[SerializeField]
+	private AudioClip _coin_PickUp_Sound;
 
     public void Play_SwordSwing ()
 	{
@@ -20,5 +22,10 @@ public class PlayerSounds : MonoBehaviour
 	public void Play_Hurt_Sound ()
 	{
 		audioSource.PlayOneShot (_man_Hurt_Sound);
+	}
+
+	public void Play_Gold_Sound ()
+	{
+		audioSource.PlayOneShot (_coin_PickUp_Sound);
 	}
 }

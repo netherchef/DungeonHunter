@@ -168,6 +168,7 @@ public class EnemyHandler : MonoBehaviour
 
 			yield return null;
 		}
+		// Unlock Door
 
 		doorHandler.Unlock ();
 	}

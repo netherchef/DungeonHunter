@@ -23,6 +23,11 @@ public class DoorHandler : MonoBehaviour
 	[SerializeField]
 	private FinalDoorHandler finalDoorHandler;
 
+	// Audio
+
+	[SerializeField]
+	private AudioSource _doorUnlockAudioSource;
+
 	// Variables
 
 	[SerializeField]
@@ -199,6 +204,10 @@ public class DoorHandler : MonoBehaviour
 
 	public void Unlock ()
 	{
+		// Unlock Sound
+
+		_doorUnlockAudioSource.PlayOneShot (_doorUnlockAudioSource.clip);
+
 		locked = false;
 
 		#if UNITY_EDITOR
