@@ -105,8 +105,11 @@ public class Boss : MonoBehaviour
 		{
 			// Idle Sound
 
-			Stop_All_Sounds ();
-			Play_Sound (_idleAudioSource);
+			if (!_idleAudioSource.isPlaying && !_warpAudioSource.isPlaying)
+			{
+				//Stop_All_Sounds ();
+				_idleAudioSource.Play ();
+			}
 
 			// TEMPORARY
 
@@ -131,8 +134,7 @@ public class Boss : MonoBehaviour
 						{
 							// Teleport Sound
 
-							Stop_All_Sounds ();
-							Play_Sound (_warpAudioSource);
+							_warpAudioSource.PlayOneShot (_warpAudioSource.clip, 1f);
 
 							greatBeholder.TeleportRandom (trans, bossHealth);
 
@@ -173,20 +175,22 @@ public class Boss : MonoBehaviour
 		DataPasser.DPInstance.RecordBossDefeat (BossType.GreatBeholder);
 	}
 
-	private void Play_Sound (AudioSource src)
-	{
-		if (!src.isPlaying)
-		{
-			src.Play ();
-		}
-	}
+	//private void Play_Sound (AudioSource src, float vol = 1)
+	//{
+	//	if (!src.isPlaying)
+	//	{
+	//		src.volume = vol;
+	//		src.Play ();
+	//		print ("Playing: " + src.name);
+	//	}
+	//}
 
-	private void Stop_All_Sounds ()
-	{
-		if (_idleAudioSource.isPlaying) _idleAudioSource.Stop ();
-		if (_warpAudioSource.isPlaying) _warpAudioSource.Stop ();
-		if (_beamChargeAudioSource.isPlaying) _beamChargeAudioSource.Stop ();
-		if (_beamShootAudioSource.isPlaying) _beamShootAudioSource.Stop ();
-		if (_deathSound.isPlaying) _deathSound.Stop ();
-	}
+	//private void Stop_All_Sounds ()
+	//{
+	//	if (_idleAudioSource.isPlaying) _idleAudioSource.Stop ();
+	//	if (_warpAudioSource.isPlaying) _warpAudioSource.Stop ();
+	//	if (_beamChargeAudioSource.isPlaying) _beamChargeAudioSource.Stop ();
+	//	if (_beamShootAudioSource.isPlaying) _beamShootAudioSource.Stop ();
+	//	if (_deathSound.isPlaying) _deathSound.Stop ();
+	//}
 }

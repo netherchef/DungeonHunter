@@ -135,7 +135,7 @@ public class AncientGuardFunctions : MonoBehaviour
 	{
 		// Axe Swing Sound
 
-		_audioSource.PlayOneShot (_axeSwingSound, 2.0f);
+		_audioSource.PlayOneShot (_axeSwingSound, 4.0f);
 
 		attackCollider.enabled = true;
 

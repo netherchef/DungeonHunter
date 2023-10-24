@@ -81,6 +81,7 @@ public class SlimeFunctions : MonoBehaviour
 
 					// Jump Sound
 
+					_audioSource.Stop ();
 					_audioSource.PlayOneShot (_slime_Jump_Sound);
 
 					// Jump
@@ -91,8 +92,8 @@ public class SlimeFunctions : MonoBehaviour
 
 					// Landing Sound
 
-
-					_audioSource.PlayOneShot (_slime_Land_Sound);
+					_audioSource.Stop ();
+					_audioSource.PlayOneShot (_slime_Land_Sound, 1f);
 
 					// Impact On Landing
 
@@ -138,7 +139,8 @@ public class SlimeFunctions : MonoBehaviour
 
 		// Slime Death Sound
 
-		_audioSource.PlayOneShot (_slime_Burst_Sound);
+		_audioSource.Stop ();
+		_audioSource.PlayOneShot (_slime_Burst_Sound, 1f);
 
 		// Death
 

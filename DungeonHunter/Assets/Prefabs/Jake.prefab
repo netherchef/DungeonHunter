@@ -595,7 +595,7 @@ MonoBehaviour:
   master: {fileID: 5837925358381900517}
   camShaker: {fileID: 0}
   characterSpriteRenderers: []
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 5570318612579025046}
   _hurt_Sound: {fileID: 8300000, guid: 9e66889abc1e748f29b8945d0ba43e1d, type: 3}
   type: 1
   currHp: 4

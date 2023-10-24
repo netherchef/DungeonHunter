@@ -20,7 +20,7 @@ public class GreatBeholder : MonoBehaviour
 	[SerializeField]
 	private AudioSource _beamShootAudioSource;
 	[SerializeField]
-	private AudioSource _deathSound;
+	private AudioSource _deathAudioSource;
 
 	[Header ("Scripts:")]
 
@@ -209,7 +209,7 @@ public class GreatBeholder : MonoBehaviour
 		// Charge Sound
 
 		Stop_All_Sounds ();
-		Play_Sound (_beamChargeAudioSource);
+		_beamChargeAudioSource.PlayOneShot (_beamChargeAudioSource.clip);
 
 		for (float chargeDur = 1f; chargeDur > 0; chargeDur -= Time.deltaTime) // Charge
 		{
@@ -220,8 +220,7 @@ public class GreatBeholder : MonoBehaviour
 
 		// Shoot Sound
 
-		Stop_All_Sounds ();
-		Play_Sound (_beamShootAudioSource);
+		_beamShootAudioSource.PlayOneShot (_beamShootAudioSource.clip);
 
 		lazer.SetActive (true); // Release
 
@@ -231,6 +230,10 @@ public class GreatBeholder : MonoBehaviour
 
 			yield return null;
 		}
+
+		// Stop Shooting Sound
+
+		Stop_All_Sounds ();
 
 		lazer.SetActive (false); // Stop
 
@@ -253,7 +256,7 @@ public class GreatBeholder : MonoBehaviour
 		// Death Sound
 
 		Stop_All_Sounds ();
-		Play_Sound (_deathSound);
+		_deathAudioSource.PlayOneShot (_deathAudioSource.clip);
 
 		beholderCollider.enabled = false;
 		healthCanvas.gameObject.SetActive (false);
@@ -265,13 +268,13 @@ public class GreatBeholder : MonoBehaviour
 
 	#endregion
 
-	private void Play_Sound (AudioSource src)
-	{
-		if (!src.isPlaying)
-		{
-			src.Play ();
-		}
-	}
+	//private void Play_Sound (AudioSource src)
+	//{
+	//	if (!src.isPlaying)
+	//	{
+	//		src.Play ();
+	//	}
+	//}
 
 	private void Stop_All_Sounds ()
 	{
@@ -279,6 +282,6 @@ public class GreatBeholder : MonoBehaviour
 		if (_warpAudioSource.isPlaying) _warpAudioSource.Stop ();
 		if (_beamChargeAudioSource.isPlaying) _beamChargeAudioSource.Stop ();
 		if (_beamShootAudioSource.isPlaying) _beamShootAudioSource.Stop ();
-		if (_deathSound.isPlaying) _deathSound.Stop ();
+		if (_deathAudioSource.isPlaying) _deathAudioSource.Stop ();
 	}
 }

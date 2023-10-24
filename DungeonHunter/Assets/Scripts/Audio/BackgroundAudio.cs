@@ -36,7 +36,7 @@ public class BackgroundAudio : MonoBehaviour
 	private void Play_DungeonAmbience ()
 	{
 		ambientAudioSource.clip = _dungeon_Ambience;
-		ambientAudioSource.volume = 0.25f;
+		ambientAudioSource.volume = 1f;
 	}
 
 	private void Play_PotionTraderAmbience ()

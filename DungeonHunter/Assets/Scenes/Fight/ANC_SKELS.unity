@@ -1999,7 +1999,7 @@ MonoBehaviour:
   - {fileID: 7214711348006925065, guid: e8d7fa2341d324458b196582b01677a2, type: 3}
   activeLoots: []
   _lootAudioSource: {fileID: 1843554613}
-  _lootPickupSound: {fileID: 0}
+  _lootPickupSound: {fileID: 8300000, guid: 5e91a985ab2e940a59a451bff104bbc6, type: 3}
   inventory: {fileID: 1907380265}
   itemIcon: {fileID: 1455590568}
 --- !u!4 &1843554612

@@ -951,6 +951,8 @@ MonoBehaviour:
   - {fileID: 7214711348006925065, guid: 2a783bb8669564543a63f8407ba99cb3, type: 3}
   - {fileID: 7214711348006925065, guid: e8d7fa2341d324458b196582b01677a2, type: 3}
   activeLoots: []
+  _lootAudioSource: {fileID: 0}
+  _lootPickupSound: {fileID: 0}
   inventory: {fileID: 113518922}
   itemIcon: {fileID: 587413446}
 --- !u!4 &208803110
@@ -4527,6 +4529,7 @@ MonoBehaviour:
   _breathAudioSource: {fileID: 2029705256}
   _fireStartAudioSource: {fileID: 1491268094}
   _deathAudioSource: {fileID: 2054423513}
+  _deathSound_Volume: 4
   skelHealth: {fileID: 4554740192456779256}
   skeleMechAnim: {fileID: 4554740191677491302}
   doorHandler: {fileID: 692358501}
