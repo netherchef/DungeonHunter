@@ -703,8 +703,6 @@ MonoBehaviour:
   master: {fileID: 0}
   camShaker: {fileID: 0}
   characterSpriteRenderers: []
-  _audioSource: {fileID: 0}
-  _hurt_Sound: {fileID: 0}
   type: 0
   currHp: 10
   fullHp: 4
@@ -714,6 +712,9 @@ MonoBehaviour:
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
+  _dodge: {fileID: 0}
+  _playerSounds: {fileID: 0}
+  _hurtAudioSource: {fileID: 0}
   boss: 0
   bossHealthBar: {fileID: 0}
   debug: 0

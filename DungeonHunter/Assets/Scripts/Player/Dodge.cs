@@ -25,11 +25,17 @@ public class Dodge : MonoBehaviour
 	[SerializeField]
 	private float distance = 1.5f;
 	[SerializeField]
-	private float dodgeSpeed = 6f;
+	private float dodgeSpeed = 10f;
+	[SerializeField]
+	private bool _dodging;
 
 	public IEnumerator DoDodge (HealthSystem health)
 	{
+		// Set Direction
+
 		Vector3 dir = direction.GetDirection ();
+
+		// Set Destination
 
 		Vector3 dest = playerTransform.position + dir * distance;
 
@@ -37,9 +43,9 @@ public class Dodge : MonoBehaviour
 
 		_dodgeAudioSource.PlayOneShot (_dodgeAudioSource.clip);
 
-		bool dodging = true;
+		_dodging = true;
 
-		while (dodging && !health.Is_Dead ())
+		while (_dodging && !health.Is_Dead ())
 		{
 			Vector3 next = Vector3.Lerp (playerTransform.position, dest, dodgeSpeed * Time.deltaTime);
 
@@ -47,14 +53,18 @@ public class Dodge : MonoBehaviour
 			{
 				playerTransform.position = next;
 
-				dodging = Vector3.Magnitude (playerTransform.position - dest) > 0.2f;
+				// Check if Still Dodging
+
+				_dodging = Vector3.Magnitude (playerTransform.position - dest) > 0.2f;
 			}
 			else
 			{
-				dodging = false;
+				_dodging = false;
 			}
 
 			yield return null;
 		}
 	}
+
+	public bool Is_Dodging () { return _dodging; }
 }

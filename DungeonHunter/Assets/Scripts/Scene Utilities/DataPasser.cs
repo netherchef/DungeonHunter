@@ -82,8 +82,16 @@ public class DataPasser : MonoBehaviour
 	private bool godMode;
 	public void Toggle_Godmode ()
 	{
-		godMode = !godMode;
-		Set_CurrDamage (9999);
+		if (!godMode)
+		{
+			godMode = true;
+			Set_CurrDamage (9999);
+		}
+		else
+		{
+			godMode = false;
+			Set_CurrDamage (1);
+		}
 	}
 	public bool GodMode () { return godMode; }
 

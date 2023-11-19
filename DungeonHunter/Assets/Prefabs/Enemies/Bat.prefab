@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   master: {fileID: 3555007251633281428}
   body: {fileID: 3555007252954999708}
-  batCollider: {fileID: 3555007252954999711}
+  _batCollider: {fileID: 3555007252954999710}
+  batColliderScript: {fileID: 3555007252954999711}
   healthSystem: {fileID: 3555007252954999705}
   _audioSource: {fileID: 6501054147634000012}
   _batIdle_Sound: {fileID: 8300000, guid: 1f46a0410b1bd4501b41246a5c89d222, type: 3}
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa168baa56f4e46529ea428435bee006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _batScript: {fileID: 3555007251633281431}
   triggered: 0
 --- !u!114 &3555007252954999705
 MonoBehaviour:
@@ -318,8 +320,6 @@ MonoBehaviour:
   master: {fileID: 3555007251633281429}
   camShaker: {fileID: 0}
   characterSpriteRenderers: []
-  _audioSource: {fileID: 0}
-  _hurt_Sound: {fileID: 0}
   type: 0
   currHp: 2
   fullHp: 4
@@ -329,6 +329,9 @@ MonoBehaviour:
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
+  _dodge: {fileID: 0}
+  _playerSounds: {fileID: 0}
+  _hurtAudioSource: {fileID: 0}
   boss: 0
   bossHealthBar: {fileID: 0}
   debug: 0

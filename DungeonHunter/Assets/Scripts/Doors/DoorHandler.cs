@@ -93,6 +93,10 @@ public class DoorHandler : MonoBehaviour
 		foreach (Door door in doors)
 		{
 			door.transform.GetComponent<CircleCollider2D> ().enabled = false;
+
+			// Fade Doors
+
+			door._doorSR.color -= new Color (0, 0, 0, 0.75f);
 		}
 	}
 
@@ -116,9 +120,13 @@ public class DoorHandler : MonoBehaviour
 		foreach (Door door in doors)
 		{
 			door.transform.GetComponent<CircleCollider2D> ().enabled = true;
+
+			// Show Doors
+
+			door._doorSR.color += new Color (0, 0, 0, 1f);
 		}
 
-		if (finalDoorHandler == null)
+		if (finalDoorHandler == null) // Normal Door
 		{
 			while (enabled)
 			{
@@ -131,7 +139,7 @@ public class DoorHandler : MonoBehaviour
 				yield return null;
 			}
 		}
-		else
+		else // Final Door
 		{
 			while (enabled)
 			{

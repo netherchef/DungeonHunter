@@ -42,6 +42,8 @@ public class HealthSystem : MonoBehaviour
 	public PlayerInvincibility invincibility;
 	public HealthBar healthBar;
 	public PlayerDeath playerDeath;
+	[SerializeField]
+	private Dodge _dodge;
 
 	// Audio
 
@@ -128,6 +130,8 @@ public class HealthSystem : MonoBehaviour
 		if (type == UnitType.Player)
 		{
 			if (DataPasser.DPInstance.GodMode ()) return;
+
+			if (_dodge.Is_Dodging ()) return;
 
 			DecreaseHP (value + DataPasser.DPInstance.loopCount, true);
 

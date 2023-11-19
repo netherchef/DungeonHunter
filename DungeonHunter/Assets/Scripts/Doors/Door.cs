@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+	public SpriteRenderer _doorSR;
+
 	[Header ("Variables:")]
 
 	//public DoorDirection direction;

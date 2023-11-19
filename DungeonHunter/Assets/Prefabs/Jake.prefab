@@ -739,6 +739,7 @@ MonoBehaviour:
   invincibility: {fileID: 2291523592834361544}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
+  _dodge: {fileID: 3030159107448069241}
   _playerSounds: {fileID: 25523405187696428}
   _hurtAudioSource: {fileID: 3707333118724812605}
   boss: 0
@@ -827,6 +828,7 @@ MonoBehaviour:
   direction: {fileID: 9078384356771393117}
   distance: 1.5
   dodgeSpeed: 6
+  _dodging: 0
 --- !u!114 &9078384356771393117
 MonoBehaviour:
   m_ObjectHideFlags: 0

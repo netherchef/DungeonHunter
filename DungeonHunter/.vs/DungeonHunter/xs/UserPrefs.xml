@@ -1,10 +1,15 @@
 ﻿<Properties StartupConfiguration="{50FF3394-E597-A80E-86BC-3402DFC73013}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Start Screen/StartScreen.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Doors/DoorHandler.cs">
     <Files>
-      <File FileName="Assets/Scripts/Start Screen/StartScreen.cs" Line="185" Column="12" />
-      <File FileName="Assets/Scripts/MenuButtonHandler.cs" Line="50" Column="52" />
-      <File FileName="Assets/Scripts/Scene Utilities/EntryHandler.cs" Line="55" Column="1" />
-      <File FileName="Assets/Scripts/ButtonSounds.cs" Line="24" Column="24" />
+      <File FileName="Assets/Scripts/Player/Dodge.cs" Line="28" Column="31" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Great Beholder/GreatBeholder.cs" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Great Beholder/LazerAttack.cs" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Skele Mech/SkeleMech.cs" />
+      <File FileName="Assets/Scripts/Chaser.cs" />
+      <File FileName="Assets/Scripts/Doors/Door.cs" Line="9" Column="8" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Boss.cs" Line="87" Column="20" />
+      <File FileName="Assets/Scripts/Doors/DoorHandler.cs" Line="87" Column="24" />
+      <File FileName="Assets/Scripts/FinalDoorHandler.cs" Line="7" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,10 +18,20 @@
             <Node name="Assets" expanded="True">
               <Node name="Scenes" expanded="True" />
               <Node name="Scripts" expanded="True">
-                <Node name="Scene Utilities" expanded="True" />
-                <Node name="Start Screen" expanded="True">
-                  <Node name="StartScreen.cs" selected="True" />
+                <Node name="Doors" expanded="True">
+                  <Node name="DoorHandler.cs" selected="True" />
                 </Node>
+                <Node name="Enemy" expanded="True">
+                  <Node name="Bat" expanded="True" />
+                  <Node name="Boss" expanded="True">
+                    <Node name="Great Beholder" expanded="True" />
+                    <Node name="Skele Mech" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="Health" expanded="True" />
+                <Node name="Misc" expanded="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="Scene Utilities" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -26,7 +41,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a4b8cb82-9271-4c82-a673-5357e71e88ab" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="20f67b6d-8a6c-4aa4-9618-8ef9982edf55" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1508,6 +1508,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445254052523954381, guid: d851a57ff4f1844fa8ab8273ecde644c,
         type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445254052523954381, guid: d851a57ff4f1844fa8ab8273ecde644c,
+        type: 3}
       propertyPath: pHealthSys
       value: 
       objectReference: {fileID: 113518923}
@@ -1603,9 +1608,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 971571178}
-  speed: 1
-  lockOn: 0
-  chaseAndForget: 2
+  speed: 0.5
+  lockOn: 1
+  chaseAndForget: 0
 --- !u!1 &856409282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,7 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pHealthSys: {fileID: 113518923}
-  damage: 2
+  damage: 4
   preserve: 0
 --- !u!61 &1818160553
 BoxCollider2D:
@@ -4456,17 +4461,18 @@ MonoBehaviour:
   - {fileID: 153270061}
   - {fileID: 320166899}
   - {fileID: 1235071505}
-  _audioSource: {fileID: 0}
-  _hurt_Sound: {fileID: 0}
   type: 0
-  currHp: 20
-  fullHp: 20
+  currHp: 40
+  fullHp: 40
   defaultDeath: 0
   DOTDamage: 0
   DOTDuration: 0
   invincibility: {fileID: 0}
   healthBar: {fileID: 0}
   playerDeath: {fileID: 0}
+  _dodge: {fileID: 0}
+  _playerSounds: {fileID: 0}
+  _hurtAudioSource: {fileID: 0}
   boss: 1
   bossHealthBar: {fileID: 4554740193209787167}
   debug: 0

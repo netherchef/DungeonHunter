@@ -5,7 +5,8 @@ using UnityEngine;
 public class LazerAttack : MonoBehaviour
 {
     private bool lazerHit;
-    private int lazerDamage = 1;
+    [SerializeField]
+    private int lazerDamage = 3;
 
     void OnTriggerEnter2D (Collider2D other)
     {

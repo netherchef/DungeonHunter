@@ -10,7 +10,9 @@ public class Bat : MonoBehaviour
 	public Transform body;
 
 	[SerializeField]
-	private BatCollider batCollider;
+	private CircleCollider2D _batCollider;
+	[SerializeField]
+	private BatCollider batColliderScript;
 	[SerializeField]
 	private HealthSystem healthSystem;
 
@@ -58,7 +60,7 @@ public class Bat : MonoBehaviour
 
 	private IEnumerator DoBatSeq ()
 	{
-		batCollider.enabled = false;
+		//_batCollider.enabled = false;
 
 		while (enabled)
 		{
@@ -107,7 +109,7 @@ public class Bat : MonoBehaviour
 						{
 							swoop = true;
 
-							batCollider.enabled = true;
+							//_batCollider.enabled = true;
 						}
 					}
 					else
@@ -118,15 +120,15 @@ public class Bat : MonoBehaviour
 
 						if (Vector3.Magnitude (master.position - atkEndPos) > swoopStopThresh)
 						{
-							if (batCollider.triggered)
+							if (batColliderScript.triggered)
 							{
 #if UNITY_EDITOR
 								if (debugSR) debugSR.color = Color.white;
 #endif
 
-								batCollider.triggered = false;
+								batColliderScript.triggered = false;
 
-								batCollider.enabled = false; // Disable Attack
+								//_batCollider.enabled = false; // Disable Attack
 
 								// Damage Player
 
@@ -150,7 +152,7 @@ public class Bat : MonoBehaviour
 							attackDir = new Vector3 (0, 0, 0);
 							atkEndPos = new Vector3 (0, 0, 0);
 
-							if (batCollider.enabled) batCollider.enabled = false; // Disable Attack
+							if (batColliderScript.enabled) batColliderScript.enabled = false; // Disable Attack
 
 							for (float coolDown = 2f; coolDown > 0; coolDown -= Time.deltaTime)
 							{
@@ -176,37 +178,9 @@ public class Bat : MonoBehaviour
 
 			yield return null;
 		}
-
-		//while (healthSystem.currHp > 0 && !targetHealthSystem.Dead ())
-		//while (!healthSystem.Dead ())
-		//{
-		//	if (Vector3.Magnitude (master.position - target.position) > 1)
-		//	{
-		//		// Move
-
-		//		MoveToTarget (target.position);
-
-		//		// Damage
-
-		//		if (batCollider.triggered)
-		//		{
-		//			batCollider.triggered = false;
-
-		//			targetHealthSystem.Damage ();
-		//		}
-		//	}
-		//	else
-		//	{
-
-		//	}
-
-		//	yield return null;
-		//}
-
-		//// Death
-
-		//batAnim.Set_Dead ();
 	}
+
+	public bool Is_Attacking () { return attacking; }
 
 	public void MoveToTarget (Vector3 targPos)
 	{
